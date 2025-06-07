@@ -1,4 +1,4 @@
-# Run command: python3 mkRequest.py --dir "name"
+# Run command: python3 mkRequest.py --p "name"
 
 # name is the directory inside the Outputs directory which has the Input.json file.
 # It must contain an Input.json file with the JSON Schema for the statements and its proof.
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     
     import argparse
     parser = argparse.ArgumentParser(description="parser")
-    parser.add_argument("--dir", metavar="path", required=True, help="directory where Input.json is")
+    parser.add_argument("--p", metavar="path", required=True, help="problem folder name where Input.json is")
     args=parser.parse_args()
 
-    main(args.dir)
+    main(args.p)

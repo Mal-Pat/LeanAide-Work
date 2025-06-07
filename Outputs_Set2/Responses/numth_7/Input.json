@@ -1,0 +1,185 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:divisibility",
+      "header": "Definition",
+      "definition": "An integer `x` divides an integer `y` (denoted `x | y`) if and only if there exists an integer `k` such that `y = xk`."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divides_sum",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "a",
+          "variable_type": "integer",
+          "properties": "a non-zero integer"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "b",
+          "variable_type": "integer",
+          "properties": "an integer"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "c",
+          "variable_type": "integer",
+          "properties": "an integer"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "a divides b (a | b)"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "a divides c (a | c)"
+        }
+      ],
+      "claim": "Then a divides their sum (b + c)."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:divides_sum",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "a",
+              "variable_type": "integer",
+              "properties": "Let `a` be an arbitrary non-zero integer."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "b",
+              "variable_type": "integer",
+              "properties": "Let `b` be an arbitrary integer."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "c",
+              "variable_type": "integer",
+              "properties": "Let `c` be an arbitrary integer."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "a divides b (a | b)",
+              "label": "hyp:a_div_b"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "a divides c (a | c)",
+              "label": "hyp:a_div_c"
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "some_statement",
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "properties": "such that `b = ak`.",
+              "results_used": [
+                {
+                  "statement": "By the definition of divisibility (def:divisibility)",
+                  "target_identifier": "def:divisibility"
+                }
+              ],
+              "internal_references": [
+                {
+                  "target_identifier": "hyp:a_div_b"
+                }
+              ]
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "m",
+              "variable_kind": "integer",
+              "properties": "such that `c = am`.",
+              "results_used": [
+                {
+                  "statement": "By the definition of divisibility (def:divisibility)",
+                  "target_identifier": "def:divisibility"
+                }
+              ],
+              "internal_references": [
+                {
+                  "target_identifier": "hyp:a_div_c"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:sum_expression",
+              "claim": "The sum `b + c` can be expressed by substituting the forms of `b` and `c`.",
+              "calculation": {
+                "calculation_sequence": [
+                  "b + c",
+                  "= ak + am",
+                  "= a(k + m)"
+                ]
+              },
+              "results_used": [
+                {
+                  "statement": "Substitution of `b = ak`"
+                },
+                {
+                  "statement": "Substitution of `c = am`"
+                },
+                {
+                  "statement": "Distributive property of multiplication over addition"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "p",
+              "value": "k + m",
+              "variable_type": "integer",
+              "properties": "Since `k` and `m` are both integers, their sum `p = k + m` is also an integer, as the set of integers is closed under addition."
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "claim": "Thus, `b + c = ap`.",
+              "results_used": [
+                {
+                  "statement": "From step:sum_expression and the definition of p"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "conclude_statement",
+              "claim": "Since we have shown that `b + c` can be written in the form `ap` for some integer `p`, by the definition of divisibility (def:divisibility), it follows that `a` divides `b + c`. This completes the proof."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

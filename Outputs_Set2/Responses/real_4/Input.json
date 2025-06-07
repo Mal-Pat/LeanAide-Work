@@ -1,0 +1,218 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof: Sum of Convergent Sequences"
+    },
+    {
+      "type": "Definition",
+      "header": "Definition",
+      "label": "def:convergent_sequence",
+      "definition": "A sequence of real numbers $(a_n)$ is said to converge to a real number $L$ if for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, $|a_n - L| < \\epsilon$."
+    },
+    {
+      "type": "Definition",
+      "header": "Definition",
+      "label": "def:sum_of_sequences",
+      "definition": "Given two sequences of real numbers $(a_n)$ and $(b_n)$, their sum, denoted $(a_n + b_n)$, is a new sequence whose $n$-th term is $a_n + b_n$."
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:sum_of_convergent_sequences",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "(a_n)",
+          "variable_type": "sequence of real numbers",
+          "properties": "convergent to a limit L"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "(b_n)",
+          "variable_type": "sequence of real numbers",
+          "properties": "convergent to a limit M"
+        }
+      ],
+      "claim": "The sequence $(a_n + b_n)$ is a convergent sequence and its limit is $L+M$."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:sum_of_convergent_sequences",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "(a_n)",
+              "variable_type": "sequence of real numbers",
+              "properties": "converges to $L$"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "(b_n)",
+              "variable_type": "sequence of real numbers",
+              "properties": "converges to $M$"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "By the definition of convergence (Definition def:convergent_sequence), we know the following:",
+              "internal_references": [
+                {
+                  "target_identifier": "def:convergent_sequence"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "For any $\\epsilon_a > 0$, there exists a natural number $N_a$ such that for all $n > N_a$, $|a_n - L| < \\epsilon_a$.",
+              "label": "conv:a_n"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "For any $\\epsilon_b > 0$, there exists a natural number $N_b$ such that for all $n > N_b$, $|b_n - M| < \\epsilon_b$.",
+              "label": "conv:b_n"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "To prove that $(a_n + b_n)$ converges to $L+M$, we must show that for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, $|(a_n + b_n) - (L+M)| < \\epsilon$."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "Let $\\epsilon$ be an arbitrary positive real number, i.e., $\\epsilon > 0$."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "We want to make the term $|(a_n + b_n) - (L+M)|$ small. Let's rearrange this expression.",
+              "proof_method": "Algebraic manipulation"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "|(a_n + b_n) - (L+M)| = |(a_n - L) + (b_n - M)|"
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "By the triangle inequality, for any real numbers $x$ and $y$, $|x+y| \\le |x| + |y|$. Applying this to our expression with $x = (a_n - L)$ and $y = (b_n - M)$, we get:",
+              "label": "step:triangle_ineq",
+              "results_used": [
+                {
+                  "statement": "Triangle Inequality: $|x+y| \\le |x| + |y|$"
+                }
+              ]
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "|(a_n - L) + (b_n - M)| \\le |a_n - L| + |b_n - M|"
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Now, we need to make $|a_n - L|$ and $|b_n - M|$ small enough so their sum is less than $\\epsilon$.",
+              "proof_method": "Strategy based on convergence definitions"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "epsilon_target",
+              "value": "\\epsilon / 2",
+              "properties": "Since $\\epsilon > 0$, then $\\epsilon/2 > 0$."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Since $(a_n)$ converges to $L$ (from `conv:a_n`), for this specific $\\epsilon/2$, there exists a natural number $N_1$ such that for all $n > N_1$, $|a_n - L| < \\epsilon/2$.",
+              "internal_references": [
+                {
+                  "target_identifier": "conv:a_n"
+                }
+              ],
+              "label": "step:N1_exists"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Similarly, since $(b_n)$ converges to $M$ (from `conv:b_n`), for this same $\\epsilon/2$, there exists a natural number $N_2$ such that for all $n > N_2$, $|b_n - M| < \\epsilon/2$.",
+              "internal_references": [
+                {
+                  "target_identifier": "conv:b_n"
+                }
+              ],
+              "label": "step:N2_exists"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "N",
+              "value": "\\max(N_1, N_2)",
+              "variable_type": "natural number"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "For any $n > N$, it follows that $n > N_1$ and $n > N_2$.",
+              "proof_method": "Definition of maximum"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Therefore, for all $n > N$, both conditions from `step:N1_exists` and `step:N2_exists` hold simultaneously:",
+              "internal_references": [
+                {
+                  "target_identifier": "step:N1_exists"
+                },
+                {
+                  "target_identifier": "step:N2_exists"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "$|a_n - L| < \\epsilon/2$",
+              "label": "ineq:a_n_bound"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "$|b_n - M| < \\epsilon/2$",
+              "label": "ineq:b_n_bound"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Combining these inequalities with `step:triangle_ineq`, we have:",
+              "internal_references": [
+                {
+                  "target_identifier": "step:triangle_ineq"
+                },
+                {
+                  "target_identifier": "ineq:a_n_bound"
+                },
+                {
+                  "target_identifier": "ineq:b_n_bound"
+                }
+              ]
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "|(a_n + b_n) - (L+M)| \\le |a_n - L| + |b_n - M|",
+                "< \\epsilon/2 + \\epsilon/2",
+                "= \\epsilon"
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Thus, we have shown that for every $\\epsilon > 0$, there exists an $N$ such that for all $n > N$, $|(a_n + b_n) - (L+M)| < \\epsilon$.",
+              "proof_method": "Direct proof by epsilon-N definition"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Therefore, by the definition of convergence (Definition def:convergent_sequence), the sum sequence $(a_n + b_n)$ converges to $L+M$.",
+              "internal_references": [
+                {
+                  "target_identifier": "def:convergent_sequence"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

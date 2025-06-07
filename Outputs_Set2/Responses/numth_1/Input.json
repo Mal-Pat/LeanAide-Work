@@ -1,0 +1,98 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:even_number",
+      "header": "Definition",
+      "definition": "An integer `x` is an even number if and only if there exists an integer `k` such that `x = 2k`."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:sum_of_evens",
+      "header": "Theorem",
+      "claim": "The sum of two even numbers is an even number.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:sum_of_evens",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "a",
+                "variable_type": "integer",
+                "properties": "an arbitrary even number"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "b",
+                "variable_type": "integer",
+                "properties": "another arbitrary even number"
+              },
+              {
+                "type": "assert_statement",
+                "label": "step:def_a",
+                "claim": "There exists an integer `k` such that `a = 2k`.",
+                "results_used": [
+                  {
+                    "statement": "Definition of an even number",
+                    "target_identifier": "def:even_number"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "label": "step:def_b",
+                "claim": "There exists an integer `m` such that `b = 2m`.",
+                "results_used": [
+                  {
+                    "statement": "Definition of an even number",
+                    "target_identifier": "def:even_number"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "label": "step:sum_calculation",
+                "claim": "The sum `a + b` can be expressed in a factored form.",
+                "proof_method": "substitution and algebraic manipulation",
+                "calculation": {
+                  "calculation_sequence": [
+                    "a + b",
+                    "= 2k + 2m",
+                    "= 2(k + m)"
+                  ]
+                },
+                "results_used": [
+                  {
+                    "statement": "Substitution of a = 2k",
+                    "target_identifier": "step:def_a"
+                  },
+                  {
+                    "statement": "Substitution of b = 2m",
+                    "target_identifier": "step:def_b"
+                  },
+                  {
+                    "statement": "Distributive property of multiplication over addition"
+                  }
+                ]
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "value": "k + m",
+                "variable_type": "integer",
+                "properties": "Since `k` and `m` are integers (from step:def_a and step:def_b), their sum `n` is also an integer, due to the closure property of integers under addition."
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "We have shown that `a + b = 2n`, where `n` is an integer. By the definition of an even number (def:even_number), any integer that can be written in the form `2n` for some integer `n` is an even number. Therefore, `a + b` is an even number. This completes the proof that the sum of two even numbers is an even number."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

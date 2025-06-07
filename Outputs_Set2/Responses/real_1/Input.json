@@ -1,0 +1,186 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof: Every Convergent Sequence is Bounded"
+    },
+    {
+      "type": "Definition",
+      "header": "Definition",
+      "label": "def:convergent_sequence",
+      "definition": "A sequence of real numbers $(x_n)$ is said to converge to a real number $L$ if for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, $|x_n - L| < \\epsilon$."
+    },
+    {
+      "type": "Definition",
+      "header": "Definition",
+      "label": "def:bounded_sequence",
+      "definition": "A sequence of real numbers $(x_n)$ is said to be bounded if there exists a positive real number $M$ such that for all $n \\in \\mathbb{N}$, $|x_n| \\le M$."
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:convergent_implies_bounded",
+      "claim": "Every convergent sequence of real numbers is bounded."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:convergent_implies_bounded",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "(x_n)",
+              "variable_type": "sequence of real numbers",
+              "properties": "convergent"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Since (x_n) is a convergent sequence of real numbers, it converges to some unique real number L.",
+              "results_used": [
+                {
+                  "statement": "Every convergent sequence of real numbers has a unique limit."
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "By the definition of convergence (Definition def:convergent_sequence), for any $\\epsilon > 0$, there exists a natural number $N_0$ such that for all $n > N_0$, $|x_n - L| < \\epsilon$.",
+              "internal_references": [
+                {
+                  "target_identifier": "def:convergent_sequence"
+                }
+              ]
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "epsilon",
+              "value": "1",
+              "variable_type": "positive real number"
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "N_0",
+              "variable_kind": "natural number",
+              "properties": "such that for all $n > N_0$, $|x_n - L| < 1$"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "The inequality $|x_n - L| < 1$ implies $-1 < x_n - L < 1$.",
+              "proof_method": "Properties of absolute value"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Adding $L$ to all parts of the inequality, we get $L - 1 < x_n < L + 1$.",
+              "label": "ineq:tail_bound"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "This means that for all $n > N_0$, $x_n$ is bounded between $L-1$ and $L+1$. Therefore, for all $n > N_0$, $|x_n| < \\max(|L-1|, |L+1|)$.",
+              "label": "claim:tail_bounded"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Now consider the first $N_0$ terms of the sequence: $x_1, x_2, \\dots, x_{N_0}$. This is a finite set of real numbers.",
+              "label": "finite_set_terms"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Any finite set of real numbers is bounded.",
+              "label": "claim:finite_set_bounded"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "M_initial",
+              "value": "\\max(|x_1|, |x_2|, \\dots, |x_{N_0}|)",
+              "properties": "This maximum exists because the set is finite."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "M_tail",
+              "value": "\\max(|L-1|, |L+1|)",
+              "properties": "This is a positive real number derived from the limit L."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "M",
+              "value": "\\max(M_{initial}, M_{tail})",
+              "variable_type": "positive real number"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "For any $n \\in \\mathbb{N}$, we can analyze two cases:",
+              "proof_method": "Proof by cases"
+            },
+            {
+              "type": "condition_cases_statement",
+              "condition": "$n \\le N_0$",
+              "true_case_proof": {
+                "type": "Proof",
+                "claim_label": "Case 1: $n \\le N_0$",
+                "proof_steps": [
+                  {
+                    "type": "LogicalStepSequence",
+                    "items": [
+                      {
+                        "type": "assert_statement",
+                        "claim": "If $n \\le N_0$, then $|x_n| \\le M_{initial}$.",
+                        "internal_references": [
+                          {
+                            "target_identifier": "finite_set_terms"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "Since $M = \\max(M_{initial}, M_{tail})$, it follows that $|x_n| \\le M_{initial} \\le M$."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "false_case_proof": {
+                "type": "Proof",
+                "claim_label": "Case 2: $n > N_0$",
+                "proof_steps": [
+                  {
+                    "type": "LogicalStepSequence",
+                    "items": [
+                      {
+                        "type": "assert_statement",
+                        "claim": "If $n > N_0$, then by `claim:tail_bounded`, $|x_n| < M_{tail}$.",
+                        "internal_references": [
+                          {
+                            "target_identifier": "claim:tail_bounded"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "Since $M = \\max(M_{initial}, M_{tail})$, it follows that $|x_n| < M_{tail} \\le M$."
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "type": "assert_statement",
+              "claim": "In both cases, we found that for all $n \\in \\mathbb{N}$, $|x_n| \\le M$.",
+              "internal_references": [
+                {
+                  "target_identifier": "def:bounded_sequence"
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Therefore, the sequence $(x_n)$ is bounded."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

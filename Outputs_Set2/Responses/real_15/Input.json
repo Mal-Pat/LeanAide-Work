@@ -1,0 +1,119 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof: Convergence of the Sequence a_n = 1/n"
+    },
+    {
+      "type": "Definition",
+      "header": "Definition",
+      "label": "def:convergent_sequence",
+      "definition": "A sequence of real numbers $(x_n)$ converges to a real number $L$ (written as $\\lim_{n \\to \\infty} x_n = L$) if for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, the inequality $|x_n - L| < \\epsilon$ holds."
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:one_over_n_converges_to_zero",
+      "claim": "The sequence $(a_n)$ defined by $a_n = 1/n$ for $n \\in \\mathbb{N}$ converges to 0."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:one_over_n_converges_to_zero",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "(a_n)",
+              "value": "1/n",
+              "variable_type": "sequence of real numbers"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "To prove that $(a_n)$ converges to 0, according to the definition of a convergent sequence (Definition def:convergent_sequence), we must show that for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, $|a_n - 0| < \\epsilon$.",
+              "internal_references": [
+                {
+                  "target_identifier": "def:convergent_sequence"
+                }
+              ]
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "Let $\\epsilon$ be an arbitrary positive real number, i.e., $\\epsilon > 0$."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "We want to find an $N$ such that for all $n > N$, $|a_n - 0| < \\epsilon$. Let's simplify the expression $|a_n - 0|$.",
+              "proof_method": "Algebraic simplification"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "$|a_n - 0| = |1/n - 0|$",
+                "$= |1/n|$"
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Since $n$ is a natural number, $n \\ge 1$, which means $n$ is positive. Therefore, $1/n$ is also positive, and $|1/n| = 1/n$."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "So, our inequality becomes $1/n < \\epsilon$.",
+              "proof_method": "Substitution"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "To satisfy $1/n < \\epsilon$, we can multiply both sides by $n$ (since $n > 0$) and divide by $\\epsilon$ (since $\\epsilon > 0$) to get $1/\\epsilon < n$, or $n > 1/\\epsilon$."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "By the Archimedean Property of real numbers, for any real number $x$ (in our case, $x = 1/\\epsilon$), there exists a natural number $N$ such that $N > x$.",
+              "results_used": [
+                {
+                  "statement": "Archimedean Property: For any real number $x$, there exists a natural number $N$ such that $N > x$."
+                }
+              ],
+              "label": "archimedean_property_application"
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "N",
+              "variable_kind": "natural number",
+              "properties": "such that $N > 1/\\epsilon$"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Now, let's verify the condition for any $n > N$.",
+              "proof_method": "Direct verification"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "If $n > N$, and we know $N > 1/\\epsilon$, then it implies $n > 1/\\epsilon$.",
+              "proof_method": "Transitivity of inequality"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "From $n > 1/\\epsilon$, we can rearrange this to get $1/n < \\epsilon$.",
+              "proof_method": "Algebraic manipulation (dividing by $n$ and $\\epsilon$)"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Therefore, for all $n > N$, we have $|a_n - 0| = 1/n < \\epsilon$."
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Since for every $\\epsilon > 0$, we have found an $N$ such that for all $n > N$, $|a_n - 0| < \\epsilon$, the sequence $(a_n = 1/n)$ converges to 0 by the definition of convergence (Definition def:convergent_sequence).",
+              "internal_references": [
+                {
+                  "target_identifier": "def:convergent_sequence"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

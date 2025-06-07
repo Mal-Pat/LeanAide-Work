@@ -1,0 +1,208 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:euclidean_norm",
+      "header": "Definition",
+      "definition": "For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `∥v∥ = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`."
+    },
+    {
+      "type": "Definition",
+      "label": "def:scalar_multiplication",
+      "header": "Definition",
+      "definition": "For a scalar `c` (a real number) and a vector `v = (v_1, v_2, ..., v_n)`, the scalar multiple `c * v` is defined as `(c * v_1, c * v_2, ..., c * v_n)`."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:norm_scalar_multiple",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "v",
+          "variable_type": "vector",
+          "properties": "an arbitrary vector in a real vector space, `v = (v_1, v_2, ..., v_n)`"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "c",
+          "variable_type": "real number",
+          "properties": "an arbitrary scalar"
+        }
+      ],
+      "claim": "The norm of the scalar multiple `c * v` is equal to the absolute value of the scalar `c` multiplied by the norm of the vector `v` (i.e., `∥c * v∥ = |c| * ∥v∥`)."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:norm_scalar_multiple",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "v",
+              "variable_type": "vector",
+              "properties": "Let `v = (v_1, v_2, ..., v_n)` be an arbitrary vector in a real vector space."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "c",
+              "variable_type": "real number",
+              "properties": "Let `c` be an arbitrary scalar (a real number)."
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:scalar_mult_components",
+              "claim": "First, we determine the components of the scalar multiple `c * v`.",
+              "results_used": [
+                {
+                  "statement": "Definition of scalar multiplication",
+                  "target_identifier": "def:scalar_multiplication"
+                }
+              ],
+              "calculation": {
+                "inline_calculation": "c * v = (c*v_1, c*v_2, ..., c*v_n)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:apply_norm_def",
+              "claim": "Now, we apply the definition of the Euclidean norm to the vector `c * v`.",
+              "results_used": [
+                {
+                  "statement": "Definition of Euclidean norm",
+                  "target_identifier": "def:euclidean_norm"
+                },
+                {
+                  "statement": "Components of `c*v`",
+                  "target_identifier": "step:scalar_mult_components"
+                }
+              ],
+              "calculation": {
+                "inline_calculation": "∥c * v∥ = sqrt((c*v_1)^2 + (c*v_2)^2 + ... + (c*v_n)^2)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:square_product_property",
+              "claim": "Using the algebraic property that for any real numbers `x` and `y`, `(xy)^2 = x^2 y^2`, we can expand each term inside the square root.",
+              "results_used": [
+                {
+                  "statement": "Property of real numbers: `(xy)^2 = x^2 y^2`"
+                },
+                {
+                  "statement": "Expression for `∥c*v∥`",
+                  "target_identifier": "step:apply_norm_def"
+                }
+              ],
+              "calculation": {
+                "inline_calculation": "∥c * v∥ = sqrt(c^2 * v_1^2 + c^2 * v_2^2 + ... + c^2 * v_n^2)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:factor_c_squared",
+              "claim": "Factor out `c^2` from each term under the square root.",
+              "results_used": [
+                {
+                  "statement": "Distributive property of multiplication over addition"
+                },
+                {
+                  "statement": "Expression from step:square_product_property"
+                }
+              ],
+              "calculation": {
+                "inline_calculation": "∥c * v∥ = sqrt(c^2 * (v_1^2 + v_2^2 + ... + v_n^2))"
+              }
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:sqrt_product_property",
+              "claim": "Using the property of square roots that `sqrt(xy) = sqrt(x) * sqrt(y)` for non-negative `x` and `y`, we can separate `c^2`.",
+              "results_used": [
+                {
+                  "statement": "Property of square roots: `sqrt(xy) = sqrt(x) * sqrt(y)`"
+                },
+                {
+                  "statement": "Expression from step:factor_c_squared"
+                }
+              ],
+              "calculation": {
+                "inline_calculation": "∥c * v∥ = sqrt(c^2) * sqrt(v_1^2 + v_2^2 + ... + v_n^2)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:sqrt_c_squared",
+              "claim": "By the definition of absolute value, `sqrt(c^2) = |c|`.",
+              "results_used": [
+                {
+                  "statement": "Definition of absolute value: `|x| = sqrt(x^2)`"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:recognize_norm_v",
+              "claim": "The term `sqrt(v_1^2 + v_2^2 + ... + v_n^2)` is precisely the definition of the norm of vector `v`.",
+              "results_used": [
+                {
+                  "statement": "Definition of Euclidean norm",
+                  "target_identifier": "def:euclidean_norm"
+                }
+              ],
+              "calculation": {
+                "inline_calculation": "sqrt(v_1^2 + v_2^2 + ... + v_n^2) = ∥v∥"
+              }
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "conclude_statement",
+              "claim": "Substituting the results from step:sqrt_c_squared and step:recognize_norm_v into the expression from step:sqrt_product_property, we get `∥c * v∥ = |c| * ∥v∥`. This completes the proof."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

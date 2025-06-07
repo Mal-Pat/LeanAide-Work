@@ -1,0 +1,208 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:divisibility",
+      "header": "Definition",
+      "definition": "An integer `x` divides an integer `y` (denoted `x | y`) if and only if there exists an integer `k` such that `y = xk`."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_by_5",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "N",
+          "variable_type": "integer",
+          "properties": "an arbitrary integer"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "The integer `N` ends in 0 or 5."
+        }
+      ],
+      "claim": "The integer `N` is divisible by 5."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:divisibility_by_5",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "N",
+              "variable_type": "integer",
+              "properties": "Let `N` be an arbitrary integer."
+            }
+          ]
+        },
+        {
+          "type": "Paragraph",
+          "text": "Any integer `N` can be expressed in terms of its last digit. Specifically, if `N` is an integer, it can be written as `N = 10q + r`, where `q` is an integer representing `N` divided by 10 (integer division), and `r` is the last digit of `N` (i.e., `r = N mod 10`), where `r` is an integer from 0 to 9."
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "The integer `N` ends in 0 or 5.",
+          "label": "hyp:last_digit"
+        },
+        {
+          "type": "multi-condition_cases_statement",
+          "proof_cases": [
+            {
+              "type": "condition_case",
+              "condition": "Case 1: The integer `N` ends in 0.",
+              "proof": {
+                "type": "Proof",
+                "claim_label": "Case 1: N ends in 0",
+                "proof_steps": [
+                  {
+                    "type": "LogicalStepSequence",
+                    "items": [
+                      {
+                        "type": "assume_statement",
+                        "assumption": "The last digit of `N` is 0.",
+                        "label": "case:r_is_0"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "Therefore, `N = 10q + 0 = 10q` for some integer `q`.",
+                        "results_used": [
+                          {
+                            "statement": "Place value representation of integers"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "assert_statement",
+                        "label": "step:factor_10q",
+                        "claim": "We can rewrite `10q` as `5 * (2q)`.",
+                        "calculation": {
+                          "calculation_sequence": [
+                            "N = 10q",
+                            "N = 5 * (2q)"
+                          ]
+                        },
+                        "results_used": [
+                          {
+                            "statement": "Associative property of multiplication"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "let_statement",
+                        "variable_name": "k",
+                        "value": "2q",
+                        "variable_type": "integer",
+                        "properties": "Since `q` is an integer, and the set of integers is closed under multiplication, `2q` is also an integer."
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "Thus, `N = 5k` for some integer `k`.",
+                        "results_used": [
+                          {
+                            "statement": "Substitution based on step:factor_10q and definition of `k`"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "conclude_statement",
+                        "claim": "By the definition of divisibility (def:divisibility), since `N` can be expressed as `5` times an integer, `N` is divisible by 5."
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "type": "condition_case",
+              "condition": "Case 2: The integer `N` ends in 5.",
+              "proof": {
+                "type": "Proof",
+                "claim_label": "Case 2: N ends in 5",
+                "proof_steps": [
+                  {
+                    "type": "LogicalStepSequence",
+                    "items": [
+                      {
+                        "type": "assume_statement",
+                        "assumption": "The last digit of `N` is 5.",
+                        "label": "case:r_is_5"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "Therefore, `N = 10q + 5` for some integer `q`.",
+                        "results_used": [
+                          {
+                            "statement": "Place value representation of integers"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "assert_statement",
+                        "label": "step:factor_10q_plus_5",
+                        "claim": "We can factor out 5 from the expression `10q + 5`.",
+                        "calculation": {
+                          "calculation_sequence": [
+                            "N = 10q + 5",
+                            "N = 5(2q + 1)"
+                          ]
+                        },
+                        "results_used": [
+                          {
+                            "statement": "Distributive property of multiplication over addition"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "let_statement",
+                        "variable_name": "k",
+                        "value": "2q + 1",
+                        "variable_type": "integer",
+                        "properties": "Since `q` is an integer, `2q` is an integer, and `2q + 1` is also an integer, as the set of integers is closed under multiplication and addition."
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "Thus, `N = 5k` for some integer `k`.",
+                        "results_used": [
+                          {
+                            "statement": "Substitution based on step:factor_10q_plus_5 and definition of `k`"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "conclude_statement",
+                        "claim": "By the definition of divisibility (def:divisibility), since `N` can be expressed as `5` times an integer, `N` is divisible by 5."
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "exhaustiveness": {
+            "type": "Proof",
+            "claim_label": "Exhaustiveness of cases for last digit",
+            "proof_steps": [
+              {
+                "type": "Paragraph",
+                "text": "An integer's last digit can only be one of 0, 1, 2, 3, 4, 5, 6, 7, 8, or 9. The hypothesis (hyp:last_digit) states that the integer ends in either 0 or 5. These two cases cover all possibilities where the condition 'ends in 0 or 5' is true, making the analysis exhaustive for the given hypothesis."
+              }
+            ]
+          }
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "conclude_statement",
+              "claim": "In both possible cases where an integer ends in 0 or 5, we have demonstrated that the integer can be written in the form `5k` for some integer `k`. Therefore, by the definition of divisibility (def:divisibility), if an integer ends in 0 or 5, it is divisible by 5."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof that the Empty Set is Closed in Any Topological Space"
+    },
+    {
+      "type": "Definition",
+      "label": "def:topological-space",
+      "header": "Definition",
+      "definition": "A topological space is an ordered pair (X, τ), where X is a set and τ is a collection of subsets of X, called open sets, satisfying the following three axioms:\n1. Both the empty set ∅ and the set X itself are in τ.\n2. The intersection of any finite collection of sets in τ is in τ.\n3. The union of any arbitrary collection of sets in τ is in τ."
+    },
+    {
+      "type": "Definition",
+      "label": "def:closed-set",
+      "header": "Definition",
+      "definition": "Let (X, τ) be a topological space. A subset A of X is called a closed set if its complement X \\ A (also denoted Aᶜ) is an open set (i.e., Aᶜ ∈ τ)."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:empty-set-closed",
+      "header": "Theorem",
+      "claim": "The empty set is a closed set in any topological space.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:empty-set-closed",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "(X, τ)",
+                "variable_type": "topological space",
+                "properties": "arbitrary"
+              },
+              {
+                "type": "Paragraph",
+                "text": "Our goal is to demonstrate that the empty set ∅ is closed within this arbitrary topological space (X, τ). We will achieve this by directly applying the fundamental definitions of a topological space and a closed set."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "By definition, a set A ⊆ X is considered closed if and only if its complement, X \\ A, is an open set.",
+                "results_used": [
+                  {
+                    "statement": "Definition of a closed set",
+                    "target_identifier": "def:closed-set"
+                  }
+                ],
+                "proof_method": "recalling a definition"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "We first identify the complement of the empty set ∅ in the space X.",
+                "calculation": {
+                  "inline_calculation": "X \\ ∅ = X"
+                },
+                "proof_method": "set theoretic identity"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The set X itself is an open set in the topological space (X, τ).",
+                "results_used": [
+                  {
+                    "statement": "Axiom 1 of the definition of a topological space, which states that both ∅ and X are in τ (the collection of open sets).",
+                    "target_identifier": "def:topological-space"
+                  }
+                ],
+                "proof_method": "direct application of topological space axiom"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Since the complement of the empty set (which is X) is an open set (as established by the axioms of a topological space), it directly follows from the definition of a closed set that the empty set ∅ is a closed set in (X, τ)."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

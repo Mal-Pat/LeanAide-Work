@@ -1,0 +1,140 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def dvd (x y : \u2124) : Prop :=\n    \u2203 k : \u2124, y = x * k\n  abbrev Int.dvd_of_dvd_of_dvd_trans.prop : Prop :=\n    \u2200 (n : \u2124), 4 \u2223 n \u2192 2 \u2223 n\n  theorem Int.dvd_of_dvd_of_dvd_trans : \u2200 (n : \u2124), 4 \u2223 n \u2192 2 \u2223 n := by",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "def:divisibility",
+        "header": "Definition",
+        "definition": "An integer `x` divides an integer `y` (denoted `x | y`) if and only if there exists an integer `k` such that `y = xk`."
+      },
+      {
+        "type": "Theorem",
+        "label": "thm:divisible_by_4_implies_divisible_by_2",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "n",
+            "type": "let_statement",
+            "properties": "an integer"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "n is divisible by 4 (4 | n)"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "Then n is also divisible by 2 (2 | n)."
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "variable_type": "integer",
+                "variable_name": "n",
+                "type": "let_statement",
+                "properties": "Let `n` be an arbitrary integer."
+              },
+              {
+                "type": "assume_statement",
+                "label": "hyp:n_div_4",
+                "assumption": "Assume `n` is divisible by 4."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "variable_name": "k",
+                "variable_kind": "integer",
+                "type": "some_statement",
+                "results_used": [
+                  {
+                    "target_identifier": "def:divisibility",
+                    "statement": "By the definition of divisibility (def:divisibility)"
+                  }
+                ],
+                "properties": "such that `n = 4k`.",
+                "internal_references": [
+                  {
+                    "target_identifier": "hyp:n_div_4"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "Associative property of multiplication"
+                  }
+                ],
+                "label": "step:rewrite_n",
+                "claim": "We can rewrite the expression for `n` by factoring out 2 from 4.",
+                "calculation": {
+                  "calculation_sequence": [
+                    "n = 4k",
+                    "n = (2 * 2)k",
+                    "n = 2 * (2k)"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "variable_type": "integer",
+                "variable_name": "m",
+                "value": "2k",
+                "type": "let_statement",
+                "properties": "Since `k` is an integer, and the set of integers is closed under multiplication, the product `2k` is also an integer."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "From step:rewrite_n and the definition of `m`"
+                  }
+                ],
+                "claim": "Therefore, we have `n = 2m`."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "conclude_statement",
+                "claim": "Since `n` can be expressed as `2` times some integer `m`, by the definition of divisibility (def:divisibility), `n` is divisible by 2. This completes the proof."
+              }
+            ]
+          }
+        ],
+        "claim_label": "thm:divisible_by_4_implies_divisible_by_2"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "dvd",
+    "Int.dvd_of_dvd_of_dvd_trans"
+  ]
+}

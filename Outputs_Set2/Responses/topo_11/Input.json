@@ -1,0 +1,164 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof that Constant Functions between Topological Spaces are Continuous"
+    },
+    {
+      "type": "Definition",
+      "label": "def:topological-space",
+      "header": "Definition",
+      "definition": "A topological space is an ordered pair (X, τ), where X is a set and τ is a collection of subsets of X, called open sets, satisfying the following three axioms:\n1. Both the empty set ∅ and the set X itself are in τ.\n2. The intersection of any finite collection of sets in τ is in τ.\n3. The union of any arbitrary collection of sets in τ is in τ."
+    },
+    {
+      "type": "Definition",
+      "label": "def:continuous-function",
+      "header": "Definition",
+      "definition": "Let (X, τ_X) and (Y, τ_Y) be topological spaces. A function f: X → Y is said to be continuous if for every open set V ∈ τ_Y (in the codomain Y), its pre-image f⁻¹(V) is an open set in τ_X (in the domain X)."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:constant-function-continuous",
+      "header": "Theorem",
+      "claim": "The constant function between any two topological spaces is continuous.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:constant-function-continuous",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "X",
+                "variable_type": "set"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "τ_X",
+                "variable_type": "topology on X",
+                "value": "making (X, τ_X) a topological space"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "Y",
+                "variable_type": "set"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "τ_Y",
+                "variable_type": "topology on Y",
+                "value": "making (Y, τ_Y) a topological space"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "c",
+                "variable_type": "element of Y"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "f",
+                "variable_type": "function from X to Y",
+                "properties": "f(x) = c for all x ∈ X (i.e., f is a constant function)"
+              },
+              {
+                "type": "Paragraph",
+                "text": "To prove that f is continuous, we must show that for any open set V in Y (V ∈ τ_Y), its pre-image f⁻¹(V) is an open set in X (f⁻¹(V) ∈ τ_X)."
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "V",
+                "variable_type": "open set in Y",
+                "properties": "V ∈ τ_Y, arbitrary"
+              },
+              {
+                "type": "condition_cases_statement",
+                "condition": "c ∈ V (the constant value c is an element of the open set V)",
+                "true_case_proof": {
+                  "type": "Proof",
+                  "claim_label": "<anonymous>",
+                  "proof_steps": [
+                    {
+                      "type": "LogicalStepSequence",
+                      "items": [
+                        {
+                          "type": "assume_statement",
+                          "assumption": "c ∈ V"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "The pre-image f⁻¹(V) is equal to X.",
+                          "proof_method": "definition of constant function and pre-image",
+                          "calculation": {
+                            "inline_calculation": "Since f(x) = c for all x ∈ X, and c ∈ V, then for every x ∈ X, f(x) is in V. Thus, f⁻¹(V) = {x ∈ X | f(x) ∈ V} = {x ∈ X | c ∈ V} = X."
+                          }
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "X is an open set in (X, τ_X).",
+                          "results_used": [
+                            {
+                              "statement": "Axiom 1 of the definition of a topological space states that the set X itself is in τ_X.",
+                              "target_identifier": "def:topological-space"
+                            }
+                          ],
+                          "proof_method": "direct application of topological space axiom"
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "Therefore, in this case, f⁻¹(V) = X is an open set in X."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "false_case_proof": {
+                  "type": "Proof",
+                  "claim_label": "<anonymous>",
+                  "proof_steps": [
+                    {
+                      "type": "LogicalStepSequence",
+                      "items": [
+                        {
+                          "type": "assume_statement",
+                          "assumption": "c ∉ V"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "The pre-image f⁻¹(V) is equal to the empty set ∅.",
+                          "proof_method": "definition of constant function and pre-image",
+                          "calculation": {
+                            "inline_calculation": "Since f(x) = c for all x ∈ X, and c ∉ V, there is no x ∈ X such that f(x) ∈ V. Thus, f⁻¹(V) = {x ∈ X | f(x) ∈ V} = ∅."
+                          }
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "∅ is an open set in (X, τ_X).",
+                          "results_used": [
+                            {
+                              "statement": "Axiom 1 of the definition of a topological space states that the empty set ∅ is in τ_X.",
+                              "target_identifier": "def:topological-space"
+                            }
+                          ],
+                          "proof_method": "direct application of topological space axiom"
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "Therefore, in this case, f⁻¹(V) = ∅ is an open set in X."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "In both possible cases for any arbitrary open set V in Y, its pre-image f⁻¹(V) is an open set in X. By the definition of continuity, the constant function f: X → Y is continuous."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

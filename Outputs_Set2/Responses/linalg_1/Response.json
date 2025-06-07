@@ -1,0 +1,99 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  class VectorSpace (V : Type u) (K : Type v) [AddCommGroup V] [Field K] [Module K V] :=\n    (closure_under_vector_addition : \u2200 (u v : V), u + v \u2208 (Set.univ : Set V))\n  abbrev VectorSpace.add_mem.prop : Prop :=\n    \u2200 {R : Type u_1} {V : Type u_2} [inst : Ring R] [inst_1 : AddCommGroup V] [inst_2 : Module R V] {u v : V},\n      u \u2208 Set.univ \u2192 v \u2208 Set.univ \u2192 u + v \u2208 Set.univ\n  theorem VectorSpace.add_mem :\n      \u2200 {R : Type u_1} {V : Type u_2} [inst : Ring R] [inst_1 : AddCommGroup V] [inst_2 : Module R V] {u v : V},\n        u \u2208 Set.univ \u2192 v \u2208 Set.univ \u2192 u + v \u2208 Set.univ :=\n    by\n    intro V inst inst_1 inst_2 u v a a_1\n    simp_all only [Set.mem_univ]\n    have assert_17087798724833794797 :\n      \u2200 {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),\n        u + v \u2208 {w : V | \u2203 (a : K) (b : K), a \u2022 u + b \u2022 v = w} :=\n      by sorry\n    intro a_1\n    simp_all only\n    have :\n      \u2200 {K : Type u_1} {V : Type u_2} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),\n        u + v \u2208 \u22a4 :=\n      by sorry\n    intro a_1\n    simp_all only\n    simp_all only",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "def:vector_space_closure_addition",
+        "header": "Definition",
+        "definition": "A vector space `V` is a set of objects, called vectors, on which two operations are defined: vector addition and scalar multiplication. One of the fundamental axioms of a vector space is the **closure under vector addition**, which states that for any two vectors `u` and `v` that are elements of `V`, their sum, `u + v`, is also an element of `V`."
+      },
+      {
+        "type": "Theorem",
+        "label": "thm:vector_sum_closure",
+        "hypothesis": [
+          {
+            "variable_type": "set",
+            "variable_name": "V",
+            "type": "let_statement",
+            "properties": "a vector space"
+          },
+          {
+            "variable_type": "vector",
+            "variable_name": "u",
+            "type": "let_statement",
+            "properties": "an arbitrary vector in V"
+          },
+          {
+            "variable_type": "vector",
+            "variable_name": "v",
+            "type": "let_statement",
+            "properties": "another arbitrary vector in V"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "The sum of two vectors `u + v` is a vector in the same space `V`."
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "variable_type": "set",
+                "variable_name": "V",
+                "type": "let_statement",
+                "properties": "Let `V` be an arbitrary vector space."
+              },
+              {
+                "variable_type": "vector",
+                "variable_name": "u",
+                "type": "let_statement",
+                "properties": "Let `u` be any vector belonging to `V` (`u \u2208 V`)."
+              },
+              {
+                "variable_type": "vector",
+                "variable_name": "v",
+                "type": "let_statement",
+                "properties": "Let `v` be any other vector belonging to `V` (`v \u2208 V`)."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "target_identifier": "def:vector_space_closure_addition",
+                    "statement": "The axiom of closure under vector addition"
+                  }
+                ],
+                "claim": "By definition, a vector space is a set that satisfies a list of axioms, one of which is the closure under vector addition."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "conclude_statement",
+                "claim": "The axiom of closure under vector addition explicitly states that for any two vectors `u` and `v` in `V`, their sum `u + v` must also be in `V`. Therefore, the sum of two vectors in a vector space is indeed a vector in the same space."
+              }
+            ]
+          }
+        ],
+        "claim_label": "thm:vector_sum_closure"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "VectorSpace.add_mem"
+  ]
+}

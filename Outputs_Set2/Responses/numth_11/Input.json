@@ -1,0 +1,129 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:divisibility",
+      "header": "Definition",
+      "definition": "An integer `x` divides an integer `y` (denoted `x | y`) if and only if there exists an integer `k` such that `y = xk`."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divisible_by_4_implies_divisible_by_2",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "integer",
+          "properties": "an integer"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "n is divisible by 4 (4 | n)"
+        }
+      ],
+      "claim": "Then n is also divisible by 2 (2 | n)."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:divisible_by_4_implies_divisible_by_2",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "n",
+              "variable_type": "integer",
+              "properties": "Let `n` be an arbitrary integer."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "Assume `n` is divisible by 4.",
+              "label": "hyp:n_div_4"
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "some_statement",
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "properties": "such that `n = 4k`.",
+              "results_used": [
+                {
+                  "statement": "By the definition of divisibility (def:divisibility)",
+                  "target_identifier": "def:divisibility"
+                }
+              ],
+              "internal_references": [
+                {
+                  "target_identifier": "hyp:n_div_4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "label": "step:rewrite_n",
+              "claim": "We can rewrite the expression for `n` by factoring out 2 from 4.",
+              "calculation": {
+                "calculation_sequence": [
+                  "n = 4k",
+                  "n = (2 * 2)k",
+                  "n = 2 * (2k)"
+                ]
+              },
+              "results_used": [
+                {
+                  "statement": "Associative property of multiplication"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "value": "2k",
+              "variable_type": "integer",
+              "properties": "Since `k` is an integer, and the set of integers is closed under multiplication, the product `2k` is also an integer."
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "assert_statement",
+              "claim": "Therefore, we have `n = 2m`.",
+              "results_used": [
+                {
+                  "statement": "From step:rewrite_n and the definition of `m`"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "conclude_statement",
+              "claim": "Since `n` can be expressed as `2` times some integer `m`, by the definition of divisibility (def:divisibility), `n` is divisible by 2. This completes the proof."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

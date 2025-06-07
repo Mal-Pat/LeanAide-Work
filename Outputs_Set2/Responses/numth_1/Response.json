@@ -1,0 +1,109 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def Int.Even : \u2124 \u2192 Prop := fun x => \u2203 k : \u2124, x = 2 * k\n  theorem even_add_even : \u2200 {n m : \u2115}, Even n \u2192 Even m \u2192 Even (n + m) :=\n    by\n    have assert_16386509297515886867 : \u2200 {a b : \u2124}, Even a \u2192 Even b \u2192 \u2203 (k : \u2124), a = 2 * k :=\n      by\n      intro b a_1 a_2\n      sorry\n    have assert_1090163998512366415 :\n      \u2200 (a b : \u2124), (\u2203 (r : \u2124), a = 2 * r) \u2192 (\u2203 (r : \u2124), b = 2 * r) \u2192 \u2203 (m : \u2124), b = 2 * m :=\n      by\n      intro a b a_1 a_2\n      simp_all only\n    have assert_15965452954647731647 : \u2200 {a b : \u2124}, Even a \u2192 Even b \u2192 \u2203 (k : \u2124), a + b = 2 * k := by sorry\n    have : \u2200 {a b : \u2124}, Even a \u2192 Even b \u2192 Even (a + b) :=\n      by\n      intro a b a_1 a_2\n      simp_all only [implies_true]\n      sorry\n    intro m a a_1\n    sorry\n    intro m a a_1\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "def:even_number",
+        "header": "Definition",
+        "definition": "An integer `x` is an even number if and only if there exists an integer `k` such that `x = 2k`."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "integer",
+                  "variable_name": "a",
+                  "type": "let_statement",
+                  "properties": "an arbitrary even number"
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "b",
+                  "type": "let_statement",
+                  "properties": "another arbitrary even number"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:even_number",
+                      "statement": "Definition of an even number"
+                    }
+                  ],
+                  "label": "step:def_a",
+                  "claim": "There exists an integer `k` such that `a = 2k`."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:even_number",
+                      "statement": "Definition of an even number"
+                    }
+                  ],
+                  "label": "step:def_b",
+                  "claim": "There exists an integer `m` such that `b = 2m`."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "step:def_a",
+                      "statement": "Substitution of a = 2k"
+                    },
+                    {
+                      "target_identifier": "step:def_b",
+                      "statement": "Substitution of b = 2m"
+                    },
+                    {
+                      "statement": "Distributive property of multiplication over addition"
+                    }
+                  ],
+                  "proof_method": "substitution and algebraic manipulation",
+                  "label": "step:sum_calculation",
+                  "claim": "The sum `a + b` can be expressed in a factored form.",
+                  "calculation": {
+                    "calculation_sequence": [
+                      "a + b",
+                      "= 2k + 2m",
+                      "= 2(k + m)"
+                    ]
+                  }
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "n",
+                  "value": "k + m",
+                  "type": "let_statement",
+                  "properties": "Since `k` and `m` are integers (from step:def_a and step:def_b), their sum `n` is also an integer, due to the closure property of integers under addition."
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "We have shown that `a + b = 2n`, where `n` is an integer. By the definition of an even number (def:even_number), any integer that can be written in the form `2n` for some integer `n` is an even number. Therefore, `a + b` is an even number. This completes the proof that the sum of two even numbers is an even number."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:sum_of_evens"
+        },
+        "label": "thm:sum_of_evens",
+        "header": "Theorem",
+        "claim": "The sum of two even numbers is an even number."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.Even",
+    "even_add_even"
+  ]
+}

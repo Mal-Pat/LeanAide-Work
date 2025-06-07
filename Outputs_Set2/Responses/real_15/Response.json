@@ -1,0 +1,130 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def RealSeqConvergesTo (x : \u2115 \u2192 \u211d) (L : \u211d) : Prop :=\n    \u2200 \u03b5 > 0, \u2203 N : \u2115, \u2200 n > N, |x n - L| < \u03b5\n  abbrev tendsto_inv_nat_atTop_zero.prop : Prop :=\n    Filter.Tendsto (fun (n : \u211d) \u21a6 1 / n) Filter.atTop (nhds 0)\n  theorem tendsto_inv_nat_atTop_zero : Filter.Tendsto (fun (n : \u211d) \u21a6 1 / n) Filter.atTop (nhds 0) :=\n    by\n    have assert_1033752049868776400 : \u2200 \u03b5 > 0, \u2203 (N : \u2115), \u2200 n > N, |1 / (\u2191n : \u211d) - 0| < \u03b5 :=\n      by\n      intro a\n      simp_all only [gt_iff_lt, tsub_zero]\n      sorry\n    have assert_3381365138150865978 : Filter.Tendsto (fun (n : \u211d) \u21a6 1 / n) Filter.atTop (nhds 0) :=\n      by\n      simp_all only [gt_iff_lt, tsub_zero, nhds_discrete, Filter.pure_zero, Filter.tendsto_zero, Nat.div_eq_zero_iff,\n        Filter.eventually_atTop, ge_iff_le]\n      sorry\n    have :=\n      \"Error: codegen: no valid function found for key calculation in JSON object {\\\"calculation_sequence\\\": [\\\"$|a_n - 0| = |1/n - 0|$\\\", \\\"$= |1/n|$\\\"]}; tried: [LeanAide.calculationCode: codegen: no 'step' found in 'calculation_step']\"\n    have assert_3282047461733563563 : \u2200 (\u03b5 : \u211d), 0 < \u03b5 \u2192 \u2203 (N : \u2115), \u2200 n \u2265 N, |1 / (\u2191n : \u211d)| < \u03b5 := by sorry\n    have assert_4150863593057638508 : \u2200 (\u03b5 : \u211d), 0 < \u03b5 \u2192 \u2203 (N : \u2115), \u2200 n > N, 1 / (\u2191n : \u211d) < \u03b5 := by sorry\n    have assert_1443040261429662619 : \u2200 {\u03b5 : \u211d}, 0 < \u03b5 \u2192 \u2200 (n : \u2115), 1 / (\u2191n : \u211d) < \u03b5 \u2194 (\u2191n : \u211d) > 1 / \u03b5 := by sorry\n    have assert_15563012198674986173 : \u2200 (\u03b5 : \u211d), 0 < \u03b5 \u2192 \u2203 (N : \u2115), (\u2191N : \u211d) > 1 / \u03b5 := by sorry\n    have assert_13021502185241374172 :\n      \u2200 (\u03b5 : \u211d), 0 < \u03b5 \u2192 \u2203 (N : \u2115), 1 / \u03b5 < (\u2191N : \u211d) \u2227 \u2200 (n : \u2115), N < n \u2192 |1 / (\u2191n : \u211d)| < \u03b5 := by sorry\n    have assert_5359807480519508481 : \u2200 (\u03b5 : \u211d) (N n : \u2115), 0 < \u03b5 \u2192 (\u2191N : \u211d) > 1 / \u03b5 \u2192 n > N \u2192 (\u2191n : \u211d) > 1 / \u03b5 := by\n      sorry\n    have assert_2409372146544416505 : \u2200 (n : \u2115) {\u03b5 : \u211d}, 0 < \u03b5 \u2192 (\u2191n : \u211d) > 1 / \u03b5 \u2192 1 / (\u2191n : \u211d) < \u03b5 := by sorry\n    have assert_1033752049868776400 : \u2200 \u03b5 > 0, \u2203 (N : \u2115), \u2200 n > N, |1 / (\u2191n : \u211d) - 0| < \u03b5 := by sorry\n    have : \u2200 \u03b5 > 0, \u2203 (N : \u2115), \u2200 n > N, |1 / (\u2191n : \u211d) - 0| < \u03b5 :=\n      by\n      intro \u03b5 a_1\n      simp_all only [gt_iff_lt, tsub_zero, nhds_discrete, Filter.pure_zero, Filter.tendsto_zero, Nat.div_eq_zero_iff,\n        Filter.eventually_atTop, ge_iff_le, one_div, implies_true]\n      sorry\n    intro a\n    simp_all only [nhds_discrete, Filter.pure_zero, Filter.mem_zero, Filter.mem_map, Filter.mem_atTop_sets, ge_iff_le,\n      Set.mem_preimage]\n    sorry\n    intro a\n    simp_all only [nhds_discrete, Filter.pure_zero, Filter.mem_zero, Filter.mem_map, Filter.mem_atTop_sets, ge_iff_le,\n      Set.mem_preimage]\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Title",
+        "title": "Proof: Convergence of the Sequence a_n = 1/n"
+      },
+      {
+        "type": "Definition",
+        "label": "def:convergent_sequence",
+        "header": "Definition",
+        "definition": "A sequence of real numbers $(x_n)$ converges to a real number $L$ (written as $\\lim_{n \\to \\infty} x_n = L$) if for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, the inequality $|x_n - L| < \\epsilon$ holds."
+      },
+      {
+        "type": "Theorem",
+        "label": "thm:one_over_n_converges_to_zero",
+        "header": "Theorem",
+        "claim": "The sequence $(a_n)$ defined by $a_n = 1/n$ for $n \\in \\mathbb{N}$ converges to 0."
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "variable_type": "sequence of real numbers",
+                "variable_name": "(a_n)",
+                "value": "1/n",
+                "type": "let_statement"
+              },
+              {
+                "type": "assert_statement",
+                "internal_references": [
+                  {
+                    "target_identifier": "def:convergent_sequence"
+                  }
+                ],
+                "claim": "To prove that $(a_n)$ converges to 0, according to the definition of a convergent sequence (Definition def:convergent_sequence), we must show that for every $\\epsilon > 0$, there exists a natural number $N$ such that for all $n > N$, $|a_n - 0| < \\epsilon$."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "Let $\\epsilon$ be an arbitrary positive real number, i.e., $\\epsilon > 0$."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "Algebraic simplification",
+                "claim": "We want to find an $N$ such that for all $n > N$, $|a_n - 0| < \\epsilon$. Let's simplify the expression $|a_n - 0|$."
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "$|a_n - 0| = |1/n - 0|$",
+                  "$= |1/n|$"
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Since $n$ is a natural number, $n \\ge 1$, which means $n$ is positive. Therefore, $1/n$ is also positive, and $|1/n| = 1/n$."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "Substitution",
+                "claim": "So, our inequality becomes $1/n < \\epsilon$."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "To satisfy $1/n < \\epsilon$, we can multiply both sides by $n$ (since $n > 0$) and divide by $\\epsilon$ (since $\\epsilon > 0$) to get $1/\\epsilon < n$, or $n > 1/\\epsilon$."
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "Archimedean Property: For any real number $x$, there exists a natural number $N$ such that $N > x$."
+                  }
+                ],
+                "label": "archimedean_property_application",
+                "claim": "By the Archimedean Property of real numbers, for any real number $x$ (in our case, $x = 1/\\epsilon$), there exists a natural number $N$ such that $N > x$."
+              },
+              {
+                "variable_name": "N",
+                "variable_kind": "natural number",
+                "type": "some_statement",
+                "properties": "such that $N > 1/\\epsilon$"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "Direct verification",
+                "claim": "Now, let's verify the condition for any $n > N$."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "Transitivity of inequality",
+                "claim": "If $n > N$, and we know $N > 1/\\epsilon$, then it implies $n > 1/\\epsilon$."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "Algebraic manipulation (dividing by $n$ and $\\epsilon$)",
+                "claim": "From $n > 1/\\epsilon$, we can rearrange this to get $1/n < \\epsilon$."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Therefore, for all $n > N$, we have $|a_n - 0| = 1/n < \\epsilon$."
+              },
+              {
+                "type": "conclude_statement",
+                "internal_references": [
+                  {
+                    "target_identifier": "def:convergent_sequence"
+                  }
+                ],
+                "claim": "Since for every $\\epsilon > 0$, we have found an $N$ such that for all $n > N$, $|a_n - 0| < \\epsilon$, the sequence $(a_n = 1/n)$ converges to 0 by the definition of convergence (Definition def:convergent_sequence)."
+              }
+            ]
+          }
+        ],
+        "claim_label": "thm:one_over_n_converges_to_zero"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "RealSeqConvergesTo",
+    "tendsto_inv_nat_atTop_zero"
+  ]
+}

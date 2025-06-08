@@ -60,14 +60,17 @@ theorem even_add_even : ∀ {n m : ℕ}, Even n → Even m → Even (n + m) :=
 
 > If an integer a divides an integer b, and a divides an integer c, then a divides their sum (b + c).
 
-#### Lean Output
+#### Lean Outpu
 
 ```lean4
-def dvd (x y : ℤ) : Prop :=
-  ∃ k : ℤ, y = x * k
+def Int.dvd : ℤ → ℤ → Prop := fun x y => ∃ k : ℤ, y = x * k
 abbrev Int.dvd_add.prop : Prop :=
   ∀ {a b c : ℤ}, a ≠ 0 → a ∣ b → a ∣ c → a ∣ b + c
-theorem Int.dvd_add : ∀ {a b c : ℤ}, a ≠ 0 → a ∣ b → a ∣ c → a ∣ b + c := by
+theorem Int.dvd_add : ∀ {a b c : ℤ}, a ≠ 0 → a ∣ b → a ∣ c → a ∣ b + c :=
+  by
+  intro b c a_1 a_2 a_3
+  simp_all only [ne_eq]
+  sorry
 ```
 
 ### 8.
@@ -85,11 +88,14 @@ theorem Int.dvd_add : ∀ {a b c : ℤ}, a ≠ 0 → a ∣ b → a ∣ c → a �
 #### Lean Output
 
 ```lean4
-def dvd (x y : ℤ) : Prop :=
-  ∃ k : ℤ, y = x * k
-abbrev Int.dvd_abs_of_dvd_and_abs_le.prop : Prop :=
-  ∀ {a b : ℤ}, a ∣ b → b ≠ 0 → Int.natAbs a ≤ Int.natAbs b
-theorem Int.dvd_abs_of_dvd_and_abs_le : ∀ {a b : ℤ}, a ∣ b → b ≠ 0 → Int.natAbs a ≤ Int.natAbs b := by
+def Int.dvd : ℤ → ℤ → Prop := fun x y => ∃ k : ℤ, y = x * k
+abbrev Int.dvd_abs_le_self.prop : Prop :=
+  ∀ {a b : ℤ}, a ∣ b → b ≠ 0 → |a| ≤ |b|
+theorem Int.dvd_abs_le_self : ∀ {a b : ℤ}, a ∣ b → b ≠ 0 → |a| ≤ |b| :=
+  by
+  intro b a_1 a_2
+  simp_all only [ne_eq]
+  sorry
 ```
 
 ### 11.
@@ -99,11 +105,13 @@ theorem Int.dvd_abs_of_dvd_and_abs_le : ∀ {a b : ℤ}, a ∣ b → b ≠ 0 →
 #### Lean Output
 
 ```lean4
-def dvd (x y : ℤ) : Prop :=
-  ∃ k : ℤ, y = x * k
-abbrev Int.dvd_of_dvd_of_dvd_trans.prop : Prop :=
+def Int.dvd : ℤ → ℤ → Prop := fun x y => ∃ k : ℤ, y = x * k
+abbrev dvd_two_of_dvd_four.prop : Prop :=
   ∀ (n : ℤ), 4 ∣ n → 2 ∣ n
-theorem Int.dvd_of_dvd_of_dvd_trans : ∀ (n : ℤ), 4 ∣ n → 2 ∣ n := by
+theorem dvd_two_of_dvd_four : ∀ (n : ℤ), 4 ∣ n → 2 ∣ n :=
+  by
+  intro a
+  (omega)
 ```
 
 ### 12.
@@ -117,11 +125,10 @@ theorem Int.dvd_of_dvd_of_dvd_trans : ∀ (n : ℤ), 4 ∣ n → 2 ∣ n := by
 #### Lean Output
 
 ```lean4
-def dvd (x y : ℤ) : Prop :=
-  ∃ k : ℤ, y = x * k
-abbrev Int.sum_three_consecutive_div_three.prop : Prop :=
+def Int.dvd : ℤ → ℤ → Prop := fun x y => ∃ k : ℤ, y = x * k
+abbrev Int.sum_consecutive_three_divisible_by_three.prop : Prop :=
   ∀ (n : ℤ), 3 ∣ n + (n + 1) + (n + 2)
-theorem Int.sum_three_consecutive_div_three : ∀ (n : ℤ), 3 ∣ n + (n + 1) + (n + 2) := by
+theorem Int.sum_consecutive_three_divisible_by_three : ∀ (n : ℤ), 3 ∣ n + (n + 1) + (n + 2) := by (omega)
 ```
 
 ### 14.
@@ -135,11 +142,10 @@ theorem Int.sum_three_consecutive_div_three : ∀ (n : ℤ), 3 ∣ n + (n + 1) +
 #### Lean Output
 
 ```lean4
-def dvd (x y : ℤ) : Prop :=
-  ∃ k : ℤ, y = x * k
-abbrev IntEndsInZeroOrFive_iff_DivisibleByFive.prop : Prop :=
+def Int.dvd : ℤ → ℤ → Prop := fun x y => ∃ k : ℤ, y = x * k
+abbrev Int.EndsInZeroOrFive_iff_DivisibleByFive.prop : Prop :=
   ∀ (N : ℤ), N % 10 = 0 ∨ N % 10 = 5 ↔ 5 ∣ N
-theorem IntEndsInZeroOrFive_iff_DivisibleByFive : ∀ (N : ℤ), N % 10 = 0 ∨ N % 10 = 5 ↔ 5 ∣ N :=
+theorem Int.EndsInZeroOrFive_iff_DivisibleByFive : ∀ (N : ℤ), N % 10 = 0 ∨ N % 10 = 5 ↔ 5 ∣ N :=
   by
   simp_all only [EuclideanDomain.mod_eq_zero]
   apply Iff.intro
@@ -149,16 +155,18 @@ theorem IntEndsInZeroOrFive_iff_DivisibleByFive : ∀ (N : ℤ), N % 10 = 0 ∨ 
     | inr h_1 => (omega)
   · intro a
     (omega)
-  have : ∀ (N : ℤ), N % 10 = 0 ∨ N % 10 = 5 ↔ 5 ∣ N :=
+  have : ∀ {N : ℤ}, (∃ (k : ℤ), N = 5 * k) ↔ N % 10 = 0 ∨ N % 10 = 5 :=
     by
     simp_all only [EuclideanDomain.mod_eq_zero]
     apply Iff.intro
     · intro a
-      cases a with
-      | inl h => (omega)
-      | inr h_1 => (omega)
+      obtain ⟨w, h⟩ := a
+      subst h
+      sorry
     · intro a
-      (omega)
+      cases a with
+      | inl h => sorry
+      | inr h_1 => sorry
   simp_all only [EuclideanDomain.mod_eq_zero]
   apply Iff.intro
   · intro a
@@ -186,27 +194,29 @@ theorem IntEndsInZeroOrFive_iff_DivisibleByFive : ∀ (N : ℤ), N % 10 = 0 ∨ 
 #### Lean Output
 
 ```lean4
-class VectorSpace (V : Type u) (K : Type v) [AddCommGroup V] [Field K] [Module K V] :=
-  (closure_under_vector_addition : ∀ (u v : V), u + v ∈ (Set.univ : Set V))
+example :=
+  "Error: codegen: no valid function found for key definition in JSON object {\"label\": \"def:vector_space_closure_addition\",\n \"header\": \"Definition\",\n \"definition\":\n \"A vector space `V` is a set of objects, called vectors, on which two operations are defined: vector addition and scalar multiplication. One of the fundamental axioms of a vector space is the **closure under vector addition**, which states that for any two vectors `u` and `v` that are elements of `V`, their sum, `u + v`, is also an element of `V`.\"}; tried: [LeanAide.defCode: codegen: no definition translation found for A vector space `V` is a set of objects, called vectors, on which two operations are defined: vector addition and scalar multiplication. One of the fundamental axioms of a vector space is the **closure under vector addition**, which states that for any two vectors `u` and `v` that are elements of `V`, their sum, `u + v`, is also an element of `V`.]"
 abbrev VectorSpace.add_mem.prop : Prop :=
-  ∀ {R : Type u_1} {V : Type u_2} [inst : Ring R] [inst_1 : AddCommGroup V] [inst_2 : Module R V] {u v : V},
+  ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
     u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ
 theorem VectorSpace.add_mem :
-    ∀ {R : Type u_1} {V : Type u_2} [inst : Ring R] [inst_1 : AddCommGroup V] [inst_2 : Module R V] {u v : V},
+    ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
       u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
   by
   intro V inst inst_1 inst_2 u v a a_1
   simp_all only [Set.mem_univ]
-  have assert_17087798724833794797 :
-    ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),
-      u + v ∈ {w : V | ∃ (a : K) (b : K), a • u + b • v = w} :=
+  have assert_16034457716498329154 :
+    ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
+      u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
     by sorry
   intro a_1
   simp_all only
   have :
-    ∀ {K : Type u_1} {V : Type u_2} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),
-      u + v ∈ ⊤ :=
-    by sorry
+    ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),
+      u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
+    by
+    intro K V_2 inst_4 inst_1_1 inst_2_1 u_1 v_1 a_1 a_2
+    simp_all only [Set.mem_univ]
   intro a_1
   simp_all only
   simp_all only
@@ -223,11 +233,14 @@ theorem VectorSpace.add_mem :
 #### Lean Output
 
 ```lean4
-def dot_product_self : ∀ {n : Type u} [inst : Fintype n] (v : n → ℝ), ℝ := fun {n} [Fintype n] (v : n → ℝ) =>
-  ∑ i, v i * v i
+def dotProduct_self : ∀ {n : Type u} {α : Type v} [inst : Fintype n] [inst : Semiring α] (v : n → α), α :=
+  fun {n α} [Fintype n] [Semiring α] v => ∑ i, (v i) * (v i)
 abbrev dot_product_self_nonneg.prop : Prop :=
   ∀ {n : ℕ} (v : Fin n → ℝ), 0 ≤ Matrix.dotProduct v v
-theorem dot_product_self_nonneg : ∀ {n : ℕ} (v : Fin n → ℝ), 0 ≤ Matrix.dotProduct v v := by
+theorem dot_product_self_nonneg : ∀ {n : ℕ} (v : Fin n → ℝ), 0 ≤ Matrix.dotProduct v v :=
+  by
+  intro v
+  sorry
 ```
 
 ### 4.
@@ -243,10 +256,14 @@ theorem dot_product_self_nonneg : ∀ {n : ℕ} (v : Fin n → ℝ), 0 ≤ Matri
 ```lean4
 example :=
   "Error: codegen: no valid function found for key definition in JSON object {\"label\": \"def:euclidean_norm\",\n \"header\": \"Definition\",\n \"definition\":\n \"For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `∥v∥ = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`.\"}; tried: [LeanAide.defCode: codegen: no definition translation found for For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `∥v∥ = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`.]"
-def scalar_mul {α : Type u} [Semiring α] {n : ℕ} (c : α) (v : Fin n → α) : Fin n → α := fun i => c * v i
-abbrev RealVectorSpace.norm_smul.prop : Prop :=
-  ∀ {n : ℕ} (v : EuclideanSpace ℝ (Fin n)) (c : ℝ), ‖c • v‖ = |c| * ‖v‖
-theorem RealVectorSpace.norm_smul : ∀ {n : ℕ} (v : EuclideanSpace ℝ (Fin n)) (c : ℝ), ‖c • v‖ = |c| * ‖v‖ := by
+def scalar_mul {n : ℕ} (c : ℝ) (v : Fin n → ℝ) : Fin n → ℝ := fun i => c * v i
+abbrev norm_smul.prop : Prop :=
+  ∀ {E : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace ℝ E] (c : ℝ) (v : E), ‖c • v‖ = |c| * ‖v‖
+theorem norm_smul :
+    ∀ {E : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace ℝ E] (c : ℝ) (v : E), ‖c • v‖ = |c| * ‖v‖ :=
+  by
+  intro inst inst_1 c v
+  sorry
 ```
 
 ### 6.

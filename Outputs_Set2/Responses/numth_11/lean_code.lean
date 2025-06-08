@@ -1,7 +1,9 @@
 import Mathlib
 
-def dvd (x y : ℤ) : Prop :=
-  ∃ k : ℤ, y = x * k
-abbrev Int.dvd_of_dvd_of_dvd_trans.prop : Prop :=
+def Int.dvd : ℤ → ℤ → Prop := fun x y => ∃ k : ℤ, y = x * k
+abbrev dvd_two_of_dvd_four.prop : Prop :=
   ∀ (n : ℤ), 4 ∣ n → 2 ∣ n
-theorem Int.dvd_of_dvd_of_dvd_trans : ∀ (n : ℤ), 4 ∣ n → 2 ∣ n := by
+theorem dvd_two_of_dvd_four : ∀ (n : ℤ), 4 ∣ n → 2 ∣ n :=
+  by
+  intro a
+  (omega)

@@ -1,8 +1,8 @@
 {
-  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  def dvd (x y : \u2124) : Prop :=\n    \u2203 k : \u2124, y = x * k\n  abbrev Int.dvd_of_dvd_of_dvd_trans.prop : Prop :=\n    \u2200 (n : \u2124), 4 \u2223 n \u2192 2 \u2223 n\n  theorem Int.dvd_of_dvd_of_dvd_trans : \u2200 (n : \u2124), 4 \u2223 n \u2192 2 \u2223 n := by",
+  "lean_code": "  def Int.dvd : \u2124 \u2192 \u2124 \u2192 Prop := fun x y => \u2203 k : \u2124, y = x * k\n  abbrev dvd_two_of_dvd_four.prop : Prop :=\n    \u2200 (n : \u2124), 4 \u2223 n \u2192 2 \u2223 n\n  theorem dvd_two_of_dvd_four : \u2200 (n : \u2124), 4 \u2223 n \u2192 2 \u2223 n :=\n    by\n    intro a\n    (omega)",
   "json_structured": {
     "document": [
       {
@@ -134,7 +134,7 @@
   },
   "greedy": false,
   "declarations": [
-    "dvd",
-    "Int.dvd_of_dvd_of_dvd_trans"
+    "Int.dvd",
+    "dvd_two_of_dvd_four"
   ]
 }

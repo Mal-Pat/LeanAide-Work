@@ -1,8 +1,8 @@
 {
-  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  def dvd (x y : \u2124) : Prop :=\n    \u2203 k : \u2124, y = x * k\n  abbrev IntEndsInZeroOrFive_iff_DivisibleByFive.prop : Prop :=\n    \u2200 (N : \u2124), N % 10 = 0 \u2228 N % 10 = 5 \u2194 5 \u2223 N\n  theorem IntEndsInZeroOrFive_iff_DivisibleByFive : \u2200 (N : \u2124), N % 10 = 0 \u2228 N % 10 = 5 \u2194 5 \u2223 N :=\n    by\n    simp_all only [EuclideanDomain.mod_eq_zero]\n    apply Iff.intro\n    \u00b7 intro a\n      cases a with\n      | inl h => (omega)\n      | inr h_1 => (omega)\n    \u00b7 intro a\n      (omega)\n    have : \u2200 (N : \u2124), N % 10 = 0 \u2228 N % 10 = 5 \u2194 5 \u2223 N :=\n      by\n      simp_all only [EuclideanDomain.mod_eq_zero]\n      apply Iff.intro\n      \u00b7 intro a\n        cases a with\n        | inl h => (omega)\n        | inr h_1 => (omega)\n      \u00b7 intro a\n        (omega)\n    simp_all only [EuclideanDomain.mod_eq_zero]\n    apply Iff.intro\n    \u00b7 intro a\n      cases a with\n      | inl h => (omega)\n      | inr h_1 => (omega)\n    \u00b7 intro a\n      (omega)\n    simp_all only [EuclideanDomain.mod_eq_zero]\n    apply Iff.intro\n    \u00b7 intro a\n      cases a with\n      | inl h => (omega)\n      | inr h_1 => (omega)\n    \u00b7 intro a\n      (omega)",
+  "lean_code": "  def Int.dvd : \u2124 \u2192 \u2124 \u2192 Prop := fun x y => \u2203 k : \u2124, y = x * k\n  abbrev Int.EndsInZeroOrFive_iff_DivisibleByFive.prop : Prop :=\n    \u2200 (N : \u2124), N % 10 = 0 \u2228 N % 10 = 5 \u2194 5 \u2223 N\n  theorem Int.EndsInZeroOrFive_iff_DivisibleByFive : \u2200 (N : \u2124), N % 10 = 0 \u2228 N % 10 = 5 \u2194 5 \u2223 N :=\n    by\n    simp_all only [EuclideanDomain.mod_eq_zero]\n    apply Iff.intro\n    \u00b7 intro a\n      cases a with\n      | inl h => (omega)\n      | inr h_1 => (omega)\n    \u00b7 intro a\n      (omega)\n    have : \u2200 {N : \u2124}, (\u2203 (k : \u2124), N = 5 * k) \u2194 N % 10 = 0 \u2228 N % 10 = 5 :=\n      by\n      simp_all only [EuclideanDomain.mod_eq_zero]\n      apply Iff.intro\n      \u00b7 intro a\n        obtain \u27e8w, h\u27e9 := a\n        subst h\n        sorry\n      \u00b7 intro a\n        cases a with\n        | inl h => sorry\n        | inr h_1 => sorry\n    simp_all only [EuclideanDomain.mod_eq_zero]\n    apply Iff.intro\n    \u00b7 intro a\n      cases a with\n      | inl h => (omega)\n      | inr h_1 => (omega)\n    \u00b7 intro a\n      (omega)\n    simp_all only [EuclideanDomain.mod_eq_zero]\n    apply Iff.intro\n    \u00b7 intro a\n      cases a with\n      | inl h => (omega)\n      | inr h_1 => (omega)\n    \u00b7 intro a\n      (omega)",
   "json_structured": {
     "document": [
       {
@@ -213,7 +213,7 @@
   },
   "greedy": false,
   "declarations": [
-    "dvd",
-    "IntEndsInZeroOrFive_iff_DivisibleByFive"
+    "Int.dvd",
+    "Int.EndsInZeroOrFive_iff_DivisibleByFive"
   ]
 }

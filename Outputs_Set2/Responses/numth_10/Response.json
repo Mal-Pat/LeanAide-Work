@@ -1,8 +1,8 @@
 {
-  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v u_1\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  def dvd (x y : \u2124) : Prop :=\n    \u2203 k : \u2124, y = x * k\n  abbrev Int.dvd_abs_of_dvd_and_abs_le.prop : Prop :=\n    \u2200 {a b : \u2124}, a \u2223 b \u2192 b \u2260 0 \u2192 Int.natAbs a \u2264 Int.natAbs b\n  theorem Int.dvd_abs_of_dvd_and_abs_le : \u2200 {a b : \u2124}, a \u2223 b \u2192 b \u2260 0 \u2192 Int.natAbs a \u2264 Int.natAbs b := by",
+  "lean_code": "  def Int.dvd : \u2124 \u2192 \u2124 \u2192 Prop := fun x y => \u2203 k : \u2124, y = x * k\n  abbrev Int.dvd_abs_le_self.prop : Prop :=\n    \u2200 {a b : \u2124}, a \u2223 b \u2192 b \u2260 0 \u2192 |a| \u2264 |b|\n  theorem Int.dvd_abs_le_self : \u2200 {a b : \u2124}, a \u2223 b \u2192 b \u2260 0 \u2192 |a| \u2264 |b| :=\n    by\n    intro b a_1 a_2\n    simp_all only [ne_eq]\n    sorry",
   "json_structured": {
     "document": [
       {
@@ -207,7 +207,7 @@
   },
   "greedy": false,
   "declarations": [
-    "dvd",
-    "Int.dvd_abs_of_dvd_and_abs_le"
+    "Int.dvd",
+    "Int.dvd_abs_le_self"
   ]
 }

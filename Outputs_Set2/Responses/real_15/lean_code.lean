@@ -1,39 +1,42 @@
 import Mathlib
 
-def RealSeqConvergesTo (x : ℕ → ℝ) (L : ℝ) : Prop :=
+def SeqConvergesTo (x : ℕ → ℝ) (L : ℝ) : Prop :=
   ∀ ε > 0, ∃ N : ℕ, ∀ n > N, |x n - L| < ε
-abbrev tendsto_inv_nat_atTop_zero.prop : Prop :=
-  Filter.Tendsto (fun (n : ℝ) ↦ 1 / n) Filter.atTop (nhds 0)
-theorem tendsto_inv_nat_atTop_zero : Filter.Tendsto (fun (n : ℝ) ↦ 1 / n) Filter.atTop (nhds 0) :=
+abbrev seq_tendsto_inv_nat_at_top_zero.prop : Prop :=
+  Filter.Tendsto (fun (n : ℕ) ↦ 1 / n) Filter.atTop (nhds 0)
+theorem seq_tendsto_inv_nat_at_top_zero : Filter.Tendsto (fun (n : ℕ) ↦ 1 / n) Filter.atTop (nhds 0) :=
   by
   have assert_1033752049868776400 : ∀ ε > 0, ∃ (N : ℕ), ∀ n > N, |1 / (↑n : ℝ) - 0| < ε :=
     by
     intro a
     simp_all only [gt_iff_lt, tsub_zero]
     sorry
-  have assert_3381365138150865978 : Filter.Tendsto (fun (n : ℝ) ↦ 1 / n) Filter.atTop (nhds 0) :=
+  have assert_1609527175082985655 : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), ∀ n > N, |1 / (↑n : ℝ) - 0| < ε :=
     by
-    simp_all only [gt_iff_lt, tsub_zero, nhds_discrete, Filter.pure_zero, Filter.tendsto_zero, Nat.div_eq_zero_iff,
-      Filter.eventually_atTop, ge_iff_le]
+    intro ε a
+    simp_all only [gt_iff_lt, tsub_zero, one_div, sub_zero]
     sorry
   have :=
     "Error: codegen: no valid function found for key calculation in JSON object {\"calculation_sequence\": [\"$|a_n - 0| = |1/n - 0|$\", \"$= |1/n|$\"]}; tried: [LeanAide.calculationCode: codegen: no 'step' found in 'calculation_step']"
-  have assert_3282047461733563563 : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), ∀ n ≥ N, |1 / (↑n : ℝ)| < ε := by sorry
-  have assert_4150863593057638508 : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), ∀ n > N, 1 / (↑n : ℝ) < ε := by sorry
-  have assert_1443040261429662619 : ∀ {ε : ℝ}, 0 < ε → ∀ (n : ℕ), 1 / (↑n : ℝ) < ε ↔ (↑n : ℝ) > 1 / ε := by sorry
-  have assert_15563012198674986173 : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), (↑N : ℝ) > 1 / ε := by sorry
-  have assert_13021502185241374172 :
-    ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), 1 / ε < (↑N : ℝ) ∧ ∀ (n : ℕ), N < n → |1 / (↑n : ℝ)| < ε := by sorry
-  have assert_5359807480519508481 : ∀ (ε : ℝ) (N n : ℕ), 0 < ε → (↑N : ℝ) > 1 / ε → n > N → (↑n : ℝ) > 1 / ε := by
-    sorry
-  have assert_2409372146544416505 : ∀ (n : ℕ) {ε : ℝ}, 0 < ε → (↑n : ℝ) > 1 / ε → 1 / (↑n : ℝ) < ε := by sorry
-  have assert_1033752049868776400 : ∀ ε > 0, ∃ (N : ℕ), ∀ n > N, |1 / (↑n : ℝ) - 0| < ε := by sorry
-  have : ∀ ε > 0, ∃ (N : ℕ), ∀ n > N, |1 / (↑n : ℝ) - 0| < ε :=
+  have assert_11464917857224423215 : ∀ (ε : ℝ), 0 < ε → ∀ (n : ℕ), 0 < n → |1 / (↑n : ℝ)| = 1 / (↑n : ℝ) :=
     by
-    intro ε a_1
-    simp_all only [gt_iff_lt, tsub_zero, nhds_discrete, Filter.pure_zero, Filter.tendsto_zero, Nat.div_eq_zero_iff,
-      Filter.eventually_atTop, ge_iff_le, one_div, implies_true]
+    intro ε a_1 n a_2
+    simp_all only [gt_iff_lt, tsub_zero, one_div, sub_zero]
     sorry
+  have assert_4150863593057638508 : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), ∀ n > N, 1 / (↑n : ℝ) < ε := by sorry
+  have assert_12566281383456230651 : ∀ {ε : ℝ}, 0 < ε → ∃ (N : ℕ), ∀ n > N, 1 / (↑n : ℝ) < ε := by sorry
+  have assert_15563012198674986173 : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), (↑N : ℝ) > 1 / ε := by sorry
+  have assert_17297260474062196786 : ∀ {ε : ℝ}, 0 < ε → ∃ (N : ℕ), (∀ n > N, 1 / (↑n : ℝ) < ε) ∧ (↑N : ℝ) > 1 / ε :=
+    by sorry
+  have assert_6727042738669748455 : ∀ {ε : ℝ} {N n : ℕ}, 0 < ε → (↑N : ℝ) > 1 / ε → n > N → (↑n : ℝ) > 1 / ε :=
+    by
+    intro ε N n a_1 a_2 a_3
+    simp_all only [gt_iff_lt, tsub_zero, one_div, sub_zero, implies_true]
+    sorry
+  have assert_8224523826075611561 : ∀ ε > 0, ∃ (N : ℕ), ∀ n > N, 1 / (↑n : ℝ) < ε := by sorry
+  have assert_11201057842891466511 :
+    ∀ {ε : ℝ}, ε > 0 → ∃ (N : ℕ), (↑N : ℝ) > 1 / ε ∧ ∀ n > N, |1 / (↑n : ℝ) - 0| < ε := by sorry
+  have : ∀ (ε : ℝ), 0 < ε → ∃ (N : ℕ), ∀ n > N, |1 / (↑n : ℝ) - 0| < ε := by sorry
   intro a
   simp_all only [nhds_discrete, Filter.pure_zero, Filter.mem_zero, Filter.mem_map, Filter.mem_atTop_sets, ge_iff_le,
     Set.mem_preimage]

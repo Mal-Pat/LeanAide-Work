@@ -1,0 +1,227 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  example :=\n    \"Error: codegen: no valid function found for key section in JSON object {\\\"level\\\": 1,\\n \\\"label\\\": \\\"sec:introduction\\\",\\n \\\"header\\\": \\\"Introduction\\\",\\n \\\"content\\\":\\n [{\\\"type\\\": \\\"Paragraph\\\",\\n   \\\"text\\\":\\n   \\\"This document provides a detailed proof for a fundamental property of divisibility in the set of integers, specifically its transitivity. This property is crucial in number theory and forms the basis for many other theorems involving divisors and multiples.\\\"}]}; tried: [LeanAide.sectionCode: codegen: no commands generated from [{\\\"type\\\": \\\"Paragraph\\\",\\n \\\"text\\\":\\n \\\"This document provides a detailed proof for a fundamental property of divisibility in the set of integers, specifically its transitivity. This property is crucial in number theory and forms the basis for many other theorems involving divisors and multiples.\\\"}]]\"\n  def divides (a b : \u2124) : Prop :=\n    \u2203 k : \u2124, b = a * k\n  theorem Int.dvd_trans : \u2200 {x y z : \u2124}, x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z :=\n    by\n    have assert_2530792332313617866 : \u2200 (x y z : \u2124), x \u2223 y \u2192 y \u2223 z \u2192 \u2203 (k : \u2124), y = k * x :=\n      by\n      intro x y z a a_1\n      sorry\n    have assert_11880634944802400501 : \u2200 (x y z : \u2124), x \u2223 y \u2192 y \u2223 z \u2192 \u2203 (m : \u2124), z = m * y :=\n      by\n      intro x y z a a_1\n      apply assert_2530792332313617866\n      \u00b7 simp_all only\n      \u00b7 rfl\n    have assert_4674201649856257069 : \u2200 (x y z : \u2124), x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z :=\n      by\n      intro x y z a a_1\n      sorry\n    have assert_4674201649856257069 : \u2200 (x y z : \u2124), x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z :=\n      by\n      intro x y z a a_1\n      apply assert_4674201649856257069\n      on_goal 2 => {exact a_1\n      }\n      \u00b7 simp_all only\n    have assert_8917376649779604667 :\n      \u2200 (x y z : \u2124), x \u2223 y \u2192 y \u2223 z \u2192 \u2203 (n : \u2124) (m : \u2124) (k : \u2124), x = m \u2227 y = m * n \u2227 z = y * k \u2227 n = m * k := by sorry\n    have assert_85151520075114466 : \u2200 {x y z : \u2124}, x \u2223 y \u2192 y \u2223 z \u2192 \u2203 (n : \u2124), z = n * x := by sorry\n    have : \u2200 {x y z : \u2124}, x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z := by sorry\n    sorry\n  example :=\n    \"Error: codegen: no valid function found for key section in JSON object {\\\"level\\\": 1,\\n \\\"label\\\": \\\"sec:conclusion\\\",\\n \\\"header\\\": \\\"Conclusion\\\",\\n \\\"content\\\":\\n [{\\\"type\\\": \\\"Paragraph\\\",\\n   \\\"text\\\":\\n   \\\"The proof demonstrates that divisibility is a transitive relation on the set of integers, a fundamental property extensively used in number theory and abstract algebra.\\\"}]}; tried: [LeanAide.sectionCode: codegen: no commands generated from [{\\\"type\\\": \\\"Paragraph\\\",\\n \\\"text\\\":\\n \\\"The proof demonstrates that divisibility is a transitive relation on the set of integers, a fundamental property extensively used in number theory and abstract algebra.\\\"}]]\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Title",
+        "title": "Proof of the Transitivity of Divisibility"
+      },
+      {
+        "type": "Metadata",
+        "publication_date": "2023-10-27",
+        "msc_codes": [
+          "11A05"
+        ],
+        "keywords": [
+          "divisibility",
+          "integers",
+          "transitivity",
+          "number theory",
+          "proof"
+        ],
+        "authors": [
+          {
+            "name": "AI Assistant"
+          }
+        ]
+      },
+      {
+        "type": "Abstract",
+        "abstract": "This document presents a formal proof for the property of transitivity of divisibility among integers. It demonstrates that if an integer x divides an integer y, and y in turn divides an integer z, then it necessarily follows that x divides z. The proof relies on the fundamental definition of divisibility and basic properties of integer multiplication."
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:introduction",
+        "header": "Introduction",
+        "content": [
+          {
+            "type": "Paragraph",
+            "text": "This document provides a detailed proof for a fundamental property of divisibility in the set of integers, specifically its transitivity. This property is crucial in number theory and forms the basis for many other theorems involving divisors and multiples."
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:definitions",
+        "header": "Definitions",
+        "content": [
+          {
+            "type": "Definition",
+            "label": "def:divides",
+            "header": "Definition",
+            "definition": "An integer 'a' divides an integer 'b' (denoted as a | b) if there exists an integer 'k' such that b = ak. In this context, 'a' is called a divisor of 'b', and 'b' is a multiple of 'a'."
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:theorem_and_proof",
+        "header": "Theorem and Proof",
+        "content": [
+          {
+            "type": "Theorem",
+            "proof": {
+              "type": "Proof",
+              "proof_steps": [
+                {
+                  "type": "assume_statement",
+                  "assumption": "Let x, y, and z be integers as given in the theorem statement."
+                },
+                {
+                  "type": "assume_statement",
+                  "label": "hyp:x_div_y",
+                  "assumption": "Assume x divides y."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:divides",
+                      "statement": "Definition of Divisibility"
+                    }
+                  ],
+                  "label": "eq:y_kx",
+                  "claim": "By the definition of divisibility (Definition def:divides), there exists an integer k such that y = kx."
+                },
+                {
+                  "type": "assume_statement",
+                  "label": "hyp:y_div_z",
+                  "assumption": "Assume y divides z."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:divides",
+                      "statement": "Definition of Divisibility"
+                    }
+                  ],
+                  "label": "eq:z_my",
+                  "claim": "By the definition of divisibility (Definition def:divides), there exists an integer m such that z = my."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "eq:y_kx",
+                      "statement": "Equation y = kx"
+                    },
+                    {
+                      "target_identifier": "eq:z_my",
+                      "statement": "Equation z = my"
+                    }
+                  ],
+                  "claim": "Substitute the expression for y from equation eq:y_kx into equation eq:z_my.",
+                  "calculation": {
+                    "calculation_sequence": [
+                      "z = my",
+                      "z = m(kx)"
+                    ]
+                  }
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "Associativity of multiplication for integers"
+                    }
+                  ],
+                  "label": "eq:z_mkx",
+                  "claim": "By the associativity of multiplication for integers, we can rearrange the terms.",
+                  "calculation": {
+                    "calculation_sequence": [
+                      "z = m(kx)",
+                      "z = (mk)x"
+                    ]
+                  }
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "n",
+                  "value": "mk",
+                  "type": "let_statement",
+                  "properties": "the product of integers m and k"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "The set of integers is closed under multiplication."
+                    }
+                  ],
+                  "claim": "Since m and k are both integers, their product n = mk is also an integer."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "eq:z_mkx",
+                      "statement": "Equation z = (mk)x"
+                    },
+                    {
+                      "statement": "Definition of n"
+                    }
+                  ],
+                  "claim": "Therefore, we have the expression z = nx where n is an integer."
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "By the definition of divisibility (Definition def:divides), since z can be written as an integer (n) multiplied by x, it follows that x divides z."
+                }
+              ],
+              "claim_label": "thm:transitive_divisibility"
+            },
+            "label": "thm:transitive_divisibility",
+            "hypothesis": [
+              {
+                "type": "assume_statement",
+                "assumption": "x is an integer."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "y is an integer."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "z is an integer."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "x divides y."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "y divides z."
+              }
+            ],
+            "header": "Theorem",
+            "claim": "If an integer x divides an integer y, and y divides an integer z, then x divides z."
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:conclusion",
+        "header": "Conclusion",
+        "content": [
+          {
+            "type": "Paragraph",
+            "text": "The proof demonstrates that divisibility is a transitive relation on the set of integers, a fundamental property extensively used in number theory and abstract algebra."
+          }
+        ]
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "divides",
+    "Int.dvd_trans"
+  ]
+}

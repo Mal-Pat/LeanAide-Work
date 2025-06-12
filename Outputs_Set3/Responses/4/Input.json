@@ -1,0 +1,133 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof that 11 is a Prime Number"
+    },
+    {
+      "type": "Section",
+      "label": "sec:preliminaries",
+      "header": "Preliminaries",
+      "level": 1,
+      "content": [
+        {
+          "type": "Definition",
+          "label": "def:prime_number",
+          "header": "Definition",
+          "definition": "A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself."
+        }
+      ]
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:11_is_prime",
+      "header": "Theorem",
+      "claim": "11 is a prime number.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:11_is_prime",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "value": "11",
+                "variable_type": "natural number"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The number 11 is a natural number and 11 is greater than 1.",
+                "proof_method": "direct observation"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "To prove that 11 is a prime number, we must demonstrate that its only positive divisors are 1 and 11.",
+                "results_used": [
+                  {
+                    "statement": "Definition of a prime number",
+                    "target_identifier": "def:prime_number"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "label": "step:check_range",
+                "claim": "To find all positive integer divisors of 11, we only need to check integers `d` such that `1 < d ≤ √11`.",
+                "proof_method": "property of divisors",
+                "calculation": {
+                  "inline_calculation": "√11 ≈ 3.317"
+                }
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Based on the range identified in step (step:check_range), the only positive integers `d` to check are 2 and 3."
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "label": "sec:check_divisors",
+            "header": "Checking Potential Divisors",
+            "level": 2,
+            "content": [
+              {
+                "type": "LogicalStepSequence",
+                "items": [
+                  {
+                    "type": "Remark",
+                    "label": "rem:check_d_2",
+                    "header": "Case 1: Divisibility by 2",
+                    "remark": "We check if 2 is a divisor of 11."
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "When 11 is divided by 2, the remainder is 1.",
+                    "calculation": {
+                      "inline_calculation": "11 ÷ 2 = 5 with a remainder of 1"
+                    }
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "Since the remainder is not 0, 2 is not a divisor of 11."
+                  },
+                  {
+                    "type": "Remark",
+                    "label": "rem:check_d_3",
+                    "header": "Case 2: Divisibility by 3",
+                    "remark": "We check if 3 is a divisor of 11."
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "When 11 is divided by 3, the remainder is 2.",
+                    "calculation": {
+                      "inline_calculation": "11 ÷ 3 = 3 with a remainder of 2"
+                    }
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "Since the remainder is not 0, 3 is not a divisor of 11."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "We have checked all possible integer divisors `d` such that `1 < d ≤ √11` (i.e., 2 and 3) and found that none of them divide 11."
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Therefore, based on the definition of a prime number (def:prime_number), since 11 is a natural number greater than 1 and its only positive divisors are 1 and itself, 11 is a prime number."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

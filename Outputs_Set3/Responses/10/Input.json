@@ -1,0 +1,184 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof of the Least Common Multiple of 6 and 9"
+    },
+    {
+      "type": "Metadata",
+      "authors": [
+        {
+          "name": "AI Assistant"
+        }
+      ],
+      "keywords": [
+        "LCM",
+        "Least Common Multiple",
+        "Multiples",
+        "Number Theory",
+        "Proof"
+      ],
+      "publication_date": "2023-10-27"
+    },
+    {
+      "type": "Abstract",
+      "abstract": "This document provides a step-by-step proof demonstrating that the Least Common Multiple (LCM) of the integers 6 and 9 is 18, utilizing the fundamental definition of multiples and common multiples."
+    },
+    {
+      "type": "Section",
+      "label": "sec:introduction",
+      "level": 1,
+      "header": "Introduction",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "The concept of the Least Common Multiple (LCM) is a fundamental idea in elementary number theory. It is widely used in various mathematical contexts, such as adding or subtracting fractions with different denominators. This document aims to rigorously prove the specific claim that the LCM of 6 and 9 is 18, by adhering to the basic definitions and principles of mathematics."
+        }
+      ]
+    },
+    {
+      "type": "Definition",
+      "label": "def:multiple",
+      "header": "Definition",
+      "definition": "A multiple of an integer 'n' is any integer that can be obtained by multiplying 'n' by another integer. For positive integers, multiples are n, 2n, 3n, 4n, and so on."
+    },
+    {
+      "type": "Definition",
+      "label": "def:common_multiple",
+      "header": "Definition",
+      "definition": "A common multiple of two or more integers is an integer that is a multiple of each of them."
+    },
+    {
+      "type": "Definition",
+      "label": "def:lcm",
+      "header": "Definition",
+      "definition": "The Least Common Multiple (LCM) of two or more non-zero integers is the smallest positive common multiple of those integers."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:lcm_6_9",
+      "header": "Claim",
+      "claim": "The Least Common Multiple (LCM) of 6 and 9 is 18.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:lcm_6_9",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "We need to find the multiples of 6.",
+                "proof_method": "Based on definition of multiples.",
+                "label": "step:list_multiples_6"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The positive multiples of 6 are 6, 12, 18, 24, 30, 36, 42, 48, 54, ...",
+                "proof_method": "By repeatedly adding 6 to the previous multiple, starting from 6 itself. This is derived from Definition \\ref{def:multiple}.",
+                "label": "assert:multiples_of_6",
+                "internal_references": [
+                  {
+                    "target_identifier": "def:multiple"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Next, we need to find the multiples of 9.",
+                "proof_method": "Based on definition of multiples.",
+                "label": "step:list_multiples_9"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The positive multiples of 9 are 9, 18, 27, 36, 45, 54, 63, ...",
+                "proof_method": "By repeatedly adding 9 to the previous multiple, starting from 9 itself. This is derived from Definition \\ref{def:multiple}.",
+                "label": "assert:multiples_of_9",
+                "internal_references": [
+                  {
+                    "target_identifier": "def:multiple"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Now, we identify the common multiples from the lists of multiples of 6 and 9.",
+                "proof_method": "Based on definition of common multiples.",
+                "label": "step:find_common_multiples"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "By comparing the list of multiples of 6 (6, 12, 18, 24, 30, 36, 42, 48, 54, ...) and the list of multiples of 9 (9, 18, 27, 36, 45, 54, 63, ...), the common multiples are those numbers that appear in both lists.",
+                "results_used": [
+                  {
+                    "statement": "List of multiples of 6.",
+                    "target_identifier": "assert:multiples_of_6"
+                  },
+                  {
+                    "statement": "List of multiples of 9.",
+                    "target_identifier": "assert:multiples_of_9"
+                  },
+                  {
+                    "statement": "Definition of common multiple.",
+                    "target_identifier": "def:common_multiple"
+                  }
+                ],
+                "label": "assert:common_multiples"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The common positive multiples of 6 and 9 are 18, 36, 54, ...",
+                "label": "assert:common_multiples_list"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Finally, we determine the Least Common Multiple (LCM) by selecting the smallest positive integer from the list of common multiples.",
+                "proof_method": "This follows directly from Definition \\ref{def:lcm}.",
+                "label": "step:find_lcm"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "From the list of common positive multiples (18, 36, 54, ...), the smallest positive integer is 18.",
+                "results_used": [
+                  {
+                    "statement": "List of common multiples of 6 and 9.",
+                    "target_identifier": "assert:common_multiples_list"
+                  },
+                  {
+                    "statement": "Definition of LCM.",
+                    "target_identifier": "def:lcm"
+                  }
+                ],
+                "label": "assert:lcm_value"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Therefore, the Least Common Multiple (LCM) of 6 and 9 is 18.",
+                "internal_references": [
+                  {
+                    "target_identifier": "assert:lcm_value"
+                  },
+                  {
+                    "target_identifier": "def:lcm"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Section",
+      "label": "sec:conclusion",
+      "level": 1,
+      "header": "Conclusion",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "By systematically listing the multiples of 6 and 9, identifying their common multiples, and then selecting the smallest positive value among them, we have rigorously demonstrated that the LCM of 6 and 9 is indeed 18, in accordance with the fundamental definitions of multiples, common multiples, and the Least Common Multiple."
+        }
+      ]
+    }
+  ]
+}

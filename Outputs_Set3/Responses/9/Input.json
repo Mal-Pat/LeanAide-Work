@@ -1,0 +1,81 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof of Remainder Property for Numbers of Form (3n + 2)"
+    },
+    {
+      "type": "Metadata",
+      "authors": [
+        {
+          "name": "AI Assistant"
+        }
+      ],
+      "keywords": [
+        "number theory",
+        "division algorithm",
+        "remainder",
+        "proof"
+      ],
+      "publication_date": "2023-10-27"
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:remainder_property",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "integer"
+        }
+      ],
+      "claim": "All numbers of the form (3n + 2) leave remainder 2 when divided by 3.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:remainder_property",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "x",
+                "value": "3n + 2",
+                "variable_type": "integer",
+                "properties": "a number of the specified form"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The expression x = 3n + 2 directly fits the form of the Division Algorithm where the divisor is 3.",
+                "results_used": [
+                  {
+                    "statement": "The Division Algorithm states that for any integer 'a' and positive integer 'd', there exist unique integers 'q' (quotient) and 'r' (remainder) such that a = d*q + r, where 0 <= r < d."
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "In the expression x = 3n + 2, we can identify the divisor 'd' as 3, the quotient 'q' as 'n', and the remainder 'r' as 2.",
+                "internal_references": [
+                  {
+                    "target_identifier": "thm:remainder_property"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "The identified remainder, r = 2, satisfies the condition 0 <= r < d, since 0 <= 2 < 3.",
+                "proof_method": "Direct verification of inequality"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "By the uniqueness of the quotient and remainder in the Division Algorithm, any number 'x' of the form (3n + 2) must leave a remainder of 2 when divided by 3."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

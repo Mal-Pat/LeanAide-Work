@@ -1,0 +1,214 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof of the Divisibility of Sums Property"
+    },
+    {
+      "type": "Metadata",
+      "authors": [
+        {
+          "name": "AI Assistant"
+        }
+      ],
+      "keywords": [
+        "divisibility",
+        "integers",
+        "number theory",
+        "proof"
+      ],
+      "publication_date": "2023-10-27"
+    },
+    {
+      "type": "Section",
+      "label": "sec:intro",
+      "level": 1,
+      "header": "Introduction",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "This document presents a formal proof for a fundamental property in elementary number theory concerning divisibility. The property states that if an integer 'x' divides two other integers 'y' and 'z', then 'x' must also divide their sum, (y + z). This concept is a basic building block for more complex topics in number theory."
+        }
+      ]
+    },
+    {
+      "type": "Definition",
+      "label": "def:divisibility",
+      "header": "Definition",
+      "definition": "An integer 'a' is said to divide an integer 'b' (denoted as a | b) if there exists an integer 'k' such that b = a * k. Here, 'a' is the divisor, 'b' is the dividend, and 'k' is an integer quotient."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_sum",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "x",
+          "variable_type": "integer",
+          "properties": "x is a non-zero integer. If x=0, the statement becomes trivial or ill-defined depending on the definition of division by zero. For standard divisibility, x is typically non-zero."
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "y",
+          "variable_type": "integer"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "z",
+          "variable_type": "integer"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "x divides y",
+          "label": "hyp:x_div_y"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "x divides z",
+          "label": "hyp:x_div_z"
+        }
+      ],
+      "claim": "x divides (y + z)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_sum",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assume_statement",
+                "assumption": "Let x, y, and z be integers as stated in the hypothesis.",
+                "label": "proof:assume_given"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "We are given that x divides y.",
+                "label": "proof:x_div_y_given",
+                "internal_references": [
+                  {
+                    "target_identifier": "hyp:x_div_y"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "By the definition of divisibility, there exists an integer 'a' such that y = x * a.",
+                "label": "proof:y_as_xa",
+                "proof_method": "Applying definition of divisibility",
+                "results_used": [
+                  {
+                    "statement": "An integer 'a' is said to divide an integer 'b' if there exists an integer 'k' such that b = a * k.",
+                    "target_identifier": "def:divisibility"
+                  }
+                ],
+                "calculation": {
+                  "inline_calculation": "y = x * a"
+                }
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "a",
+                "variable_type": "integer",
+                "properties": "such that y = x * a"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "We are also given that x divides z.",
+                "label": "proof:x_div_z_given",
+                "internal_references": [
+                  {
+                    "target_identifier": "hyp:x_div_z"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Similarly, by the definition of divisibility, there exists an integer 'b' such that z = x * b.",
+                "label": "proof:z_as_xb",
+                "proof_method": "Applying definition of divisibility",
+                "results_used": [
+                  {
+                    "statement": "An integer 'a' is said to divide an integer 'b' if there exists an integer 'k' such that b = a * k.",
+                    "target_identifier": "def:divisibility"
+                  }
+                ],
+                "calculation": {
+                  "inline_calculation": "z = x * b"
+                }
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "b",
+                "variable_type": "integer",
+                "properties": "such that z = x * b"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Now, consider the sum (y + z).",
+                "label": "proof:consider_sum"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Substitute the expressions for y and z obtained from the definitions of divisibility.",
+                "label": "proof:substitute_expressions",
+                "proof_method": "Substitution",
+                "results_used": [
+                  {
+                    "statement": "y = x * a",
+                    "target_identifier": "proof:y_as_xa"
+                  },
+                  {
+                    "statement": "z = x * b",
+                    "target_identifier": "proof:z_as_xb"
+                  }
+                ],
+                "calculation": {
+                  "calculation_sequence": [
+                    "y + z = (x * a) + (x * b)"
+                  ]
+                }
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Apply the distributive property of multiplication over addition to factor out 'x'.",
+                "label": "proof:factor_x",
+                "proof_method": "Distributive Property",
+                "calculation": {
+                  "calculation_sequence": [
+                    "(x * a) + (x * b) = x * (a + b)"
+                  ]
+                }
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "a + b",
+                "variable_type": "integer",
+                "properties": "Since 'a' and 'b' are both integers, their sum (a + b) must also be an integer. This is due to the property of integers being closed under addition."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Therefore, we have shown that (y + z) can be written as x multiplied by an integer 'k'.",
+                "label": "proof:final_form",
+                "calculation": {
+                  "inline_calculation": "y + z = x * k"
+                }
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "By the definition of divisibility, since there exists an integer 'k' such that (y + z) = x * k, it is concluded that x divides (y + z).",
+                "internal_references": [
+                  {
+                    "target_identifier": "def:divisibility"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

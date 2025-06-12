@@ -1,0 +1,144 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def isPrime (n : \u2115) : Prop :=\n    n > 1 \u2227 \u2200 m : \u2115, m \u2223 n \u2192 m = 1 \u2228 m = n\n  theorem Nat.prime_of_nat_11 : Nat.Prime 11 :=\n    by\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"proof_method\\\": \\\"direct observation\\\",\\n \\\"claim\\\": \\\"The number 11 is a natural number and 11 is greater than 1.\\\"}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'The number 11 is a natural number and 11 is greater than 1.', full statement Let n be a natural number 11.\\nThe number 11 is a natural number and 11 is greater than 1.]\"\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"results_used\\\":\\n [{\\\"target_identifier\\\": \\\"def:prime_number\\\",\\n   \\\"statement\\\": \\\"Definition of a prime number\\\"}],\\n \\\"claim\\\":\\n \\\"To prove that 11 is a prime number, we must demonstrate that its only positive divisors are 1 and 11.\\\"}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'To prove that 11 is a prime number, we must demonstrate that its only positive divisors are 1 and 11.', full statement Let n be a natural number 11.\\nTo prove that 11 is a prime number, we must demonstrate that its only positive divisors are 1 and 11.]\"\n    have assert_15193803162681512906 : \u2200 {n : \u2115}, \u2203 (d : \u2115), 1 < d \u2227 d \u2264 Nat.sqrt n \u2227 n % d = 0 :=\n      by\n      intro n\n      sorry\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"claim\\\":\\n \\\"Based on the range identified in step (step:check_range), the only positive integers `d` to check are 2 and 3.\\\"}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'Based on the range identified in step (step:check_range), the only positive integers `d` to check are 2 and 3.', full statement Let n be a natural number 11.\\nBased on the range identified in step (step:check_range), the only positive integers `d` to check are 2 and 3.]\"\n    (sorry)\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"claim\\\": \\\"When 11 is divided by 2, the remainder is 1.\\\",\\n \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"11 \u00f7 2 = 5 with a remainder of 1\\\"}}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'When 11 is divided by 2, the remainder is 1.', full statement Let n be a natural number 11.\\nWhen 11 is divided by 2, the remainder is 1.]\"\n    have assert_17997084229855145392 : \u2200 {n : \u2115}, \u00ac2 \u2223 n :=\n      by\n      intro n\n      simp_all only [Nat.two_dvd_ne_zero]\n      sorry\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"claim\\\": \\\"When 11 is divided by 3, the remainder is 2.\\\",\\n \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"11 \u00f7 3 = 3 with a remainder of 2\\\"}}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'When 11 is divided by 3, the remainder is 2.', full statement Let n be a natural number 11.\\nWhen 11 is divided by 3, the remainder is 2.]\"\n    have assert_12992947285798601864 : \u2200 {n : \u2115}, Nat.mod n 3 \u2260 0 :=\n      by\n      intro n\n      simp_all only [ne_eq]\n      apply Aesop.BuiltinRules.not_intro\n      intro a\n      sorry\n    (sorry)\n    (sorry)\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"claim\\\":\\n \\\"We have checked all possible integer divisors `d` such that `1 < d \u2264 \u221a11` (i.e., 2 and 3) and found that none of them divide 11.\\\"}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'We have checked all possible integer divisors `d` such that `1 < d \u2264 \u221a11` (i.e., 2 and 3) and found that none of them divide 11.', full statement Let n be a natural number 11.\\nWe have checked all possible integer divisors `d` such that `1 < d \u2264 \u221a11` (i.e., 2 and 3) and found that none of them divide 11.]\"\n    have :=\n      \"Error: codegen: no valid function found for key conclude_statement in JSON object {\\\"claim\\\":\\n \\\"Therefore, based on the definition of a prime number (def:prime_number), since 11 is a natural number greater than 1 and its only positive divisors are 1 and itself, 11 is a prime number.\\\"}; tried: [LeanAide.concludeCode: codegen: no valid type found for assertion 'Therefore, based on the definition of a prime number (def:prime_number), since 11 is a natural number greater than 1 and its only positive divisors are 1 and itself, 11 is a prime number.', full statement Let n be a natural number 11.\\nTherefore, based on the definition of a prime number (def:prime_number), since 11 is a natural number greater than 1 and its only positive divisors are 1 and itself, 11 is a prime number.]\"\n    (sorry)\n    (sorry)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Title",
+        "title": "Proof that 11 is a Prime Number"
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:preliminaries",
+        "header": "Preliminaries",
+        "content": [
+          {
+            "type": "Definition",
+            "label": "def:prime_number",
+            "header": "Definition",
+            "definition": "A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself."
+          }
+        ]
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "natural number",
+                  "variable_name": "n",
+                  "value": "11",
+                  "type": "let_statement"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "direct observation",
+                  "claim": "The number 11 is a natural number and 11 is greater than 1."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:prime_number",
+                      "statement": "Definition of a prime number"
+                    }
+                  ],
+                  "claim": "To prove that 11 is a prime number, we must demonstrate that its only positive divisors are 1 and 11."
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "property of divisors",
+                  "label": "step:check_range",
+                  "claim": "To find all positive integer divisors of 11, we only need to check integers `d` such that `1 < d \u2264 \u221a11`.",
+                  "calculation": {
+                    "inline_calculation": "\u221a11 \u2248 3.317"
+                  }
+                },
+                {
+                  "type": "assert_statement",
+                  "claim": "Based on the range identified in step (step:check_range), the only positive integers `d` to check are 2 and 3."
+                }
+              ]
+            },
+            {
+              "type": "Section",
+              "level": 2,
+              "label": "sec:check_divisors",
+              "header": "Checking Potential Divisors",
+              "content": [
+                {
+                  "type": "LogicalStepSequence",
+                  "items": [
+                    {
+                      "type": "Remark",
+                      "remark": "We check if 2 is a divisor of 11.",
+                      "label": "rem:check_d_2",
+                      "header": "Case 1: Divisibility by 2"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "When 11 is divided by 2, the remainder is 1.",
+                      "calculation": {
+                        "inline_calculation": "11 \u00f7 2 = 5 with a remainder of 1"
+                      }
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "Since the remainder is not 0, 2 is not a divisor of 11."
+                    },
+                    {
+                      "type": "Remark",
+                      "remark": "We check if 3 is a divisor of 11.",
+                      "label": "rem:check_d_3",
+                      "header": "Case 2: Divisibility by 3"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "When 11 is divided by 3, the remainder is 2.",
+                      "calculation": {
+                        "inline_calculation": "11 \u00f7 3 = 3 with a remainder of 2"
+                      }
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "Since the remainder is not 0, 3 is not a divisor of 11."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "claim": "We have checked all possible integer divisors `d` such that `1 < d \u2264 \u221a11` (i.e., 2 and 3) and found that none of them divide 11."
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "Therefore, based on the definition of a prime number (def:prime_number), since 11 is a natural number greater than 1 and its only positive divisors are 1 and itself, 11 is a prime number."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:11_is_prime"
+        },
+        "label": "thm:11_is_prime",
+        "header": "Theorem",
+        "claim": "11 is a prime number."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "isPrime",
+    "Nat.prime_of_nat_11"
+  ]
+}

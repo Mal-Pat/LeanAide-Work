@@ -1,0 +1,216 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof of the Transitivity of Divisibility"
+    },
+    {
+      "type": "Metadata",
+      "authors": [
+        {
+          "name": "AI Assistant"
+        }
+      ],
+      "keywords": [
+        "divisibility",
+        "integers",
+        "transitivity",
+        "number theory",
+        "proof"
+      ],
+      "msc_codes": [
+        "11A05"
+      ],
+      "publication_date": "2023-10-27"
+    },
+    {
+      "type": "Abstract",
+      "abstract": "This document presents a formal proof for the property of transitivity of divisibility among integers. It demonstrates that if an integer x divides an integer y, and y in turn divides an integer z, then it necessarily follows that x divides z. The proof relies on the fundamental definition of divisibility and basic properties of integer multiplication."
+    },
+    {
+      "type": "Section",
+      "label": "sec:introduction",
+      "level": 1,
+      "header": "Introduction",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "This document provides a detailed proof for a fundamental property of divisibility in the set of integers, specifically its transitivity. This property is crucial in number theory and forms the basis for many other theorems involving divisors and multiples."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:definitions",
+      "level": 1,
+      "header": "Definitions",
+      "content": [
+        {
+          "type": "Definition",
+          "label": "def:divides",
+          "header": "Definition",
+          "definition": "An integer 'a' divides an integer 'b' (denoted as a | b) if there exists an integer 'k' such that b = ak. In this context, 'a' is called a divisor of 'b', and 'b' is a multiple of 'a'."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:theorem_and_proof",
+      "level": 1,
+      "header": "Theorem and Proof",
+      "content": [
+        {
+          "type": "Theorem",
+          "label": "thm:transitive_divisibility",
+          "header": "Theorem",
+          "claim": "If an integer x divides an integer y, and y divides an integer z, then x divides z.",
+          "hypothesis": [
+            {
+              "type": "assume_statement",
+              "assumption": "x is an integer."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "y is an integer."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "z is an integer."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "x divides y."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "y divides z."
+            }
+          ],
+          "proof": {
+            "type": "Proof",
+            "claim_label": "thm:transitive_divisibility",
+            "proof_steps": [
+              {
+                "type": "assume_statement",
+                "assumption": "Let x, y, and z be integers as given in the theorem statement."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "Assume x divides y.",
+                "label": "hyp:x_div_y"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "By the definition of divisibility (Definition def:divides), there exists an integer k such that y = kx.",
+                "results_used": [
+                  {
+                    "statement": "Definition of Divisibility",
+                    "target_identifier": "def:divides"
+                  }
+                ],
+                "label": "eq:y_kx"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "Assume y divides z.",
+                "label": "hyp:y_div_z"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "By the definition of divisibility (Definition def:divides), there exists an integer m such that z = my.",
+                "results_used": [
+                  {
+                    "statement": "Definition of Divisibility",
+                    "target_identifier": "def:divides"
+                  }
+                ],
+                "label": "eq:z_my"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Substitute the expression for y from equation eq:y_kx into equation eq:z_my.",
+                "results_used": [
+                  {
+                    "statement": "Equation y = kx",
+                    "target_identifier": "eq:y_kx"
+                  },
+                  {
+                    "statement": "Equation z = my",
+                    "target_identifier": "eq:z_my"
+                  }
+                ],
+                "calculation": {
+                  "calculation_sequence": [
+                    "z = my",
+                    "z = m(kx)"
+                  ]
+                }
+              },
+              {
+                "type": "assert_statement",
+                "claim": "By the associativity of multiplication for integers, we can rearrange the terms.",
+                "results_used": [
+                  {
+                    "statement": "Associativity of multiplication for integers"
+                  }
+                ],
+                "calculation": {
+                  "calculation_sequence": [
+                    "z = m(kx)",
+                    "z = (mk)x"
+                  ]
+                },
+                "label": "eq:z_mkx"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "variable_type": "integer",
+                "value": "mk",
+                "properties": "the product of integers m and k"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Since m and k are both integers, their product n = mk is also an integer.",
+                "results_used": [
+                  {
+                    "statement": "The set of integers is closed under multiplication."
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Therefore, we have the expression z = nx where n is an integer.",
+                "results_used": [
+                  {
+                    "statement": "Equation z = (mk)x",
+                    "target_identifier": "eq:z_mkx"
+                  },
+                  {
+                    "statement": "Definition of n"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "By the definition of divisibility (Definition def:divides), since z can be written as an integer (n) multiplied by x, it follows that x divides z."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "label": "sec:conclusion",
+      "level": 1,
+      "header": "Conclusion",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "The proof demonstrates that divisibility is a transitive relation on the set of integers, a fundamental property extensively used in number theory and abstract algebra."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  example :=\n    \"Error: codegen: no valid function found for key section in JSON object {\\\"level\\\": 1,\\n \\\"label\\\": \\\"sec:introduction\\\",\\n \\\"header\\\": \\\"Introduction\\\",\\n \\\"content\\\":\\n [{\\\"type\\\": \\\"Paragraph\\\",\\n   \\\"text\\\":\\n   \\\"The concept of prime numbers is fundamental in number theory. A key characteristic, often part of its definition, is that a prime number has only two positive divisors: 1 and itself. This document formalizes this property and provides a direct proof based on the foundational definitions.\\\"}]}; tried: [LeanAide.sectionCode: codegen: no commands generated from [{\\\"type\\\": \\\"Paragraph\\\",\\n \\\"text\\\":\\n \\\"The concept of prime numbers is fundamental in number theory. A key characteristic, often part of its definition, is that a prime number has only two positive divisors: 1 and itself. This document formalizes this property and provides a direct proof based on the foundational definitions.\\\"}]]\"\n  def isNaturalNumber (n : Int) : Prop :=\n    n > 0\n  def isDivisor (a b : \u2115) : Prop :=\n    \u2203 k : \u2115, b = a * k \u2227 a > 0\n  def isPrime (n : \u2115) : Prop :=\n    n > 1 \u2227 \u2200 m : \u2115, m \u2223 n \u2192 m = 1 \u2228 m = n\n  abbrev Prime.eq_one_or_self_of_dvd.prop : Prop :=\n    \u2200 (n : \u2115), Nat.Prime n \u2192 \u2200 (d : \u2115), d \u2223 n \u2192 d = 1 \u2228 d = n\n  theorem Prime.eq_one_or_self_of_dvd : \u2200 (n : \u2115), Nat.Prime n \u2192 \u2200 (d : \u2115), d \u2223 n \u2192 d = 1 \u2228 d = n :=\n    by\n    intro n a\n    have assert_15754612080904421908 : Nat.Prime n \u2192 Nat.Prime n :=\n      by\n      intro a_1\n      simp_all only\n    have assert_16955462882814995820 : Nat.Prime n \u2194 n > 1 \u2227 \u2200 (m : \u2115), m \u2223 n \u2192 m = 1 \u2228 m = n :=\n      by\n      simp_all only [imp_self, gt_iff_lt, true_iff]\n      apply And.intro\n      \u00b7 sorry\n      \u00b7 intro m a_1\n        sorry\n    have assert_13971263388815063838 : \u2200 {d : \u2115}, Nat.Prime n \u2192 d \u2223 n \u2192 0 < d \u2192 d = 1 \u2228 d = n :=\n      by\n      intro d a_1 a_2 a_3\n      simp_all only [gt_iff_lt, implies_true, and_self, imp_self]\n    have : \u2200 (d : \u2115), Nat.Prime n \u2192 d \u2223 n \u2192 0 < d \u2192 d = 1 \u2228 d = n :=\n      by\n      intro d a_1 a_2 a_3\n      simp_all only [gt_iff_lt, implies_true, and_self, imp_self]\n    intro d a_2\n    simp_all only [gt_iff_lt, implies_true, and_self, imp_self, iff_true]\n    intro d a_1\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Title",
+        "title": "Proof of the Divisibility Property of Prime Numbers"
+      },
+      {
+        "type": "Abstract",
+        "abstract": "This document provides a formal proof for the statement that if a number is prime, then it has no divisors other than 1 and itself. The proof relies directly on the fundamental definitions of natural numbers, divisors, and prime numbers, clarifying each step."
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:introduction",
+        "header": "Introduction",
+        "content": [
+          {
+            "type": "Paragraph",
+            "text": "The concept of prime numbers is fundamental in number theory. A key characteristic, often part of its definition, is that a prime number has only two positive divisors: 1 and itself. This document formalizes this property and provides a direct proof based on the foundational definitions."
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:definitions",
+        "header": "Definitions",
+        "content": [
+          {
+            "type": "Definition",
+            "label": "def:natural_number",
+            "header": "Definition",
+            "definition": "A natural number is a positive integer (i.e., an element of the set {1, 2, 3, ...})."
+          },
+          {
+            "type": "Definition",
+            "label": "def:divisor",
+            "header": "Definition",
+            "definition": "For any two natural numbers 'a' and 'b', 'a' is said to be a divisor of 'b' if there exists a natural number 'k' such that b = a * k. In this context, we consider only positive divisors."
+          },
+          {
+            "type": "Definition",
+            "label": "def:prime",
+            "header": "Definition",
+            "definition": "A prime number is a natural number greater than 1 that has exactly two distinct positive divisors: 1 and itself."
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:theorem_proof",
+        "header": "Theorem and Proof",
+        "content": [
+          {
+            "type": "Theorem",
+            "label": "thm:prime_divisors_property",
+            "hypothesis": [
+              {
+                "variable_type": "natural number",
+                "variable_name": "n",
+                "type": "let_statement"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "n is a prime number."
+              }
+            ],
+            "header": "Theorem",
+            "claim": "n has no positive divisors other than 1 and itself."
+          },
+          {
+            "type": "Proof",
+            "proof_steps": [
+              {
+                "type": "LogicalStepSequence",
+                "items": [
+                  {
+                    "type": "assert_statement",
+                    "internal_references": [
+                      {
+                        "target_identifier": "thm:prime_divisors_property"
+                      }
+                    ],
+                    "claim": "We begin by assuming that 'n' is a prime number, as stated in the theorem's hypothesis."
+                  },
+                  {
+                    "type": "assert_statement",
+                    "results_used": [
+                      {
+                        "target_identifier": "def:prime",
+                        "statement": "Definition of a prime number"
+                      }
+                    ],
+                    "label": "prime_definition_application",
+                    "claim": "According to the Definition of a prime number (Definition def:prime), a prime number 'n' is explicitly defined as a natural number greater than 1 that possesses exactly two distinct positive divisors: the number 1 and the number 'n' itself."
+                  },
+                  {
+                    "variable_type": "natural number",
+                    "variable_name": "d",
+                    "type": "let_statement",
+                    "properties": "d is an arbitrary positive divisor of n"
+                  },
+                  {
+                    "type": "assert_statement",
+                    "results_used": [
+                      {
+                        "target_identifier": "prime_definition_application",
+                        "statement": "The set of positive divisors of a prime number"
+                      }
+                    ],
+                    "claim": "Since 'd' is a positive divisor of 'n', and 'n' is a prime number, it must be that 'd' is one of the positive divisors enumerated in the definition of a prime number."
+                  },
+                  {
+                    "type": "conclude_statement",
+                    "claim": "Therefore, any positive divisor 'd' of 'n' must necessarily be either 1 or 'n'. This directly implies that a prime number has no positive divisors other than 1 and itself, thus proving the statement."
+                  }
+                ]
+              }
+            ],
+            "claim_label": "thm:prime_divisors_property"
+          }
+        ]
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "isNaturalNumber",
+    "isDivisor",
+    "isPrime",
+    "Prime.eq_one_or_self_of_dvd"
+  ]
+}

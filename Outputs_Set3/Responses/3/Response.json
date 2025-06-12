@@ -1,0 +1,467 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  example :=\n    \"Error: codegen: no valid function found for key definition in JSON object {\\\"label\\\": \\\"def:natural_numbers\\\",\\n \\\"header\\\": \\\"Definition\\\",\\n \\\"definition\\\":\\n \\\"The set of natural numbers, denoted \\\\\\\\(\\\\\\\\mathbb{N}\\\\\\\\), is defined by the following Peano axioms:\\\\n1.  \\\\\\\\(0 \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\) (Zero is a natural number).\\\\n2.  If \\\\\\\\(n \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\), then \\\\\\\\(S(n) \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\) (Every natural number has a successor).\\\\n3.  \\\\\\\\(0 \\\\\\\\ne S(n)\\\\\\\\) for any \\\\\\\\(n \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\) (Zero is not the successor of any natural number).\\\\n4.  If \\\\\\\\(S(m) = S(n)\\\\\\\\), then \\\\\\\\(m = n\\\\\\\\) for any \\\\\\\\(m, n \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\) (Distinct natural numbers have distinct successors).\\\\n5.  If \\\\\\\\(P\\\\\\\\) is a property such that \\\\\\\\(P(0)\\\\\\\\) is true, and for every \\\\\\\\(n \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\), if \\\\\\\\(P(n)\\\\\\\\) is true then \\\\\\\\(P(S(n))\\\\\\\\) is true, then \\\\\\\\(P(n)\\\\\\\\) is true for all \\\\\\\\(n \\\\\\\\in \\\\\\\\mathbb{N}\\\\\\\\) (Principle of Mathematical Induction).\\\"}; tried: [LeanAide.defCode: codegen: no definition translation found for The set of natural numbers, denoted \\\\(\\\\mathbb{N}\\\\), is defined by the following Peano axioms:\\n1.  \\\\(0 \\\\in \\\\mathbb{N}\\\\) (Zero is a natural number).\\n2.  If \\\\(n \\\\in \\\\mathbb{N}\\\\), then \\\\(S(n) \\\\in \\\\mathbb{N}\\\\) (Every natural number has a successor).\\n3.  \\\\(0 \\\\ne S(n)\\\\) for any \\\\(n \\\\in \\\\mathbb{N}\\\\) (Zero is not the successor of any natural number).\\n4.  If \\\\(S(m) = S(n)\\\\), then \\\\(m = n\\\\) for any \\\\(m, n \\\\in \\\\mathbb{N}\\\\) (Distinct natural numbers have distinct successors).\\n5.  If \\\\(P\\\\) is a property such that \\\\(P(0)\\\\) is true, and for every \\\\(n \\\\in \\\\mathbb{N}\\\\), if \\\\(P(n)\\\\) is true then \\\\(P(S(n))\\\\) is true, then \\\\(P(n)\\\\) is true for all \\\\(n \\\\in \\\\mathbb{N}\\\\) (Principle of Mathematical Induction).]\"\n  def nat_add : \u2115 \u2192 \u2115 \u2192 \u2115\n    | x, 0 => x\n    | x, Nat.succ y => Nat.succ (nat_add x y)\n  theorem Nat.zero_add : \u2200 (n : \u2115), 0 + n = n :=\n    by\n    induction discrTerm'\u271d with\n    |\n      Nat.zero =>\n      have assert_9740755363147417870 : \u2200 (P : \u2115 \u2192 Prop), (\u2200 (n : \u2115), P n \u2194 0 + n = n) \u2192 P 0 \u2192 0 + 0 = 0 :=\n        by\n        intro P a a_1\n        simp_all only [zero_add, iff_true, add_zero]\n      have assert_886399800988781428 : \u2200 (n : \u2115), 0 + n = n \u2192 0 + 0 = 0 :=\n        by\n        intro n a\n        simp_all only [zero_add, iff_true, add_zero, imp_self, implies_true]\n      have : \u2200 {n : \u2115}, 0 + n = n := by\n        intro n\n        simp_all only [zero_add, iff_true, add_zero, imp_self, implies_true]\n      intro n\n      simp_all only [iff_true, add_zero, imp_self, implies_true, zero_add]\n      intro n\n      simp_all only [zero_add]\n    | Nat.succ\n      ih =>\n      have assert_3472385097317162417 : \u2200 (P : \u2115 \u2192 Prop), (\u2200 (k : \u2115), P k \u2192 P (Nat.succ k)) \u2192 P 0 \u2192 \u2200 (n : \u2115), P n :=\n        by\n        intro P a a_1 n\n        simp_all only [Nat.succ_eq_add_one]\n        sorry\n      have assert_4625925164051469706 : \u2200 (n : \u2115), 0 + n = n :=\n        by\n        intro n\n        simp_all only [zero_add]\n      have assert_13383285563508978081 :\n        \u2200 (P : \u2115 \u2192 Prop), (\u2200 (k : \u2115), P k \u2192 0 + k = k) \u2192 \u2200 (k : \u2115), P k \u2192 0 + Nat.succ k = Nat.succ k :=\n        by\n        intro P a k a_1\n        simp_all only [zero_add, implies_true, Nat.succ_eq_add_one, Nat.add_left_cancel_iff]\n      have assert_6147908435025005311 : \u2200 {n : \u2115}, 0 + n = n \u2192 0 + Nat.succ n = Nat.succ n :=\n        by\n        intro n a\n        simp_all only [zero_add, Nat.succ_eq_add_one, Nat.add_left_cancel_iff]\n      have : \u2200 (P : \u2115 \u2192 Prop), P 0 \u2192 (\u2200 (k : \u2115), P k \u2192 P (Nat.succ k)) \u2192 \u2200 (n : \u2115), P n :=\n        by\n        intro P a a_1 n\n        simp_all only [Nat.succ_eq_add_one]\n        sorry\n      intro n\n      simp_all only [zero_add]\n      intro n\n      simp_all only [zero_add]\n    have : \u2200 (P : \u2115 \u2192 Prop), (\u2200 (n : \u2115), P n) \u2192 \u2200 (n : \u2115), 0 + n = n :=\n      by\n      intro P a n\n      simp_all only [zero_add]\n    intro n\n    simp_all only [zero_add]\n    intro n\n    simp_all only [zero_add]\n  theorem Nat.succ_add_eq_succ_add : \u2200 (n m : \u2115), Nat.succ n + m = Nat.succ (n + m) :=\n    by\n    induction discrTerm'\u271d with\n    |\n      Nat.zero =>\n      have assert_8863796517037447968 : \u2200 (S : \u2115 \u2192 \u2115) (n : \u2115), S n + 0 = S (n + 0) :=\n        by\n        intro S n\n        simp_all only [add_zero]\n      have assert_1916074682204462711 : \u2200 {S : \u2115 \u2192 \u2115} {n : \u2115}, (\u2200 (m : \u2115), S n + m = S (n + m)) \u2192 S n + 0 = S n :=\n        by\n        intro S n a\n        simp_all only [add_zero, implies_true]\n      have assert_16870727071907538068 : \u2200 (S : \u2115 \u2192 \u2115) (n : \u2115), (\u2200 (m : \u2115), S n + m = S (n + m)) \u2192 S (n + 0) = S n :=\n        by\n        intro S n a\n        simp_all only [add_zero, implies_true]\n      have assert_6748133981859076193 : \u2200 {S : \u2115 \u2192 \u2115} (n : \u2115), S n + 0 = S (n + 0) :=\n        by\n        intro S n\n        simp_all only [add_zero, zero_add, Nat.add_left_cancel_iff, implies_true]\n      have : \u2200 {n : \u2115} (S : \u2115 \u2192 \u2115), S n + 0 = S (n + 0) :=\n        by\n        intro n S\n        simp_all only [add_zero, zero_add, Nat.add_left_cancel_iff, implies_true]\n      intro n m\n      simp_all only [add_zero, zero_add, Nat.add_left_cancel_iff, implies_true, Nat.succ_eq_add_one]\n      (ring)\n      intro n m\n      simp_all only [Nat.succ_eq_add_one]\n      (ring)\n    | Nat.succ\n      ih =>\n      have assert_3880495832823990524 :\n        \u2200 {n : \u2115} {S : \u2115 \u2192 \u2115}, (\u2200 (k : \u2115), S n + k = S (n + k)) \u2192 \u2200 (k : \u2115), S n + S k = S (n + S k) :=\n        by\n        intro n S a k\n        simp_all only\n      have assert_7948104817246884695 : \u2200 {S : \u2115 \u2192 \u2115} {n k : \u2115}, S n + k = S (n + k) \u2192 S n + S k = S (S n + k) :=\n        by\n        intro S n k a\n        simp_all only\n        sorry\n      have assert_17674342940643981392 : \u2200 {S : \u2115 \u2192 \u2115} {n k : \u2115}, S n + k = S (n + k) \u2192 S (S n + k) = S (S (n + k)) :=\n        by\n        intro S n k a\n        simp_all only\n      have assert_15689768690435037993 :\n        \u2200 {n : \u2115} {S : \u2115 \u2192 \u2115}, (\u2200 (m : \u2115), S n + m = S (n + m)) \u2192 \u2200 (k : \u2115), S n + S k = S (S (n + k)) :=\n        by\n        intro n S a k\n        simp_all only\n        sorry\n      have assert_11539454536776199806 :\n        \u2200 {S : \u2115 \u2192 \u2115} (n : \u2115), (\u2200 (k : \u2115), S n + k = S (n + k)) \u2192 \u2200 (m : \u2115), S n + m = S (n + m) :=\n        by\n        intro S n a m\n        simp_all only\n      have assert_310095175955163657 :\n        \u2200 {n : \u2115} {S : \u2115 \u2192 \u2115}, (\u2200 (k : \u2115), S n + k = S (n + k)) \u2192 \u2200 (k : \u2115), S (n + S k) = S (S (n + k)) :=\n        by\n        intro n S a k\n        sorry\n      have assert_3769980467404486454 :\n        \u2200 {S : \u2115 \u2192 \u2115} {n : \u2115}, (\u2200 (k : \u2115), S n + k = S (n + k)) \u2192 \u2200 (k : \u2115), S n + S k = S (n + S k) :=\n        by\n        intro S n a k\n        simp_all only\n      have : \u2200 {S : \u2115 \u2192 \u2115} {n k : \u2115}, S n + k = S (n + k) \u2192 S n = S n :=\n        by\n        intro S n k a\n        simp_all only\n      intro n m\n      simp_all only [Nat.succ_eq_add_one]\n      (ring)\n      intro n m\n      simp_all only [Nat.succ_eq_add_one]\n      (ring)\n    have : \u2200 {S : \u2115 \u2192 \u2115} {n : \u2115} (m : \u2115), S n + m = S (n + m) :=\n      by\n      intro S n m\n      sorry\n    intro n m\n    simp_all only [Nat.succ_eq_add_one]\n    (ring)\n    intro n m\n    simp_all only [Nat.succ_eq_add_one]\n    (ring)\n  theorem Nat.add_comm : \u2200 (x y : \u2115), x + y = y + x :=\n    by\n    induction discrTerm'\u271d with\n    |\n      Nat.zero =>\n      have assert_15477683534439945152 : \u2200 (x : \u2115), x + 0 = 0 + x :=\n        by\n        intro x\n        simp_all only [add_zero, zero_add]\n      have assert_10802979297293076095 : \u2200 (x : \u2115), x + 0 = x :=\n        by\n        intro x\n        simp_all only [add_zero, zero_add, implies_true]\n      have assert_17288128459930883627 : \u2200 (x : \u2115), (\u2200 (y : \u2115), x + y = y + x) \u2192 0 + x = x :=\n        by\n        intro x a\n        simp_all only [zero_add, implies_true, add_zero]\n      have assert_4158209587652970930 : \u2200 (x : \u2115), (\u2200 (y : \u2115), x + y = y + x) \u2192 x + 0 = 0 + x :=\n        by\n        intro x a\n        simp_all only [zero_add, implies_true, add_zero]\n      have : \u2200 (x : \u2115) (P : \u2115 \u2192 Prop), (\u2200 (y : \u2115), P y \u2194 x + y = y + x) \u2192 P 0 :=\n        by\n        intro x P a\n        simp_all only [zero_add, implies_true, add_zero]\n      intro x y\n      simp_all only [zero_add, implies_true, add_zero]\n      (ring)\n      intro x y\n      (ring)\n    | Nat.succ\n      ih =>\n      have assert_6242679868532527791 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop), (\u2200 (k : \u2115), x + k = k + x) \u2192 \u2200 (k : \u2115), x + Nat.succ k = Nat.succ k + x :=\n        by\n        intro x P a k\n        simp_all only [Nat.succ_eq_add_one, Nat.add_left_cancel_iff]\n      have assert_10638223866323438356 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop),\n          (\u2200 (k : \u2115), P k \u2192 x + k = k + x) \u2192 \u2200 (k : \u2115), x + k = k + x \u2192 x + Nat.succ k = Nat.succ k + x :=\n        by\n        intro x P a k a_1\n        simp_all only [Nat.succ_eq_add_one]\n        (ring)\n      have assert_6039955535633164000 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop) (k : \u2115), x + k = k + x \u2192 x + Nat.succ k = Nat.succ (x + k) :=\n        by\n        intro x P k a\n        simp_all only [Nat.succ_eq_add_one]\n        (ring)\n      have assert_9319914109214558048 : \u2200 (x k : \u2115), x + k = k + x \u2192 x + Nat.succ k = Nat.succ k + x :=\n        by\n        intro x k a\n        simp_all only [Nat.succ_eq_add_one]\n        (ring)\n      have assert_10638223866323438356 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop),\n          (\u2200 (k : \u2115), P k \u2192 x + k = k + x) \u2192 \u2200 (k : \u2115), x + k = k + x \u2192 x + Nat.succ k = Nat.succ (k + x) :=\n        by\n        intro x P a k a_1\n        simp_all only [Nat.succ_eq_add_one]\n        (ring)\n      have assert_17872970541303819938 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop), (\u2200 (k : \u2115), P k \u2192 x + k = k + x) \u2192 \u2200 (y : \u2115), P y \u2192 x + y = y + x :=\n        by\n        intro x P a y a_1\n        simp_all only [Nat.add_left_cancel_iff]\n      have assert_11237225955882651054 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop), (\u2200 (k : \u2115), P k \u2192 x + k = k + x) \u2192 \u2200 (k : \u2115), x + Nat.succ k = Nat.succ (k + x) := by\n        sorry\n      have assert_656813427387301962 :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop), (\u2200 (k : \u2115), P k \u2192 P (Nat.succ k)) \u2192 \u2200 (y : \u2115), x + y = y + x :=\n        by\n        intro x P a y\n        simp_all only [Nat.succ_eq_add_one]\n        (ring)\n      have :\n        \u2200 (x : \u2115) (P : \u2115 \u2192 Prop),\n          (\u2200 (k : \u2115), P k \u2192 P (k + 1)) \u2192\n            (\u2200 (y : \u2115), P y \u2194 x + y = y + x) \u2192 \u2200 (k : \u2115), x + k = k + x \u2192 x + k + 1 = k + 1 + x :=\n        by\n        intro x P a a_1 k a_2\n        simp_all only\n        (ring)\n      intro x y\n      (ring)\n      intro x y\n      (ring)\n    have :=\n      \"Error: codegen: no valid function found for key conclude_statement in JSON object {\\\"claim\\\":\\n \\\"By the principle of mathematical induction (Definition \\\\\\\\ref{def:natural_numbers}, axiom 5), \\\\\\\\(x + y = y + x\\\\\\\\) for all natural numbers \\\\\\\\(x, y\\\\\\\\).\\\"}; tried: [LeanAide.concludeCode: codegen: no valid type found for assertion 'By the principle of mathematical induction (Definition \\\\ref{def:natural_numbers}, axiom 5), \\\\(x + y = y + x\\\\) for all natural numbers \\\\(x, y\\\\).', full statement Let x be a natural number  (such that) arbitrary but fixed.\\nLet P(y) be a property the statement \\\\(x + y = y + x\\\\).\\nBy the principle of mathematical induction (Definition \\\\ref{def:natural_numbers}, axiom 5), \\\\(x + y = y + x\\\\) for all natural numbers \\\\(x, y\\\\).]\"\n    intro x y\n    (ring)\n    intro x y\n    (ring)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Title",
+        "title": "Proof of Commutativity of Natural Number Addition"
+      },
+      {
+        "type": "Abstract",
+        "abstract": "This document provides a formal proof demonstrating that the addition of two natural numbers is commutative, i.e., for any natural numbers x and y, x + y = y + x. The proof relies on the foundational Peano axioms for natural numbers and the recursive definition of addition, employing the principle of mathematical induction."
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:preliminaries",
+        "header": "Preliminaries: Definitions and Auxiliary Results",
+        "content": [
+          {
+            "type": "Paragraph",
+            "text": "We define the set of natural numbers, denoted by \\(\\mathbb{N}\\), and the operation of addition based on Peano's axioms. We assume \\(\\mathbb{N} = \\{0, 1, 2, \\dots\\}\\), where \\(0\\) is the first natural number and \\(S(n)\\) denotes the successor of \\(n\\) (i.e., \\(n+1\\))."
+          },
+          {
+            "type": "Definition",
+            "label": "def:natural_numbers",
+            "header": "Definition",
+            "definition": "The set of natural numbers, denoted \\(\\mathbb{N}\\), is defined by the following Peano axioms:\n1.  \\(0 \\in \\mathbb{N}\\) (Zero is a natural number).\n2.  If \\(n \\in \\mathbb{N}\\), then \\(S(n) \\in \\mathbb{N}\\) (Every natural number has a successor).\n3.  \\(0 \\ne S(n)\\) for any \\(n \\in \\mathbb{N}\\) (Zero is not the successor of any natural number).\n4.  If \\(S(m) = S(n)\\), then \\(m = n\\) for any \\(m, n \\in \\mathbb{N}\\) (Distinct natural numbers have distinct successors).\n5.  If \\(P\\) is a property such that \\(P(0)\\) is true, and for every \\(n \\in \\mathbb{N}\\), if \\(P(n)\\) is true then \\(P(S(n))\\) is true, then \\(P(n)\\) is true for all \\(n \\in \\mathbb{N}\\) (Principle of Mathematical Induction)."
+          },
+          {
+            "type": "Definition",
+            "label": "def:addition",
+            "header": "Definition",
+            "definition": "The addition operation \\(+\\colon \\mathbb{N} \\times \\mathbb{N} \\to \\mathbb{N}\\) is defined recursively as follows for any \\(x, y \\in \\mathbb{N}\\):\n1.  Base Case: \\(x + 0 = x\\)\n2.  Recursive Step: \\(x + S(y) = S(x + y)\\)"
+          },
+          {
+            "type": "Theorem",
+            "proof": {
+              "type": "Proof",
+              "proof_steps": [
+                {
+                  "type": "LogicalStepSequence",
+                  "items": [
+                    {
+                      "variable_type": "property",
+                      "variable_name": "P(n)",
+                      "value": "the statement \\(0 + n = n\\)",
+                      "type": "let_statement"
+                    },
+                    {
+                      "type": "induction_statement",
+                      "on": "n",
+                      "induction_step_proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "LogicalStepSequence",
+                            "items": [
+                              {
+                                "type": "assume_statement",
+                                "label": "ind_hyp:zero_plus_k",
+                                "assumption": "Assume \\(P(k)\\) holds for some natural number \\(k\\), i.e., \\(0 + k = k\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "claim": "We need to show that \\(P(S(k))\\) holds, i.e., \\(0 + S(k) = S(k)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "def:addition",
+                                    "statement": "\\(x + S(y) = S(x + y)\\)"
+                                  }
+                                ],
+                                "proof_method": "By the recursive step of the definition of addition.",
+                                "claim": "\\(0 + S(k) = S(0 + k)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "ind_hyp:zero_plus_k",
+                                    "statement": "\\(0 + k = k\\)"
+                                  }
+                                ],
+                                "proof_method": "By the inductive hypothesis.",
+                                "claim": "\\(S(0 + k) = S(k)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "proof_method": "By transitivity of equality.",
+                                "claim": "Therefore, \\(0 + S(k) = S(k)\\)."
+                              },
+                              {
+                                "type": "conclude_statement",
+                                "claim": "Thus, \\(P(S(k))\\) holds."
+                              }
+                            ]
+                          }
+                        ],
+                        "claim_label": "induction_step_lem:zero_plus_n"
+                      },
+                      "base_case_proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "LogicalStepSequence",
+                            "items": [
+                              {
+                                "type": "assert_statement",
+                                "claim": "For \\(n=0\\), we need to show \\(0 + 0 = 0\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "def:addition",
+                                    "statement": "\\(x + 0 = x\\)"
+                                  }
+                                ],
+                                "proof_method": "By the definition of addition, specifically the base case \\(x + 0 = x\\) with \\(x=0\\).",
+                                "claim": "\\(0 + 0 = 0\\)."
+                              },
+                              {
+                                "type": "conclude_statement",
+                                "claim": "Thus, \\(P(0)\\) holds."
+                              }
+                            ]
+                          }
+                        ],
+                        "claim_label": "base_case_lem:zero_plus_n"
+                      }
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "By the principle of mathematical induction (Definition \\ref{def:natural_numbers}, axiom 5), \\(0 + n = n\\) for all natural numbers \\(n\\)."
+                    }
+                  ]
+                }
+              ],
+              "claim_label": "lem:zero_plus_n"
+            },
+            "label": "lem:zero_plus_n",
+            "header": "Lemma",
+            "claim": "For any natural number \\(n\\), \\(0 + n = n\\)."
+          },
+          {
+            "type": "Theorem",
+            "proof": {
+              "type": "Proof",
+              "proof_steps": [
+                {
+                  "type": "LogicalStepSequence",
+                  "items": [
+                    {
+                      "variable_type": "property",
+                      "variable_name": "P(m)",
+                      "value": "the statement \\(S(n) + m = S(n + m)\\) for a fixed natural number \\(n\\)",
+                      "type": "let_statement"
+                    },
+                    {
+                      "type": "induction_statement",
+                      "on": "m",
+                      "induction_step_proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "LogicalStepSequence",
+                            "items": [
+                              {
+                                "type": "assume_statement",
+                                "label": "ind_hyp:successor_plus_k",
+                                "assumption": "Assume \\(P(k)\\) holds for some natural number \\(k\\), i.e., \\(S(n) + k = S(n + k)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "claim": "We need to show that \\(P(S(k))\\) holds, i.e., \\(S(n) + S(k) = S(n + S(k))\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "def:addition",
+                                    "statement": "\\(x + S(y) = S(x + y)\\)"
+                                  }
+                                ],
+                                "proof_method": "By the recursive step of the definition of addition.",
+                                "claim": "\\(S(n) + S(k) = S( (S(n) + k) )\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "ind_hyp:successor_plus_k",
+                                    "statement": "\\(S(n) + k = S(n + k)\\)"
+                                  }
+                                ],
+                                "proof_method": "By the inductive hypothesis.",
+                                "claim": "\\(S( (S(n) + k) ) = S( S(n + k) )\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "label": "eq:LHS_lem2",
+                                "claim": "Therefore, \\(S(n) + S(k) = S( S(n + k) )\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "claim": "Also, consider the RHS: \\(S(n + S(k))\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "def:addition",
+                                    "statement": "\\(x + S(y) = S(x + y)\\)"
+                                  }
+                                ],
+                                "proof_method": "By the recursive step of the definition of addition.",
+                                "label": "eq:RHS_lem2",
+                                "claim": "\\(S(n + S(k)) = S( S(n + k) )\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "proof_method": "By transitivity of equality.",
+                                "claim": "From equations \\ref{eq:LHS_lem2} and \\ref{eq:RHS_lem2}, we conclude \\(S(n) + S(k) = S(n + S(k))\\)."
+                              },
+                              {
+                                "type": "conclude_statement",
+                                "claim": "Thus, \\(P(S(k))\\) holds."
+                              }
+                            ]
+                          }
+                        ],
+                        "claim_label": "induction_step_lem:successor_plus_m"
+                      },
+                      "base_case_proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "LogicalStepSequence",
+                            "items": [
+                              {
+                                "type": "assert_statement",
+                                "claim": "For \\(m=0\\), we need to show \\(S(n) + 0 = S(n + 0)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "def:addition",
+                                    "statement": "\\(x + 0 = x\\)"
+                                  }
+                                ],
+                                "proof_method": "By the definition of addition (base case \\(x + 0 = x\\)).",
+                                "claim": "\\(S(n) + 0 = S(n)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "results_used": [
+                                  {
+                                    "target_identifier": "def:addition",
+                                    "statement": "\\(x + 0 = x\\)"
+                                  }
+                                ],
+                                "proof_method": "By the definition of addition (base case \\(x + 0 = x\\)).",
+                                "claim": "\\(S(n + 0) = S(n)\\)."
+                              },
+                              {
+                                "type": "assert_statement",
+                                "proof_method": "By equality of both sides to \\(S(n)\\).",
+                                "claim": "Therefore, \\(S(n) + 0 = S(n + 0)\\)."
+                              },
+                              {
+                                "type": "conclude_statement",
+                                "claim": "Thus, \\(P(0)\\) holds."
+                              }
+                            ]
+                          }
+                        ],
+                        "claim_label": "base_case_lem:successor_plus_m"
+                      }
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "By the principle of mathematical induction (Definition \\ref{def:natural_numbers}, axiom 5), \\(S(n) + m = S(n + m)\\) for all natural numbers \\(n, m\\)."
+                    }
+                  ]
+                }
+              ],
+              "claim_label": "lem:successor_plus_m"
+            },
+            "label": "lem:successor_plus_m",
+            "header": "Lemma",
+            "claim": "For any natural numbers \\(n\\) and \\(m\\), \\(S(n) + m = S(n + m)\\)."
+          }
+        ]
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "natural number",
+                  "variable_name": "x",
+                  "type": "let_statement",
+                  "properties": "arbitrary but fixed"
+                },
+                {
+                  "variable_type": "property",
+                  "variable_name": "P(y)",
+                  "value": "the statement \\(x + y = y + x\\)",
+                  "type": "let_statement"
+                },
+                {
+                  "type": "induction_statement",
+                  "on": "y",
+                  "induction_step_proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assume_statement",
+                            "label": "ind_hyp:main_comm",
+                            "assumption": "Assume \\(P(k)\\) holds for some natural number \\(k\\), i.e., \\(x + k = k + x\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "We need to show that \\(P(S(k))\\) holds, i.e., \\(x + S(k) = S(k) + x\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Consider the LHS: \\(x + S(k)\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "results_used": [
+                              {
+                                "target_identifier": "def:addition",
+                                "statement": "\\(x + S(y) = S(x + y)\\)"
+                              }
+                            ],
+                            "proof_method": "By the recursive step of the definition of addition.",
+                            "claim": "\\(x + S(k) = S(x + k)\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "results_used": [
+                              {
+                                "target_identifier": "ind_hyp:main_comm",
+                                "statement": "\\(x + k = k + x\\)"
+                              }
+                            ],
+                            "proof_method": "By the inductive hypothesis.",
+                            "claim": "\\(S(x + k) = S(k + x)\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "label": "eq:LHS_final",
+                            "claim": "Therefore, \\(x + S(k) = S(k + x)\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Now consider the RHS: \\(S(k) + x\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "results_used": [
+                              {
+                                "target_identifier": "lem:successor_plus_m",
+                                "statement": "\\(S(n) + m = S(n + m)\\)"
+                              }
+                            ],
+                            "proof_method": "By Lemma \\ref{lem:successor_plus_m} (with \\(n=k\\) and \\(m=x\\)).",
+                            "claim": "\\(S(k) + x = S(k + x)\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "By transitivity of equality.",
+                            "claim": "From equations \\ref{eq:LHS_final} and the preceding assertion, we conclude \\(x + S(k) = S(k) + x\\)."
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "Thus, \\(P(S(k))\\) holds."
+                          }
+                        ]
+                      }
+                    ],
+                    "claim_label": "induction_step_thm:commutativity_addition"
+                  },
+                  "base_case_proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assert_statement",
+                            "claim": "For \\(y=0\\), we need to show \\(x + 0 = 0 + x\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "results_used": [
+                              {
+                                "target_identifier": "def:addition",
+                                "statement": "\\(x + 0 = x\\)"
+                              }
+                            ],
+                            "proof_method": "By the definition of addition (base case \\(x + 0 = x\\)).",
+                            "claim": "\\(x + 0 = x\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "results_used": [
+                              {
+                                "target_identifier": "lem:zero_plus_n",
+                                "statement": "\\(0 + n = n\\)"
+                              }
+                            ],
+                            "proof_method": "By Lemma \\ref{lem:zero_plus_n}.",
+                            "claim": "\\(0 + x = x\\)."
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "By equality of both sides to \\(x\\).",
+                            "claim": "Therefore, \\(x + 0 = 0 + x\\)."
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "Thus, \\(P(0)\\) holds."
+                          }
+                        ]
+                      }
+                    ],
+                    "claim_label": "base_case_thm:commutativity_addition"
+                  }
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "By the principle of mathematical induction (Definition \\ref{def:natural_numbers}, axiom 5), \\(x + y = y + x\\) for all natural numbers \\(x, y\\)."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:commutativity_addition"
+        },
+        "label": "thm:commutativity_addition",
+        "header": "Theorem",
+        "claim": "Addition of two natural numbers is commutative, that is, for any \\(x, y \\in \\mathbb{N}\\), \\(x + y = y + x\\)."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Nat.zero_add",
+    "Nat.succ_add_eq_succ_add",
+    "Nat.add_comm"
+  ]
+}

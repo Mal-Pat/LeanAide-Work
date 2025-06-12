@@ -1,0 +1,225 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  example :=\n    \"Error: codegen: no valid function found for key section in JSON object {\\\"level\\\": 1,\\n \\\"label\\\": \\\"sec:intro\\\",\\n \\\"header\\\": \\\"Introduction\\\",\\n \\\"content\\\":\\n [{\\\"type\\\": \\\"Paragraph\\\",\\n   \\\"text\\\":\\n   \\\"This document presents a formal proof for a fundamental property in elementary number theory concerning divisibility. The property states that if an integer 'x' divides two other integers 'y' and 'z', then 'x' must also divide their sum, (y + z). This concept is a basic building block for more complex topics in number theory.\\\"}]}; tried: [LeanAide.sectionCode: codegen: no commands generated from [{\\\"type\\\": \\\"Paragraph\\\",\\n \\\"text\\\":\\n \\\"This document presents a formal proof for a fundamental property in elementary number theory concerning divisibility. The property states that if an integer 'x' divides two other integers 'y' and 'z', then 'x' must also divide their sum, (y + z). This concept is a basic building block for more complex topics in number theory.\\\"}]]\"\n  def divides (a b : Int) : Prop :=\n    \u2203 k : Int, b = a * k\n  theorem Int.dvd_add_of_dvd_of_dvd : \u2200 {x y z : \u2124}, x \u2260 0 \u2192 x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y + z :=\n    by\n    have assert_4587942504678624067 : \u2200 {x y z : \u2124}, x \u2260 0 \u2192 x \u2223 y \u2192 x \u2223 z \u2192 \u2203 (a : \u2124), y = x * a :=\n      by\n      intro x y z a a_1 a_2\n      simp_all only [ne_eq]\n      exact a_1\n    have assert_11326463288095247870 :\n      \u2200 {x y z : \u2124}, x \u2260 0 \u2192 x \u2223 y \u2192 x \u2223 z \u2192 \u2203 (a : \u2124) (b : \u2124), y = x * a \u2227 z = x * b :=\n      by\n      intro x y z a a_1 a_2\n      simp_all only [ne_eq, exists_and_left, not_false_eq_true, exists_and_right]\n      apply And.intro\n      \u00b7 exact a_1\n      \u00b7 exact a_2\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"label\\\": \\\"proof:consider_sum\\\", \\\"claim\\\": \\\"Now, consider the sum (y + z).\\\"}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'Now, consider the sum (y + z).', full statement Let x be a integer  (such that) x is a non-zero integer. If x=0, the statement becomes trivial or ill-defined depending on the definition of division by zero. For standard divisibility, x is typically non-zero..\\nLet y be a integer.\\nLet z be a integer.\\nAssume that: x divides y\\nAssume that: x divides z\\nAssume that: Let x, y, and z be integers as stated in the hypothesis.\\nAssume that: We are given that x divides y.\\nLet a be a integer  (such that) such that y = x * a.\\nAssume that: We are also given that x divides z.\\nLet b be a integer  (such that) such that z = x * b.\\nNow, consider the sum (y + z).]\"\n    have assert_11326463288095247870 :\n      \u2200 {x y z : \u2124}, x \u2260 0 \u2192 x \u2223 y \u2192 x \u2223 z \u2192 \u2203 (a : \u2124) (b : \u2124), y = x * a \u2227 z = x * b :=\n      by\n      intro x y z a a_1 a_2\n      simp_all only [ne_eq, exists_and_left, not_false_eq_true, exists_and_right]\n      apply And.intro\n      \u00b7 exact a_1\n      \u00b7 exact a_2\n    have assert_1360767129651368081 :\n      \u2200 (x y z : \u2124), x \u2260 0 \u2192 x \u2223 y \u2192 x \u2223 z \u2192 (\u2203 (a : \u2124) (b : \u2124), y = x * a \u2227 z = x * b) \u2192 x \u2223 y + z :=\n      by\n      intro x y z a a_1 a_2 a_3\n      simp_all only [ne_eq, exists_and_left, not_false_eq_true, exists_and_right]\n      obtain \u27e8left, right\u27e9 := a_3\n      obtain \u27e8w, h\u27e9 := left\n      obtain \u27e8w_1, h_1\u27e9 := right\n      subst h_1 h\n      simp_all only [not_false_eq_true, dvd_mul_right, Int.dvd_add_self_mul]\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"label\\\": \\\"proof:final_form\\\",\\n \\\"claim\\\":\\n \\\"Therefore, we have shown that (y + z) can be written as x multiplied by an integer 'k'.\\\",\\n \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"y + z = x * k\\\"}}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'Therefore, we have shown that (y + z) can be written as x multiplied by an integer 'k'.', full statement Let x be a integer  (such that) x is a non-zero integer. If x=0, the statement becomes trivial or ill-defined depending on the definition of division by zero. For standard divisibility, x is typically non-zero..\\nLet y be a integer.\\nLet z be a integer.\\nAssume that: x divides y\\nAssume that: x divides z\\nAssume that: Let x, y, and z be integers as stated in the hypothesis.\\nAssume that: We are given that x divides y.\\nLet a be a integer  (such that) such that y = x * a.\\nAssume that: We are also given that x divides z.\\nLet b be a integer  (such that) such that z = x * b.\\nLet k be a integer a + b (such that) Since 'a' and 'b' are both integers, their sum (a + b) must also be an integer. This is due to the property of integers being closed under addition..\\nTherefore, we have shown that (y + z) can be written as x multiplied by an integer 'k'.]\"\n    have : \u2200 (x y z : \u2124), x \u2260 0 \u2192 x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y + z := by sorry\n    intro x y z a_1 a_2 a_3\n    simp_all only [ne_eq, exists_and_left, not_false_eq_true, exists_and_right, implies_true]\n    intro x y z a a_1 a_2\n    simp_all only [ne_eq]\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Title",
+        "title": "Proof of the Divisibility of Sums Property"
+      },
+      {
+        "type": "Metadata",
+        "publication_date": "2023-10-27",
+        "keywords": [
+          "divisibility",
+          "integers",
+          "number theory",
+          "proof"
+        ],
+        "authors": [
+          {
+            "name": "AI Assistant"
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "level": 1,
+        "label": "sec:intro",
+        "header": "Introduction",
+        "content": [
+          {
+            "type": "Paragraph",
+            "text": "This document presents a formal proof for a fundamental property in elementary number theory concerning divisibility. The property states that if an integer 'x' divides two other integers 'y' and 'z', then 'x' must also divide their sum, (y + z). This concept is a basic building block for more complex topics in number theory."
+          }
+        ]
+      },
+      {
+        "type": "Definition",
+        "label": "def:divisibility",
+        "header": "Definition",
+        "definition": "An integer 'a' is said to divide an integer 'b' (denoted as a | b) if there exists an integer 'k' such that b = a * k. Here, 'a' is the divisor, 'b' is the dividend, and 'k' is an integer quotient."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assume_statement",
+                  "label": "proof:assume_given",
+                  "assumption": "Let x, y, and z be integers as stated in the hypothesis."
+                },
+                {
+                  "type": "assume_statement",
+                  "label": "proof:x_div_y_given",
+                  "internal_references": [
+                    {
+                      "target_identifier": "hyp:x_div_y"
+                    }
+                  ],
+                  "assumption": "We are given that x divides y."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:divisibility",
+                      "statement": "An integer 'a' is said to divide an integer 'b' if there exists an integer 'k' such that b = a * k."
+                    }
+                  ],
+                  "proof_method": "Applying definition of divisibility",
+                  "label": "proof:y_as_xa",
+                  "claim": "By the definition of divisibility, there exists an integer 'a' such that y = x * a.",
+                  "calculation": {
+                    "inline_calculation": "y = x * a"
+                  }
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "a",
+                  "type": "let_statement",
+                  "properties": "such that y = x * a"
+                },
+                {
+                  "type": "assume_statement",
+                  "label": "proof:x_div_z_given",
+                  "internal_references": [
+                    {
+                      "target_identifier": "hyp:x_div_z"
+                    }
+                  ],
+                  "assumption": "We are also given that x divides z."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "def:divisibility",
+                      "statement": "An integer 'a' is said to divide an integer 'b' if there exists an integer 'k' such that b = a * k."
+                    }
+                  ],
+                  "proof_method": "Applying definition of divisibility",
+                  "label": "proof:z_as_xb",
+                  "claim": "Similarly, by the definition of divisibility, there exists an integer 'b' such that z = x * b.",
+                  "calculation": {
+                    "inline_calculation": "z = x * b"
+                  }
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "b",
+                  "type": "let_statement",
+                  "properties": "such that z = x * b"
+                },
+                {
+                  "type": "assert_statement",
+                  "label": "proof:consider_sum",
+                  "claim": "Now, consider the sum (y + z)."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "proof:y_as_xa",
+                      "statement": "y = x * a"
+                    },
+                    {
+                      "target_identifier": "proof:z_as_xb",
+                      "statement": "z = x * b"
+                    }
+                  ],
+                  "proof_method": "Substitution",
+                  "label": "proof:substitute_expressions",
+                  "claim": "Substitute the expressions for y and z obtained from the definitions of divisibility.",
+                  "calculation": {
+                    "calculation_sequence": [
+                      "y + z = (x * a) + (x * b)"
+                    ]
+                  }
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Distributive Property",
+                  "label": "proof:factor_x",
+                  "claim": "Apply the distributive property of multiplication over addition to factor out 'x'.",
+                  "calculation": {
+                    "calculation_sequence": [
+                      "(x * a) + (x * b) = x * (a + b)"
+                    ]
+                  }
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "k",
+                  "value": "a + b",
+                  "type": "let_statement",
+                  "properties": "Since 'a' and 'b' are both integers, their sum (a + b) must also be an integer. This is due to the property of integers being closed under addition."
+                },
+                {
+                  "type": "assert_statement",
+                  "label": "proof:final_form",
+                  "claim": "Therefore, we have shown that (y + z) can be written as x multiplied by an integer 'k'.",
+                  "calculation": {
+                    "inline_calculation": "y + z = x * k"
+                  }
+                },
+                {
+                  "type": "conclude_statement",
+                  "internal_references": [
+                    {
+                      "target_identifier": "def:divisibility"
+                    }
+                  ],
+                  "claim": "By the definition of divisibility, since there exists an integer 'k' such that (y + z) = x * k, it is concluded that x divides (y + z)."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:divisibility_sum"
+        },
+        "label": "thm:divisibility_sum",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "x",
+            "type": "let_statement",
+            "properties": "x is a non-zero integer. If x=0, the statement becomes trivial or ill-defined depending on the definition of division by zero. For standard divisibility, x is typically non-zero."
+          },
+          {
+            "variable_type": "integer",
+            "variable_name": "y",
+            "type": "let_statement"
+          },
+          {
+            "variable_type": "integer",
+            "variable_name": "z",
+            "type": "let_statement"
+          },
+          {
+            "type": "assume_statement",
+            "label": "hyp:x_div_y",
+            "assumption": "x divides y"
+          },
+          {
+            "type": "assume_statement",
+            "label": "hyp:x_div_z",
+            "assumption": "x divides z"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "x divides (y + z)"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "divides",
+    "Int.dvd_add_of_dvd_of_dvd"
+  ]
+}

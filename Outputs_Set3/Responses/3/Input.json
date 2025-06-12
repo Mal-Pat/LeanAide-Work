@@ -1,0 +1,455 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof of Commutativity of Natural Number Addition"
+    },
+    {
+      "type": "Abstract",
+      "abstract": "This document provides a formal proof demonstrating that the addition of two natural numbers is commutative, i.e., for any natural numbers x and y, x + y = y + x. The proof relies on the foundational Peano axioms for natural numbers and the recursive definition of addition, employing the principle of mathematical induction."
+    },
+    {
+      "type": "Section",
+      "label": "sec:preliminaries",
+      "level": 1,
+      "header": "Preliminaries: Definitions and Auxiliary Results",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "We define the set of natural numbers, denoted by \\(\\mathbb{N}\\), and the operation of addition based on Peano's axioms. We assume \\(\\mathbb{N} = \\{0, 1, 2, \\dots\\}\\), where \\(0\\) is the first natural number and \\(S(n)\\) denotes the successor of \\(n\\) (i.e., \\(n+1\\))."
+        },
+        {
+          "type": "Definition",
+          "label": "def:natural_numbers",
+          "header": "Definition",
+          "definition": "The set of natural numbers, denoted \\(\\mathbb{N}\\), is defined by the following Peano axioms:\n1.  \\(0 \\in \\mathbb{N}\\) (Zero is a natural number).\n2.  If \\(n \\in \\mathbb{N}\\), then \\(S(n) \\in \\mathbb{N}\\) (Every natural number has a successor).\n3.  \\(0 \\ne S(n)\\) for any \\(n \\in \\mathbb{N}\\) (Zero is not the successor of any natural number).\n4.  If \\(S(m) = S(n)\\), then \\(m = n\\) for any \\(m, n \\in \\mathbb{N}\\) (Distinct natural numbers have distinct successors).\n5.  If \\(P\\) is a property such that \\(P(0)\\) is true, and for every \\(n \\in \\mathbb{N}\\), if \\(P(n)\\) is true then \\(P(S(n))\\) is true, then \\(P(n)\\) is true for all \\(n \\in \\mathbb{N}\\) (Principle of Mathematical Induction)."
+        },
+        {
+          "type": "Definition",
+          "label": "def:addition",
+          "header": "Definition",
+          "definition": "The addition operation \\(+\\colon \\mathbb{N} \\times \\mathbb{N} \\to \\mathbb{N}\\) is defined recursively as follows for any \\(x, y \\in \\mathbb{N}\\):\n1.  Base Case: \\(x + 0 = x\\)\n2.  Recursive Step: \\(x + S(y) = S(x + y)\\)"
+        },
+        {
+          "type": "Theorem",
+          "label": "lem:zero_plus_n",
+          "header": "Lemma",
+          "claim": "For any natural number \\(n\\), \\(0 + n = n\\).",
+          "proof": {
+            "type": "Proof",
+            "claim_label": "lem:zero_plus_n",
+            "proof_steps": [
+              {
+                "type": "LogicalStepSequence",
+                "items": [
+                  {
+                    "type": "let_statement",
+                    "variable_name": "P(n)",
+                    "value": "the statement \\(0 + n = n\\)",
+                    "variable_type": "property"
+                  },
+                  {
+                    "type": "induction_statement",
+                    "on": "n",
+                    "base_case_proof": {
+                      "type": "Proof",
+                      "claim_label": "base_case_lem:zero_plus_n",
+                      "proof_steps": [
+                        {
+                          "type": "LogicalStepSequence",
+                          "items": [
+                            {
+                              "type": "assert_statement",
+                              "claim": "For \\(n=0\\), we need to show \\(0 + 0 = 0\\)."
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(0 + 0 = 0\\).",
+                              "proof_method": "By the definition of addition, specifically the base case \\(x + 0 = x\\) with \\(x=0\\).",
+                              "results_used": [
+                                {
+                                  "statement": "\\(x + 0 = x\\)",
+                                  "target_identifier": "def:addition"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "conclude_statement",
+                              "claim": "Thus, \\(P(0)\\) holds."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "induction_step_proof": {
+                      "type": "Proof",
+                      "claim_label": "induction_step_lem:zero_plus_n",
+                      "proof_steps": [
+                        {
+                          "type": "LogicalStepSequence",
+                          "items": [
+                            {
+                              "type": "assume_statement",
+                              "assumption": "Assume \\(P(k)\\) holds for some natural number \\(k\\), i.e., \\(0 + k = k\\).",
+                              "label": "ind_hyp:zero_plus_k"
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "We need to show that \\(P(S(k))\\) holds, i.e., \\(0 + S(k) = S(k)\\)."
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(0 + S(k) = S(0 + k)\\).",
+                              "proof_method": "By the recursive step of the definition of addition.",
+                              "results_used": [
+                                {
+                                  "statement": "\\(x + S(y) = S(x + y)\\)",
+                                  "target_identifier": "def:addition"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(S(0 + k) = S(k)\\).",
+                              "proof_method": "By the inductive hypothesis.",
+                              "results_used": [
+                                {
+                                  "statement": "\\(0 + k = k\\)",
+                                  "target_identifier": "ind_hyp:zero_plus_k"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "Therefore, \\(0 + S(k) = S(k)\\).",
+                              "proof_method": "By transitivity of equality."
+                            },
+                            {
+                              "type": "conclude_statement",
+                              "claim": "Thus, \\(P(S(k))\\) holds."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "conclude_statement",
+                    "claim": "By the principle of mathematical induction (Definition \\ref{def:natural_numbers}, axiom 5), \\(0 + n = n\\) for all natural numbers \\(n\\)."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Theorem",
+          "label": "lem:successor_plus_m",
+          "header": "Lemma",
+          "claim": "For any natural numbers \\(n\\) and \\(m\\), \\(S(n) + m = S(n + m)\\).",
+          "proof": {
+            "type": "Proof",
+            "claim_label": "lem:successor_plus_m",
+            "proof_steps": [
+              {
+                "type": "LogicalStepSequence",
+                "items": [
+                  {
+                    "type": "let_statement",
+                    "variable_name": "P(m)",
+                    "value": "the statement \\(S(n) + m = S(n + m)\\) for a fixed natural number \\(n\\)",
+                    "variable_type": "property"
+                  },
+                  {
+                    "type": "induction_statement",
+                    "on": "m",
+                    "base_case_proof": {
+                      "type": "Proof",
+                      "claim_label": "base_case_lem:successor_plus_m",
+                      "proof_steps": [
+                        {
+                          "type": "LogicalStepSequence",
+                          "items": [
+                            {
+                              "type": "assert_statement",
+                              "claim": "For \\(m=0\\), we need to show \\(S(n) + 0 = S(n + 0)\\)."
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(S(n) + 0 = S(n)\\).",
+                              "proof_method": "By the definition of addition (base case \\(x + 0 = x\\)).",
+                              "results_used": [
+                                {
+                                  "statement": "\\(x + 0 = x\\)",
+                                  "target_identifier": "def:addition"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(S(n + 0) = S(n)\\).",
+                              "proof_method": "By the definition of addition (base case \\(x + 0 = x\\)).",
+                              "results_used": [
+                                {
+                                  "statement": "\\(x + 0 = x\\)",
+                                  "target_identifier": "def:addition"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "Therefore, \\(S(n) + 0 = S(n + 0)\\).",
+                              "proof_method": "By equality of both sides to \\(S(n)\\)."
+                            },
+                            {
+                              "type": "conclude_statement",
+                              "claim": "Thus, \\(P(0)\\) holds."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "induction_step_proof": {
+                      "type": "Proof",
+                      "claim_label": "induction_step_lem:successor_plus_m",
+                      "proof_steps": [
+                        {
+                          "type": "LogicalStepSequence",
+                          "items": [
+                            {
+                              "type": "assume_statement",
+                              "assumption": "Assume \\(P(k)\\) holds for some natural number \\(k\\), i.e., \\(S(n) + k = S(n + k)\\).",
+                              "label": "ind_hyp:successor_plus_k"
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "We need to show that \\(P(S(k))\\) holds, i.e., \\(S(n) + S(k) = S(n + S(k))\\)."
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(S(n) + S(k) = S( (S(n) + k) )\\).",
+                              "proof_method": "By the recursive step of the definition of addition.",
+                              "results_used": [
+                                {
+                                  "statement": "\\(x + S(y) = S(x + y)\\)",
+                                  "target_identifier": "def:addition"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(S( (S(n) + k) ) = S( S(n + k) )\\).",
+                              "proof_method": "By the inductive hypothesis.",
+                              "results_used": [
+                                {
+                                  "statement": "\\(S(n) + k = S(n + k)\\)",
+                                  "target_identifier": "ind_hyp:successor_plus_k"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "Therefore, \\(S(n) + S(k) = S( S(n + k) )\\).",
+                              "label": "eq:LHS_lem2"
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "Also, consider the RHS: \\(S(n + S(k))\\)."
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "\\(S(n + S(k)) = S( S(n + k) )\\).",
+                              "proof_method": "By the recursive step of the definition of addition.",
+                              "results_used": [
+                                {
+                                  "statement": "\\(x + S(y) = S(x + y)\\)",
+                                  "target_identifier": "def:addition"
+                                }
+                              ],
+                              "label": "eq:RHS_lem2"
+                            },
+                            {
+                              "type": "assert_statement",
+                              "claim": "From equations \\ref{eq:LHS_lem2} and \\ref{eq:RHS_lem2}, we conclude \\(S(n) + S(k) = S(n + S(k))\\).",
+                              "proof_method": "By transitivity of equality."
+                            },
+                            {
+                              "type": "conclude_statement",
+                              "claim": "Thus, \\(P(S(k))\\) holds."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "conclude_statement",
+                    "claim": "By the principle of mathematical induction (Definition \\ref{def:natural_numbers}, axiom 5), \\(S(n) + m = S(n + m)\\) for all natural numbers \\(n, m\\)."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:commutativity_addition",
+      "header": "Theorem",
+      "claim": "Addition of two natural numbers is commutative, that is, for any \\(x, y \\in \\mathbb{N}\\), \\(x + y = y + x\\).",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:commutativity_addition",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "x",
+                "variable_type": "natural number",
+                "properties": "arbitrary but fixed"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "P(y)",
+                "value": "the statement \\(x + y = y + x\\)",
+                "variable_type": "property"
+              },
+              {
+                "type": "induction_statement",
+                "on": "y",
+                "base_case_proof": {
+                  "type": "Proof",
+                  "claim_label": "base_case_thm:commutativity_addition",
+                  "proof_steps": [
+                    {
+                      "type": "LogicalStepSequence",
+                      "items": [
+                        {
+                          "type": "assert_statement",
+                          "claim": "For \\(y=0\\), we need to show \\(x + 0 = 0 + x\\)."
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "\\(x + 0 = x\\).",
+                          "proof_method": "By the definition of addition (base case \\(x + 0 = x\\)).",
+                          "results_used": [
+                            {
+                              "statement": "\\(x + 0 = x\\)",
+                              "target_identifier": "def:addition"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "\\(0 + x = x\\).",
+                          "proof_method": "By Lemma \\ref{lem:zero_plus_n}.",
+                          "results_used": [
+                            {
+                              "statement": "\\(0 + n = n\\)",
+                              "target_identifier": "lem:zero_plus_n"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "Therefore, \\(x + 0 = 0 + x\\).",
+                          "proof_method": "By equality of both sides to \\(x\\)."
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "Thus, \\(P(0)\\) holds."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "induction_step_proof": {
+                  "type": "Proof",
+                  "claim_label": "induction_step_thm:commutativity_addition",
+                  "proof_steps": [
+                    {
+                      "type": "LogicalStepSequence",
+                      "items": [
+                        {
+                          "type": "assume_statement",
+                          "assumption": "Assume \\(P(k)\\) holds for some natural number \\(k\\), i.e., \\(x + k = k + x\\).",
+                          "label": "ind_hyp:main_comm"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "We need to show that \\(P(S(k))\\) holds, i.e., \\(x + S(k) = S(k) + x\\)."
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "Consider the LHS: \\(x + S(k)\\)."
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "\\(x + S(k) = S(x + k)\\).",
+                          "proof_method": "By the recursive step of the definition of addition.",
+                          "results_used": [
+                            {
+                              "statement": "\\(x + S(y) = S(x + y)\\)",
+                              "target_identifier": "def:addition"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "\\(S(x + k) = S(k + x)\\).",
+                          "proof_method": "By the inductive hypothesis.",
+                          "results_used": [
+                            {
+                              "statement": "\\(x + k = k + x\\)",
+                              "target_identifier": "ind_hyp:main_comm"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "Therefore, \\(x + S(k) = S(k + x)\\).",
+                          "label": "eq:LHS_final"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "Now consider the RHS: \\(S(k) + x\\)."
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "\\(S(k) + x = S(k + x)\\).",
+                          "proof_method": "By Lemma \\ref{lem:successor_plus_m} (with \\(n=k\\) and \\(m=x\\)).",
+                          "results_used": [
+                            {
+                              "statement": "\\(S(n) + m = S(n + m)\\)",
+                              "target_identifier": "lem:successor_plus_m"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "From equations \\ref{eq:LHS_final} and the preceding assertion, we conclude \\(x + S(k) = S(k) + x\\).",
+                          "proof_method": "By transitivity of equality."
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "Thus, \\(P(S(k))\\) holds."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "By the principle of mathematical induction (Definition \\ref{def:natural_numbers}, axiom 5), \\(x + y = y + x\\) for all natural numbers \\(x, y\\)."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

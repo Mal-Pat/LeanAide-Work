@@ -1,0 +1,274 @@
+{
+  "document": [
+    {
+      "type": "Title",
+      "title": "Proof of Divisibility Rule for 2"
+    },
+    {
+      "type": "Metadata",
+      "authors": [
+        {
+          "name": "AI Assistant"
+        }
+      ],
+      "keywords": [
+        "divisibility",
+        "number theory",
+        "decimal notation",
+        "even numbers",
+        "proof"
+      ],
+      "publication_date": "2023-10-27"
+    },
+    {
+      "type": "Section",
+      "label": "sec:introduction",
+      "level": 1,
+      "header": "Introduction",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "This document formally proves a well-known rule for determining if an integer is divisible by 2 based on its decimal representation. This rule is fundamental in elementary number theory."
+        }
+      ]
+    },
+    {
+      "type": "Definition",
+      "label": "def:divisible_by_2",
+      "header": "Definition",
+      "definition": "An integer 'n' is said to be divisible by 2 (or is an even number) if there exists an integer 'k' such that n = 2k. This means that when 'n' is divided by 2, the remainder is 0."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_rule_2",
+      "header": "Theorem",
+      "claim": "If a number expressed in decimal notation ends with 0, 2, 4, 6, or 8, then it is divisible by 2."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:divisibility_rule_2",
+      "proof_steps": [
+        {
+          "type": "LogicalStepSequence",
+          "items": [
+            {
+              "type": "let_statement",
+              "variable_name": "N",
+              "variable_type": "integer",
+              "properties": "expressed in decimal notation"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Any integer N expressed in decimal notation can be uniquely written in the form N = 10k + d.",
+              "proof_method": "By the positional value system of decimal notation.",
+              "results_used": [
+                {
+                  "statement": "Here, 'd' represents the last (units) digit of N (0 ≤ d ≤ 9), and 'k' is a non-negative integer representing the number formed by the digits preceding 'd' (i.e., k = (N - d)/10)."
+                }
+              ],
+              "label": "step:decimal_representation"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "According to the hypothesis of the theorem, the last digit 'd' of N is one of 0, 2, 4, 6, or 8.",
+              "internal_references": [
+                {
+                  "target_identifier": "thm:divisibility_rule_2"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "The term 10k is divisible by 2.",
+              "proof_method": "Direct application of the definition of divisibility.",
+              "calculation": {
+                "inline_calculation": "10k = 2 * (5k)"
+              },
+              "results_used": [
+                {
+                  "statement": "Since 'k' is an integer, '5k' is also an integer. Thus, by the definition of divisibility by 2, 10k is divisible by 2.",
+                  "target_identifier": "def:divisible_by_2"
+                }
+              ],
+              "label": "step:10k_divisible"
+            },
+            {
+              "type": "multi-condition_cases_statement",
+              "proof_cases": [
+                {
+                  "type": "condition_case",
+                  "condition": "d = 0",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "Proof for case d = 0",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assert_statement",
+                            "claim": "0 is divisible by 2.",
+                            "calculation": {
+                              "inline_calculation": "0 = 2 * 0"
+                            },
+                            "results_used": [
+                              {
+                                "statement": "By Definition of Divisibility by 2",
+                                "target_identifier": "def:divisible_by_2"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "condition_case",
+                  "condition": "d = 2",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "Proof for case d = 2",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assert_statement",
+                            "claim": "2 is divisible by 2.",
+                            "calculation": {
+                              "inline_calculation": "2 = 2 * 1"
+                            },
+                            "results_used": [
+                              {
+                                "statement": "By Definition of Divisibility by 2",
+                                "target_identifier": "def:divisible_by_2"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "condition_case",
+                  "condition": "d = 4",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "Proof for case d = 4",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assert_statement",
+                            "claim": "4 is divisible by 2.",
+                            "calculation": {
+                              "inline_calculation": "4 = 2 * 2"
+                            },
+                            "results_used": [
+                              {
+                                "statement": "By Definition of Divisibility by 2",
+                                "target_identifier": "def:divisible_by_2"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "condition_case",
+                  "condition": "d = 6",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "Proof for case d = 6",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assert_statement",
+                            "claim": "6 is divisible by 2.",
+                            "calculation": {
+                              "inline_calculation": "6 = 2 * 3"
+                            },
+                            "results_used": [
+                              {
+                                "statement": "By Definition of Divisibility by 2",
+                                "target_identifier": "def:divisible_by_2"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "condition_case",
+                  "condition": "d = 8",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "Proof for case d = 8",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "type": "assert_statement",
+                            "claim": "8 is divisible by 2.",
+                            "calculation": {
+                              "inline_calculation": "8 = 2 * 4"
+                            },
+                            "results_used": [
+                              {
+                                "statement": "By Definition of Divisibility by 2",
+                                "target_identifier": "def:divisible_by_2"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "From the exhaustive case analysis above (Step 5), it is established that the last digit 'd' is always divisible by 2 when d is 0, 2, 4, 6, or 8.",
+              "proof_method": "Proof by cases (exhaustion of possibilities for 'd').",
+              "label": "step:d_divisible"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Since both 10k (from step 'step:10k_divisible') and d (from step 'step:d_divisible') are divisible by 2, their sum N = 10k + d must also be divisible by 2.",
+              "proof_method": "Property of divisibility of sums.",
+              "results_used": [
+                {
+                  "statement": "A fundamental property of divisibility states that if two integers 'a' and 'b' are both divisible by an integer 'c', then their sum (a + b) is also divisible by 'c'."
+                },
+                {
+                  "statement": "10k is divisible by 2",
+                  "target_identifier": "step:10k_divisible"
+                },
+                {
+                  "statement": "d is divisible by 2",
+                  "target_identifier": "step:d_divisible"
+                }
+              ],
+              "label": "step:sum_divisible"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Therefore, if a number expressed in decimal notation ends with 0, 2, 4, 6, or 8, then it is divisible by 2."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

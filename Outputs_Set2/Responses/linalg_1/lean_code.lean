@@ -1,28 +1,29 @@
 import Mathlib
 
-example :=
-  "Error: codegen: no valid function found for key definition in JSON object {\"label\": \"def:vector_space_closure_addition\",\n \"header\": \"Definition\",\n \"definition\":\n \"A vector space `V` is a set of objects, called vectors, on which two operations are defined: vector addition and scalar multiplication. One of the fundamental axioms of a vector space is the **closure under vector addition**, which states that for any two vectors `u` and `v` that are elements of `V`, their sum, `u + v`, is also an element of `V`.\"}; tried: [LeanAide.defCode: codegen: no definition translation found for A vector space `V` is a set of objects, called vectors, on which two operations are defined: vector addition and scalar multiplication. One of the fundamental axioms of a vector space is the **closure under vector addition**, which states that for any two vectors `u` and `v` that are elements of `V`, their sum, `u + v`, is also an element of `V`.]"
-abbrev VectorSpace.add_mem.prop : Prop :=
-  ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
-    u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ
-theorem VectorSpace.add_mem :
+  def vectorSpace_closure_under_addition {V : Type u} [Add V] : Prop :=
+    ∀ (u v : V), u + v ∈ Set.univ
+  abbrev VectorSpace.add_mem.prop : Prop :=
     ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
-      u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
-  by
-  intro V inst inst_1 inst_2 u v a a_1
-  simp_all only [Set.mem_univ]
-  have assert_16034457716498329154 :
-    ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
-      u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
-    by sorry
-  intro a_1
-  simp_all only
-  have :
-    ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),
-      u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
+      u ∈ Submodule.span K Set.univ → v ∈ Submodule.span K Set.univ → u + v ∈ Submodule.span K Set.univ
+  theorem VectorSpace.add_mem :
+      ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
+        u ∈ Submodule.span K Set.univ → v ∈ Submodule.span K Set.univ → u + v ∈ Submodule.span K Set.univ :=
     by
-    intro K V_2 inst_4 inst_1_1 inst_2_1 u_1 v_1 a_1 a_2
-    simp_all only [Set.mem_univ]
-  intro a_1
-  simp_all only
-  simp_all only
+    intro V inst inst_1 inst_2 u v a a_1
+    simp_all only [Submodule.span_univ, Submodule.mem_top]
+    have assert_16034457716498329154 :
+      ∀ {K : Type u} {V : Type v} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] {u v : V},
+        u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
+      by sorry
+    intro a_1
+    simp_all only
+    have :
+      ∀ {K : Type u_1} {V : Type u_2} [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V] (u v : V),
+        u ∈ Set.univ → v ∈ Set.univ → u + v ∈ Set.univ :=
+      by
+      intro K V_2 inst_4 inst_1_1 inst_2_1 u_1 v_1 a_1 a_2
+      simp_all only [Set.mem_univ]
+    intro a_1
+    simp_all only
+    intro a_1
+    simp_all only

@@ -2,7 +2,7 @@
   "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  def Int.dvd : \u2124 \u2192 \u2124 \u2192 Prop := fun x y => \u2203 k : \u2124, y = x * k\n  abbrev Int.sum_consecutive_three_divisible_by_three.prop : Prop :=\n    \u2200 (n : \u2124), 3 \u2223 n + (n + 1) + (n + 2)\n  theorem Int.sum_consecutive_three_divisible_by_three : \u2200 (n : \u2124), 3 \u2223 n + (n + 1) + (n + 2) := by (omega)",
+  "lean_code": "  def Int.dvd : \u2124 \u2192 \u2124 \u2192 Prop := fun x y => \u2203 k : \u2124, y = x * k\n  abbrev Int.sum_three_consecutive_div_Three.prop : Prop :=\n    \u2200 (n : \u2124), 3 \u2223 n + (n + 1) + (n + 2)\n  theorem Int.sum_three_consecutive_div_Three : \u2200 (n : \u2124), 3 \u2223 n + (n + 1) + (n + 2) := by (omega)",
   "json_structured": {
     "document": [
       {
@@ -137,6 +137,6 @@
   "greedy": false,
   "declarations": [
     "Int.dvd",
-    "Int.sum_consecutive_three_divisible_by_three"
+    "Int.sum_three_consecutive_div_Three"
   ]
 }

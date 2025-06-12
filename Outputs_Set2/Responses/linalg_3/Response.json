@@ -2,7 +2,7 @@
   "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  def dotProduct_self : \u2200 {n : Type u} {\u03b1 : Type v} [inst : Fintype n] [inst : Semiring \u03b1] (v : n \u2192 \u03b1), \u03b1 :=\n    fun {n \u03b1} [Fintype n] [Semiring \u03b1] v => \u2211 i, (v i) * (v i)\n  abbrev dot_product_self_nonneg.prop : Prop :=\n    \u2200 {n : \u2115} (v : Fin n \u2192 \u211d), 0 \u2264 Matrix.dotProduct v v\n  theorem dot_product_self_nonneg : \u2200 {n : \u2115} (v : Fin n \u2192 \u211d), 0 \u2264 Matrix.dotProduct v v :=\n    by\n    intro v\n    sorry",
+  "lean_code": "  def dot_product_self : {n : \u2115} \u2192 (v : Fin n \u2192 \u211d) \u2192 \u211d := fun {n} v => \u2211 i : Fin n, (v i) ^ 2\n  abbrev dot_product_self_nonneg.prop : Prop :=\n    \u2200 {n : \u2115} (v : Fin n \u2192 \u211d), 0 \u2264 \u2211 i : Fin n, v i * v i\n  theorem dot_product_self_nonneg : \u2200 {n : \u2115} (v : Fin n \u2192 \u211d), 0 \u2264 \u2211 i : Fin n, v i * v i :=\n    by\n    intro v\n    sorry",
   "json_structured": {
     "document": [
       {
@@ -116,7 +116,7 @@
   },
   "greedy": false,
   "declarations": [
-    "dotProduct_self",
+    "dot_product_self",
     "dot_product_self_nonneg"
   ]
 }

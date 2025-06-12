@@ -2,7 +2,7 @@
   "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  example :=\n    \"Error: codegen: no valid function found for key definition in JSON object {\\\"label\\\": \\\"def:euclidean_norm\\\",\\n \\\"header\\\": \\\"Definition\\\",\\n \\\"definition\\\":\\n \\\"For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `\u2225v\u2225 = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`.\\\"}; tried: [LeanAide.defCode: codegen: no definition translation found for For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `\u2225v\u2225 = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`.]\"\n  def scalar_mul {n : \u2115} (c : \u211d) (v : Fin n \u2192 \u211d) : Fin n \u2192 \u211d := fun i => c * v i\n  abbrev norm_smul.prop : Prop :=\n    \u2200 {E : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] (c : \u211d) (v : E), \u2016c \u2022 v\u2016 = |c| * \u2016v\u2016\n  theorem norm_smul :\n      \u2200 {E : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace \u211d E] (c : \u211d) (v : E), \u2016c \u2022 v\u2016 = |c| * \u2016v\u2016 :=\n    by\n    intro inst inst_1 c v\n    sorry",
+  "lean_code": "  example :=\n    \"Error: codegen: no valid function found for key definition in JSON object {\\\"label\\\": \\\"def:euclidean_norm\\\",\\n \\\"header\\\": \\\"Definition\\\",\\n \\\"definition\\\":\\n \\\"For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `\u2225v\u2225 = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`.\\\"}; tried: [LeanAide.defCode: codegen: no definition translation found for For a vector `v` in an n-dimensional real vector space, represented as `v = (v_1, v_2, ..., v_n)` (where `v_i` are real numbers), the Euclidean norm (or L2 norm) of `v` is defined as `\u2225v\u2225 = sqrt(v_1^2 + v_2^2 + ... + v_n^2)`.]\"\n  def scalar_multiple {n : \u2115} (c : \u211d) (v : Fin n \u2192 \u211d) : Fin n \u2192 \u211d := fun i => c * v i\n  abbrev RealVectorSpace.norm_smul.prop : Prop :=\n    \u2200 {V : Type u_1} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace \u211d V] (c : \u211d) (v : V), \u2016c \u2022 v\u2016 = |c| * \u2016v\u2016\n  theorem RealVectorSpace.norm_smul :\n      \u2200 {V : Type u_1} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace \u211d V] (c : \u211d) (v : V), \u2016c \u2022 v\u2016 = |c| * \u2016v\u2016 :=\n    by\n    intro inst inst_1 c v\n    sorry",
   "json_structured": {
     "document": [
       {
@@ -213,7 +213,7 @@
   },
   "greedy": false,
   "declarations": [
-    "scalar_mul",
-    "norm_smul"
+    "scalar_multiple",
+    "RealVectorSpace.norm_smul"
   ]
 }

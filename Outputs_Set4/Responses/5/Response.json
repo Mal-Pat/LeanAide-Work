@@ -1,0 +1,87 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem Int.dvd_trans : \u2200 {x y z : \u2124}, x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z :=\n    by\n    intro x y z\n    have assert_7444641091063554725 : x \u2223 y \u2192 y \u2223 z \u2192 \u2203 (p : \u2124) (q : \u2124), y = x * p \u2227 z = y * q \u2227 z = x * (p * q) := by\n      sorry\n    have :=\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"proof_method\\\": \\\"By substituting the definition of k.\\\", \\\"claim\\\": \\\"z = x * k\\\"}; tried: [LeanAide.assertionCode: codegen: no valid type found for assertion 'z = x * k', full statement Let x, y, z be a integer.\\nAssume that: x divides y\\nAssume that: y divides z\\nLet x, y, z be a integer.\\nAssume that: x divides y\\nAssume that: y divides z\\nLet p be a integer (such that) y = x * p.\\nLet q be a integer (such that) z = y * q.\\nLet k be a integer p * q (such that) The product of two integers is an integer..\\nz = x * k]\"\n    have : x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z := by sorry\n    sorry\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+            },
+            [
+              {
+                "variable_name": "p",
+                "variable_kind": "integer",
+                "type": "some_statement",
+                "properties": "y = x * p"
+              },
+              {
+                "variable_name": "q",
+                "variable_kind": "integer",
+                "type": "some_statement",
+                "properties": "z = y * q"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "By substituting the expression for y into the expression for z and using the associativity of multiplication.",
+                "claim": "z = x * (p * q)",
+                "calculation": {
+                  "calculation_sequence": [
+                    "z = y * q",
+                    "z = (x * p) * q",
+                    "z = x * (p * q)"
+                  ]
+                }
+              },
+              {
+                "variable_type": "integer",
+                "variable_name": "k",
+                "value": "p * q",
+                "type": "let_statement",
+                "properties": "The product of two integers is an integer."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "By substituting the definition of k.",
+                "claim": "z = x * k"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "x divides z, since there exists an integer k such that z = x * k."
+              }
+            ]
+          ],
+          "claim_label": "thm:divisibility_is_transitive"
+        },
+        "label": "thm:divisibility_is_transitive",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "x, y, z",
+            "type": "let_statement"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "x divides y"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "y divides z"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "x divides z"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.dvd_trans"
+  ]
+}

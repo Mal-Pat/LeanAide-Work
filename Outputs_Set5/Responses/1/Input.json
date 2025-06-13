@@ -1,0 +1,94 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:even-odd-sum",
+      "claim": "The sum of an even natural number and an odd natural number is an odd natural number.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:even-odd-sum",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "E",
+                "variable_type": "even natural number"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "O",
+                "variable_type": "odd natural number"
+              },
+              {
+                "type": "some_statement",
+                "variable_name": "p",
+                "variable_kind": "natural number",
+                "properties": "such that E = 2*p"
+              },
+              {
+                "type": "some_statement",
+                "variable_name": "q",
+                "variable_kind": "natural number",
+                "properties": "such that O = 2*q + 1"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "S",
+                "value": "E + O"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "S = (2*p) + (2*q + 1)",
+                "proof_method": "substitution",
+                "results_used": [
+                  {
+                    "statement": "E = 2*p"
+                  },
+                  {
+                    "statement": "O = 2*q + 1"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "S = 2*(p + q) + 1",
+                "proof_method": "simplification",
+                "results_used": [
+                  {
+                    "statement": "S = (2*p) + (2*q + 1)"
+                  }
+                ]
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "p + q",
+                "properties": "which is a natural number since the sum of two natural numbers is another natural number"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "S = 2*k + 1",
+                "proof_method": "substitution",
+                "results_used": [
+                  {
+                    "statement": "S = 2*(p + q) + 1"
+                  },
+                  {
+                    "statement": "k = p + q"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Since S = E + O can be expressed as 2*k + 1 for some natural number k, it is an odd number. Therefore, the sum of an even natural number and an odd natural number is an odd natural number."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

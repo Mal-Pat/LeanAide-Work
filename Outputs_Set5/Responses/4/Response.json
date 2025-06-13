@@ -1,0 +1,86 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem int.divisible_by_12_implies_divisible_by_3 : \u2200 (n : \u2124), 12 \u2223 n \u2192 3 \u2223 n :=\n    by\n    have assert_795643089520114127 : \u2200 (n q : \u2124), 12 \u2223 n \u2192 n = 12 * q \u2192 n = 3 * (4 * q) :=\n      by\n      intro n q a a_1\n      subst a_1\n      simp_all only [dvd_mul_right]\n      (ring)\n    have assert_3967883696751263345 : \u2200 {n q k : \u2124}, n % 12 = 0 \u2192 n = 12 * q \u2192 k = 4 * q \u2192 n = 3 * k :=\n      by\n      intro n q k a a_1 a_2\n      subst a_2 a_1\n      simp_all only [Int.mul_emod_right]\n      (ring)\n    have : \u2200 (n q k : \u2124), n % 12 = 0 \u2192 n = 12 * q \u2192 k = 4 * q \u2192 \u2203 (k : \u2124), n = 3 * k := by sorry\n    sorry\n    intro n a\n    (omega)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "The statement \"integer x is divisible by integer y\" is equivalent to \"there must exist an integer q such that x = y * q\"."
+            },
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "integer",
+                  "variable_name": "n",
+                  "type": "let_statement",
+                  "properties": "divisible by 12"
+                },
+                {
+                  "variable_name": "q",
+                  "variable_kind": "integer",
+                  "type": "some_statement",
+                  "properties": "such that n = 12 * q"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "12 = 3 * 4"
+                    }
+                  ],
+                  "proof_method": "multiplication property of integers",
+                  "claim": "n = 3 * (4 * q)",
+                  "calculation": {
+                    "inline_calculation": "n = 12 * q = (3 * 4) * q = 3 * (4 * q)"
+                  }
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "k",
+                  "value": "4 * q",
+                  "type": "let_statement",
+                  "proof_method": "closure of integers under multiplication"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "eq:1",
+                      "statement": "n = 3 * (4 * q)"
+                    },
+                    {
+                      "target_identifier": "eq:2",
+                      "statement": "k = 4 * q"
+                    }
+                  ],
+                  "proof_method": "substitution",
+                  "claim": "n = 3 * k"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "n is divisible by 3, since there exists an integer k such that n = 3 * k."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:divisibility_by_12_implies_3"
+        },
+        "label": "thm:divisibility_by_12_implies_3",
+        "header": "Theorem",
+        "claim": "If an integer is divisible by 12, then it is divisible by 3."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "int.divisible_by_12_implies_divisible_by_3"
+  ]
+}

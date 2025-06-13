@@ -1,0 +1,104 @@
+{
+  "top_code": "import Mathlib\nimport LeanAide.AutoTactic\nimport LeanAide.Syntax\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem Nat.even_add_odd : \u2200 {m n : \u2115}, Even m \u2192 \u00acEven n \u2192 \u00acEven (m + n) :=\n    by\n    have assert_12268276386692234240 :\n      \u2200 (E O p q S : \u2115), Even E \u2192 Odd O \u2192 E = 2 * p \u2192 O = 2 * q + 1 \u2192 S = E + O \u2192 S = 2 * p + (2 * q + 1) :=\n      by\n      intro E O p q S a a_1 a_2 a_3 a_4\n      subst a_3 a_2 a_4\n      simp_all only [even_two, Even.mul_right, Even.add_one, Nat.add_left_cancel_iff]\n    have assert_5375841740629495789 :\n      \u2200 (E O p q : \u2115), Even E \u2192 Odd O \u2192 E = 2 * p \u2192 O = 2 * q + 1 \u2192 E + O = 2 * (p + q) + 1 :=\n      by\n      intro E O p q a a_1 a_2 a_3\n      subst a_2 a_3\n      simp_all only [Nat.add_left_cancel_iff, implies_true, even_two, Even.mul_right, Even.add_one]\n      (ring)\n    have assert_10380115732363780412 :\n      \u2200 (E O p q S k : \u2115), Even E \u2192 Odd O \u2192 E = 2 * p \u2192 O = 2 * q + 1 \u2192 S = E + O \u2192 k = p + q \u2192 S = 2 * k + 1 :=\n      by\n      intro E O p q S k a a_1 a_2 a_3 a_4 a_5\n      subst a_5 a_4 a_3 a_2\n      simp_all only [even_two, Even.mul_right, odd_one, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false,\n        Nat.right_eq_add, mul_eq_zero, false_or, add_zero, Nat.add_left_cancel_iff, implies_true, Even.add_one]\n      (ring)\n    have : \u2200 {E O p q S k : \u2115}, Even E \u2192 Odd O \u2192 E = 2 * p \u2192 O = 2 * q + 1 \u2192 S = E + O \u2192 k = p + q \u2192 Odd S :=\n      by\n      intro E O p q S k a a_1 a_2 a_3 a_4 a_5\n      subst a_4 a_3 a_2 a_5\n      simp_all only [even_two, Even.mul_right, odd_one, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false,\n        Nat.right_eq_add, mul_eq_zero, false_or, add_zero, Nat.add_left_cancel_iff, implies_true, Even.add_one]\n      sorry\n    intro m n a_1 a_2\n    simp_all only [even_two, Even.mul_right, odd_one, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false,\n      Nat.right_eq_add, mul_eq_zero, false_or, add_zero, Nat.add_left_cancel_iff, implies_true, Nat.not_even_iff_odd]\n    sorry\n    intro m n a a_1\n    simp_all only [Nat.not_even_iff_odd]\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "even natural number",
+                  "variable_name": "E",
+                  "type": "let_statement"
+                },
+                {
+                  "variable_type": "odd natural number",
+                  "variable_name": "O",
+                  "type": "let_statement"
+                },
+                {
+                  "variable_name": "p",
+                  "variable_kind": "natural number",
+                  "type": "some_statement",
+                  "properties": "such that E = 2*p"
+                },
+                {
+                  "variable_name": "q",
+                  "variable_kind": "natural number",
+                  "type": "some_statement",
+                  "properties": "such that O = 2*q + 1"
+                },
+                {
+                  "variable_name": "S",
+                  "value": "E + O",
+                  "type": "let_statement"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "E = 2*p"
+                    },
+                    {
+                      "statement": "O = 2*q + 1"
+                    }
+                  ],
+                  "proof_method": "substitution",
+                  "claim": "S = (2*p) + (2*q + 1)"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "S = (2*p) + (2*q + 1)"
+                    }
+                  ],
+                  "proof_method": "simplification",
+                  "claim": "S = 2*(p + q) + 1"
+                },
+                {
+                  "variable_name": "k",
+                  "value": "p + q",
+                  "type": "let_statement",
+                  "properties": "which is a natural number since the sum of two natural numbers is another natural number"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "S = 2*(p + q) + 1"
+                    },
+                    {
+                      "statement": "k = p + q"
+                    }
+                  ],
+                  "proof_method": "substitution",
+                  "claim": "S = 2*k + 1"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "Since S = E + O can be expressed as 2*k + 1 for some natural number k, it is an odd number. Therefore, the sum of an even natural number and an odd natural number is an odd natural number."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:even-odd-sum"
+        },
+        "label": "thm:even-odd-sum",
+        "header": "Theorem",
+        "claim": "The sum of an even natural number and an odd natural number is an odd natural number."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Nat.even_add_odd"
+  ]
+}

@@ -11,7 +11,7 @@ def main(name):
     url = "http://localhost:7654"
 
     # Set the Outputs directory over here
-    direc = f"Outputs_Set3/Responses/{name}"
+    direc = f"Outputs_Set5/Responses/{name}"
 
     input_file = f"{direc}/Input.json"
     response_file = f"{direc}/Response.json"

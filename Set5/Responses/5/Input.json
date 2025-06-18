@@ -1,0 +1,105 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:transitivity_of_division",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "an integer x divides an integer y"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "y divides an integer z"
+        }
+      ],
+      "claim": "x divides z",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:transitivity_of_division",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "there exists an integer p such that y = x * p",
+                "proof_method": "from the definition of divisibility",
+                "label": "eq:y_xp",
+                "results_used": [
+                  {
+                    "statement": "integer x divides integer y"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "there exists an integer q such that z = y * q",
+                "proof_method": "from the definition of divisibility",
+                "label": "eq:z_yq",
+                "results_used": [
+                  {
+                    "statement": "integer y divides integer z"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "z = (x * p) * q",
+                "proof_method": "substituting the value of y from equation 1 into equation 2",
+                "results_used": [
+                  {
+                    "statement": "y = x * p",
+                    "target_identifier": "eq:y_xp"
+                  },
+                  {
+                    "statement": "z = y * q",
+                    "target_identifier": "eq:z_yq"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "z = x * (p * q)",
+                "proof_method": "using the associativity of multiplication",
+                "label": "eq:z_x_pq"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "p * q",
+                "variable_type": "integer",
+                "properties": "since the product of two integers is an integer",
+                "label": "eq:k_pq"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "z = x * k",
+                "proof_method": "substituting equation 4 into equation 3",
+                "results_used": [
+                  {
+                    "statement": "z = x * (p * q)",
+                    "target_identifier": "eq:z_x_pq"
+                  },
+                  {
+                    "statement": "p * q = k",
+                    "target_identifier": "eq:k_pq"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "x divides z since there exists an integer k such that z = x * k"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

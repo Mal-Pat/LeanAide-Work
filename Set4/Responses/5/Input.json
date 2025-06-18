@@ -1,0 +1,77 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:divisibility_is_transitive",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "x, y, z",
+          "variable_type": "integer"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "x divides y"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "y divides z"
+        }
+      ],
+      "claim": "x divides z",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_is_transitive",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+          },
+          [
+            {
+              "type": "some_statement",
+              "variable_name": "p",
+              "variable_kind": "integer",
+              "properties": "y = x * p"
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "q",
+              "variable_kind": "integer",
+              "properties": "z = y * q"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "z = x * (p * q)",
+              "proof_method": "By substituting the expression for y into the expression for z and using the associativity of multiplication.",
+              "calculation": {
+                "calculation_sequence": [
+                  "z = y * q",
+                  "z = (x * p) * q",
+                  "z = x * (p * q)"
+                ]
+              }
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "k",
+              "value": "p * q",
+              "variable_type": "integer",
+              "properties": "The product of two integers is an integer."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "z = x * k",
+              "proof_method": "By substituting the definition of k."
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "x divides z, since there exists an integer k such that z = x * k."
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

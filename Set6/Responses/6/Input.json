@@ -1,0 +1,102 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_sum",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "an integer x divides an integer y"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "an integer x divides an integer z"
+        }
+      ],
+      "claim": "x divides (y + z)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_sum",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "there exists an integer p such that y = x * p",
+                "label": "eq:1",
+                "proof_method": "From the definition of divisibility, since x divides y."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "there exists an integer q such that z = x * q",
+                "label": "eq:2",
+                "proof_method": "From the definition of divisibility, since x divides z."
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "value": "(y + z)",
+                "variable_type": "integer",
+                "properties": "the sum of two integers is an integer",
+                "statement": "Let the integer n = (y + z)"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = (x * p) + (x * q)",
+                "proof_method": "Substituting y and z from equation 1 and equation 2 into the definition of n.",
+                "internal_references": [
+                  {
+                    "target_identifier": "eq:1"
+                  },
+                  {
+                    "target_identifier": "eq:2"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = x * (p + q)",
+                "label": "eq:4",
+                "proof_method": "Rearranging the previous equation by factoring out x."
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "(p + q)",
+                "variable_type": "integer",
+                "properties": "the sum of two integers is an integer",
+                "statement": "Let (p + q) = k"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = x * k",
+                "proof_method": "Substituting (p + q) with k into equation 4.",
+                "internal_references": [
+                  {
+                    "target_identifier": "eq:4"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "x divides n",
+                "proof_method": "From the definition of divisibility, since there exists an integer k such that n = x * k."
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "x divides (y + z)",
+                "proof_method": "Substituting n back with (y + z)."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_by_12_implies_3",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "an integer n is divisible by 12"
+        }
+      ],
+      "claim": "n is divisible by 3",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_by_12_implies_3",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer x is divisible by integer y\" is equivalent to \"there must exist an integer q such that x = y * q\"."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "there exists an integer q such that n = 12 * q",
+            "proof_method": "deduction from assumption",
+            "results_used": [
+              {
+                "statement": "n is divisible by 12"
+              }
+            ],
+            "label": "eq:n_divisible_by_12"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n = 3 * (4 * q)",
+            "proof_method": "algebraic manipulation",
+            "results_used": [
+              {
+                "statement": "12 = 3 * 4"
+              },
+              {
+                "statement": "n = 12 * q",
+                "target_identifier": "eq:n_divisible_by_12"
+              }
+            ],
+            "label": "eq:rewritten_n"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "k",
+            "value": "4 * q",
+            "variable_type": "integer",
+            "properties": "since the product of two integers is an integer",
+            "statement": "Let integer k = 4 * q, since the product of two integer is an integer.",
+            "label": "eq:define_k"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n = 3 * k for some integer k",
+            "proof_method": "substitution",
+            "results_used": [
+              {
+                "statement": "n = 3 * (4 * q)",
+                "target_identifier": "eq:rewritten_n"
+              },
+              {
+                "statement": "k = 4 * q",
+                "target_identifier": "eq:define_k"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "n is divisible by 3, since there exists an integer k such that n = 3 * k."
+          }
+        ]
+      }
+    }
+  ]
+}

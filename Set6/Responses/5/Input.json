@@ -1,0 +1,89 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:transitive_division",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "an integer x divides an integer y"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "y divides an integer z"
+        }
+      ],
+      "claim": "x divides z",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:transitive_division",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "Since integer x divides integer y, there exists an integer p such that y = x * p",
+            "label": "eq:1",
+            "proof_method": "definition of divides"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "Also, since integer y divides integer z, there exists an integer q such that z = y * q",
+            "label": "eq:2",
+            "proof_method": "definition of divides"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "Substituting the value of y from equation 1 into equation 2, we get z = (x * p) * q.",
+            "internal_references": [
+              {
+                "target_identifier": "eq:1"
+              },
+              {
+                "target_identifier": "eq:2"
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "Simplifying this, we get z = x * (p * q)",
+            "label": "eq:3",
+            "results_used": [
+              {
+                "statement": "associativity of multiplication"
+              }
+            ]
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "k",
+            "value": "p * q",
+            "variable_type": "integer",
+            "statement": "Let p * q be some integer k, that is, p * q = k",
+            "label": "eq:4",
+            "properties": "since the product of two integers is an integer"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "Substituting equation 4 into equation 3, we get z = x * k.",
+            "internal_references": [
+              {
+                "target_identifier": "eq:4"
+              },
+              {
+                "target_identifier": "eq:3"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "Thus, x divides z since there exists an integer k such that z = x * k."
+          }
+        ]
+      }
+    }
+  ]
+}

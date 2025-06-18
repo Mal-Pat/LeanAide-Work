@@ -1,0 +1,97 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "#check\n    \"Error: codegen: no valid function found for key theorem in JSON object {\\\"proof\\\":\\n {\\\"type\\\": \\\"Proof\\\",\\n  \\\"proof_steps\\\":\\n  [{\\\"type\\\": \\\"LogicalStepSequence\\\",\\n    \\\"items\\\":\\n    [{\\\"variable_type\\\": \\\"even natural number\\\",\\n      \\\"variable_name\\\": \\\"E\\\",\\n      \\\"type\\\": \\\"let_statement\\\",\\n      \\\"statement\\\": \\\"Let the even natural number be E.\\\"},\\n     {\\\"variable_type\\\": \\\"odd natural number\\\",\\n      \\\"variable_name\\\": \\\"O\\\",\\n      \\\"type\\\": \\\"let_statement\\\",\\n      \\\"statement\\\": \\\"Let the odd natural number be O.\\\"},\\n     {\\\"variable_name\\\": \\\"p\\\",\\n      \\\"variable_kind\\\": \\\"natural number\\\",\\n      \\\"type\\\": \\\"some_statement\\\",\\n      \\\"statement\\\": \\\"Then there exists a natural number p such that E = 2*p.\\\",\\n      \\\"properties\\\": \\\"such that E = 2*p\\\"},\\n     {\\\"variable_name\\\": \\\"q\\\",\\n      \\\"variable_kind\\\": \\\"natural number\\\",\\n      \\\"type\\\": \\\"some_statement\\\",\\n      \\\"statement\\\": \\\"And there exists a natural number q such that O = 2*q + 1.\\\",\\n      \\\"properties\\\": \\\"such that O = 2*q + 1\\\"},\\n     {\\\"variable_name\\\": \\\"S\\\",\\n      \\\"value\\\": \\\"E + O\\\",\\n      \\\"type\\\": \\\"let_statement\\\",\\n      \\\"statement\\\": \\\"Take their sum to be S = E + O.\\\"},\\n     {\\\"type\\\": \\\"assert_statement\\\",\\n      \\\"proof_method\\\": \\\"Substitution of E and O\\\",\\n      \\\"claim\\\": \\\"S = (2*p) + (2*q + 1)\\\",\\n      \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"S = (2*p) + (2*q + 1)\\\"}},\\n     {\\\"type\\\": \\\"assert_statement\\\",\\n      \\\"proof_method\\\": \\\"Simplifying the expression\\\",\\n      \\\"claim\\\": \\\"S = 2*(p + q) + 1\\\",\\n      \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"S = 2*(p + q) + 1\\\"}},\\n     {\\\"variable_type\\\": \\\"natural number\\\",\\n      \\\"variable_name\\\": \\\"k\\\",\\n      \\\"value\\\": \\\"p + q\\\",\\n      \\\"type\\\": \\\"let_statement\\\",\\n      \\\"statement\\\":\\n      \\\"Let p + q = k, since the sum of two natural numbers is another natural number.\\\",\\n      \\\"properties\\\":\\n      \\\"since the sum of two natural numbers is another natural number\\\"},\\n     {\\\"type\\\": \\\"assert_statement\\\",\\n      \\\"proof_method\\\": \\\"Substitution of k\\\",\\n      \\\"claim\\\": \\\"S = 2*k + 1\\\",\\n      \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"S = 2*k + 1\\\"}},\\n     {\\\"type\\\": \\\"conclude_statement\\\",\\n      \\\"claim\\\":\\n      \\\"Since S = E + O can be expressed as 2*k + 1 for some natural number k, it is an odd number. Therefore, the sum of an even natural number and an odd natural number is an odd natural number.\\\"}]}],\\n  \\\"claim_label\\\": \\\"thm:even-odd-sum-odd\\\"},\\n \\\"label\\\": \\\"thm:even-odd-sum-odd\\\",\\n \\\"header\\\": \\\"Theorem\\\",\\n \\\"claim\\\":\\n \\\"The sum of an even natural number and an odd natural number is an odd natural number.\\\"}; tried: [LeanAide.theoremCode: codegen: no valid type found for assertion 'The sum of an even natural number and an odd natural number is an odd natural number.', full statement The sum of an even natural number and an odd natural number is an odd natural number.]\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "even natural number",
+                  "variable_name": "E",
+                  "type": "let_statement",
+                  "statement": "Let the even natural number be E."
+                },
+                {
+                  "variable_type": "odd natural number",
+                  "variable_name": "O",
+                  "type": "let_statement",
+                  "statement": "Let the odd natural number be O."
+                },
+                {
+                  "variable_name": "p",
+                  "variable_kind": "natural number",
+                  "type": "some_statement",
+                  "statement": "Then there exists a natural number p such that E = 2*p.",
+                  "properties": "such that E = 2*p"
+                },
+                {
+                  "variable_name": "q",
+                  "variable_kind": "natural number",
+                  "type": "some_statement",
+                  "statement": "And there exists a natural number q such that O = 2*q + 1.",
+                  "properties": "such that O = 2*q + 1"
+                },
+                {
+                  "variable_name": "S",
+                  "value": "E + O",
+                  "type": "let_statement",
+                  "statement": "Take their sum to be S = E + O."
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Substitution of E and O",
+                  "claim": "S = (2*p) + (2*q + 1)",
+                  "calculation": {
+                    "inline_calculation": "S = (2*p) + (2*q + 1)"
+                  }
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Simplifying the expression",
+                  "claim": "S = 2*(p + q) + 1",
+                  "calculation": {
+                    "inline_calculation": "S = 2*(p + q) + 1"
+                  }
+                },
+                {
+                  "variable_type": "natural number",
+                  "variable_name": "k",
+                  "value": "p + q",
+                  "type": "let_statement",
+                  "statement": "Let p + q = k, since the sum of two natural numbers is another natural number.",
+                  "properties": "since the sum of two natural numbers is another natural number"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Substitution of k",
+                  "claim": "S = 2*k + 1",
+                  "calculation": {
+                    "inline_calculation": "S = 2*k + 1"
+                  }
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "Since S = E + O can be expressed as 2*k + 1 for some natural number k, it is an odd number. Therefore, the sum of an even natural number and an odd natural number is an odd natural number."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:even-odd-sum-odd"
+        },
+        "label": "thm:even-odd-sum-odd",
+        "header": "Theorem",
+        "claim": "The sum of an even natural number and an odd natural number is an odd natural number."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": []
+}

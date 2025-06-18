@@ -1,0 +1,112 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem Int.dvd_add : \u2200 (x y z : \u2124), x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y + z :=\n    by\n    intro x y\n    have assert_10487727706402953275 : \u2200 {z : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 \u2203 (p : \u2124), y = x * p :=\n      by\n      intro z a a_1\n      exact a\n    have assert_14286451591566323360 : \u2200 {z : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y \u2192 x \u2223 z \u2192 \u2203 (q : \u2124), z = x * q :=\n      by\n      intro z a a_1 a_2 a_3\n      simp_all only [forall_const]\n      exact a_3\n    trace\n      \"Error: codegen: no valid function found for key let_statement in JSON object {\\\"variable_type\\\": \\\"integer\\\",\\n \\\"variable_name\\\": \\\"n\\\",\\n \\\"value\\\": \\\"(y + z)\\\",\\n \\\"statement\\\": \\\"Let the integer n = (y + z)\\\",\\n \\\"properties\\\": \\\"the sum of two integers is an integer\\\"}; tried: [LeanAide.letCode: codegen: no definition translation found for Assume that: an integer x divides an integer y\\nAssume that: an integer x divides an integer z\\nLet the integer n = (y + z)\\nDefine ONLY the term n with value (y + z). Other terms have been defined already.]\"\n    have assert_1821571086675179418 : \u2200 {z p q : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y \u2192 x \u2223 z \u2192 \u2203 (n : \u2124), n = x * p + x * q :=\n      by\n      intro z p q a a_1 a_2 a_3\n      simp_all only [implies_true, imp_self, forall_const, exists_eq]\n    have assert_11480129842292011864 : \u2200 {z n p q : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y \u2192 x \u2223 z \u2192 n = x * (p + q) :=\n      by\n      intro z n p q a a_1 a_2 a_3\n      simp_all only [implies_true, imp_self, forall_const, exists_eq]\n      sorry\n    let k := p + q\n    have assert_6620344784397916658 : \u2200 {z p q k n : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 p + q = k \u2192 n = x * k \u2192 x \u2223 n :=\n      by\n      intro z p q k n a a_1 a_2 a_3\n      subst a_2 a_3\n      simp_all only [implies_true, imp_self, forall_const, exists_eq, dvd_mul_right]\n    have assert_11120287778695153551 : \u2200 {z p q k n : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 p + q = k \u2192 x \u2223 n := by sorry\n    have : \u2200 {z : \u2124}, x \u2223 y \u2192 x \u2223 z \u2192 x \u2223 y + z := by sorry\n    (expose_names; exact fun z a a_1 => h (assert_10487727706402953275 a a) a_1)\n    intro z a a_1\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+            },
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "proof_method": "From the definition of divisibility, since x divides y.",
+                  "label": "eq:1",
+                  "claim": "there exists an integer p such that y = x * p"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "From the definition of divisibility, since x divides z.",
+                  "label": "eq:2",
+                  "claim": "there exists an integer q such that z = x * q"
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "n",
+                  "value": "(y + z)",
+                  "type": "let_statement",
+                  "statement": "Let the integer n = (y + z)",
+                  "properties": "the sum of two integers is an integer"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Substituting y and z from equation 1 and equation 2 into the definition of n.",
+                  "internal_references": [
+                    {
+                      "target_identifier": "eq:1"
+                    },
+                    {
+                      "target_identifier": "eq:2"
+                    }
+                  ],
+                  "claim": "n = (x * p) + (x * q)"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Rearranging the previous equation by factoring out x.",
+                  "label": "eq:4",
+                  "claim": "n = x * (p + q)"
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "k",
+                  "value": "(p + q)",
+                  "type": "let_statement",
+                  "statement": "Let (p + q) = k",
+                  "properties": "the sum of two integers is an integer"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "Substituting (p + q) with k into equation 4.",
+                  "internal_references": [
+                    {
+                      "target_identifier": "eq:4"
+                    }
+                  ],
+                  "claim": "n = x * k"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "From the definition of divisibility, since there exists an integer k such that n = x * k.",
+                  "claim": "x divides n"
+                },
+                {
+                  "type": "conclude_statement",
+                  "proof_method": "Substituting n back with (y + z).",
+                  "claim": "x divides (y + z)"
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:divisibility_sum"
+        },
+        "label": "thm:divisibility_sum",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "an integer x divides an integer y"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "an integer x divides an integer z"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "x divides (y + z)"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.dvd_add"
+  ]
+}

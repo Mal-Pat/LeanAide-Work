@@ -1,0 +1,230 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_by_2",
+      "header": "Theorem",
+      "claim": "If an integer expressed in decimal notation ends with 0, 2, 4, 6, or 8, then it is divisible by 2.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_by_2",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "This statement is equivalent to showing that numbers of the form 10 * k1, 10 * k2 + 2, 10 * k3 + 4, 10 * k4 + 6 and 10 * k5 + 8 are divisible by 2, for some integers k1, k2, k3, k4 and k5. Let us treat this case by case."
+          },
+          {
+            "type": "pattern_cases_statement",
+            "on": "the last digit of an integer n",
+            "proof_cases": [
+              {
+                "type": "pattern_case",
+                "pattern": "0",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "Case for an integer ending with 0",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "n",
+                      "properties": "an integer ending with 0"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 10 * k1, for some integer k1",
+                      "proof_method": "by definition of an integer ending with 0"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * (5 * k1)",
+                      "proof_method": "rewriting the expression"
+                    },
+                    {
+                      "type": "let_statement",
+                      "variable_name": "q1",
+                      "value": "(5 * k1)",
+                      "variable_type": "integer"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * q1",
+                      "proof_method": "substitution"
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "2 divides integer n ending with 0."
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "2",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "Case for an integer ending with 2",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "n",
+                      "properties": "an integer ending with 2"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 10 * k2 + 2, for some integer k2",
+                      "proof_method": "by definition of an integer ending with 2"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * (5 * k2 + 1)",
+                      "proof_method": "rewriting the expression"
+                    },
+                    {
+                      "type": "let_statement",
+                      "variable_name": "q2",
+                      "value": "(5 * k2 + 1)",
+                      "variable_type": "integer"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * q2",
+                      "proof_method": "substitution"
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "2 divides integer n ending with 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "4",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "Case for an integer ending with 4",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "n",
+                      "properties": "an integer ending with 4"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 10 * k3 + 4, for some integer k3",
+                      "proof_method": "by definition of an integer ending with 4"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * (5 * k3 + 2)",
+                      "proof_method": "rewriting the expression"
+                    },
+                    {
+                      "type": "let_statement",
+                      "variable_name": "q3",
+                      "value": "(5 * k3 + 2)",
+                      "variable_type": "integer"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * q3",
+                      "proof_method": "substitution"
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "2 divides integer n ending with 4."
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "6",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "Case for an integer ending with 6",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "n",
+                      "properties": "an integer ending with 6"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 10 * k4 + 6, for some integer k4",
+                      "proof_method": "by definition of an integer ending with 6"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * (5 * k4 + 3)",
+                      "proof_method": "rewriting the expression"
+                    },
+                    {
+                      "type": "let_statement",
+                      "variable_name": "q4",
+                      "value": "(5 * k4 + 3)",
+                      "variable_type": "integer"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * q4",
+                      "proof_method": "substitution"
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "2 divides integer n ending with 6."
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "8",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "Case for an integer ending with 8",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "n",
+                      "properties": "an integer ending with 8"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 10 * k5 + 8, for some integer k5",
+                      "proof_method": "by definition of an integer ending with 8"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * (5 * k5 + 4)",
+                      "proof_method": "rewriting the expression"
+                    },
+                    {
+                      "type": "let_statement",
+                      "variable_name": "q5",
+                      "value": "(5 * k5 + 4)",
+                      "variable_type": "integer"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "n = 2 * q5",
+                      "proof_method": "substitution"
+                    },
+                    {
+                      "type": "conclude_statement",
+                      "claim": "2 divides integer n ending with 8."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "From all the 5 cases, we have concluded that if an integer ends with 0, 2, 4, 6 or 8, then it is divisible by 2."
+          }
+        ]
+      }
+    }
+  ]
+}

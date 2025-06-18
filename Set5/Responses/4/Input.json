@@ -1,0 +1,76 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_by_12_implies_3",
+      "header": "Theorem",
+      "claim": "If an integer is divisible by 12, then it is divisible by 3.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_by_12_implies_3",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer x is divisible by integer y\" is equivalent to \"there must exist an integer q such that x = y * q\"."
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "variable_type": "integer",
+                "properties": "divisible by 12"
+              },
+              {
+                "type": "some_statement",
+                "variable_name": "q",
+                "variable_kind": "integer",
+                "properties": "such that n = 12 * q"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = 3 * (4 * q)",
+                "proof_method": "multiplication property of integers",
+                "results_used": [
+                  {
+                    "statement": "12 = 3 * 4"
+                  }
+                ],
+                "calculation": {
+                  "inline_calculation": "n = 12 * q = (3 * 4) * q = 3 * (4 * q)"
+                }
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "4 * q",
+                "variable_type": "integer",
+                "proof_method": "closure of integers under multiplication"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = 3 * k",
+                "proof_method": "substitution",
+                "results_used": [
+                  {
+                    "statement": "n = 3 * (4 * q)",
+                    "target_identifier": "eq:1"
+                  },
+                  {
+                    "statement": "k = 4 * q",
+                    "target_identifier": "eq:2"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "n is divisible by 3, since there exists an integer k such that n = 3 * k."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

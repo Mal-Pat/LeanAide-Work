@@ -1,0 +1,395 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mathematical Document Wrapper",
+  "description": "JSON schema for a structured mathematical document.",
+  "type": "object",
+  "properties": {
+    "document": {
+      "type": "array",
+      "description": "The root of the mathematical document, containing a sequence of environments.",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Theorem"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "document"
+  ],
+  "$defs": {
+    "Theorem": {
+      "type": "object",
+      "description": "A mathematical theorem, lemma, proposition, corollary, or claim.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Theorem"
+        },
+        "hypothesis": {
+          "type": "array",
+          "description": "(OPTIONAL) The hypothesis or assumptions of the theorem, consisting of statements like 'let', 'assume', etc.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/let_statement"
+              },
+              {
+                "$ref": "#/$defs/assume_statement"
+              }
+            ]
+          }
+        },
+        "claim": {
+          "type": "string",
+          "description": "The statement."
+        },
+        "label": {
+          "type": "string",
+          "description": "Unique identifier/label for referencing (e.g., 'thm:main', 'lem:pumping')."
+        },
+        "proof": {
+          "$ref": "#/$defs/Proof"
+        },
+        "header": {
+          "type": "string",
+          "description": "The type of theorem-like environment. Must be one of the predefined values.",
+          "enum": [
+            "Theorem"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "label",
+        "header",
+        "claim"
+      ]
+    },
+    "Proof": {
+      "type": "object",
+      "description": "A proof environment.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Proof"
+        },
+        "claim_label": {
+          "type": "string",
+          "description": "Theorem label being proved."
+        },
+        "proof_steps": {
+          "type": "array",
+          "description": "Steps in the proof.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/LogicalStepSequence"
+              },
+              {
+                "$ref": "#/$defs/Paragraph"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "claim_label",
+        "proof_steps"
+      ]
+    },
+    "let_statement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "let_statement"
+        },
+        "variable_name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "variable_type": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "variable_name"
+      ]
+    },
+    "some_statement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "some_statement"
+        },
+        "variable_name": {
+          "type": "string"
+        },
+        "variable_kind": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "variable_name"
+      ]
+    },
+    "assume_statement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "assume_statement"
+        },
+        "assumption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "assumption"
+      ]
+    },
+    "assert_statement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "assert_statement"
+        },
+        "claim": {
+          "type": "string"
+        },
+        "proof_method": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "results_used": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "statement": {
+                "type": "string"
+              },
+              "target_identifier": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "statement"
+            ]
+          }
+        },
+        "calculation": {
+          "$ref": "#/$defs/calculation"
+        }
+      },
+      "required": [
+        "type",
+        "claim"
+      ]
+    },
+    "calculation": {
+      "type": "object",
+      "properties": {
+        "calculation_sequence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/calculation_step"
+          }
+        }
+      }
+    },
+    "calculation_step": {
+      "type": "string"
+    },
+    "conclude_statement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "conclude_statement"
+        },
+        "claim": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "claim"
+      ]
+    },
+    "Paragraph": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Paragraph"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "text"
+      ]
+    },
+    "LogicalStepSequence": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/let_statement"
+          },
+          {
+            "$ref": "#/$defs/assert_statement"
+          },
+          {
+            "$ref": "#/$defs/some_statement"
+          },
+          {
+            "$ref": "#/$defs/conclude_statement"
+          }
+        ]
+      }
+    }
+  },
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:divisibility_of_sum",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "x, y, z",
+          "variable_type": "integer"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "x divides y"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "x divides z"
+        }
+      ],
+      "claim": "x divides (y + z)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisibility_of_sum",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "some_statement",
+                "variable_name": "p",
+                "variable_kind": "integer",
+                "properties": "y = x * p"
+              },
+              {
+                "type": "some_statement",
+                "variable_name": "q",
+                "variable_kind": "integer",
+                "properties": "z = x * q"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "value": "y + z",
+                "variable_type": "integer"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = x * (p + q)",
+                "label": "eq:4",
+                "proof_method": "By substitution and the distributive property.",
+                "calculation": {
+                  "calculation_sequence": [
+                    "n = y + z",
+                    "n = (x * p) + (x * q)",
+                    "n = x * (p + q)"
+                  ]
+                }
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "p + q",
+                "variable_type": "integer",
+                "properties": "The sum of two integers is an integer."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = x * k",
+                "proof_method": "Substitution.",
+                "results_used": [
+                  {
+                    "statement": "n = x * (p + q)",
+                    "target_identifier": "eq:4"
+                  },
+                  {
+                    "statement": "k = p + q"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "x divides n",
+                "proof_method": "By the definition of divisibility.",
+                "results_used": [
+                  {
+                    "statement": "n = x * k"
+                  },
+                  {
+                    "statement": "k is an integer"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "x divides (y + z)",
+                "proof_method": "By substitution of n.",
+                "results_used": [
+                  {
+                    "statement": "x divides n"
+                  },
+                  {
+                    "statement": "n = y + z"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "x divides (y + z)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

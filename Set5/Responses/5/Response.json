@@ -1,0 +1,115 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem Int.dvd_trans : \u2200 {x y z : \u2124}, x \u2223 y \u2192 y \u2223 z \u2192 x \u2223 z :=\n    by\n    intro x y\n    exact fun {z} a a_1 => Int.dvd_trans a a_1",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "The statement \"integer a divides an integer b\" is equivalent to \"there exists an integer k such that b = a * k\"."
+            },
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "integer x divides integer y"
+                    }
+                  ],
+                  "proof_method": "from the definition of divisibility",
+                  "label": "eq:y_xp",
+                  "claim": "there exists an integer p such that y = x * p"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "integer y divides integer z"
+                    }
+                  ],
+                  "proof_method": "from the definition of divisibility",
+                  "label": "eq:z_yq",
+                  "claim": "there exists an integer q such that z = y * q"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "eq:y_xp",
+                      "statement": "y = x * p"
+                    },
+                    {
+                      "target_identifier": "eq:z_yq",
+                      "statement": "z = y * q"
+                    }
+                  ],
+                  "proof_method": "substituting the value of y from equation 1 into equation 2",
+                  "claim": "z = (x * p) * q"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "using the associativity of multiplication",
+                  "label": "eq:z_x_pq",
+                  "claim": "z = x * (p * q)"
+                },
+                {
+                  "variable_type": "integer",
+                  "variable_name": "k",
+                  "value": "p * q",
+                  "type": "let_statement",
+                  "properties": "since the product of two integers is an integer",
+                  "label": "eq:k_pq"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "eq:z_x_pq",
+                      "statement": "z = x * (p * q)"
+                    },
+                    {
+                      "target_identifier": "eq:k_pq",
+                      "statement": "p * q = k"
+                    }
+                  ],
+                  "proof_method": "substituting equation 4 into equation 3",
+                  "claim": "z = x * k"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "x divides z since there exists an integer k such that z = x * k"
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:transitivity_of_division"
+        },
+        "label": "thm:transitivity_of_division",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "an integer x divides an integer y"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "y divides an integer z"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "x divides z"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.dvd_trans"
+  ]
+}

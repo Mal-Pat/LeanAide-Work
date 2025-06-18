@@ -1,0 +1,61 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:R",
+      "header": "Definition",
+      "definition": "ℝ denotes the set of real numbers."
+    },
+    {
+      "type": "Definition",
+      "label": "def:gt",
+      "header": "Definition",
+      "definition": "The symbol “>” denotes the standard strict order on ℝ."
+    },
+    {
+      "type": "Definition",
+      "label": "def:transitivity",
+      "header": "Definition",
+      "definition": "For all a, b, c ∈ ℝ, if a > b and b > c then a > c."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:gt5-gt2",
+      "header": "Theorem",
+      "claim": "For all x ∈ ℝ, if x > 5 then x > 2.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:gt5-gt2",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "x",
+              "variable_type": "ℝ",
+              "properties": "x > 5",
+              "statement": "x ∈ ℝ and x > 5"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "x > 2",
+              "proof_method": "By transitivity of “>”",
+              "results_used": [
+                {
+                  "statement": "For all a, b, c ∈ ℝ, if a > b and b > c then a > c.",
+                  "target_identifier": "def:transitivity"
+                },
+                {
+                  "statement": "5 > 2"
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "x > 2"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

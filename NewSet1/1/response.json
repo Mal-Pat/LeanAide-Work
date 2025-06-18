@@ -1,0 +1,84 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def is_even (x : \u2124) : Prop :=\n    \u2203 k : \u2124, x = 2 * k\n  def Int.isOdd (x : \u2124) : Prop :=\n    \u2203 \u2113 : \u2124, x = 2 * \u2113 + 1\n  theorem Int.even_add_odd : \u2200 (m n : \u2124), Even m \u2192 Odd n \u2192 Odd (m + n) := by exact fun m n a a_1 => Even.add_odd a a_1",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "def:even",
+        "header": "Definition",
+        "definition": "An integer x is even if and only if there exists an integer k such that x = 2k."
+      },
+      {
+        "type": "Definition",
+        "label": "def:odd",
+        "header": "Definition",
+        "definition": "An integer x is odd if and only if there exists an integer \u2113 such that x = 2\u2113 + 1."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "integer",
+                "variable_name": "m",
+                "type": "let_statement",
+                "statement": "m = 2k for some integer k",
+                "properties": "m is even"
+              },
+              {
+                "variable_type": "integer",
+                "variable_name": "n",
+                "type": "let_statement",
+                "statement": "n = 2\u2113 + 1 for some integer \u2113",
+                "properties": "n is odd"
+              },
+              {
+                "variable_name": "s",
+                "value": "m + n",
+                "type": "let_statement",
+                "statement": "Define s := m + n"
+              },
+              {
+                "calculation_sequence": [
+                  "s = m + n",
+                  "= 2k + (2\u2113 + 1)",
+                  "= 2(k + \u2113) + 1"
+                ]
+              },
+              {
+                "variable_type": "integer",
+                "variable_name": "p",
+                "value": "k + \u2113",
+                "type": "let_statement",
+                "statement": "Define p := k + \u2113"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "s = 2p + 1 for some integer p"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "s is odd"
+              }
+            ]
+          ],
+          "claim_label": "thm:even_plus_odd"
+        },
+        "label": "thm:even_plus_odd",
+        "header": "Theorem",
+        "claim": "For all integers m and n, if m is even and n is odd, then m + n is odd."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "is_even",
+    "Int.isOdd",
+    "Int.even_add_odd"
+  ]
+}

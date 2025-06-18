@@ -1,0 +1,52 @@
+Statement:
+
+The product of two odd numbers is an odd number
+
+Proof:
+
+Definition 1. (Odd integer)  
+For x ∈ ℤ, odd(x) ↔ ∃ u ∈ ℤ such that x = 2 u + 1.  
+
+Theorem.  
+∀ m, n ∈ ℤ, odd(m) ∧ odd(n) ⇒ odd(m·n).  
+
+Proof.  
+
+Step 1. (Introduce variables and assumptions)  
+Goal: odd(m) ∧ odd(n) ⇒ odd(m·n).  
+Introduce m, n ∈ ℤ.  
+Assume H₁: odd(m) and H₂: odd(n).  
+
+Step 2. (Represent m in standard odd form)  
+Goal: ∃ k ∈ ℤ with m = 2 k + 1.  
+From H₁ and Definition 1, obtain E₁: ∃ k ∈ ℤ such that m = 2 k + 1.  
+
+Step 3. (Represent n in standard odd form)  
+Goal: ∃ l ∈ ℤ with n = 2 l + 1.  
+From H₂ and Definition 1, obtain E₂: ∃ l ∈ ℤ such that n = 2 l + 1.  
+
+Step 4. (Extract witnesses and compute product)  
+From E₁ choose k ∈ ℤ with m = 2 k + 1.  
+From E₂ choose l ∈ ℤ with n = 2 l + 1.  
+Compute  
+ m·n = (2 k + 1)(2 l + 1)  
+   = 4 k l + 2 k + 2 l + 1.  
+
+Step 5. (Recast product in odd form)  
+Goal: m·n = 2 t + 1 with t ∈ ℤ.  
+Define t = 2 k l + k + l.  
+By closure of ℤ under + and ·, t ∈ ℤ.  
+Then  
+ m·n = 4 k l + 2 k + 2 l + 1  
+   = 2(2 k l + k + l) + 1  
+   = 2 t + 1.  
+
+Step 6. (Conclude oddness of product)  
+Goal: odd(m·n).  
+From m·n = 2 t + 1 and t ∈ ℤ, apply Definition 1 to infer odd(m·n).  
+
+Step 7. (Generalize)  
+Discharge assumptions H₁, H₂.  
+Conclude odd(m) ∧ odd(n) ⇒ odd(m·n) for arbitrary m, n ∈ ℤ.  
+Hence ∀ m, n ∈ ℤ, odd(m) ∧ odd(n) ⇒ odd(m·n).  
+■

@@ -1,0 +1,73 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  #check\n    \"Error: codegen: no valid function found for key definition in JSON object {\\\"label\\\": \\\"def:R\\\",\\n \\\"header\\\": \\\"Definition\\\",\\n \\\"definition\\\": \\\"\u211d denotes the set of real numbers.\\\"}; tried: [LeanAide.defCode: codegen: no definition translation found for \u211d denotes the set of real numbers.]\"\n  def Real.gt : \u211d \u2192 \u211d \u2192 Prop := fun x y => x > y\n  def transitive_gt_real : \u2200 a b c : \u211d, a > b \u2192 b > c \u2192 a > c := fun a b c hab hbc => lt_trans hbc hab\n  theorem Real.gt_of_gt_trans : \u2200 x > 5, x > 2 := by exact fun x a => Nat.lt_of_add_left_lt a",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "def:R",
+        "header": "Definition",
+        "definition": "\u211d denotes the set of real numbers."
+      },
+      {
+        "type": "Definition",
+        "label": "def:gt",
+        "header": "Definition",
+        "definition": "The symbol \u201c>\u201d denotes the standard strict order on \u211d."
+      },
+      {
+        "type": "Definition",
+        "label": "def:transitivity",
+        "header": "Definition",
+        "definition": "For all a, b, c \u2208 \u211d, if a > b and b > c then a > c."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "\u211d",
+                "variable_name": "x",
+                "type": "let_statement",
+                "statement": "x \u2208 \u211d and x > 5",
+                "properties": "x > 5"
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "target_identifier": "def:transitivity",
+                    "statement": "For all a, b, c \u2208 \u211d, if a > b and b > c then a > c."
+                  },
+                  {
+                    "statement": "5 > 2"
+                  }
+                ],
+                "proof_method": "By transitivity of \u201c>\u201d",
+                "claim": "x > 2"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "x > 2"
+              }
+            ]
+          ],
+          "claim_label": "thm:gt5-gt2"
+        },
+        "label": "thm:gt5-gt2",
+        "header": "Theorem",
+        "claim": "For all x \u2208 \u211d, if x > 5 then x > 2."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Real.gt",
+    "transitive_gt_real",
+    "Real.gt_of_gt_trans"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:divisibility",
+      "header": "Definition",
+      "definition": "For integers a and b, “a divides b” means there exists an integer d such that b = a·d."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:div12-3",
+      "header": "Theorem",
+      "claim": "For every integer n, if 12 divides n then 3 divides n.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:div12-3",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "n",
+              "variable_type": "integer",
+              "statement": "Let n be an integer."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "12 divides n",
+              "label": "H1"
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "statement": "There exists k ∈ ℤ such that n = 12·k."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "value": "4·k",
+              "statement": "Define m = 4·k."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "m ∈ ℤ",
+              "proof_method": "Closure of integers under multiplication"
+            },
+            {
+              "inline_calculation": "n = 12·k = 3·(4·k) = 3·m"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "There exists m ∈ ℤ such that n = 3·m."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 divides n",
+              "results_used": [
+                {
+                  "statement": "Definition of divisibility",
+                  "target_identifier": "def:divisibility"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

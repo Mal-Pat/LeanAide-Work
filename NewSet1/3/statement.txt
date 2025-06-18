@@ -1,0 +1,30 @@
+Statement:
+
+If a number is greater than 5, then it is greater than 2
+
+Proof:
+
+Definition 1. ℝ denotes the set of real numbers.
+
+Definition 2. The symbol “>” denotes the standard strict order on ℝ.
+
+Definition 3 (Transitivity of “>”).  
+∀ a,b,c ∈ ℝ, if a > b and b > c then a > c.
+
+Fact 1. 5 ∈ ℝ and 2 ∈ ℝ.
+
+Fact 2. 5 > 2.
+
+Theorem. ∀ x ∈ ℝ, if x > 5 then x > 2.
+
+Proof.  
+Step 1 (Introduction).  
+Let x ∈ ℝ satisfy H₁: x > 5.  
+Goal G₁: x > 2.
+
+Step 2 (Application of Transitivity).  
+By Definition 3 with a := x, b := 5, c := 2, using H₁ and Fact 2, conclude C₁: x > 2.
+
+Step 3 (Conclusion).  
+C₁ establishes G₁.  
+∎

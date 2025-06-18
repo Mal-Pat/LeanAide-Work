@@ -66,6 +66,9 @@ def main(statement, name):
         outfile.write(
             f"Convert the given mathematical statement and its proof into the format of the JSON Schema given below.\nONLY fill the parts of the schema that are applicable.\n\nMathematical Statement:\n{statement}\n\nProof:\n{proof_response.output_text}\n\nJSON Schema:\n{jsonSchema}\n\nGive the proof in the format of the JSON Schema given.\nStrictly adhere to the schema."
         )
+
+    with open(f"{direc}/input.json", "w") as outfile:
+        pass
  
 if __name__ == "__main__":
     

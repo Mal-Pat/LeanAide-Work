@@ -1,7 +1,7 @@
-# Run command: python3 mkRequest.py --p "name"
+# Run command: python3 genLean.py --s "statement" --p "name"
 
-# name is the directory inside the Outputs directory which has the Input.json file.
-# It must contain an Input.json file with the JSON Schema for the statements and its proof.
+# statement is the mathematical statement
+# name is the directory inside which the files will be stored
 
 import requests
 import json

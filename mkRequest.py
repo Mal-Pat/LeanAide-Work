@@ -1,7 +1,7 @@
 # Run command: python3 mkRequest.py --p "name"
 
-# name is the directory inside the Outputs directory which has the Input.json file.
-# It must contain an Input.json file with the JSON Schema for the statements and its proof.
+# name is the directory inside the Outputs directory which has the input.json file.
+# It must contain an input.json file with the JSON Schema for the statements and its proof.
 
 import requests
 import json
@@ -11,10 +11,10 @@ def main(name):
     url = "http://localhost:7654"
 
     # Set the Outputs directory over here
-    direc = f"Set6/Responses/{name}"
+    direc = f"NewSet2/{name}"
 
-    input_file = f"{direc}/Input.json"
-    response_file = f"{direc}/Response.json"
+    input_file = f"{direc}/input.json"
+    response_file = f"{direc}/response.json"
     lean_file = f"{direc}/lean_code.lean"
 
     with open(input_file, "r") as infile:
@@ -35,7 +35,7 @@ def main(name):
     response = requests.post(url, headers=headers, data=json.dumps(payload))
 
     if response.ok:
-        # Dump the response JSON into Response.json in the same directory.
+        # Dump the response JSON into response.json in the same directory.
         with open(response_file, "w") as f:
             json.dump(response.json(), f, indent=2)
         print(f"Response saved")
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     
     import argparse
     parser = argparse.ArgumentParser(description="parser")
-    parser.add_argument("--p", metavar="path", required=True, help="problem folder name where Input.json is")
+    parser.add_argument("--p", metavar="path", required=True, help="problem folder name where input.json is")
     args=parser.parse_args()
 
     main(args.p)

@@ -1,0 +1,35 @@
+Statement:
+
+The sum of an even number and an odd number is an odd number
+
+Proof:
+
+Definitions:
+
+D1. ℤ denotes the set of all integers.
+
+D2. An integer x is even ⇔ ∃k ∈ ℤ such that x = 2k.
+
+D3. An integer x is odd  ⇔ ∃k ∈ ℤ such that x = 2k + 1.
+
+Theorem. ∀n,m ∈ ℤ, [n is even ∧ m is odd] ⇒ n + m is odd.
+
+Proof.
+
+1.  Goal: prove ∀n,m ∈ ℤ, [n is even ∧ m is odd] ⇒ n + m is odd.  
+2.  Let n ∈ ℤ and m ∈ ℤ.  (arbitrary choice)  
+3.  Goal: prove [n is even ∧ m is odd] ⇒ n + m is odd for these n and m.  
+4.  Assume H1: n is even.  
+5.  By D2 and H1, ∃a ∈ ℤ such that n = 2a.  (introduce witness a)  
+6.  Assume H2: m is odd.  
+7.  By D3 and H2, ∃b ∈ ℤ such that m = 2b + 1.  (introduce witness b)  
+8.  Define c = a + b.  
+9.  Claim: c ∈ ℤ.  
+10. Proof of Claim: a ∈ ℤ and b ∈ ℤ imply a + b ∈ ℤ by closure of ℤ under addition.  ■  
+11.  Compute n + m = (2a) + (2b + 1)       (by step 5 and step 7)  
+12.  n + m = 2a + 2b + 1                                 (by associativity and commutativity of +)  
+13.  n + m = 2(a + b) + 1                               (by distributivity of × over +)  
+14.  n + m = 2c + 1                                      (by definition of c in step 8)  
+15.  By D3 and steps 9 and 14, n + m is odd.  
+16.  Therefore, [n is even ∧ m is odd] ⇒ n + m is odd.  
+17.  Therefore, ∀n,m ∈ ℤ, [n is even ∧ m is odd] ⇒ n + m is odd.  ■

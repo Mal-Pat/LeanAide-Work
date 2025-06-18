@@ -1,0 +1,181 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "D1",
+      "header": "Definition",
+      "definition": "ℤ denotes the set of all integers."
+    },
+    {
+      "type": "Definition",
+      "label": "D2",
+      "header": "Definition",
+      "definition": "An integer x is even ⇔ ∃k ∈ ℤ such that x = 2k."
+    },
+    {
+      "type": "Definition",
+      "label": "D3",
+      "header": "Definition",
+      "definition": "An integer x is odd ⇔ ∃k ∈ ℤ such that x = 2k + 1."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:even_odd_sum_odd",
+      "header": "Theorem",
+      "claim": "∀n,m ∈ ℤ, [n is even ∧ m is odd] ⇒ n + m is odd.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:even_odd_sum_odd",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "Goal: prove ∀n,m ∈ ℤ, [n is even ∧ m is odd] ⇒ n + m is odd."
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "n",
+            "variable_type": "integer",
+            "statement": "Let n ∈ ℤ"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "m",
+            "variable_type": "integer",
+            "statement": "Let m ∈ ℤ."
+          },
+          {
+            "type": "Paragraph",
+            "text": "Goal: prove [n is even ∧ m is odd] ⇒ n + m is odd for these n and m."
+          },
+          {
+            "type": "assume_statement",
+            "label": "H1",
+            "assumption": "n is even."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "∃a ∈ ℤ such that n = 2a.",
+            "proof_method": "deduction",
+            "results_used": [
+              {
+                "statement": "Definition of even numbers",
+                "target_identifier": "D2"
+              },
+              {
+                "statement": "Assumption H1"
+              }
+            ],
+            "internal_references": [
+              {
+                "target_identifier": "D2"
+              },
+              {
+                "target_identifier": "H1"
+              }
+            ]
+          },
+          {
+            "type": "assume_statement",
+            "label": "H2",
+            "assumption": "m is odd."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "∃b ∈ ℤ such that m = 2b + 1.",
+            "proof_method": "deduction",
+            "results_used": [
+              {
+                "statement": "Definition of odd numbers",
+                "target_identifier": "D3"
+              },
+              {
+                "statement": "Assumption H2"
+              }
+            ],
+            "internal_references": [
+              {
+                "target_identifier": "D3"
+              },
+              {
+                "target_identifier": "H2"
+              }
+            ]
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "c",
+            "value": "a + b",
+            "statement": "Define c = a + b."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "c ∈ ℤ.",
+            "proof_method": "closure of integers under addition",
+            "results_used": [
+              {
+                "statement": "a ∈ ℤ and b ∈ ℤ imply a + b ∈ ℤ by closure of ℤ under addition."
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n + m = (2a) + (2b + 1)",
+            "proof_method": "substitution",
+            "internal_references": [
+              {
+                "target_identifier": "H1"
+              },
+              {
+                "target_identifier": "H2"
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n + m = 2a + 2b + 1",
+            "proof_method": "associativity and commutativity of addition"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n + m = 2(a + b) + 1",
+            "proof_method": "distributivity of multiplication over addition"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n + m = 2c + 1",
+            "proof_method": "substitution",
+            "internal_references": [
+              {
+                "target_identifier": "c"
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n + m is odd.",
+            "proof_method": "deduction",
+            "results_used": [
+              {
+                "statement": "Definition of odd numbers",
+                "target_identifier": "D3"
+              }
+            ],
+            "internal_references": [
+              {
+                "target_identifier": "D3"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "[n is even ∧ m is odd] ⇒ n + m is odd."
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "∀n,m ∈ ℤ, [n is even ∧ m is odd] ⇒ n + m is odd."
+          }
+        ]
+      }
+    }
+  ]
+}

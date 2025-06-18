@@ -1,0 +1,38 @@
+Statement:
+
+If a number is divisible by 12, then it is divisible by 3
+
+Proof:
+
+Definition 1 (Divisibility). For integers d and x, Divisible(d,x) holds if and only if there exists an integer y such that  
+ x = d · y.
+
+Theorem. For every integer n, Divisible(12,n) implies Divisible(3,n).
+
+Proof.
+
+Let n be an arbitrary integer.  
+Goal G₀: Prove Divisible(12,n) → Divisible(3,n).
+
+Statement A₁: Divisible(12,n).  
+From A₁ and Definition 1, there exists an integer k such that  
+ n = 12 · k.  
+Definition 2: Denote by k₁₂ an integer satisfying n = 12 · k₁₂.
+
+Goal G₁: Prove Divisible(3,n).
+
+Calculation C₁:  
+ n = 12 · k₁₂  
+   = (3 · 4) · k₁₂          (since 12 = 3 · 4)  
+   = 3 · (4 · k₁₂)          (by associativity of multiplication).
+
+Definition 3: Denote by m the integer m := 4 · k₁₂.
+
+From Calculation C₁ and Definition 3,  
+ n = 3 · m.
+
+Conclusion C₂: Divisible(3,n) holds by Definition 1 with witness m.
+
+Conclusion C₃: Divisible(12,n) → Divisible(3,n) follows from A₁ and C₂.
+
+Conclusion C₄: For every integer n, Divisible(12,n) implies Divisible(3,n).∎

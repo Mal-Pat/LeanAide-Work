@@ -1,0 +1,116 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "D1",
+      "header": "Definition",
+      "definition": "ℝ denotes the set of real numbers."
+    },
+    {
+      "type": "Definition",
+      "label": "D2",
+      "header": "Definition",
+      "definition": "For all a,b ∈ ℝ, a > b means a – b ∈ (0,∞)."
+    },
+    {
+      "type": "Section",
+      "label": "axioms",
+      "header": "Axioms",
+      "content": [
+        {
+          "type": "Paragraph",
+          "text": "A1 ∀u,v,w ∈ ℝ, (u > v ∧ v > w) → u > w. (Transitivity of >)"
+        },
+        {
+          "type": "Paragraph",
+          "text": "A2 5 > 2."
+        }
+      ]
+    },
+    {
+      "type": "Theorem",
+      "label": "T1",
+      "header": "Theorem",
+      "claim": "∀x ∈ ℝ, x > 5 → x > 2.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "T1",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "x",
+                "variable_type": "ℝ",
+                "statement": "Let x ∈ ℝ."
+              },
+              {
+                "type": "Paragraph",
+                "text": "Goal: x > 5 → x > 2."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "x > 5",
+                "label": "H1"
+              },
+              {
+                "type": "Paragraph",
+                "text": "Goal: x > 2."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "x > 5 ∧ 5 > 2",
+                "label": "C1",
+                "results_used": [
+                  {
+                    "statement": "H1",
+                    "target_identifier": "H1"
+                  },
+                  {
+                    "statement": "A2",
+                    "target_identifier": "A2"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "x > 2",
+                "label": "H2",
+                "results_used": [
+                  {
+                    "statement": "C1",
+                    "target_identifier": "C1"
+                  },
+                  {
+                    "statement": "A1 instantiated at u:=x, v:=5, w:=2",
+                    "target_identifier": "A1"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "x > 5 → x > 2",
+                "label": "I1",
+                "results_used": [
+                  {
+                    "statement": "H1",
+                    "target_identifier": "H1"
+                  },
+                  {
+                    "statement": "H2",
+                    "target_identifier": "H2"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "∀x ∈ ℝ, x > 5 → x > 2"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

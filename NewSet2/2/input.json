@@ -1,0 +1,108 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def:divisibility",
+      "header": "Definition",
+      "definition": "For integers d and x, Divisible(d,x) holds if and only if there exists an integer y such that x = d · y."
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divisible_by_12_implies_divisible_by_3",
+      "header": "Theorem",
+      "claim": "For every integer n, Divisible(12,n) implies Divisible(3,n).",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisible_by_12_implies_divisible_by_3",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "n",
+                "variable_type": "integer",
+                "statement": "Let n be an arbitrary integer."
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "Divisible(12,n).",
+                "label": "A1"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "there exists an integer k such that n = 12 · k.",
+                "proof_method": "From A1 and Definition 1",
+                "results_used": [
+                  {
+                    "statement": "Divisible(d,x) holds if and only if there exists an integer y such that x = d · y.",
+                    "target_identifier": "def:divisibility"
+                  }
+                ]
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k₁₂",
+                "variable_type": "integer",
+                "properties": "satisfying n = 12 · k₁₂",
+                "statement": "Denote by k₁₂ an integer satisfying n = 12 · k₁₂."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "n = 12 · k₁₂",
+                  "= (3 · 4) · k₁₂",
+                  "= 3 · (4 · k₁₂)"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "let_statement",
+                "variable_name": "m",
+                "variable_type": "integer",
+                "value": "4 · k₁₂",
+                "statement": "Denote by m the integer m := 4 · k₁₂."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n = 3 · m.",
+                "proof_method": "From Calculation C₁ and Definition 3"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Divisible(3,n) holds by Definition 1 with witness m."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "conclude_statement",
+                "claim": "Divisible(12,n) → Divisible(3,n) follows from A₁ and C₂."
+              }
+            ]
+          },
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "conclude_statement",
+                "claim": "For every integer n, Divisible(12,n) implies Divisible(3,n)."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  #check\n    \"Error: codegen: no valid function found for key definition in JSON object {\\\"label\\\": \\\"D1\\\",\\n \\\"header\\\": \\\"Definition\\\",\\n \\\"definition\\\": \\\"\u211d denotes the set of real numbers.\\\"}; tried: [LeanAide.defCode: codegen: no definition translation found for \u211d denotes the set of real numbers.]\"\n  def gt_real (a b : \u211d) : Prop :=\n    a - b \u2208 Set.Ioi (0 : \u211d)\n  theorem forall_mem_real_gt_trans_gt : \u2200 x > 5, x > 2 := by exact fun x a => Nat.lt_of_add_left_lt a",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "D1",
+        "header": "Definition",
+        "definition": "\u211d denotes the set of real numbers."
+      },
+      {
+        "type": "Definition",
+        "label": "D2",
+        "header": "Definition",
+        "definition": "For all a,b \u2208 \u211d, a > b means a \u2013 b \u2208 (0,\u221e)."
+      },
+      {
+        "type": "Section",
+        "label": "axioms",
+        "header": "Axioms",
+        "content": [
+          {
+            "type": "Paragraph",
+            "text": "A1 \u2200u,v,w \u2208 \u211d, (u > v \u2227 v > w) \u2192 u > w. (Transitivity of >)"
+          },
+          {
+            "type": "Paragraph",
+            "text": "A2 5 > 2."
+          }
+        ]
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_type": "\u211d",
+                  "variable_name": "x",
+                  "type": "let_statement",
+                  "statement": "Let x \u2208 \u211d."
+                },
+                {
+                  "type": "Paragraph",
+                  "text": "Goal: x > 5 \u2192 x > 2."
+                },
+                {
+                  "type": "assume_statement",
+                  "label": "H1",
+                  "assumption": "x > 5"
+                },
+                {
+                  "type": "Paragraph",
+                  "text": "Goal: x > 2."
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "H1",
+                      "statement": "H1"
+                    },
+                    {
+                      "target_identifier": "A2",
+                      "statement": "A2"
+                    }
+                  ],
+                  "label": "C1",
+                  "claim": "x > 5 \u2227 5 > 2"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "C1",
+                      "statement": "C1"
+                    },
+                    {
+                      "target_identifier": "A1",
+                      "statement": "A1 instantiated at u:=x, v:=5, w:=2"
+                    }
+                  ],
+                  "label": "H2",
+                  "claim": "x > 2"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "H1",
+                      "statement": "H1"
+                    },
+                    {
+                      "target_identifier": "H2",
+                      "statement": "H2"
+                    }
+                  ],
+                  "label": "I1",
+                  "claim": "x > 5 \u2192 x > 2"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "\u2200x \u2208 \u211d, x > 5 \u2192 x > 2"
+                }
+              ]
+            }
+          ],
+          "claim_label": "T1"
+        },
+        "label": "T1",
+        "header": "Theorem",
+        "claim": "\u2200x \u2208 \u211d, x > 5 \u2192 x > 2."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "gt_real",
+    "forall_mem_real_gt_trans_gt"
+  ]
+}

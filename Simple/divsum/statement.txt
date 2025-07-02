@@ -1,0 +1,53 @@
+If an integer a divides an integer b, and a divides an integer c, then a divides their sum (b + c).
+
+
+Theorem: a | b implies a | c implies a | (b + c).
+
+Proof:
+
+We assert that a | b implies that there exists p : Integer such that b = a * p, by definition of divisibility.
+
+We assert that a | c implies that there exists q : Integer such that c = a * q, by definition of divisibility.
+
+Obtain b = a * p, since a | b is given.
+
+Obtain c = a * q, since a | c is given.
+
+Obtain b + c = a * (p + q), by substitution and simplification.
+
+Obtain a divides a * (p + q), by definition of divisibility.
+
+Thus, a divides (b + c), by substitution.
+
+
+
+Assume  
+​ $a,b,c : \mathbb Z$,  
+​ $h_1 : a \mid b$,  
+​ $h_2 : a \mid c$.  
+Goal: show $a \mid (b + c)$, i.e.\ exhibit $m:\mathbb Z$ with $b+c = a * m$.  
+
+1. From $h_1$ and the definition of $\mid$ on $\mathbb Z$, obtain  
+​ $k : \mathbb Z$ and  
+​ $h_3 : b = a * k$.  
+
+2. From $h_2$ and the definition of $\mid$ on $\mathbb Z$, obtain  
+​ $l : \mathbb Z$ and  
+​ $h_4 : c = a * l$.  
+
+3. By rewriting $b$ and $c$ using $h_3$ and $h_4$,  
+​ $h_5 : b + c = a * k + a * l$.  
+
+4. By the distributivity of multiplication over addition in $\mathbb Z$,  
+​ $h_6 : a * k + a * l = a * (k + l)$.  
+
+5. By transitivity of equality using $h_5$ and $h_6$,  
+​ $h_7 : b + c = a * (k + l)$.  
+
+6. Define $m := k + l$.  
+
+7. By the definition of $m$ and $h_7$,  
+​ $h_8 : b + c = a * m$.  
+
+8. By the definition of $\mid$ on $\mathbb Z$ applied to $h_8$, conclude  
+​ $a \mid (b + c)\,.$

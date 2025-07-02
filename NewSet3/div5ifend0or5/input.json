@@ -1,0 +1,187 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "lem:1",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "integer",
+          "statement": "Let n be an integer."
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "k",
+          "variable_type": "integer",
+          "statement": "Let k be an integer."
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "n = 10 * k",
+          "label": "h\u2081"
+        }
+      ],
+      "claim": "5 \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:1",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "n = 5 * (2 * k)",
+              "proof_method": "since 10 * k = 5 * (2 * k)",
+              "internal_references": [
+                {
+                  "target_identifier": "h\u2081"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "5 \u2223 n",
+              "proof_method": "with witness 2 * k"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:2",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "integer",
+          "statement": "Let n be an integer."
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "k",
+          "variable_type": "integer",
+          "statement": "Let k be an integer."
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "n = 10 * k + 5",
+          "label": "h\u2082"
+        }
+      ],
+      "claim": "5 \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:2",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "n = 5 * (2 * k + 1)",
+              "proof_method": "since 10 * k + 5 = 5 * (2 * k + 1)",
+              "internal_references": [
+                {
+                  "target_identifier": "h\u2082"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "5 \u2223 n",
+              "proof_method": "with witness 2 * k + 1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:divisible_by_5_if_last_digit_0_or_5",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "integer",
+          "statement": "Let n be an integer."
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "\u2203 k, n = 10 * k \u2228 n = 10 * k + 5",
+          "label": "h"
+        }
+      ],
+      "claim": "5 \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:divisible_by_5_if_last_digit_0_or_5",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "Obtain k and h_case such that n = 10 * k \u2228 n = 10 * k + 5 from h",
+              "proof_method": "by existential elimination",
+              "internal_references": [
+                {
+                  "target_identifier": "h"
+                }
+              ]
+            },
+            {
+              "type": "pattern_cases_statement",
+              "on": "h_case",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "pattern": "n = 10 * k",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "case1",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "5 \u2223 n",
+                          "proof_method": "by Lemma 1 with h\u2081 := h_case\u2081",
+                          "internal_references": [
+                            {
+                              "target_identifier": "lem:1"
+                            }
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "n = 10 * k + 5",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "case2",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "5 \u2223 n",
+                          "proof_method": "by Lemma 2 with h\u2082 := h_case\u2082",
+                          "internal_references": [
+                            {
+                              "target_identifier": "lem:2"
+                            }
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

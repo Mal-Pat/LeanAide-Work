@@ -1,0 +1,323 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "lem:primitive_reduction",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "0 < a",
+          "label": "h_a"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "0 < b",
+          "label": "h_b"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "0 < c",
+          "label": "h_c"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "2*a^n + 3*b^n = 4*c^n",
+          "label": "h_eq"
+        }
+      ],
+      "claim": "Define d := gcd(gcd(a,b),c). Then (a) d > 0. (b) There exist a', b', c' in N such that a = d*a', b = d*b', c = d*c', 2*(a')^n + 3*(b')^n = 4*(c')^n, gcd(a',b') = 1, and gcd(gcd(a',b'),c') = 1.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:primitive_reduction",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "d > 0",
+              "proof_method": "gcd of positive numbers is positive"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "a'",
+              "statement": "a = d * a'"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "b'",
+              "statement": "b = d * b'"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "c'",
+              "statement": "c = d * c'"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "a' > 0, b' > 0, c' > 0",
+              "proof_method": "divide positive numbers by positive d"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2*(a')^n + 3*(b')^n = 4*(c')^n",
+              "proof_method": "substitute a = d a', b = d b', c = d c' and cancel d^n"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "gcd(a',b') = 1 and gcd(gcd(a',b'),c') = 1",
+              "proof_method": "d is the maximal common divisor of a,b,c"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Lemma holds"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:no_solution_n2",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "gcd(gcd(a,b),c) = 1",
+          "label": "h_prim"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "2*a^2 + 3*b^2 = 4*c^2",
+          "label": "h_eq_n2"
+        }
+      ],
+      "claim": "No such triple (a,b,c) exists.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:no_solution_n2",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "2*a^2 \u2261 c^2 (mod 3)",
+              "proof_method": "reduce the equation modulo 3"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "If c^2 \u2261 1 (mod 3), then a^2 \u2261 2 (mod 3), impossible",
+              "proof_method": "case analysis on c^2 mod 3"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "If c^2 \u2261 0 (mod 3), then 3|c, hence 3|a and 3|b, contradicting gcd=1",
+              "proof_method": "divisibility argument"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Contradiction; no solution"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:no_solution_n_ge3",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "n \u2265 3",
+          "label": "h_n"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "gcd(gcd(a,b),c) = 1",
+          "label": "h_prim3"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "2*a^n + 3*b^n = 4*c^n",
+          "label": "h_eq_nge3"
+        }
+      ],
+      "claim": "No such triple exists.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:no_solution_n_ge3",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "b^n is even, so b is even",
+              "proof_method": "reduce modulo 2"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "b1",
+              "statement": "b = 2 * b1"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "a is even",
+              "proof_method": "substitute b = 2 b1 and use divisibility of terms"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "a1",
+              "statement": "a = 2 * a1"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "c is even",
+              "proof_method": "substitute a = 2 a1 and b = 2 b1 and use divisibility"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 divides gcd(a,b,c)",
+              "proof_method": "all of a,b,c are even"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Contradiction to gcd=1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:main",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "0 < a",
+          "label": "h_a0"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "0 < b",
+          "label": "h_b0"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "0 < c",
+          "label": "h_c0"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "2*a^n + 3*b^n = 4*c^n",
+          "label": "h_eq0"
+        }
+      ],
+      "claim": "n = 1.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:main",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "By Lemma 1 we obtain a primitive triple (a',b',c') with gcd(gcd(a',b'),c') = 1 and 2*(a')^n + 3*(b')^n = 4*(c')^n",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:primitive_reduction"
+                }
+              ]
+            },
+            {
+              "type": "pattern_cases_statement",
+              "on": "n",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "pattern": "0",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:main",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "2*1 + 3*1 = 5 \u2260 4",
+                          "proof_method": "evaluate a'^0 = b'^0 = c'^0 = 1"
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "Contradiction"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "1",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:main",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "conclude_statement",
+                          "claim": "Conclusion n = 1"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "2",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:main",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "Lemma 2 rules out n = 2",
+                          "internal_references": [
+                            {
+                              "target_identifier": "lem:no_solution_n2"
+                            }
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "n \u2265 3",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:main",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "Lemma 3 rules out n \u2265 3",
+                          "internal_references": [
+                            {
+                              "target_identifier": "lem:no_solution_n_ge3"
+                            }
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Therefore n = 1"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

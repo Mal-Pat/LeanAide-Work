@@ -1,0 +1,192 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem Int.existsUniqueQuotientRemainder_mod6 : \u2200 (n : \u2124), \u2203 (k : \u2124) (r : \u2115), 0 \u2264 r \u2227 r < 6 \u2227 n = 6 * k + (\u2191r : \u2124) :=\n    by\n    intro n\n    have assert_385794334155374825 : \u2203 (q : \u2124) (r\u2080 : \u2115), 0 \u2264 r\u2080 \u2227 r\u2080 < 6 \u2227 n = 6 * q + (\u2191r\u2080 : \u2124) := by sorry\n    let \u27e8q, assert_8053603010849522351\u27e9 := assert_385794334155374825\n    let \u27e8r\u2080, assert_14078374537574494\u27e9 := assert_8053603010849522351\n    exact assert_385794334155374825\n    (sorry)\n  theorem Prime.eq_one_or_eq_five_mod_six_of_ne_two_ne_three :\n      \u2200 {p : \u2115}, Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p % 6 = 1 \u2228 p % 6 = 5 :=\n    by\n    intro p a a a\n    trace\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"lem:division6\\\"}],\\n \\\"claim\\\": \\\"There exist k: Z and r: N such that 0 <= r < 6 and p = 6 k + r.\\\"}; tried: [LeanAide.assertionCode: codegen: failed to translate 'There exist k: Z and r: N such that 0 <= r < 6 and p = 6 k + r.' to a proposition even with 'full statement', error: <input>:2:54: unexpected end of input; full claim: There exist an integer \\\\( k \\\\) and a natural number \\\\( r \\\\) such that \\\\( 0 \\\\leq r < 6 \\\\) and \\\\( p = 6k + r \\\\)., error: <input>:1:0: expected '/--', ':' or term]\"\n    trace\n      \"Error: codegen: no valid function found for key pattern_cases_statement in JSON object {\\\"proof_cases\\\":\\n [{\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From p = 6 k + r deduce 6 divides p, hence 2 divides p and 3 divides p. By primality of p, p = 2 or p = 3, contradicting h2 and h3.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:mod6prime\\\"},\\n   \\\"pattern\\\": \\\"0\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\": \\\"From p = 6 k + r and 0 <= 1 < 6 deduce p mod 6 = 1.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:mod6prime\\\"},\\n   \\\"pattern\\\": \\\"1\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From p = 6 k + r deduce 2 divides p. By primality of p, p = 2, contradicting h2.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:mod6prime\\\"},\\n   \\\"pattern\\\": \\\"2\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From p = 6 k + r deduce 3 divides p. By primality of p, p = 3, contradicting h3.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:mod6prime\\\"},\\n   \\\"pattern\\\": \\\"3\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From p = 6 k + r deduce 2 divides p. By primality of p, p = 2, contradicting h2.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:mod6prime\\\"},\\n   \\\"pattern\\\": \\\"4\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\": \\\"From p = 6 k + r and 0 <= 5 < 6 deduce p mod 6 = 5.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:mod6prime\\\"},\\n   \\\"pattern\\\": \\\"5\\\"}],\\n \\\"on\\\": \\\"r\\\"}; tried: [LeanAide.patternCasesCode: Tactics failed on p % 6 = 1 \u2228 p % 6 = 5: unknown identifier 'r' when expecting 6 goals.]\"\n    have : Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p % 6 = 1 \u2228 p % 6 = 5 :=\n      by\n      intro a_3 a_4 a_5\n      simp_all only [ne_eq, not_false_eq_true]\n      sorry\n    (expose_names; exact h a_1 a_2 a)\n    simp_all only [ne_eq]\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "proof_method": "by the division algorithm",
+                  "claim": "There exist q: Z and r0: N satisfying 0 <= r0 < 6 and n = 6 q + r0."
+                },
+                {
+                  "variable_name": "k",
+                  "value": "q",
+                  "type": "let_statement",
+                  "statement": "Define k := q."
+                },
+                {
+                  "variable_name": "r",
+                  "value": "r0",
+                  "type": "let_statement",
+                  "statement": "Define r := r0."
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "by definition of k and r",
+                  "claim": "0 <= r < 6 and n = 6 k + r."
+                }
+              ]
+            }
+          ],
+          "claim_label": "lem:division6"
+        },
+        "label": "lem:division6",
+        "header": "Lemma",
+        "claim": "Let n: Z. Then there exist k: Z and r: N such that 0 <= r < 6 and n = 6 k + r."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "internal_references": [
+                    {
+                      "target_identifier": "lem:division6"
+                    }
+                  ],
+                  "claim": "There exist k: Z and r: N such that 0 <= r < 6 and p = 6 k + r."
+                },
+                {
+                  "type": "pattern_cases_statement",
+                  "proof_cases": [
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From p = 6 k + r deduce 6 divides p, hence 2 divides p and 3 divides p. By primality of p, p = 2 or p = 3, contradicting h2 and h3."
+                          }
+                        ],
+                        "claim_label": "thm:mod6prime"
+                      },
+                      "pattern": "0"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From p = 6 k + r and 0 <= 1 < 6 deduce p mod 6 = 1."
+                          }
+                        ],
+                        "claim_label": "thm:mod6prime"
+                      },
+                      "pattern": "1"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From p = 6 k + r deduce 2 divides p. By primality of p, p = 2, contradicting h2."
+                          }
+                        ],
+                        "claim_label": "thm:mod6prime"
+                      },
+                      "pattern": "2"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From p = 6 k + r deduce 3 divides p. By primality of p, p = 3, contradicting h3."
+                          }
+                        ],
+                        "claim_label": "thm:mod6prime"
+                      },
+                      "pattern": "3"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From p = 6 k + r deduce 2 divides p. By primality of p, p = 2, contradicting h2."
+                          }
+                        ],
+                        "claim_label": "thm:mod6prime"
+                      },
+                      "pattern": "4"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From p = 6 k + r and 0 <= 5 < 6 deduce p mod 6 = 5."
+                          }
+                        ],
+                        "claim_label": "thm:mod6prime"
+                      },
+                      "pattern": "5"
+                    }
+                  ],
+                  "on": "r"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "p mod 6 = 1 or p mod 6 = 5."
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:mod6prime"
+        },
+        "label": "thm:mod6prime",
+        "hypothesis": [
+          {
+            "variable_type": "prime",
+            "variable_name": "p",
+            "type": "let_statement",
+            "statement": "Let p be a prime."
+          },
+          {
+            "type": "assume_statement",
+            "label": "h2",
+            "assumption": "p != 2"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h3",
+            "assumption": "p != 3"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "p mod 6 = 1 or p mod 6 = 5."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.existsUniqueQuotientRemainder_mod6",
+    "Prime.eq_one_or_eq_five_mod_six_of_ne_two_ne_three"
+  ]
+}

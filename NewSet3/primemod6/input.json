@@ -1,0 +1,181 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "lem:division6",
+      "header": "Lemma",
+      "claim": "Let n: Z. Then there exist k: Z and r: N such that 0 <= r < 6 and n = 6 k + r.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:division6",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "There exist q: Z and r0: N satisfying 0 <= r0 < 6 and n = 6 q + r0.",
+                "proof_method": "by the division algorithm"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "k",
+                "value": "q",
+                "statement": "Define k := q."
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "r",
+                "value": "r0",
+                "statement": "Define r := r0."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "0 <= r < 6 and n = 6 k + r.",
+                "proof_method": "by definition of k and r"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:mod6prime",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "p",
+          "variable_type": "prime",
+          "statement": "Let p be a prime."
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "p != 2",
+          "label": "h2"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "p != 3",
+          "label": "h3"
+        }
+      ],
+      "claim": "p mod 6 = 1 or p mod 6 = 5.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:mod6prime",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "There exist k: Z and r: N such that 0 <= r < 6 and p = 6 k + r.",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:division6"
+                  }
+                ]
+              },
+              {
+                "type": "pattern_cases_statement",
+                "on": "r",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "pattern": "0",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:mod6prime",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From p = 6 k + r deduce 6 divides p, hence 2 divides p and 3 divides p. By primality of p, p = 2 or p = 3, contradicting h2 and h3."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "1",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:mod6prime",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From p = 6 k + r and 0 <= 1 < 6 deduce p mod 6 = 1."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "2",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:mod6prime",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From p = 6 k + r deduce 2 divides p. By primality of p, p = 2, contradicting h2."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "3",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:mod6prime",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From p = 6 k + r deduce 3 divides p. By primality of p, p = 3, contradicting h3."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "4",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:mod6prime",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From p = 6 k + r deduce 2 divides p. By primality of p, p = 2, contradicting h2."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "5",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:mod6prime",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From p = 6 k + r and 0 <= 5 < 6 deduce p mod 6 = 5."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "p mod 6 = 1 or p mod 6 = 5."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

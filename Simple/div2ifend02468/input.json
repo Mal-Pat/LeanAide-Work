@@ -1,0 +1,212 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "lem:even_mod10",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "d : \u2115"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "d \u2208 {0,2,4,6,8}"
+        }
+      ],
+      "claim": "there exists m : \u2115 such that d = 2 * m",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:even_mod10",
+        "proof_steps": [
+          {
+            "type": "pattern_cases_statement",
+            "on": "d",
+            "proof_cases": [
+              {
+                "type": "pattern_case",
+                "pattern": "0",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "lem:even_mod10",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "m",
+                      "value": "0",
+                      "statement": "take m = 0"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "d = 2 * m"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "2",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "lem:even_mod10",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "m",
+                      "value": "1",
+                      "statement": "take m = 1"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "d = 2 * m"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "4",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "lem:even_mod10",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "m",
+                      "value": "2",
+                      "statement": "take m = 2"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "d = 2 * m"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "6",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "lem:even_mod10",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "m",
+                      "value": "3",
+                      "statement": "take m = 3"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "d = 2 * m"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "8",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "lem:even_mod10",
+                  "proof_steps": [
+                    {
+                      "type": "let_statement",
+                      "variable_name": "m",
+                      "value": "4",
+                      "statement": "take m = 4"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "claim": "d = 2 * m"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:div_by_two",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "n : \u2115"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "n % 10 \u2208 {0,2,4,6,8}"
+        }
+      ],
+      "claim": "2 \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:div_by_two",
+        "proof_steps": [
+          {
+            "type": "let_statement",
+            "variable_name": "k",
+            "value": "n / 10",
+            "statement": "define k := n / 10"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "d",
+            "value": "n % 10",
+            "statement": "define d := n % 10"
+          },
+          {
+            "type": "assert_statement",
+            "label": "div_mod",
+            "claim": "n = 10 * k + d",
+            "proof_method": "division algorithm for natural numbers"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "there exists m : \u2115 such that d = 2 * m",
+            "internal_references": [
+              {
+                "target_identifier": "lem:even_mod10"
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "2 \u2223 10",
+            "proof_method": "since 10 = 2 * 5"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "2 \u2223 10 * k",
+            "proof_method": "divisibility preserved under multiplication on the right"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "2 \u2223 d",
+            "proof_method": "definition of dvd using m"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "2 \u2223 (10 * k + d)",
+            "proof_method": "additivity of divisibility",
+            "internal_references": [
+              {
+                "target_identifier": "div_mod"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      }
+    }
+  ]
+}

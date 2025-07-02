@@ -1,0 +1,16 @@
+Multiplying any number with an even number gives an even number.
+
+
+Theorem:
+For all integers p and q, p is Even implies p * q is Even.
+
+Proof:
+An integer n is defined as even if there exists an integer k such that n = 2 * k.
+
+Since p is even, there exists an integer k such that p = 2 * k.
+
+Hence, p * q = 2 * k * q.
+
+Since p * q can be written as 2 * (k * q), it is even.
+
+Thus, p * q is even.

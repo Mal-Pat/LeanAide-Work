@@ -1,0 +1,50 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem integer.five_dvd_ten_mul_and_add_five : \u2200 (n : \u2124), 5 \u2223 10 * n \u2227 5 \u2223 10 * n + 5 :=\n    by\n    intro n\n    simp_all only [dvd_add_self_right, and_self]\n    apply Int.dvd_trans\n    on_goal 2 => {apply Int.dvd_mul_right\n    }\n    \u00b7 simp_all only [Int.reduceDvd]",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "assert_statement",
+              "proof_method": "factorization",
+              "claim": "For all n : Integer, 5 | (10 * n)",
+              "calculation": {
+                "calculation_sequence": [
+                  "10 * n = 5 * (2 * n)"
+                ]
+              }
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "factorization",
+              "claim": "For all n : Integer, 5 | (10 * n + 5)",
+              "calculation": {
+                "calculation_sequence": [
+                  "10 * n + 5 = 5 * (2 * n + 1)"
+                ]
+              }
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "For all n : Integer, 5 | (10 * n) and 5 | (10 * n + 5)"
+            }
+          ],
+          "claim_label": "thm:div5"
+        },
+        "label": "thm:div5",
+        "header": "Theorem",
+        "claim": "For all n : Integer, 5 | (10 * n) and 5 | (10 * n + 5)"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "integer.five_dvd_ten_mul_and_add_five"
+  ]
+}

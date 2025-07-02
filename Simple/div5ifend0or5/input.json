@@ -1,0 +1,40 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:div5",
+      "header": "Theorem",
+      "claim": "For all n : Integer, 5 | (10 * n) and 5 | (10 * n + 5)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:div5",
+        "proof_steps": [
+          {
+            "type": "assert_statement",
+            "claim": "For all n : Integer, 5 | (10 * n)",
+            "proof_method": "factorization",
+            "calculation": {
+              "calculation_sequence": [
+                "10 * n = 5 * (2 * n)"
+              ]
+            }
+          },
+          {
+            "type": "assert_statement",
+            "claim": "For all n : Integer, 5 | (10 * n + 5)",
+            "proof_method": "factorization",
+            "calculation": {
+              "calculation_sequence": [
+                "10 * n + 5 = 5 * (2 * n + 1)"
+              ]
+            }
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "For all n : Integer, 5 | (10 * n) and 5 | (10 * n + 5)"
+          }
+        ]
+      }
+    }
+  ]
+}

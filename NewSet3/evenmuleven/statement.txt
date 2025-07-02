@@ -1,0 +1,34 @@
+If an even number or an odd number is multiplied with an even number, the result is always even.
+
+
+Assume  
+$k,n:\mathbb Z$,  
+$h_1 : k\text{ is even}\lor k\text{ is odd}$,  
+$h_2 : n\text{ is even}$.  
+Goal: $\exists m:\mathbb Z,\;k\cdot n = 2m$.
+
+Case analysis on $h_1$.
+
+Case 1: $h_{\mathrm{even}}: k$ is even.  
+By definition of even, obtain $i:\mathbb Z$ with  
+$$h_i: k = 2i.$$  
+Then  
+$$k\cdot n = (2i)\cdot n = 2\,(i\cdot n)\,. $$  
+Let $m := i\cdot n$.  
+Then $k\cdot n = 2m$, so $\exists m,\;k\cdot n = 2m$.
+
+Case 2: $h_{\mathrm{odd}}: k$ is odd.  
+By definition of odd, obtain $j:\mathbb Z$ with  
+$$h_j: k = 2j + 1.$$  
+Then by distributivity of multiplication over addition,  
+$$(2j+1)\cdot n = 2j\cdot n + 1\cdot n\,.$$  
+By $1\cdot n = n$,  
+$$(2j+1)\cdot n = 2\,(j\cdot n) + n\,.$$  
+By $h_2$ and definition of even, obtain $l:\mathbb Z$ with  
+$$h_l: n = 2l.$$  
+Substitution gives  
+$$k\cdot n = 2\,(j\cdot n) + 2l = 2\,(j\cdot n + l)\,.$$  
+Let $m := j\cdot n + l$.  
+Then $k\cdot n = 2m$, so $\exists m,\;k\cdot n = 2m$.
+
+In both cases $\exists m:\mathbb Z,\;k\cdot n = 2m$. Hence $k\cdot n$ is even.

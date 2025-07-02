@@ -1,0 +1,124 @@
+{
+  "document": [
+    {
+      "type": "let_statement",
+      "variable_name": "n",
+      "variable_type": "\u2124",
+      "statement": "Let n : \u2124."
+    },
+    {
+      "type": "Definition",
+      "label": "def:s",
+      "header": "Definition",
+      "definition": "s : \u2124 := n + (n + 1) + (n + 2)"
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:sum_three_consecutive_eq_mul",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "\u2124",
+          "statement": "Let n : \u2124."
+        }
+      ],
+      "claim": "s = 3 * (n + 1)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:sum_three_consecutive_eq_mul",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "s = n + (n + 1) + (n + 2)",
+              "proof_method": "by definition of s"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n + (n + 1) + (n + 2) = (n + n + n) + (1 + 2)",
+              "proof_method": "by repeated application of associativity and commutativity of +"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "1 + 2 = 3",
+              "proof_method": "by definition of the numeral 3"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "s = (n + n + n) + 3",
+              "proof_method": "by steps 1, 2, 3 and substitution"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 * (n + 1) = 3 * n + 3 * 1",
+              "proof_method": "by distributivity of * over +"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 * n = n + n + n",
+              "proof_method": "by definition of multiplication by the numeral 3"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 * 1 = 3",
+              "proof_method": "by definition of multiplication by the numeral 1"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 * (n + 1) = (n + n + n) + 3",
+              "proof_method": "by steps 5, 6, 7 and substitution"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "s = 3 * (n + 1)",
+              "proof_method": "by transitivity of equality on steps 4 and 8"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:sum_three_consecutive_divides_by_three",
+      "header": "Theorem",
+      "internal_references": [
+        {
+          "target_identifier": "lem:sum_three_consecutive_eq_mul"
+        }
+      ],
+      "claim": "3 \u2223 s",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:sum_three_consecutive_divides_by_three",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "k",
+              "variable_type": "\u2124",
+              "value": "n + 1",
+              "statement": "Let k : \u2124 := n + 1."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "s = 3 * k",
+              "proof_method": "by Lemma 1 (sum_three_consecutive_eq_mul)",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:sum_three_consecutive_eq_mul"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 \u2223 s",
+              "proof_method": "by definition of divisibility in \u2124: exists k, s = 3 * k"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

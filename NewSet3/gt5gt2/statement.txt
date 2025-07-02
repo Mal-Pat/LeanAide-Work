@@ -1,0 +1,21 @@
+If a number is greater than 5, then it is greater than 2.
+
+
+**Lemma 1.**  
+Goal: \(5 > 2\).  
+Proof.  
+1. By definition of `>` on \(\mathbb{N}\), the statement \(5 > 2\) is equivalent to \(2 + 1 \le 5\).  
+2. Compute \(2 + 1 = 3\).  
+3. By iterated application of `succ_le_succ` starting from `zero ≤ two`, one obtains \(3 \le 5\).  
+4. Hence \(5 > 2\).  
+Name this proof `h₁`.  
+
+**Theorem.**  
+Assume  
+- \(n : \mathbb{N}\),  
+- \(h₀ : n > 5\).  
+Goal: \(n > 2\).  
+Proof.  
+1. By `Nat.lt_trans` (transitivity of `>` on \(\mathbb{N}\)), it suffices to prove \(5 > 2\).  
+2. Use `h₁ : 5 > 2` from Lemma 1.  
+3. Applying transitivity to \(h₀\) and \(h₁\) yields \(n > 2\).

@@ -1,0 +1,267 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "lem:even-five",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "d",
+          "variable_type": "\u2115",
+          "statement": "d : \u2115"
+        },
+        {
+          "type": "assume_statement",
+          "label": "h_d",
+          "assumption": "d \u2208 {0,2,4,6,8}"
+        }
+      ],
+      "claim": "\u2203 m : \u2115, d = 2 \u00b7 m",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:even-five",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "We proceed by case analysis on the five elements of {0,2,4,6,8}."
+          },
+          [
+            {
+              "type": "pattern_cases_statement",
+              "on": "d",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "pattern": "d = 0",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "lem:even-five",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "value": "0",
+                          "statement": "m := 0"
+                        },
+                        {
+                          "type": "calculation",
+                          "inline_calculation": "d = 0 = 2 \u00b7 0 = 2 \u00b7 m"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "d = 2",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "lem:even-five",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "value": "1",
+                          "statement": "m := 1"
+                        },
+                        {
+                          "type": "calculation",
+                          "inline_calculation": "d = 2 = 2 \u00b7 1 = 2 \u00b7 m"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "d = 4",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "lem:even-five",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "value": "2",
+                          "statement": "m := 2"
+                        },
+                        {
+                          "type": "calculation",
+                          "inline_calculation": "d = 4 = 2 \u00b7 2 = 2 \u00b7 m"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "d = 6",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "lem:even-five",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "value": "3",
+                          "statement": "m := 3"
+                        },
+                        {
+                          "type": "calculation",
+                          "inline_calculation": "d = 6 = 2 \u00b7 3 = 2 \u00b7 m"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "d = 8",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "lem:even-five",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "value": "4",
+                          "statement": "m := 4"
+                        },
+                        {
+                          "type": "calculation",
+                          "inline_calculation": "d = 8 = 2 \u00b7 4 = 2 \u00b7 m"
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Since these cases cover all members of {0,2,4,6,8}, the lemma follows."
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:even",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "\u2115",
+          "statement": "n : \u2115"
+        },
+        {
+          "type": "assume_statement",
+          "label": "h_r",
+          "assumption": "n mod 10 \u2208 {0,2,4,6,8}"
+        }
+      ],
+      "claim": "2 \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:even",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "k",
+              "statement": "k := n / 10"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "r",
+              "statement": "r := n mod 10"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n = 10 \u00b7 k + r",
+              "proof_method": "division algorithm (mod_add_div)",
+              "results_used": [
+                {
+                  "statement": "mod_add_div",
+                  "mathlib_identifier": "mod_add_div"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "label": "hr",
+              "claim": "r = 2 \u00b7 m",
+              "proof_method": "Lemma 1",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:even-five"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "label": "h_10",
+              "claim": "2 \u2223 10",
+              "calculation": {
+                "inline_calculation": "10 = 2 \u00b7 5"
+              }
+            },
+            {
+              "type": "assert_statement",
+              "label": "h_10k",
+              "claim": "2 \u2223 10 \u00b7 k",
+              "proof_method": "divisibility under multiplication",
+              "results_used": [
+                {
+                  "statement": "div_mul"
+                }
+              ],
+              "internal_references": [
+                {
+                  "target_identifier": "h_10"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "label": "hr_prime",
+              "claim": "2 \u2223 r",
+              "proof_method": "dvd_mul_right",
+              "results_used": [
+                {
+                  "statement": "dvd_mul_right",
+                  "mathlib_identifier": "dvd_mul_right"
+                }
+              ],
+              "internal_references": [
+                {
+                  "target_identifier": "hr"
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "2 \u2223 n",
+              "internal_references": [
+                {
+                  "target_identifier": "h_10k"
+                },
+                {
+                  "target_identifier": "hr_prime"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

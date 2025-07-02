@@ -1,0 +1,45 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem three_dvd_sum_consecutive : \u2200 (n : \u2124), 3 \u2223 n + (n + 1) + (n + 2) :=\n    by\n    intro n\n    have assert_16504161470097087058 : n + (n + 1) + (n + 2) = 3 * (n + 1) := by sorry\n    (expose_names; exact Dvd.intro (n_1 + 1) (id (Eq.symm assert_16504161470097087058)))\n    (omega)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "calculation",
+                "claim": "n + (n + 1) + (n + 2) = 3 * (n + 1)",
+                "calculation": {
+                  "inline_calculation": "n + (n + 1) + (n + 2) = 3 * n + 3 = 3 * (n + 1)"
+                }
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "trivial divisibility",
+                "claim": "3 divides 3 * (n + 1)"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "3 divides (n + (n + 1) + (n + 2))"
+              }
+            ]
+          ],
+          "claim_label": "thm:3divides_sum"
+        },
+        "label": "thm:3divides_sum",
+        "header": "Theorem",
+        "claim": "3 divides (n + (n + 1) + (n + 2))"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "three_dvd_sum_consecutive"
+  ]
+}

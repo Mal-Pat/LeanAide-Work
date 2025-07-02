@@ -1,0 +1,155 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:mod4",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "Let n be an integer."
+        }
+      ],
+      "claim": "n^2 mod 4 = 0 or n^2 mod 4 = 1.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:mod4",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "There exist integers q and r such that n = 4q + r and 0 \u2264 r < 4.",
+              "proof_method": "integer division algorithm"
+            },
+            {
+              "type": "pattern_cases_statement",
+              "on": "r",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "pattern": "0",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:mod4",
+                    "proof_steps": [
+                      [
+                        {
+                          "calculation_sequence": [
+                            "n^2 = (4q)^2",
+                            "(4q)^2 = 16q^2",
+                            "16q^2 = 4(4q^2)"
+                          ]
+                        },
+                        {
+                          "type": "let_statement",
+                          "variable_name": "t",
+                          "value": "4q^2",
+                          "statement": "Let t := 4q^2."
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "n^2 mod 4 = 0"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "1",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:mod4",
+                    "proof_steps": [
+                      [
+                        {
+                          "calculation_sequence": [
+                            "n^2 = (4q + 1)^2",
+                            "(4q + 1)^2 = 16q^2 + 8q + 1",
+                            "16q^2 + 8q + 1 = 4(4q^2 + 2q) + 1"
+                          ]
+                        },
+                        {
+                          "type": "let_statement",
+                          "variable_name": "t",
+                          "value": "4q^2 + 2q",
+                          "statement": "Let t := 4q^2 + 2q."
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "n^2 mod 4 = 1"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "2",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:mod4",
+                    "proof_steps": [
+                      [
+                        {
+                          "calculation_sequence": [
+                            "n^2 = (4q + 2)^2",
+                            "(4q + 2)^2 = 16q^2 + 16q + 4",
+                            "16q^2 + 16q + 4 = 4(4q^2 + 4q + 1)"
+                          ]
+                        },
+                        {
+                          "type": "let_statement",
+                          "variable_name": "t",
+                          "value": "4q^2 + 4q + 1",
+                          "statement": "Let t := 4q^2 + 4q + 1."
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "n^2 mod 4 = 0"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "3",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:mod4",
+                    "proof_steps": [
+                      [
+                        {
+                          "calculation_sequence": [
+                            "n^2 = (4q + 3)^2",
+                            "(4q + 3)^2 = 16q^2 + 24q + 9",
+                            "16q^2 + 24q + 9 = 4(4q^2 + 6q + 2) + 1"
+                          ]
+                        },
+                        {
+                          "type": "let_statement",
+                          "variable_name": "t",
+                          "value": "4q^2 + 6q + 2",
+                          "statement": "Let t := 4q^2 + 6q + 2."
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "n^2 mod 4 = 1"
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "n^2 mod 4 = 0 or n^2 mod 4 = 1"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

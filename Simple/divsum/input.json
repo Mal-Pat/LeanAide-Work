@@ -1,0 +1,103 @@
+{
+  "document": [
+    [
+      {
+        "type": "assume_statement",
+        "assumption": "a, b, c \u2208 \u2124"
+      },
+      {
+        "type": "assume_statement",
+        "assumption": "a \u2223 b",
+        "label": "h1"
+      },
+      {
+        "type": "assume_statement",
+        "assumption": "a \u2223 c",
+        "label": "h2"
+      },
+      {
+        "type": "assert_statement",
+        "claim": "there exists k \u2208 \u2124 such that b = a * k",
+        "label": "h3",
+        "proof_method": "definition of \u2223 on \u2124",
+        "internal_references": [
+          {
+            "target_identifier": "h1"
+          }
+        ]
+      },
+      {
+        "type": "assert_statement",
+        "claim": "there exists l \u2208 \u2124 such that c = a * l",
+        "label": "h4",
+        "proof_method": "definition of \u2223 on \u2124",
+        "internal_references": [
+          {
+            "target_identifier": "h2"
+          }
+        ]
+      },
+      {
+        "type": "assert_statement",
+        "claim": "b + c = a * k + a * l",
+        "label": "h5",
+        "proof_method": "rewriting using h3 and h4",
+        "internal_references": [
+          {
+            "target_identifier": "h3"
+          },
+          {
+            "target_identifier": "h4"
+          }
+        ]
+      },
+      {
+        "type": "assert_statement",
+        "claim": "a * k + a * l = a * (k + l)",
+        "label": "h6",
+        "proof_method": "distributivity of multiplication over addition in \u2124"
+      },
+      {
+        "type": "assert_statement",
+        "claim": "b + c = a * (k + l)",
+        "label": "h7",
+        "proof_method": "transitivity of equality",
+        "internal_references": [
+          {
+            "target_identifier": "h5"
+          },
+          {
+            "target_identifier": "h6"
+          }
+        ]
+      },
+      {
+        "type": "let_statement",
+        "variable_name": "m",
+        "variable_type": "\u2124",
+        "value": "k + l",
+        "statement": "m := k + l"
+      },
+      {
+        "type": "assert_statement",
+        "claim": "b + c = a * m",
+        "label": "h8",
+        "proof_method": "definition of m",
+        "internal_references": [
+          {
+            "target_identifier": "h7"
+          }
+        ]
+      },
+      {
+        "type": "conclude_statement",
+        "claim": "a \u2223 (b + c)",
+        "results_used": [
+          {
+            "target_identifier": "h8"
+          }
+        ]
+      }
+    ]
+  ]
+}

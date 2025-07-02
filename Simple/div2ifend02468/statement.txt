@@ -1,0 +1,30 @@
+If a number ends with 0, 2, 4, 6, or 8, then it is divisible by 2.
+
+
+**Lemma 1.**  
+Assume `d : ℕ` and `h_mem : d ∈ {0,2,4,6,8}`.  
+Then there exists `m : ℕ` such that `d = 2 * m`.  
+
+Proof.  
+By case analysis on `h_mem`:  
+- Case `d = 0`: take `m = 0`. Then `d = 2 * 0` holds by computation.  
+- Case `d = 2`: take `m = 1`. Then `d = 2 * 1` holds by computation.  
+- Case `d = 4`: take `m = 2`. Then `d = 2 * 2` holds by computation.  
+- Case `d = 6`: take `m = 3`. Then `d = 2 * 3` holds by computation.  
+- Case `d = 8`: take `m = 4`. Then `d = 2 * 4` holds by computation.  
+In each case the required witness `m` is provided, and `d = 2 * m` follows by definition of multiplication. ∎  
+
+**Theorem.**  
+Assume `n : ℕ` and `h_end : n % 10 ∈ {0,2,4,6,8}`.  
+Then `2 ∣ n`.  
+
+Proof.  
+Define `k := n / 10` and `d := n % 10`.  
+By the division algorithm for natural numbers,  
+$$n = 10 * k + d\,. \tag{div_mod}$$  
+From `h_end` and Lemma 1 obtain `m : ℕ` and `hd : d = 2 * m`.  
+Since `10 = 2 * 5`, we have `h₂ : 2 ∣ 10`.  
+Then `2 ∣ 10 * k` by `h₂` and the fact that divisibility is preserved under multiplication on the right.  
+Next `2 ∣ d` by `hd` and the definition of `dvd`: `dvd.intro m hd`.  
+Finally `2 ∣ (10 * k + d)` by additivity of divisibility.  
+Using `div_mod` this shows `2 ∣ n`. ∎

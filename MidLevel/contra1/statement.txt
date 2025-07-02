@@ -1,0 +1,10 @@
+There exist two irrational numbers $x$ and $y$ such that $x^y$ (x raised to the power y) is rational.
+
+
+Let $p$ be $\sqrt{2}^{\sqrt{2}}$.
+
+There are two cases:
+
+1. If $p$ is rational, then we have two irrational numbers $x = \sqrt{2}$ and $y = \sqrt{2}$ such that $x^y$ is rational (from the assumption).
+
+2. If $p$ is irrational, then let $q$ be $p^{\sqrt{2}}$. Simplifying this, we get $q = \sqrt{2}^2 = 2$, which is rational. Hence, we have two irrational number $x = p = \sqrt{2}^{\sqrt{2}}$ (from the assumption) and $y = \sqrt{2}$ such that $x^y$ is rational.

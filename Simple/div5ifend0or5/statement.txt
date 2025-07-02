@@ -1,0 +1,27 @@
+If a number ends with 0 or 5, then it is divisible by 5.
+
+
+Theorem: For all n : Integer, 5 | (10 * n) and 5 | (10 * n + 5).
+
+First case: 
+For all n : Integer, 5 | (10 * n)
+
+Implies 
+For all n : Integer, 5 | 5 * (2 * n)
+
+Implies
+True
+
+Second case:
+For all n : Integer, 5 | (10 * n + 5)
+
+Implies
+For all n : Integer, 5 | 5 * (2 * n + 1)
+
+Implies
+True
+
+Hence, from both cases,
+
+For all n : Integer, 5 | (10 * n) and 5 | (10 * n + 5)
+is True.

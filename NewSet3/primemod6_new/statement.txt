@@ -1,0 +1,60 @@
+Except for 2 and 3, all other prime numbers divided by 6 give remainder 1 or 5.
+
+
+**Lemma 1 (Division by 6)**  
+Assume `n : ℕ`.  
+Then there exist `q r : ℕ` such that  
+1. `h_r : r < 6`,  
+2. `h_div : n = 6*q + r`.  
+*Proof.*  By the usual division algorithm with divisor 6, take `q := n / 6` and `r := n % 6`. Then `0 ≤ r < 6` and `n = 6*q + r`.   □
+
+**Theorem (Primes > 3 are ±1 mod 6)**  
+Assume  
+- `p : ℕ`,  
+- `hprime : prime p`,  
+- `hne2 : p ≠ 2`,  
+- `hne3 : p ≠ 3`.  
+Let us prove `p % 6 = 1 ∨ p % 6 = 5`.  
+
+1. From `hprime` we have `p > 1`.  
+2. From `hne2` and `p > 1` we obtain `p ≥ 3`.  
+3. From `hne3` and `p ≥ 3` we obtain `p > 3`.  
+
+4. Apply Lemma 1 to `n := p`.  Obtain  
+   - `q : ℕ`,  
+   - `r : ℕ`,  
+   - `h_r : r < 6`,  
+   - `h_decomp : p = 6*q + r`.  
+
+5. We proceed by case analysis on `r ∈ {0,1,2,3,4,5}`.
+
+   • **Case r = 0**  
+     - From `h_decomp` we get `6 ∣ p`.  
+     - From `6 ∣ p` deduce `2 ∣ p`.  
+     - Since `p > 2`, `p` is composite, contradicting `hprime`.
+
+   • **Case r = 1**  
+     - Then `p % 6 = 1`.  
+     - Hence `p % 6 = 1 ∨ p % 6 = 5` holds.
+
+   • **Case r = 2**  
+     - From `h_decomp` we get `p = 6*q + 2 = 2*(3*q + 1)`.  
+     - Hence `2 ∣ p`.  
+     - Since `p > 2`, `p` is composite, contradicting `hprime`.
+
+   • **Case r = 3**  
+     - From `h_decomp` we get `p = 6*q + 3 = 3*(2*q + 1)`.  
+     - Hence `3 ∣ p`.  
+     - Since `p > 3`, `p` is composite, contradicting `hprime`.
+
+   • **Case r = 4**  
+     - From `h_decomp` we get `p = 6*q + 4 = 2*(3*q + 2)`.  
+     - Hence `2 ∣ p`.  
+     - Contradiction to `hprime` as above.
+
+   • **Case r = 5**  
+     - Then `p % 6 = 5`.  
+     - Hence `p % 6 = 1 ∨ p % 6 = 5` holds.
+
+6. In all possible cases the only non‐contradictory remainders are `1` or `5`.  
+Therefore `p % 6 = 1 ∨ p % 6 = 5`.  □

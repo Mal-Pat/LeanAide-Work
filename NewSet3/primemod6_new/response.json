@@ -1,0 +1,210 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem Nat.exists_eq_mul_add_lt : \u2200 (n : \u2115), \u2203 (q : \u2115), \u2203 r < 6, n = 6 * q + r :=\n    by\n    intro n\n    (sorry)\n  theorem Prime.modEqOneOrFiveOfNeTwoAndThree : \u2200 {p : \u2115}, Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p % 6 = 1 \u2228 p % 6 = 5 :=\n    by\n    intro p a a a\n    have assert_2314981484366361468 : Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p > 1 :=\n      by\n      intro a_3 a_4 a_5\n      simp_all only [ne_eq, not_false_eq_true, gt_iff_lt]\n      sorry\n    have assert_8134912532130239481 : Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p \u2265 3 :=\n      by\n      intro a_3 a_4 a_5\n      simp_all only [ne_eq, not_false_eq_true, gt_iff_lt, forall_const, ge_iff_le]\n      sorry\n    have assert_10989378042715510303 : Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p > 3 :=\n      by\n      intro a_3 a_4 a_5\n      simp_all only [ne_eq, not_false_eq_true, gt_iff_lt, forall_const, ge_iff_le]\n      sorry\n    have assert_16435310681937083329 : Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 \u2203 (q : \u2115), \u2203 r < 6, p = 6 * q + r :=\n      by\n      intro a_3 a_4 a_5\n      simp_all only [ne_eq, not_false_eq_true, gt_iff_lt, forall_const, ge_iff_le]\n      sorry\n    trace\n      \"Error: codegen: no valid function found for key pattern_cases_statement in JSON object {\\\"proof_cases\\\":\\n [{\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"We deduce 6 \u2223 p, hence 2 \u2223 p. Since p > 2, p is composite, contradicting hprime.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:prime_mod6\\\"},\\n   \\\"pattern\\\": \\\"0\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\": \\\"Then p % 6 = 1, so p % 6 = 1 \u2228 p % 6 = 5.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:prime_mod6\\\"},\\n   \\\"pattern\\\": \\\"1\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From decomposition we have p = 6*q + 2 = 2*(3*q + 1), so 2 \u2223 p. Since p > 2, p is composite, contradicting hprime.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:prime_mod6\\\"},\\n   \\\"pattern\\\": \\\"2\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From decomposition we have p = 6*q + 3 = 3*(2*q + 1), so 3 \u2223 p. Since p > 3, p is composite, contradicting hprime.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:prime_mod6\\\"},\\n   \\\"pattern\\\": \\\"3\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\":\\n      \\\"From decomposition we have p = 6*q + 4 = 2*(3*q + 2), so 2 \u2223 p. Since p > 2, p is composite, contradicting hprime.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:prime_mod6\\\"},\\n   \\\"pattern\\\": \\\"4\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"Paragraph\\\",\\n      \\\"text\\\": \\\"Then p % 6 = 5, so p % 6 = 1 \u2228 p % 6 = 5.\\\"}],\\n    \\\"claim_label\\\": \\\"thm:prime_mod6\\\"},\\n   \\\"pattern\\\": \\\"5\\\"}],\\n \\\"on\\\": \\\"r\\\"}; tried: [LeanAide.patternCasesCode: Tactics failed on p % 6 = 1 \u2228 p % 6 = 5: unknown identifier 'r' when expecting 6 goals.]\"\n    have : Nat.Prime p \u2192 p \u2260 2 \u2192 p \u2260 3 \u2192 p % 6 = 1 \u2228 p % 6 = 5 := by sorry\n    (expose_names; exact h a_1 a_2 a)\n    simp_all only [ne_eq]\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "By the usual division algorithm with divisor 6, take q := n / 6 and r := n % 6. Then 0 \u2264 r < 6 and n = 6*q + r."
+            }
+          ],
+          "claim_label": "lem:div6"
+        },
+        "label": "lem:div6",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "n : \u2115"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "There exist q r : \u2115 such that r < 6 and n = 6*q + r"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "proof_method": "from hprime",
+                  "internal_references": [
+                    {
+                      "target_identifier": "hprime"
+                    }
+                  ],
+                  "claim": "p > 1"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "from hne2 and p > 1",
+                  "internal_references": [
+                    {
+                      "target_identifier": "hne2"
+                    }
+                  ],
+                  "claim": "p \u2265 3"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "from hne3 and p \u2265 3",
+                  "internal_references": [
+                    {
+                      "target_identifier": "hne3"
+                    }
+                  ],
+                  "claim": "p > 3"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "by Lemma 1",
+                  "internal_references": [
+                    {
+                      "target_identifier": "lem:div6"
+                    }
+                  ],
+                  "claim": "there exist q r : \u2115 such that r < 6 and p = 6*q + r"
+                },
+                {
+                  "type": "pattern_cases_statement",
+                  "proof_cases": [
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "We deduce 6 \u2223 p, hence 2 \u2223 p. Since p > 2, p is composite, contradicting hprime."
+                          }
+                        ],
+                        "claim_label": "thm:prime_mod6"
+                      },
+                      "pattern": "0"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "Then p % 6 = 1, so p % 6 = 1 \u2228 p % 6 = 5."
+                          }
+                        ],
+                        "claim_label": "thm:prime_mod6"
+                      },
+                      "pattern": "1"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From decomposition we have p = 6*q + 2 = 2*(3*q + 1), so 2 \u2223 p. Since p > 2, p is composite, contradicting hprime."
+                          }
+                        ],
+                        "claim_label": "thm:prime_mod6"
+                      },
+                      "pattern": "2"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From decomposition we have p = 6*q + 3 = 3*(2*q + 1), so 3 \u2223 p. Since p > 3, p is composite, contradicting hprime."
+                          }
+                        ],
+                        "claim_label": "thm:prime_mod6"
+                      },
+                      "pattern": "3"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "From decomposition we have p = 6*q + 4 = 2*(3*q + 2), so 2 \u2223 p. Since p > 2, p is composite, contradicting hprime."
+                          }
+                        ],
+                        "claim_label": "thm:prime_mod6"
+                      },
+                      "pattern": "4"
+                    },
+                    {
+                      "type": "pattern_case",
+                      "proof": {
+                        "type": "Proof",
+                        "proof_steps": [
+                          {
+                            "type": "Paragraph",
+                            "text": "Then p % 6 = 5, so p % 6 = 1 \u2228 p % 6 = 5."
+                          }
+                        ],
+                        "claim_label": "thm:prime_mod6"
+                      },
+                      "pattern": "5"
+                    }
+                  ],
+                  "on": "r"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "p % 6 = 1 \u2228 p % 6 = 5"
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:prime_mod6"
+        },
+        "label": "thm:prime_mod6",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "label": "hp",
+            "assumption": "p : \u2115"
+          },
+          {
+            "type": "assume_statement",
+            "label": "hprime",
+            "assumption": "prime p"
+          },
+          {
+            "type": "assume_statement",
+            "label": "hne2",
+            "assumption": "p \u2260 2"
+          },
+          {
+            "type": "assume_statement",
+            "label": "hne3",
+            "assumption": "p \u2260 3"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "p % 6 = 1 \u2228 p % 6 = 5"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Nat.exists_eq_mul_add_lt",
+    "Prime.modEqOneOrFiveOfNeTwoAndThree"
+  ]
+}

@@ -1,0 +1,39 @@
+The sum of an even number and an odd number is an odd number.
+
+
+```markdown
+Assume  
+\(n,m : \mathbb Z\),  
+\(h_{\mathrm{even}} : \mathrm{Even}\,n\),  
+\(h_{\mathrm{odd}} : \mathrm{Odd}\,m\).  
+Goal: \(\mathrm{Odd}\,(n+m)\).
+
+1. From \(h_{\mathrm{even}}\) obtain \(r : \mathbb Z\) and  
+   \[
+     h_r : n = r + r
+   \]
+   by definition of \(\mathrm{Even}\).
+
+2. From \(h_{\mathrm{odd}}\) obtain \(k : \mathbb Z\) and  
+   \[
+     h_k : m = 2 \cdot k + 1
+   \]
+   by definition of \(\mathrm{Odd}\).
+
+3. Define \(t : \mathbb Z := r + k\).  
+
+4. Compute  
+   \[
+     n + m 
+     = (r + r) + m    \quad\text{by }h_r
+     = (r + r) + (2k + 1)    \quad\text{by }h_k
+     = 2r + 2k + 1    \quad\text{by associativity and commutativity of \(+\) and of \(\cdot\)}
+     = 2\,(r + k) + 1    \quad\text{by distributivity of \(\cdot\) over \(+\)}
+     = 2\,t + 1    \quad\text{by definition of }t.
+   \]
+
+5. Therefore \(\exists\,t:\mathbb Z,\;n+m = 2\cdot t + 1\). By definition of \(\mathrm{Odd}\) this yields  
+   \[
+     \mathrm{Odd}\,(n+m).
+   \]
+```

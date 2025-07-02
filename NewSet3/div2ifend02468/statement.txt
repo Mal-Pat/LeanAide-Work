@@ -1,0 +1,75 @@
+If a number ends with 0, 2, 4, 6, or 8, then it is divisible by 2.
+
+
+**Lemma 1**  
+Let \(d : \mathbb{N}\).  
+Assume  
+\[
+h_d : d \in \{0,2,4,6,8\}.
+\]  
+Then there exists \(m : \mathbb{N}\) such that  
+\[
+d = 2 \cdot m.
+\]  
+
+Proof.  We proceed by case analysis on the five elements of \(\{0,2,4,6,8\}\).  
+
+Case 1: \(d = 0\).  
+  Define \(m := 0\).  Then \(d = 0 = 2\cdot 0 = 2\cdot m\).  
+
+Case 2: \(d = 2\).  
+  Define \(m := 1\).  Then \(d = 2 = 2\cdot 1 = 2\cdot m\).  
+
+Case 3: \(d = 4\).  
+  Define \(m := 2\).  Then \(d = 4 = 2\cdot 2 = 2\cdot m\).  
+
+Case 4: \(d = 6\).  
+  Define \(m := 3\).  Then \(d = 6 = 2\cdot 3 = 2\cdot m\).  
+
+Case 5: \(d = 8\).  
+  Define \(m := 4\).  Then \(d = 8 = 2\cdot 4 = 2\cdot m\).  
+
+In each case we have produced a witness \(m\) with \(d = 2\cdot m\).  Since these cases cover all members of \(\{0,2,4,6,8\}\), the lemma follows.  
+
+---
+
+**Theorem**  
+Let \(n : \mathbb{N}\).  
+Assume  
+\[
+h_r : n \bmod 10 \in \{0,2,4,6,8\}.
+\]  
+Then  
+\[
+2 \,\bigm\vert\, n.
+\]  
+
+Proof.  
+Define  
+\[
+k := n \,/\, 10,\quad r := n \bmod 10.
+\]  
+By the division algorithm (`mod_add_div`),  
+\[
+n = 10 \cdot k + r.
+\]  
+Apply Lemma 1 to \(r\) with hypothesis \(h_r\).  This gives a witness \(m : \mathbb{N}\) and a proof  
+\[
+hr : r = 2 \cdot m.
+\]  
+Observe that \(10 = 2 \cdot 5\), hence  
+\[
+h_{10} : 2 \,\bigm\vert\, 10.
+\]  
+By the property of divisibility under multiplication, \(h_{10}\) implies  
+\[
+h_{10k} : 2 \,\bigm\vert\, 10 \cdot k.
+\]  
+By `dvd_mul_right` on \(r = 2 \cdot m\), we obtain  
+\[
+hr' : 2 \,\bigm\vert\, r.
+\]  
+Finally, by `dvd_add` on \(10\cdot k\) and \(r\), from \(h_{10k}\) and \(hr'\) we conclude  
+\[
+2 \,\bigm\vert\, 10 \cdot k + r = n.
+\]

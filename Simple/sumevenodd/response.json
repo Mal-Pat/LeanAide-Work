@@ -1,0 +1,52 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem even_add_odd_is_odd : \u2200 {p q : \u2115}, Even p \u2192 Odd q \u2192 Odd (p + q) :=\n    by\n    intro p q a a\n    apply Even.add_odd\n    \u00b7 simp_all only\n    \u00b7 simp_all only",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "By definition of evenness",
+                "claim": "There exists an integer k1 such that p = 2 * k1."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "By definition of oddness",
+                "claim": "There exists an integer k2 such that q = 2 * k2 + 1."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "p + q = 2 * (k1 + k2) + 1.",
+                "calculation": {
+                  "calculation_sequence": [
+                    "p + q = 2 * k1 + 2 * k2 + 1",
+                    "2 * k1 + 2 * k2 + 1 = 2 * (k1 + k2) + 1"
+                  ]
+                }
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "p + q is odd."
+              }
+            ]
+          ],
+          "claim_label": "thm:even_plus_odd"
+        },
+        "label": "thm:even_plus_odd",
+        "header": "Theorem",
+        "claim": "If p is even and q is odd, then p + q is odd."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "even_add_odd_is_odd"
+  ]
+}

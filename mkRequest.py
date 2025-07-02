@@ -11,7 +11,7 @@ def main(name):
     url = "http://localhost:7654"
 
     # Set the Outputs directory over here
-    direc = f"NewSet2/{name}"
+    direc = f"MidLevel/{name}"
 
     input_file = f"{direc}/input.json"
     response_file = f"{direc}/response.json"

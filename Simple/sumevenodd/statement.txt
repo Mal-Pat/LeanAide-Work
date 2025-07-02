@@ -1,0 +1,15 @@
+The sum of an even number and an odd number is an odd number.
+
+
+Theorem:
+For all integers p and q, p is even implies q is odd implies (p + q) is odd.
+
+Proof:
+By definition, since p is even, there exists an integer k1 such that p = 2 * k1.
+By definition, since q is odd, there exists an integer k2 such that q =  2 * k2 + 1.
+
+Substituting this in p + q,
+we get p + q = 2 * k1 + 2 * k2 + 1 = 2 * (k1 + k2) + 1,
+which is of the form of an odd number.
+
+Thus, p + q is odd.

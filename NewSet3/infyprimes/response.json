@@ -1,0 +1,126 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem exists_prime_dvd_nat_of_two_le : \u2200 (n : \u2115), 2 \u2264 n \u2192 \u2203 (p : \u2115), Nat.Prime p \u2227 p \u2223 n :=\n    by\n    intro n a\n    have assert_18023220805992047981 : 2 \u2264 n \u2192 \u2203 (p : \u2115), Nat.Prime p \u2227 p \u2223 n :=\n      by\n      intro a_1\n      simp_all only\n      apply Nat.exists_prime_and_dvd\n      simp_all only [ne_eq]\n      apply Aesop.BuiltinRules.not_intro\n      intro a\n      subst a\n      simp_all only [Nat.not_ofNat_le_one]\n    exact assert_18023220805992047981 a\n    (sorry)\n  theorem Prime.infinite : \u00ac\u2203 (l : List \u2115), \u2200 (p : \u2115), Nat.Prime p \u2192 p \u2208 l :=\n    by\n    let N := l.prod + 1\n    trace\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"proof_method\\\": \\\"case analysis on l\\\", \\\"claim\\\": \\\"2 \u2264 N\\\"}; tried: [LeanAide.assertionCode: codegen: failed to translate '2 \u2264 N' to a proposition even with 'full statement', error: <input>:2:22: expected ';' or line break; full claim: The number \\\\( N \\\\) is greater than or equal to 2., error: <input>:3:2: expected term]\"\n    trace\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"proof_method\\\": \\\"apply Lemma 1 to N and h_N\\\",\\n \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"lem:exists_prime_divisor\\\"}],\\n \\\"claim\\\": \\\"\u2203 q, prime q \u2227 q \u2223 N\\\"}; tried: [LeanAide.assertionCode: codegen: failed to translate '\u2203 q, prime q \u2227 q \u2223 N' to a proposition even with 'full statement', error: <input>:1:51: unexpected end of input; full claim: There exists a prime \\\\( q \\\\) such that \\\\( q \\\\) divides \\\\( N \\\\)., error: <input>:1:0: expected '/--', ':' or term]\"\n    trace\n      \"Error: codegen: no valid function found for key some_statement in JSON object {\\\"variable_name\\\": \\\"q\\\", \\\"statement\\\": \\\"prime q \u2227 q \u2223 N\\\"}; tried: [LeanAide.someCode: codegen: no valid function found for key assert_statement in JSON object {\\\"claim\\\": \\\"prime q \u2227 q \u2223 N\\\"}; tried: [LeanAide.assertionCode: codegen: failed to translate 'prime q \u2227 q \u2223 N' to a proposition even with 'full statement', error: <input>:1:0: expected '/--', ':' or term; full claim: A prime \\\\( q \\\\) divides \\\\( N \\\\)., error: <input>:4:2: expected end of input]]\"\n    trace\n      \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"results_used\\\":\\n [{\\\"statement\\\": \\\"q \u2223 l.prod\\\", \\\"mathlib_identifier\\\": \\\"list.prod_dvd\\\"},\\n  {\\\"statement\\\": \\\"q \u2223 (N - l.prod) = 1\\\"}],\\n \\\"proof_method\\\": \\\"otherwise q \u2223 1 contradicts prime q\\\",\\n \\\"claim\\\": \\\"q \u2209 l\\\"}; tried: [LeanAide.assertionCode: codegen: failed to translate 'q \u2209 l' to a proposition even with 'full statement', error: <input>:1:0: expected '/--', ':' or term; full claim: The point \\\\( q \\\\) does not lie on the line \\\\( l \\\\)., error: <input>:1:2: expected identifier]\"\n    trace\n      \"Error: codegen: no valid function found for key conclude_statement in JSON object {\\\"claim\\\": \\\"there are infinitely many primes\\\"}; tried: [LeanAide.concludeCode: codegen: failed to translate 'We  have: there are infinitely many primes' to a proposition even with 'full statement', error: <input>:1:0: expected '/--', ':' or term; full claim: There are infinitely many prime numbers., error: <input>:3:46: unexpected end of input]\"\n    sorry\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "target_identifier": "h_ih",
+                      "statement": "\u2200 m, 2 \u2264 m \u2192 m < n \u2192 \u2203 p, prime p \u2227 p \u2223 m"
+                    }
+                  ],
+                  "proof_method": "strong induction on n using h_ih",
+                  "claim": "\u2203 p, prime p \u2227 p \u2223 n"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "Hence \u2203 p, prime p \u2227 p \u2223 n"
+                }
+              ]
+            }
+          ],
+          "claim_label": "lem:exists_prime_divisor"
+        },
+        "label": "lem:exists_prime_divisor",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "n : \u2115"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "h_n : 2 \u2264 n"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "\u2203 p : \u2115, prime p \u2227 p \u2223 n"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "type": "assume_statement",
+                  "assumption": "l : list \u2115"
+                },
+                {
+                  "type": "assume_statement",
+                  "assumption": "h_list : \u2200 p, prime p \u2192 p \u2208 l"
+                },
+                {
+                  "variable_name": "N",
+                  "value": "l.prod + 1",
+                  "type": "let_statement",
+                  "statement": "N = l.prod + 1"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "case analysis on l",
+                  "claim": "2 \u2264 N"
+                },
+                {
+                  "type": "assert_statement",
+                  "proof_method": "apply Lemma 1 to N and h_N",
+                  "internal_references": [
+                    {
+                      "target_identifier": "lem:exists_prime_divisor"
+                    }
+                  ],
+                  "claim": "\u2203 q, prime q \u2227 q \u2223 N"
+                },
+                {
+                  "variable_name": "q",
+                  "type": "some_statement",
+                  "statement": "prime q \u2227 q \u2223 N"
+                },
+                {
+                  "type": "assert_statement",
+                  "results_used": [
+                    {
+                      "statement": "q \u2223 l.prod",
+                      "mathlib_identifier": "list.prod_dvd"
+                    },
+                    {
+                      "statement": "q \u2223 (N - l.prod) = 1"
+                    }
+                  ],
+                  "proof_method": "otherwise q \u2223 1 contradicts prime q",
+                  "claim": "q \u2209 l"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "there are infinitely many primes"
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:infinitely_many_primes"
+        },
+        "label": "thm:infinitely_many_primes",
+        "header": "Theorem",
+        "claim": "There is no finite list of all prime numbers. Equivalently, the set of primes is infinite."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "exists_prime_dvd_nat_of_two_le",
+    "Prime.infinite"
+  ]
+}

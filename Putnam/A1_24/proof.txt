@@ -1,0 +1,98 @@
+**Lemma 1 (Primitive‐reduction).**  
+Let \(a,b,c,n\) be natural numbers. Assume  
+1. \(h_a:\;0<a\), \(h_b:\;0<b\), \(h_c:\;0<c\).  
+2. \(h_eq:\;2\,a^n + 3\,b^n = 4\,c^n\).  
+Define \(d := \gcd(\gcd(a,b),c)\). Then  
+(a) \(d>0\).  
+(b) There exist \(a',b',c'\in\mathbb{N}\) such that  
+\[
+a = d\,a',\quad b = d\,b',\quad c = d\,c', 
+\quad
+2\,{a'}^n + 3\,{b'}^n = 4\,{c'}^n,
+\]  
+and  
+\[
+\gcd(a',b') = 1,\quad \gcd(\gcd(a',b'),c') = 1.
+\]
+
+**Proof of Lemma 1.**  
+– Because \(d=\gcd(\gcd(a,b),c)\) divides \(a\), there is \(a'\in\mathbb{N}\) with \(a=d\,a'\). Since \(d\) divides \(b\) and \(c\) likewise, define \(b',c'\) by \(b=d\,b'\), \(c=d\,c'\).  
+– By \(h_a,h_b,h_c\) and \(d>0\) one gets \(a',b',c'>0\).  
+– From \(2a^n+3b^n=4c^n\) and \(a=d\,a'\), \(b=d\,b'\), \(c=d\,c'\) follows  
+\[
+2(d\,a')^n+3(d\,b')^n=4(d\,c')^n
+\;\Longrightarrow\;
+d^n\,(2{a'}^n+3{b'}^n)=4\,d^n\,{c'}^n
+\;\Longrightarrow\;
+2{a'}^n+3{b'}^n=4{c'}^n.
+\]  
+– By construction \(d=\gcd(\gcd(a,b),c)\) is the maximal common divisor of \(a,b,c\). Hence \(\gcd(a',b')=\gcd(a/d,b/d)=1\) and \(\gcd(\gcd(a',b'),c')=1\). □
+
+---
+
+**Lemma 2 (No solution for \(n=2\)).**  
+Let \(a,b,c\) be positive integers with \(\gcd(\gcd(a,b),c)=1\) and  
+\[
+2\,a^2 + 3\,b^2 = 4\,c^2.
+\]  
+Then no such triple \((a,b,c)\) exists.
+
+**Proof of Lemma 2.**  
+– Consider the equation modulo \(3\).  Squares mod 3 lie in \(\{0,1\}\).  Since \(3b^2\equiv0\pmod3\) and \(4c^2\equiv c^2\pmod3\), the given equation yields  
+\[
+2\,a^2 \equiv c^2 \pmod3.
+\]  
+– If \(c^2\equiv1\pmod3\), then \(2\,a^2\equiv1\pmod3\) forces \(a^2\equiv2\pmod3\), impossible.  
+– Hence \(c^2\equiv0\pmod3\), so \(3\mid c\).  Then \(3\mid2\,a^2\) implies \(3\mid a\).  Substituting back shows \(3\mid b\).  
+– Thus \(3\) divides \(\gcd(a,b,c)\), contradicting \(\gcd(\gcd(a,b),c)=1\). □
+
+---
+
+**Lemma 3 (No solution for \(n\ge3\)).**  
+Let \(n\ge3\) and let \(a,b,c\) be positive integers with \(\gcd(\gcd(a,b),c)=1\) and  
+\[
+2\,a^n + 3\,b^n = 4\,c^n.
+\]  
+Then no such triple exists.
+
+**Proof of Lemma 3.**  
+1. Reducing the equation modulo \(2\) gives  
+   \[
+   2\,a^n + 3\,b^n \equiv b^n \equiv 4\,c^n \equiv 0 \pmod2,
+   \]  
+   so \(b^n\) is even, hence \(b\) is even.  Write \(b=2\,b_1\).  
+2. Substitution yields  
+   \[
+   2\,a^n + 3\,(2\,b_1)^n = 4\,c^n
+   \;\Longrightarrow\;
+   a^n + 3\cdot2^{\,n-1}b_1^n = 2\,c^n.
+   \]  
+   Since \(n-1\ge2\), the term \(3\cdot2^{\,n-1}b_1^n\) is divisible by \(4\).  The right side \(2\,c^n\) is divisible by \(2\) but not necessarily by \(4\).  Hence \(a^n\) must be even, so \(a\) is even.  Write \(a=2\,a_1\).  
+3. Substitute again:  
+   \[
+   2^{\,n-1}a_1^n + 3\cdot2^{\,n-2}b_1^n = c^n.
+   \]  
+   Both terms on the left are divisible by \(4\) (because \(n-1\ge2\) and \(n-2\ge1\)), so the left side is divisible by \(4\).  Thus \(c^n\) is divisible by \(2\), forcing \(c\) to be even.  
+4. Conclusion: \(2\mid a\), \(2\mid b\), \(2\mid c\), so \(2\) divides \(\gcd(a,b,c)\), contradicting \(\gcd(\gcd(a,b),c)=1\). □
+
+---
+
+**Main Theorem.**  
+For all natural numbers \(a,b,c,n\), if  
+\[
+0<a,\quad0<b,\quad0<c,\quad 2\,a^n + 3\,b^n = 4\,c^n,
+\]  
+then \(n=1\).
+
+**Proof of the Main Theorem.**  
+Let \(a,b,c,n\) satisfy the stated hypotheses.  Apply Lemma 1 to obtain a primitive triple \((a',b',c')\) with \(\gcd(\gcd(a',b'),c')=1\) and  
+\[
+2\,{a'}^n + 3\,{b'}^n = 4\,{c'}^n.
+\]  
+Proceed by exhaustive case analysis on \(n\):  
+- **Case \(n=0\).**  Then \({a'}^0={b'}^0={c'}^0=1\) so the left side is \(2+3=5\) and the right side is \(4\), contradiction.  
+- **Case \(n=1\).**  The conclusion \(n=1\) follows immediately.  
+- **Case \(n=2\).**  Lemma 2 applies to rule out this case.  
+- **Case \(n\ge3\).**  Lemma 3 applies to rule out this case.  
+
+Since all cases except \(n=1\) lead to a contradiction, one concludes \(n=1\).

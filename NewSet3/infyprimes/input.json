@@ -1,0 +1,115 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "lem:exists_prime_divisor",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "n : \u2115"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "h_n : 2 \u2264 n"
+        }
+      ],
+      "claim": "\u2203 p : \u2115, prime p \u2227 p \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:exists_prime_divisor",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "\u2203 p, prime p \u2227 p \u2223 n",
+                "proof_method": "strong induction on n using h_ih",
+                "results_used": [
+                  {
+                    "statement": "\u2200 m, 2 \u2264 m \u2192 m < n \u2192 \u2203 p, prime p \u2227 p \u2223 m",
+                    "target_identifier": "h_ih"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Hence \u2203 p, prime p \u2227 p \u2223 n"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:infinitely_many_primes",
+      "claim": "There is no finite list of all prime numbers. Equivalently, the set of primes is infinite.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:infinitely_many_primes",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assume_statement",
+                "assumption": "l : list \u2115"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "h_list : \u2200 p, prime p \u2192 p \u2208 l"
+              },
+              {
+                "type": "let_statement",
+                "variable_name": "N",
+                "value": "l.prod + 1",
+                "statement": "N = l.prod + 1"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "2 \u2264 N",
+                "proof_method": "case analysis on l"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "\u2203 q, prime q \u2227 q \u2223 N",
+                "proof_method": "apply Lemma 1 to N and h_N",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:exists_prime_divisor"
+                  }
+                ]
+              },
+              {
+                "type": "some_statement",
+                "variable_name": "q",
+                "statement": "prime q \u2227 q \u2223 N"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "q \u2209 l",
+                "proof_method": "otherwise q \u2223 1 contradicts prime q",
+                "results_used": [
+                  {
+                    "statement": "q \u2223 l.prod",
+                    "mathlib_identifier": "list.prod_dvd"
+                  },
+                  {
+                    "statement": "q \u2223 (N - l.prod) = 1"
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "there are infinitely many primes"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:3divides_sum",
+      "header": "Theorem",
+      "claim": "3 divides (n + (n + 1) + (n + 2))",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:3divides_sum",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "n + (n + 1) + (n + 2) = 3 * (n + 1)",
+              "proof_method": "calculation",
+              "calculation": {
+                "inline_calculation": "n + (n + 1) + (n + 2) = 3 * n + 3 = 3 * (n + 1)"
+              }
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 divides 3 * (n + 1)",
+              "proof_method": "trivial divisibility"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "3 divides (n + (n + 1) + (n + 2))"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

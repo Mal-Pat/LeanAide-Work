@@ -1,0 +1,79 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:div_add",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "a",
+          "variable_type": "integer",
+          "statement": "a : Z"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "b",
+          "variable_type": "integer",
+          "statement": "b : Z"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "c",
+          "variable_type": "integer",
+          "statement": "c : Z"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "a \u2223 b",
+          "label": "h1"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "a \u2223 c",
+          "label": "h2"
+        }
+      ],
+      "claim": "a \u2223 (b + c)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:div_add",
+        "proof_steps": [
+          [
+            {
+              "type": "some_statement",
+              "variable_name": "m",
+              "variable_kind": "integer",
+              "statement": "There exists m : Z such that b = a * m"
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "n",
+              "variable_kind": "integer",
+              "statement": "There exists n : Z such that c = a * n"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "k",
+              "variable_type": "integer",
+              "value": "m + n",
+              "statement": "k = m + n"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "b + c = (a * m) + (a * n)",
+                "(a * m) + (a * n) = a * (m + n)",
+                "a * (m + n) = a * k"
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "a \u2223 (b + c)"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "lem:div6",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "n : \u2115"
+        }
+      ],
+      "claim": "There exist q r : \u2115 such that r < 6 and n = 6*q + r",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:div6",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "By the usual division algorithm with divisor 6, take q := n / 6 and r := n % 6. Then 0 \u2264 r < 6 and n = 6*q + r."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:prime_mod6",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "p : \u2115",
+          "label": "hp"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "prime p",
+          "label": "hprime"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "p \u2260 2",
+          "label": "hne2"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "p \u2260 3",
+          "label": "hne3"
+        }
+      ],
+      "claim": "p % 6 = 1 \u2228 p % 6 = 5",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:prime_mod6",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "assert_statement",
+                "claim": "p > 1",
+                "proof_method": "from hprime",
+                "internal_references": [
+                  {
+                    "target_identifier": "hprime"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "p \u2265 3",
+                "proof_method": "from hne2 and p > 1",
+                "internal_references": [
+                  {
+                    "target_identifier": "hne2"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "p > 3",
+                "proof_method": "from hne3 and p \u2265 3",
+                "internal_references": [
+                  {
+                    "target_identifier": "hne3"
+                  }
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "claim": "there exist q r : \u2115 such that r < 6 and p = 6*q + r",
+                "proof_method": "by Lemma 1",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:div6"
+                  }
+                ]
+              },
+              {
+                "type": "pattern_cases_statement",
+                "on": "r",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "pattern": "0",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:prime_mod6",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "We deduce 6 \u2223 p, hence 2 \u2223 p. Since p > 2, p is composite, contradicting hprime."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "1",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:prime_mod6",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "Then p % 6 = 1, so p % 6 = 1 \u2228 p % 6 = 5."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "2",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:prime_mod6",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From decomposition we have p = 6*q + 2 = 2*(3*q + 1), so 2 \u2223 p. Since p > 2, p is composite, contradicting hprime."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "3",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:prime_mod6",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From decomposition we have p = 6*q + 3 = 3*(2*q + 1), so 3 \u2223 p. Since p > 3, p is composite, contradicting hprime."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "4",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:prime_mod6",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "From decomposition we have p = 6*q + 4 = 2*(3*q + 2), so 2 \u2223 p. Since p > 2, p is composite, contradicting hprime."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "pattern_case",
+                    "pattern": "5",
+                    "proof": {
+                      "type": "Proof",
+                      "claim_label": "thm:prime_mod6",
+                      "proof_steps": [
+                        {
+                          "type": "Paragraph",
+                          "text": "Then p % 6 = 5, so p % 6 = 1 \u2228 p % 6 = 5."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "p % 6 = 1 \u2228 p % 6 = 5"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

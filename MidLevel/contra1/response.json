@@ -1,0 +1,121 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  abbrev exists_irrational_irrational_pow_rational.prop : Prop :=\n    \u2203 (x : \u211d) (y : \u211d), Irrational x \u2227 Irrational y \u2227 \u2203 (q : \u211a), x ^ y = (\u2191q : \u211d)\n  theorem exists_irrational_irrational_pow_rational :\n      \u2203 (x : \u211d) (y : \u211d), Irrational x \u2227 Irrational y \u2227 \u2203 (q : \u211a), x ^ y = (\u2191q : \u211d) :=\n    by\n    let p := Real.sqrt 2 ^ Real.sqrt 2\n    if condition_6595253563589288821 : \u2200 {p : \u211a}, \u2203 (q : \u211a), p = q then\n      \n      let x := Real.sqrt 2\n      let y := Real.sqrt 2\n      have assert_16308490223534104008 : \u2200 {x : \u211a} {y : \u2115}, \u2203 (q : \u211a), x ^ y = q := by sorry\n      trace\n        \"Error: codegen: no function found for key type available keys are [(some Table), (some calculation), (some definition), (some object), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some general_induction_statement), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n      simp_all only [exists_eq', implies_true, and_true, exists_and_left, exists_and_right, and_self]\n      sorry\n      simp_all only [exists_eq', implies_true, and_true, exists_and_left, exists_and_right, and_self]\n      sorry\n    else simp_all only [exists_eq', implies_true, not_true_eq_false]\n    done",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "label": "thm:irrational_power_rational",
+        "header": "Theorem",
+        "claim": "There exist two irrational numbers x and y such that x^y is rational."
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          [
+            {
+              "variable_name": "p",
+              "value": "sqrt(2)^(sqrt(2))",
+              "type": "let_statement",
+              "statement": "Let p = sqrt(2)^(sqrt(2))."
+            },
+            {
+              "type": "condition_cases_statement",
+              "true_case_proof": {
+                "type": "Proof",
+                "proof_steps": [
+                  [
+                    {
+                      "variable_name": "x",
+                      "value": "sqrt(2)",
+                      "type": "let_statement",
+                      "statement": "Let x = sqrt(2).",
+                      "properties": "irrational"
+                    },
+                    {
+                      "variable_name": "y",
+                      "value": "sqrt(2)",
+                      "type": "let_statement",
+                      "statement": "Let y = sqrt(2).",
+                      "properties": "irrational"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "results_used": [
+                        {
+                          "statement": "p is rational"
+                        }
+                      ],
+                      "claim": "x^y is rational"
+                    },
+                    {
+                      "type": "conclude_statement"
+                    }
+                  ]
+                ],
+                "claim_label": "thm:irrational_power_rational"
+              },
+              "false_case_proof": {
+                "type": "Proof",
+                "proof_steps": [
+                  [
+                    {
+                      "variable_name": "q",
+                      "value": "p^(sqrt(2))",
+                      "type": "let_statement",
+                      "statement": "Let q = p^(sqrt(2))."
+                    },
+                    {
+                      "type": "calculation",
+                      "calculation_sequence": [
+                        "q = p^(sqrt(2))",
+                        "= (sqrt(2)^(sqrt(2)))^(sqrt(2))",
+                        "= sqrt(2)^2",
+                        "= 2"
+                      ]
+                    },
+                    {
+                      "variable_name": "x",
+                      "value": "p",
+                      "type": "let_statement",
+                      "statement": "Let x = p.",
+                      "properties": "irrational"
+                    },
+                    {
+                      "variable_name": "y",
+                      "value": "sqrt(2)",
+                      "type": "let_statement",
+                      "statement": "Let y = sqrt(2).",
+                      "properties": "irrational"
+                    },
+                    {
+                      "type": "assert_statement",
+                      "results_used": [
+                        {
+                          "statement": "q = 2"
+                        }
+                      ],
+                      "claim": "x^y is rational"
+                    },
+                    {
+                      "type": "conclude_statement"
+                    }
+                  ]
+                ],
+                "claim_label": "thm:irrational_power_rational"
+              },
+              "condition": "p is rational"
+            }
+          ]
+        ],
+        "claim_label": "thm:irrational_power_rational"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "exists_irrational_irrational_pow_rational"
+  ]
+}

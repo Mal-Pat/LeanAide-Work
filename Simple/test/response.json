@@ -1,0 +1,165 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem Int.sq_mod_four_eq_zero_or_one : \u2200 (n : \u2124), n ^ 2 % 4 = 0 \u2228 n ^ 2 % 4 = 1 :=\n    by\n    intro n\n    have assert_11995086801293336199 : \u2203 (q : \u2124) (r : \u2124), n = 4 * q + r \u2227 0 \u2264 r \u2227 r < 4 := by sorry\n    let \u27e8q, assert_9430002354557108477\u27e9 := assert_11995086801293336199\n    let \u27e8r, assert_15152138368720084605\u27e9 := assert_9430002354557108477\n    match c_11742206031626332399 : r with\n    |\n    0 =>\n      trace\n        \"Error: codegen: no function found for key calculation_sequence available keys are [(some Table), (some calculation), (some definition), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n      trace\n        \"Error: codegen: no valid function found for key let_statement in JSON object {\\\"variable_name\\\": \\\"t\\\", \\\"value\\\": \\\"4q^2\\\", \\\"statement\\\": \\\"Let t := 4q^2.\\\"}; tried: [LeanAide.letCode: codegen: no definition translation found for Assume that: Let n be an integer.\\nLet t := 4q^2.\\nDefine ONLY the term t with value 4q^2. Other terms have been defined already.]\"\n      have : n ^ 2 % 4 = 0 := by sorry\n      subst c_11742206031626332399\n      simp_all only [add_zero, left_eq_add, exists_eq_left, le_refl, Nat.ofNat_pos, and_self, and_true,\n        EuclideanDomain.mod_eq_zero, true_or]\n      subst c_11742206031626332399\n      simp_all only [add_zero, left_eq_add, exists_eq_left, le_refl, Nat.ofNat_pos, and_self, and_true,\n        EuclideanDomain.mod_eq_zero]\n      subst assert_15152138368720084605\n      obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n      obtain \u27e8w_1, h\u27e9 := h\n      obtain \u27e8left, right\u27e9 := h\n      obtain \u27e8left_1, right\u27e9 := right\n      simp_all only\n      sorry\n    |\n    1 =>\n      trace\n        \"Error: codegen: no function found for key calculation_sequence available keys are [(some Table), (some calculation), (some definition), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n      trace\n        \"Error: codegen: no valid function found for key let_statement in JSON object {\\\"variable_name\\\": \\\"t\\\", \\\"value\\\": \\\"4q^2 + 2q\\\", \\\"statement\\\": \\\"Let t := 4q^2 + 2q.\\\"}; tried: [LeanAide.letCode: codegen: no definition translation found for Assume that: Let n be an integer.\\nLet t := 4q^2 + 2q.\\nDefine ONLY the term t with value 4q^2 + 2q. Other terms have been defined already.]\"\n      have : n ^ 2 % 4 = 1 := by\n        subst c_11742206031626332399\n        simp_all only [add_right_inj, exists_eq_left', zero_le_one, Nat.one_lt_ofNat, and_self, zero_le, and_true]\n        subst assert_15152138368720084605\n        obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n        obtain \u27e8w_1, h\u27e9 := h\n        obtain \u27e8left, right\u27e9 := h\n        obtain \u27e8left_1, right\u27e9 := right\n        simp_all only\n        sorry\n      subst c_11742206031626332399\n      simp_all only [add_right_inj, exists_eq_left', zero_le_one, Nat.one_lt_ofNat, and_self, zero_le, and_true,\n        one_ne_zero, or_true]\n      subst c_11742206031626332399\n      simp_all only [add_right_inj, exists_eq_left', zero_le_one, Nat.one_lt_ofNat, and_self, zero_le, and_true,\n        EuclideanDomain.mod_eq_zero]\n      subst assert_15152138368720084605\n      obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n      obtain \u27e8w_1, h\u27e9 := h\n      obtain \u27e8left, right\u27e9 := h\n      obtain \u27e8left_1, right\u27e9 := right\n      simp_all only\n      sorry\n    |\n    2 =>\n      trace\n        \"Error: codegen: no function found for key calculation_sequence available keys are [(some Table), (some calculation), (some definition), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n      let t : \u2124 := 4 * q ^ 2 + 4 * q + 1\n      have : 4 * q ^ 2 + 4 * q + 1 = 4 * q ^ 2 + 4 * q + 1 \u2192 n ^ 2 % 4 = 0 := by sorry\n      subst c_11742206031626332399\n      simp_all only [add_right_inj, exists_eq_left', Nat.ofNat_nonneg, Int.reduceLT, and_self, zero_le, Nat.reduceLT,\n        and_true, EuclideanDomain.mod_eq_zero, forall_const, true_or]\n      subst c_11742206031626332399\n      simp_all only [add_right_inj, exists_eq_left', Nat.ofNat_nonneg, Int.reduceLT, and_self, zero_le, Nat.reduceLT,\n        and_true, EuclideanDomain.mod_eq_zero]\n      subst assert_15152138368720084605\n      obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n      obtain \u27e8w_1, h\u27e9 := h\n      obtain \u27e8left, right\u27e9 := h\n      obtain \u27e8left_1, right\u27e9 := right\n      simp_all only\n      sorry\n    |\n    3 =>\n      trace\n        \"Error: codegen: no function found for key calculation_sequence available keys are [(some Table), (some calculation), (some definition), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n      trace\n        \"Error: codegen: no valid function found for key let_statement in JSON object {\\\"variable_name\\\": \\\"t\\\",\\n \\\"value\\\": \\\"4q^2 + 6q + 2\\\",\\n \\\"statement\\\": \\\"Let t := 4q^2 + 6q + 2.\\\"}; tried: [LeanAide.letCode: codegen: no definition translation found for Assume that: Let n be an integer.\\nLet t := 4q^2 + 6q + 2.\\nDefine ONLY the term t with value 4q^2 + 6q + 2. Other terms have been defined already.]\"\n      have : n ^ 2 % 4 = 1 := by\n        subst c_11742206031626332399\n        simp_all only [add_right_inj, exists_eq_left', Nat.ofNat_nonneg, Int.reduceLT, and_self, zero_le,\n          Nat.lt_add_one, and_true]\n        subst assert_15152138368720084605\n        obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n        obtain \u27e8w_1, h\u27e9 := h\n        obtain \u27e8left, right\u27e9 := h\n        obtain \u27e8left_1, right\u27e9 := right\n        simp_all only\n        sorry\n      subst c_11742206031626332399\n      simp_all only [add_right_inj, exists_eq_left', Nat.ofNat_nonneg, Int.reduceLT, and_self, zero_le, Nat.lt_add_one,\n        and_true, one_ne_zero, or_true]\n      subst c_11742206031626332399\n      simp_all only [add_right_inj, exists_eq_left', Nat.ofNat_nonneg, Int.reduceLT, and_self, zero_le, Nat.lt_add_one,\n        and_true, EuclideanDomain.mod_eq_zero]\n      subst assert_15152138368720084605\n      obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n      obtain \u27e8w_1, h\u27e9 := h\n      obtain \u27e8left, right\u27e9 := h\n      obtain \u27e8left_1, right\u27e9 := right\n      simp_all only\n      sorry\n    have : n ^ 2 % 4 = 0 \u2228 n ^ 2 % 4 = 1 := by sorry\n    simp_all only [add_right_inj, exists_eq_left', and_self, EuclideanDomain.mod_eq_zero]\n    obtain \u27e8w, h\u27e9 := assert_11995086801293336199\n    obtain \u27e8left, right\u27e9 := assert_15152138368720084605\n    obtain \u27e8w_1, h\u27e9 := h\n    obtain \u27e8left_1, right\u27e9 := right\n    obtain \u27e8left_2, right_1\u27e9 := h\n    obtain \u27e8left_3, right_1\u27e9 := right_1\n    subst left\n    simp_all only\n    sorry\n    (sorry)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "integer division algorithm",
+                "claim": "There exist integers q and r such that n = 4q + r and 0 \u2264 r < 4."
+              },
+              {
+                "type": "pattern_cases_statement",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "calculation_sequence": [
+                              "n^2 = (4q)^2",
+                              "(4q)^2 = 16q^2",
+                              "16q^2 = 4(4q^2)"
+                            ]
+                          },
+                          {
+                            "variable_name": "t",
+                            "value": "4q^2",
+                            "type": "let_statement",
+                            "statement": "Let t := 4q^2."
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "n^2 mod 4 = 0"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:mod4"
+                    },
+                    "pattern": "0"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "calculation_sequence": [
+                              "n^2 = (4q + 1)^2",
+                              "(4q + 1)^2 = 16q^2 + 8q + 1",
+                              "16q^2 + 8q + 1 = 4(4q^2 + 2q) + 1"
+                            ]
+                          },
+                          {
+                            "variable_name": "t",
+                            "value": "4q^2 + 2q",
+                            "type": "let_statement",
+                            "statement": "Let t := 4q^2 + 2q."
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "n^2 mod 4 = 1"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:mod4"
+                    },
+                    "pattern": "1"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "calculation_sequence": [
+                              "n^2 = (4q + 2)^2",
+                              "(4q + 2)^2 = 16q^2 + 16q + 4",
+                              "16q^2 + 16q + 4 = 4(4q^2 + 4q + 1)"
+                            ]
+                          },
+                          {
+                            "variable_name": "t",
+                            "value": "4q^2 + 4q + 1",
+                            "type": "let_statement",
+                            "statement": "Let t := 4q^2 + 4q + 1."
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "n^2 mod 4 = 0"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:mod4"
+                    },
+                    "pattern": "2"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "calculation_sequence": [
+                              "n^2 = (4q + 3)^2",
+                              "(4q + 3)^2 = 16q^2 + 24q + 9",
+                              "16q^2 + 24q + 9 = 4(4q^2 + 6q + 2) + 1"
+                            ]
+                          },
+                          {
+                            "variable_name": "t",
+                            "value": "4q^2 + 6q + 2",
+                            "type": "let_statement",
+                            "statement": "Let t := 4q^2 + 6q + 2."
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "n^2 mod 4 = 1"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:mod4"
+                    },
+                    "pattern": "3"
+                  }
+                ],
+                "on": "r"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "n^2 mod 4 = 0 or n^2 mod 4 = 1"
+              }
+            ]
+          ],
+          "claim_label": "thm:mod4"
+        },
+        "label": "thm:mod4",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "Let n be an integer."
+          }
+        ],
+        "header": "Theorem",
+        "claim": "n^2 mod 4 = 0 or n^2 mod 4 = 1."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.sq_mod_four_eq_zero_or_one"
+  ]
+}

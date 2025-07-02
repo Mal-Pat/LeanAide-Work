@@ -1,0 +1,48 @@
+The sum of any three consecutive numbers (n, n+1, n+2) is divisible by 3.
+
+
+```markdown
+**Assumptions.**  
+Let `n : ℤ`.
+
+**Definition.**  
+Define `s : ℤ := n + (n + 1) + (n + 2)`.
+
+---
+
+### Lemma 1  
+Lemma 1 (sum_three_consecutive_eq_mul)  
+Statement: `s = 3 * (n + 1)`.
+
+Proof:  
+1. s = n + (n + 1) + (n + 2)  
+   • by definition of `s`.  
+2. n + (n + 1) + (n + 2) = (n + n + n) + (1 + 2)  
+   • by repeated application of associativity and commutativity of `+`.  
+3. 1 + 2 = 3  
+   • by definition of the numeral `3`.  
+4. s = (n + n + n) + 3  
+   • by steps 1, 2, 3 and substitution.  
+5. 3 * (n + 1) = 3 * n + 3 * 1  
+   • by distributivity of `*` over `+`.  
+6. 3 * n = n + n + n  
+   • by definition of multiplication by the numeral `3`.  
+7. 3 * 1 = 3  
+   • by definition of multiplication by the numeral `1`.  
+8. 3 * (n + 1) = (n + n + n) + 3  
+   • by steps 5, 6, 7 and substitution.  
+9. s = 3 * (n + 1)  
+   • by transitivity of equality on steps 4 and 8.
+
+---
+
+### Theorem  
+Theorem (sum_of_three_consecutive_divides_by_three)  
+Statement: `3 ∣ s`.
+
+Proof:  
+1. Let `k : ℤ := n + 1`.  
+2. s = 3 * k  
+   • by Lemma 1 (sum_three_consecutive_eq_mul).  
+3. `3 ∣ s`  
+   • by definition of divisibility in `ℤ`: exists `k`, `s = 3 * k`.

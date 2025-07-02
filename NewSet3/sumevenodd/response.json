@@ -1,0 +1,71 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem assert_9613340423183687741 : \u2200 {n m : \u2124}, Even n \u2192 Odd m \u2192 \u2203 (r : \u2124), n = r + r :=\n    by\n    intro n m a a_1\n    exact a\n  theorem assert_5156004646045630813 : \u2200 (n m : \u2124), Even n \u2192 Odd m \u2192 \u2203 (k : \u2124), m = 2 * k + 1 := by sorry\n  def t : \u2124 :=\n    r + k\n  #check\n    \"Error: codegen: no function found for key calculation_sequence available keys are [(some Table), (some calculation), (some definition), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n  theorem assert_1445375664112414436 : \u2200 {n m : \u2124}, Even n \u2192 Odd m \u2192 \u2203 (t : \u2124), n + m = 2 * t + 1 := by sorry\n  #check\n    \"Error: codegen: no valid function found for key conclude_statement in JSON object {\\\"claim\\\": \\\"Odd(n + m)\\\"}; tried: [LeanAide.concludeCode: codegen: conclude_statement does not work for kind [commandSeq]]\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "assume_statement",
+        "assumption": "n, m : \u2124"
+      },
+      {
+        "type": "assume_statement",
+        "assumption": "h_even : Even n"
+      },
+      {
+        "type": "assume_statement",
+        "assumption": "h_odd : Odd m"
+      },
+      {
+        "type": "assert_statement",
+        "results_used": [
+          {
+            "statement": "definition of Even"
+          }
+        ],
+        "claim": "\u2203 r : \u2124, n = r + r"
+      },
+      {
+        "type": "assert_statement",
+        "results_used": [
+          {
+            "statement": "definition of Odd"
+          }
+        ],
+        "claim": "\u2203 k : \u2124, m = 2*k + 1"
+      },
+      {
+        "variable_type": "\u2124",
+        "variable_name": "t",
+        "value": "r + k",
+        "type": "let_statement",
+        "statement": "Define t : \u2124 := r + k"
+      },
+      {
+        "calculation_sequence": [
+          "n + m = (r + r) + m by h_r",
+          " = (r + r) + (2*k + 1) by h_k",
+          " = 2*r + 2*k + 1 by associativity and commutativity of + and *",
+          " = 2*(r + k) + 1 by distributivity of * over +",
+          " = 2*t + 1 by definition of t"
+        ]
+      },
+      {
+        "type": "assert_statement",
+        "claim": "\u2203 t : \u2124, n + m = 2*t + 1"
+      },
+      {
+        "type": "conclude_statement",
+        "claim": "Odd(n + m)"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "assert_9613340423183687741",
+    "assert_5156004646045630813",
+    "t",
+    "assert_1445375664112414436"
+  ]
+}

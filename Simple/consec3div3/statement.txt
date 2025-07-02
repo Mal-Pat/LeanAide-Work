@@ -1,0 +1,16 @@
+The sum of any three consecutive numbers (n, n+1, n+2) is divisible by 3.
+
+
+Theorem: 3 | (n + (n + 1) + (n + 2))
+
+Proof:
+
+Take 3 | (n + (n + 1) + (n + 2)).
+
+Simplify to 3 | (3 * n + 3).
+
+Which simplifies to 3 | 3 * (n + 1).
+
+Trivially, 3 divides 3 * (n + 1).
+
+Thus, 3 divides (n + (n + 1) + (n + 2)).

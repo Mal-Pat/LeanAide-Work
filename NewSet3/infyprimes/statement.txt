@@ -1,0 +1,63 @@
+There exist an infinite number of prime numbers.
+
+
+### Lemma 1 (Existence of a prime divisor)  
+Assume  
+- `n : ℕ`  
+- `h_n : 2 ≤ n`  
+
+Goal:  
+∃ `p : ℕ`, `h_p : prime p` ∧ `h_dvd : p ∣ n`.  
+
+Proof by strong induction on `n` with inductive hypothesis  
+`h_ih : ∀ m, 2 ≤ m → m < n → ∃ p, prime p ∧ p ∣ m`.  
+
+1. Case `n = 2`.  
+   - From `h_n` and `n = 2` we have `h₂ : prime 2` by definition of `prime`.  
+   - Also `dvd_refl 2` gives `2 ∣ 2`.  
+   - Hence take `p := 2`.  
+
+2. Case `n > 2`.  
+   From `h_n` and `n ≠ 2` we get `h_n_gt : 2 < n`.  
+   2.1. Subcase `prime n`.  
+        - Then take `p := n`.  
+        - `h_p := ‹prime n›`.  
+        - `h_dvd := dvd_refl n`.  
+   2.2. Subcase `¬ prime n`.  
+        - By definition of composite there exists `d` such that  
+          `h_dvd₁ : d ∣ n`, `h_d_gt₁ : 1 < d`, and `h_d_lt : d < n`.  
+        - From `h_d_gt₁` we derive `h_d_ge₂ : 2 ≤ d`.  
+        - Apply `h_ih` to `m := d` with `h_d_ge₂` and `h_d_lt` to obtain  
+          `∃ p, prime p ∧ p ∣ d`.  
+        - Extract `p`, `h_p : prime p`, and `h_dvd₂ : p ∣ d`.  
+        - Then `h_dvd := dvd_trans h_dvd₂ h_dvd₁` shows `p ∣ n`.  
+
+In all cases we exhibit `p` with `prime p ∧ p ∣ n`. ■  
+
+---
+
+### Theorem (Infinitely many primes)  
+Goal: There is no finite list of all prime numbers. Equivalently, the set of primes is infinite.  
+
+Proof by contradiction.  
+Assume  
+- `l : list ℕ`  
+- `h_list : ∀ p, prime p → p ∈ l`  
+
+Define `N := l.prod + 1`.  
+
+1. Show `h_N : 2 ≤ N`.  
+   - If `l = []` then `l.prod = 1` so `N = 2`.  
+   - If `l ≠ []` then `l.prod ≥ 2`, hence `N ≥ 3`.  
+
+2. Apply Lemma 1 to `N` and `h_N` to obtain  
+   `q : ℕ`, `h_qprime : prime q`, and `h_qdvd : q ∣ N`.  
+
+3. Show `q ∉ l`.  
+   - If `q ∈ l` then `h_dvd_prod : q ∣ l.prod` by divisibility of a list product.  
+   - From `h_qdvd` and `h_dvd_prod` we get `q ∣ (N - l.prod) = 1`.  
+   - A prime divisor of `1` must be `1` by definition of `prime`, contradicting `prime q`.  
+
+4. Since `h_list h_qprime` asserts `q ∈ l`, we obtain a contradiction.  
+
+Therefore the assumption of finiteness fails. Hence there are infinitely many primes. ■

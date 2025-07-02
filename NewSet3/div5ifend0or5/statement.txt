@@ -1,0 +1,31 @@
+If a number ends with 0 or 5, then it is divisible by 5.
+
+
+#### Lemma 1  
+Let `n`, `k` be integers.  
+Assume  
+1. `h₁ : n = 10 * k`.  
+Then  
+2. `n = 5 * (2 * k)`, since `10 * k = 5 * (2 * k)`.  
+3. Hence `5 ∣ n`, with witness `2 * k`.  
+
+#### Lemma 2  
+Let `n`, `k` be integers.  
+Assume  
+1. `h₂ : n = 10 * k + 5`.  
+Then  
+2. `n = 5 * (2 * k + 1)`, since `10 * k + 5 = 5 * (2 * k + 1)`.  
+3. Hence `5 ∣ n`, with witness `2 * k + 1`.  
+
+#### Theorem  
+Let `n` be an integer.  
+Assume  
+1. `h : ∃ k, n = 10 * k ∨ n = 10 * k + 5`.  
+Obtain `k` and `h_case : n = 10 * k ∨ n = 10 * k + 5` from `h`.  
+Proceed by case analysis on `h_case`:  
+
+- **Case 1:** `h_case₁ : n = 10 * k`.  
+  Then by Lemma 1 with `h₁ := h_case₁`, one concludes `5 ∣ n`.  
+
+- **Case 2:** `h_case₂ : n = 10 * k + 5`.  
+  Then by Lemma 2 with `h₂ := h_case₂`, one concludes `5 ∣ n`.

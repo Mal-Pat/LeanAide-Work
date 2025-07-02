@@ -1,0 +1,199 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem Int.mulOfTenDivFive : \u2200 (n k : \u2124), n = 10 * k \u2192 5 \u2223 n :=\n    by\n    intro n k a\n    have assert_4461353946318292886 : n = 10 * k \u2192 n = 5 * (2 * k) :=\n      by\n      intro a_1\n      subst a\n      simp_all only\n      sorry\n    have assert_9211136645075541913 : n = 10 * k \u2192 5 \u2223 n :=\n      by\n      intro a_1\n      subst a\n      simp_all only [forall_const, dvd_mul_right]\n    exact assert_9211136645075541913 a\n    subst a\n    (omega)\n  theorem Int.exists_eq_mul_add_and_five_dvd_of_eq_mul_add_five : \u2200 (n k : \u2124), n = 10 * k + 5 \u2192 5 \u2223 n :=\n    by\n    intro n k a\n    have assert_13957210618422742762 : n = 10 * k + 5 \u2192 n = 5 * (2 * k + 1) :=\n      by\n      intro a_1\n      subst a_1\n      simp_all only\n      sorry\n    have assert_10494001899458122421 : n = 10 * k + 5 \u2192 5 \u2223 n :=\n      by\n      intro a_1\n      subst a\n      simp_all only [forall_const, dvd_mul_right]\n    exact assert_10494001899458122421 a\n    subst a\n    simp_all only [dvd_add_self_right]\n    (omega)\n  theorem Int.dividesFiveOfExistsMulTenOrAddFive : \u2200 (n : \u2124), (\u2203 (k : \u2124), n = 10 * k \u2228 n = 10 * k + 5) \u2192 5 \u2223 n :=\n    by\n    intro n a\n    have assert_560113805311513323 :\n      (\u2203 (k : \u2124), n = 10 * k \u2228 n = 10 * k + 5) \u2192 \u2203 (k : \u2124) (_ : n = 10 * k \u2228 n = 10 * k + 5), True :=\n      by\n      intro a_1\n      simp_all only [exists_prop, and_true]\n    trace\n      \"Error: codegen: no valid function found for key pattern_cases_statement in JSON object {\\\"proof_cases\\\":\\n [{\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [[{\\\"type\\\": \\\"assert_statement\\\",\\n       \\\"proof_method\\\": \\\"by Lemma 1 with h\u2081 := h_case\u2081\\\",\\n       \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"lem:1\\\"}],\\n       \\\"claim\\\": \\\"5 \u2223 n\\\"}]],\\n    \\\"claim_label\\\": \\\"case1\\\"},\\n   \\\"pattern\\\": \\\"n = 10 * k\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [[{\\\"type\\\": \\\"assert_statement\\\",\\n       \\\"proof_method\\\": \\\"by Lemma 2 with h\u2082 := h_case\u2082\\\",\\n       \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"lem:2\\\"}],\\n       \\\"claim\\\": \\\"5 \u2223 n\\\"}]],\\n    \\\"claim_label\\\": \\\"case2\\\"},\\n   \\\"pattern\\\": \\\"n = 10 * k + 5\\\"}],\\n \\\"on\\\": \\\"h_case\\\"}; tried: [LeanAide.patternCasesCode: Tactics failed on 5 \u2223 n: unknown identifier 'h_case' when expecting 2 goals.]\"\n    simp_all only [exists_prop, and_true, imp_self]\n    obtain \u27e8w, h\u27e9 := a\n    cases h with\n    | inl h_1 =>\n      subst h_1\n      (omega)\n    | inr h_2 =>\n      subst h_2\n      simp_all only [dvd_add_self_right]\n      (omega)\n    obtain \u27e8w, h\u27e9 := a\n    cases h with\n    | inl h_1 =>\n      subst h_1\n      (omega)\n    | inr h_2 =>\n      subst h_2\n      simp_all only [dvd_add_self_right]\n      (omega)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "since 10 * k = 5 * (2 * k)",
+                "internal_references": [
+                  {
+                    "target_identifier": "h\u2081"
+                  }
+                ],
+                "claim": "n = 5 * (2 * k)"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "with witness 2 * k",
+                "claim": "5 \u2223 n"
+              }
+            ]
+          ],
+          "claim_label": "lem:1"
+        },
+        "label": "lem:1",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "n",
+            "type": "let_statement",
+            "statement": "Let n be an integer."
+          },
+          {
+            "variable_type": "integer",
+            "variable_name": "k",
+            "type": "let_statement",
+            "statement": "Let k be an integer."
+          },
+          {
+            "type": "assume_statement",
+            "label": "h\u2081",
+            "assumption": "n = 10 * k"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "5 \u2223 n"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "since 10 * k + 5 = 5 * (2 * k + 1)",
+                "internal_references": [
+                  {
+                    "target_identifier": "h\u2082"
+                  }
+                ],
+                "claim": "n = 5 * (2 * k + 1)"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "with witness 2 * k + 1",
+                "claim": "5 \u2223 n"
+              }
+            ]
+          ],
+          "claim_label": "lem:2"
+        },
+        "label": "lem:2",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "n",
+            "type": "let_statement",
+            "statement": "Let n be an integer."
+          },
+          {
+            "variable_type": "integer",
+            "variable_name": "k",
+            "type": "let_statement",
+            "statement": "Let k be an integer."
+          },
+          {
+            "type": "assume_statement",
+            "label": "h\u2082",
+            "assumption": "n = 10 * k + 5"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "5 \u2223 n"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "by existential elimination",
+                "internal_references": [
+                  {
+                    "target_identifier": "h"
+                  }
+                ],
+                "claim": "Obtain k and h_case such that n = 10 * k \u2228 n = 10 * k + 5 from h"
+              },
+              {
+                "type": "pattern_cases_statement",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "by Lemma 1 with h\u2081 := h_case\u2081",
+                            "internal_references": [
+                              {
+                                "target_identifier": "lem:1"
+                              }
+                            ],
+                            "claim": "5 \u2223 n"
+                          }
+                        ]
+                      ],
+                      "claim_label": "case1"
+                    },
+                    "pattern": "n = 10 * k"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "by Lemma 2 with h\u2082 := h_case\u2082",
+                            "internal_references": [
+                              {
+                                "target_identifier": "lem:2"
+                              }
+                            ],
+                            "claim": "5 \u2223 n"
+                          }
+                        ]
+                      ],
+                      "claim_label": "case2"
+                    },
+                    "pattern": "n = 10 * k + 5"
+                  }
+                ],
+                "on": "h_case"
+              }
+            ]
+          ],
+          "claim_label": "thm:divisible_by_5_if_last_digit_0_or_5"
+        },
+        "label": "thm:divisible_by_5_if_last_digit_0_or_5",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "n",
+            "type": "let_statement",
+            "statement": "Let n be an integer."
+          },
+          {
+            "type": "assume_statement",
+            "label": "h",
+            "assumption": "\u2203 k, n = 10 * k \u2228 n = 10 * k + 5"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "5 \u2223 n"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.mulOfTenDivFive",
+    "Int.exists_eq_mul_add_and_five_dvd_of_eq_mul_add_five",
+    "Int.dividesFiveOfExistsMulTenOrAddFive"
+  ]
+}

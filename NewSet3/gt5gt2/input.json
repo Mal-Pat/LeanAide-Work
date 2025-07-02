@@ -1,0 +1,81 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "lem:1",
+      "header": "Lemma",
+      "claim": "5 > 2",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:1",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "2 + 1 \u2264 5",
+              "proof_method": "definition of > on \u2115"
+            },
+            {
+              "inline_calculation": "2 + 1 = 3"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 \u2264 5",
+              "proof_method": "iterated application of succ_le_succ starting from zero \u2264 two"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "5 > 2"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:main",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "\u2115",
+          "statement": "n : \u2115"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "n > 5",
+          "label": "h\u2080"
+        }
+      ],
+      "claim": "n > 2",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:main",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "it suffices to prove 5 > 2",
+              "proof_method": "Nat.lt_trans"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "5 > 2",
+              "proof_method": "by Lemma 1",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:1"
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "n > 2"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

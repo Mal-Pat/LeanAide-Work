@@ -1,0 +1,58 @@
+{
+  "document": [
+    {
+      "type": "assume_statement",
+      "assumption": "n, m : \u2124"
+    },
+    {
+      "type": "assume_statement",
+      "assumption": "h_even : Even n"
+    },
+    {
+      "type": "assume_statement",
+      "assumption": "h_odd : Odd m"
+    },
+    {
+      "type": "assert_statement",
+      "claim": "\u2203 r : \u2124, n = r + r",
+      "results_used": [
+        {
+          "statement": "definition of Even"
+        }
+      ]
+    },
+    {
+      "type": "assert_statement",
+      "claim": "\u2203 k : \u2124, m = 2*k + 1",
+      "results_used": [
+        {
+          "statement": "definition of Odd"
+        }
+      ]
+    },
+    {
+      "type": "let_statement",
+      "variable_name": "t",
+      "variable_type": "\u2124",
+      "value": "r + k",
+      "statement": "Define t : \u2124 := r + k"
+    },
+    {
+      "calculation_sequence": [
+        "n + m = (r + r) + m by h_r",
+        " = (r + r) + (2*k + 1) by h_k",
+        " = 2*r + 2*k + 1 by associativity and commutativity of + and *",
+        " = 2*(r + k) + 1 by distributivity of * over +",
+        " = 2*t + 1 by definition of t"
+      ]
+    },
+    {
+      "type": "assert_statement",
+      "claim": "\u2203 t : \u2124, n + m = 2*t + 1"
+    },
+    {
+      "type": "conclude_statement",
+      "claim": "Odd(n + m)"
+    }
+  ]
+}

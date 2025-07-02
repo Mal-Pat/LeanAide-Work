@@ -1,0 +1,39 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:even_mul",
+      "claim": "For all integers p and q, p is Even implies p * q is Even.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:even_mul",
+        "proof_steps": [
+          {
+            "type": "LogicalStepSequence",
+            "items": [
+              {
+                "type": "some_statement",
+                "variable_name": "k",
+                "variable_kind": "integer",
+                "statement": "there exists an integer k such that p = 2 * k"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "p * q = 2 * k * q"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "p * q can be written as 2 * (k * q)"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "p * q is even"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

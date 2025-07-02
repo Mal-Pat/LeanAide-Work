@@ -1,0 +1,32 @@
+If an integer a divides an integer b, and a divides an integer c, then a divides their sum (b + c).
+
+
+```markdown
+Assume  
+\(a, b, c : \mathbb{Z}\),  
+\(h_1 : a \mid b\),  
+\(h_2 : a \mid c\).  
+We show \(a \mid (b + c)\).
+
+By the definition of divisibility applied to \(h_1\), there exists \(m : \mathbb{Z}\) such that  
+\[
+b = a \cdot m.
+\]  
+By the definition of divisibility applied to \(h_2\), there exists \(n : \mathbb{Z}\) such that  
+\[
+c = a \cdot n.
+\]  
+Let \(k := m + n\).  Then  
+\[
+b + c = (a \cdot m) + (a \cdot n)
+\]  
+by the equations for \(b\) and \(c\).  By the distributive law of multiplication over addition in \(\mathbb{Z}\),  
+\[
+(a \cdot m) + (a \cdot n) = a \cdot (m + n) = a \cdot k.
+\]  
+Hence  
+\[
+b + c = a \cdot k,
+\]  
+and by the definition of divisibility, \(a \mid (b + c)\).
+```

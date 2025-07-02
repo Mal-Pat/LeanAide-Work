@@ -1,0 +1,275 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  #check\n    \"Error: codegen: no valid function found for key theorem in JSON object {\\\"proof\\\":\\n {\\\"type\\\": \\\"Proof\\\",\\n  \\\"proof_steps\\\":\\n  [{\\\"type\\\": \\\"Paragraph\\\",\\n    \\\"text\\\": \\\"We proceed by case analysis on the five elements of {0,2,4,6,8}.\\\"},\\n   [{\\\"type\\\": \\\"pattern_cases_statement\\\",\\n     \\\"proof_cases\\\":\\n     [{\\\"type\\\": \\\"pattern_case\\\",\\n       \\\"proof\\\":\\n       {\\\"type\\\": \\\"Proof\\\",\\n        \\\"proof_steps\\\":\\n        [[{\\\"variable_name\\\": \\\"m\\\",\\n           \\\"value\\\": \\\"0\\\",\\n           \\\"type\\\": \\\"let_statement\\\",\\n           \\\"statement\\\": \\\"m := 0\\\"},\\n          {\\\"type\\\": \\\"calculation\\\",\\n           \\\"inline_calculation\\\": \\\"d = 0 = 2 \u00b7 0 = 2 \u00b7 m\\\"}]],\\n        \\\"claim_label\\\": \\\"lem:even-five\\\"},\\n       \\\"pattern\\\": \\\"d = 0\\\"},\\n      {\\\"type\\\": \\\"pattern_case\\\",\\n       \\\"proof\\\":\\n       {\\\"type\\\": \\\"Proof\\\",\\n        \\\"proof_steps\\\":\\n        [[{\\\"variable_name\\\": \\\"m\\\",\\n           \\\"value\\\": \\\"1\\\",\\n           \\\"type\\\": \\\"let_statement\\\",\\n           \\\"statement\\\": \\\"m := 1\\\"},\\n          {\\\"type\\\": \\\"calculation\\\",\\n           \\\"inline_calculation\\\": \\\"d = 2 = 2 \u00b7 1 = 2 \u00b7 m\\\"}]],\\n        \\\"claim_label\\\": \\\"lem:even-five\\\"},\\n       \\\"pattern\\\": \\\"d = 2\\\"},\\n      {\\\"type\\\": \\\"pattern_case\\\",\\n       \\\"proof\\\":\\n       {\\\"type\\\": \\\"Proof\\\",\\n        \\\"proof_steps\\\":\\n        [[{\\\"variable_name\\\": \\\"m\\\",\\n           \\\"value\\\": \\\"2\\\",\\n           \\\"type\\\": \\\"let_statement\\\",\\n           \\\"statement\\\": \\\"m := 2\\\"},\\n          {\\\"type\\\": \\\"calculation\\\",\\n           \\\"inline_calculation\\\": \\\"d = 4 = 2 \u00b7 2 = 2 \u00b7 m\\\"}]],\\n        \\\"claim_label\\\": \\\"lem:even-five\\\"},\\n       \\\"pattern\\\": \\\"d = 4\\\"},\\n      {\\\"type\\\": \\\"pattern_case\\\",\\n       \\\"proof\\\":\\n       {\\\"type\\\": \\\"Proof\\\",\\n        \\\"proof_steps\\\":\\n        [[{\\\"variable_name\\\": \\\"m\\\",\\n           \\\"value\\\": \\\"3\\\",\\n           \\\"type\\\": \\\"let_statement\\\",\\n           \\\"statement\\\": \\\"m := 3\\\"},\\n          {\\\"type\\\": \\\"calculation\\\",\\n           \\\"inline_calculation\\\": \\\"d = 6 = 2 \u00b7 3 = 2 \u00b7 m\\\"}]],\\n        \\\"claim_label\\\": \\\"lem:even-five\\\"},\\n       \\\"pattern\\\": \\\"d = 6\\\"},\\n      {\\\"type\\\": \\\"pattern_case\\\",\\n       \\\"proof\\\":\\n       {\\\"type\\\": \\\"Proof\\\",\\n        \\\"proof_steps\\\":\\n        [[{\\\"variable_name\\\": \\\"m\\\",\\n           \\\"value\\\": \\\"4\\\",\\n           \\\"type\\\": \\\"let_statement\\\",\\n           \\\"statement\\\": \\\"m := 4\\\"},\\n          {\\\"type\\\": \\\"calculation\\\",\\n           \\\"inline_calculation\\\": \\\"d = 8 = 2 \u00b7 4 = 2 \u00b7 m\\\"}]],\\n        \\\"claim_label\\\": \\\"lem:even-five\\\"},\\n       \\\"pattern\\\": \\\"d = 8\\\"}],\\n     \\\"on\\\": \\\"d\\\"},\\n    {\\\"type\\\": \\\"conclude_statement\\\",\\n     \\\"claim\\\":\\n     \\\"Since these cases cover all members of {0,2,4,6,8}, the lemma follows.\\\"}]],\\n  \\\"claim_label\\\": \\\"lem:even-five\\\"},\\n \\\"label\\\": \\\"lem:even-five\\\",\\n \\\"hypothesis\\\":\\n [{\\\"variable_type\\\": \\\"\u2115\\\",\\n   \\\"variable_name\\\": \\\"d\\\",\\n   \\\"type\\\": \\\"let_statement\\\",\\n   \\\"statement\\\": \\\"d : \u2115\\\"},\\n  {\\\"type\\\": \\\"assume_statement\\\",\\n   \\\"label\\\": \\\"h_d\\\",\\n   \\\"assumption\\\": \\\"d \u2208 {0,2,4,6,8}\\\"}],\\n \\\"header\\\": \\\"Lemma\\\",\\n \\\"claim\\\": \\\"\u2203 m : \u2115, d = 2 \u00b7 m\\\"}; tried: [LeanAide.theoremCode: codegen: failed to translate '\u2203 m : \u2115, d = 2 \u00b7 m' to a proposition even with 'full statement', error: <input>:1:91: unexpected end of input; expected '{'; full claim: There exists a natural number \\\\( m \\\\) such that \\\\( d = 2m \\\\)., error: <input>:3:13: expected end of input]\"\n  #check\n    \"Error: codegen: no valid function found for key theorem in JSON object {\\\"proof\\\":\\n {\\\"type\\\": \\\"Proof\\\",\\n  \\\"proof_steps\\\":\\n  [[{\\\"variable_name\\\": \\\"k\\\", \\\"type\\\": \\\"let_statement\\\", \\\"statement\\\": \\\"k := n / 10\\\"},\\n    {\\\"variable_name\\\": \\\"r\\\",\\n     \\\"type\\\": \\\"let_statement\\\",\\n     \\\"statement\\\": \\\"r := n mod 10\\\"},\\n    {\\\"type\\\": \\\"assert_statement\\\",\\n     \\\"results_used\\\":\\n     [{\\\"statement\\\": \\\"mod_add_div\\\", \\\"mathlib_identifier\\\": \\\"mod_add_div\\\"}],\\n     \\\"proof_method\\\": \\\"division algorithm (mod_add_div)\\\",\\n     \\\"claim\\\": \\\"n = 10 \u00b7 k + r\\\"},\\n    {\\\"type\\\": \\\"assert_statement\\\",\\n     \\\"proof_method\\\": \\\"Lemma 1\\\",\\n     \\\"label\\\": \\\"hr\\\",\\n     \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"lem:even-five\\\"}],\\n     \\\"claim\\\": \\\"r = 2 \u00b7 m\\\"},\\n    {\\\"type\\\": \\\"assert_statement\\\",\\n     \\\"label\\\": \\\"h_10\\\",\\n     \\\"claim\\\": \\\"2 \u2223 10\\\",\\n     \\\"calculation\\\": {\\\"inline_calculation\\\": \\\"10 = 2 \u00b7 5\\\"}},\\n    {\\\"type\\\": \\\"assert_statement\\\",\\n     \\\"results_used\\\": [{\\\"statement\\\": \\\"div_mul\\\"}],\\n     \\\"proof_method\\\": \\\"divisibility under multiplication\\\",\\n     \\\"label\\\": \\\"h_10k\\\",\\n     \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"h_10\\\"}],\\n     \\\"claim\\\": \\\"2 \u2223 10 \u00b7 k\\\"},\\n    {\\\"type\\\": \\\"assert_statement\\\",\\n     \\\"results_used\\\":\\n     [{\\\"statement\\\": \\\"dvd_mul_right\\\", \\\"mathlib_identifier\\\": \\\"dvd_mul_right\\\"}],\\n     \\\"proof_method\\\": \\\"dvd_mul_right\\\",\\n     \\\"label\\\": \\\"hr_prime\\\",\\n     \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"hr\\\"}],\\n     \\\"claim\\\": \\\"2 \u2223 r\\\"},\\n    {\\\"type\\\": \\\"conclude_statement\\\",\\n     \\\"internal_references\\\":\\n     [{\\\"target_identifier\\\": \\\"h_10k\\\"}, {\\\"target_identifier\\\": \\\"hr_prime\\\"}],\\n     \\\"claim\\\": \\\"2 \u2223 n\\\"}]],\\n  \\\"claim_label\\\": \\\"thm:even\\\"},\\n \\\"label\\\": \\\"thm:even\\\",\\n \\\"hypothesis\\\":\\n [{\\\"variable_type\\\": \\\"\u2115\\\",\\n   \\\"variable_name\\\": \\\"n\\\",\\n   \\\"type\\\": \\\"let_statement\\\",\\n   \\\"statement\\\": \\\"n : \u2115\\\"},\\n  {\\\"type\\\": \\\"assume_statement\\\",\\n   \\\"label\\\": \\\"h_r\\\",\\n   \\\"assumption\\\": \\\"n mod 10 \u2208 {0,2,4,6,8}\\\"}],\\n \\\"header\\\": \\\"Theorem\\\",\\n \\\"claim\\\": \\\"2 \u2223 n\\\"}; tried: [LeanAide.theoremCode: codegen: failed to translate '2 \u2223 n' to a proposition even with 'full statement', error: codegen: no valid type found for assertion '2 \u2223 n', full statement n : \u2115\\nAssume that: n mod 10 \u2208 {0,2,4,6,8}\\n2 \u2223 n; all translations: #[\u2200 {n : \u2115}, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 {n : \u2115}, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 n : \u2115, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 {n : \u2115}, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 {n : \u2115}, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n]; full claim: Two divides \\\\( n \\\\)., error: codegen: no valid type found for assertion 'Two divides \\\\( n \\\\).', full statement n : \u2115\\nAssume that: n mod 10 \u2208 {0,2,4,6,8}\\nTwo divides \\\\( n \\\\).; all translations: #[\u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 n : \u2115, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 {n : \u2115}, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n]]\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "We proceed by case analysis on the five elements of {0,2,4,6,8}."
+            },
+            [
+              {
+                "type": "pattern_cases_statement",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "m",
+                            "value": "0",
+                            "type": "let_statement",
+                            "statement": "m := 0"
+                          },
+                          {
+                            "type": "calculation",
+                            "inline_calculation": "d = 0 = 2 \u00b7 0 = 2 \u00b7 m"
+                          }
+                        ]
+                      ],
+                      "claim_label": "lem:even-five"
+                    },
+                    "pattern": "d = 0"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "m",
+                            "value": "1",
+                            "type": "let_statement",
+                            "statement": "m := 1"
+                          },
+                          {
+                            "type": "calculation",
+                            "inline_calculation": "d = 2 = 2 \u00b7 1 = 2 \u00b7 m"
+                          }
+                        ]
+                      ],
+                      "claim_label": "lem:even-five"
+                    },
+                    "pattern": "d = 2"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "m",
+                            "value": "2",
+                            "type": "let_statement",
+                            "statement": "m := 2"
+                          },
+                          {
+                            "type": "calculation",
+                            "inline_calculation": "d = 4 = 2 \u00b7 2 = 2 \u00b7 m"
+                          }
+                        ]
+                      ],
+                      "claim_label": "lem:even-five"
+                    },
+                    "pattern": "d = 4"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "m",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "m := 3"
+                          },
+                          {
+                            "type": "calculation",
+                            "inline_calculation": "d = 6 = 2 \u00b7 3 = 2 \u00b7 m"
+                          }
+                        ]
+                      ],
+                      "claim_label": "lem:even-five"
+                    },
+                    "pattern": "d = 6"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "m",
+                            "value": "4",
+                            "type": "let_statement",
+                            "statement": "m := 4"
+                          },
+                          {
+                            "type": "calculation",
+                            "inline_calculation": "d = 8 = 2 \u00b7 4 = 2 \u00b7 m"
+                          }
+                        ]
+                      ],
+                      "claim_label": "lem:even-five"
+                    },
+                    "pattern": "d = 8"
+                  }
+                ],
+                "on": "d"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Since these cases cover all members of {0,2,4,6,8}, the lemma follows."
+              }
+            ]
+          ],
+          "claim_label": "lem:even-five"
+        },
+        "label": "lem:even-five",
+        "hypothesis": [
+          {
+            "variable_type": "\u2115",
+            "variable_name": "d",
+            "type": "let_statement",
+            "statement": "d : \u2115"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h_d",
+            "assumption": "d \u2208 {0,2,4,6,8}"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "\u2203 m : \u2115, d = 2 \u00b7 m"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_name": "k",
+                "type": "let_statement",
+                "statement": "k := n / 10"
+              },
+              {
+                "variable_name": "r",
+                "type": "let_statement",
+                "statement": "r := n mod 10"
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "mod_add_div",
+                    "mathlib_identifier": "mod_add_div"
+                  }
+                ],
+                "proof_method": "division algorithm (mod_add_div)",
+                "claim": "n = 10 \u00b7 k + r"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "Lemma 1",
+                "label": "hr",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:even-five"
+                  }
+                ],
+                "claim": "r = 2 \u00b7 m"
+              },
+              {
+                "type": "assert_statement",
+                "label": "h_10",
+                "claim": "2 \u2223 10",
+                "calculation": {
+                  "inline_calculation": "10 = 2 \u00b7 5"
+                }
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "div_mul"
+                  }
+                ],
+                "proof_method": "divisibility under multiplication",
+                "label": "h_10k",
+                "internal_references": [
+                  {
+                    "target_identifier": "h_10"
+                  }
+                ],
+                "claim": "2 \u2223 10 \u00b7 k"
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "dvd_mul_right",
+                    "mathlib_identifier": "dvd_mul_right"
+                  }
+                ],
+                "proof_method": "dvd_mul_right",
+                "label": "hr_prime",
+                "internal_references": [
+                  {
+                    "target_identifier": "hr"
+                  }
+                ],
+                "claim": "2 \u2223 r"
+              },
+              {
+                "type": "conclude_statement",
+                "internal_references": [
+                  {
+                    "target_identifier": "h_10k"
+                  },
+                  {
+                    "target_identifier": "hr_prime"
+                  }
+                ],
+                "claim": "2 \u2223 n"
+              }
+            ]
+          ],
+          "claim_label": "thm:even"
+        },
+        "label": "thm:even",
+        "hypothesis": [
+          {
+            "variable_type": "\u2115",
+            "variable_name": "n",
+            "type": "let_statement",
+            "statement": "n : \u2115"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h_r",
+            "assumption": "n mod 10 \u2208 {0,2,4,6,8}"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "2 \u2223 n"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": []
+}

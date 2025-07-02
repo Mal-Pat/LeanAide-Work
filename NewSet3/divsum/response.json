@@ -1,0 +1,89 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem Int.dvd_add : \u2200 {a b c : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 a \u2223 b + c :=\n    by\n    intro a b c hab hac\n    exact (Int.dvd_add_right hab).mpr hac",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_name": "m",
+                "variable_kind": "integer",
+                "type": "some_statement",
+                "statement": "There exists m : Z such that b = a * m"
+              },
+              {
+                "variable_name": "n",
+                "variable_kind": "integer",
+                "type": "some_statement",
+                "statement": "There exists n : Z such that c = a * n"
+              },
+              {
+                "variable_type": "integer",
+                "variable_name": "k",
+                "value": "m + n",
+                "type": "let_statement",
+                "statement": "k = m + n"
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "b + c = (a * m) + (a * n)",
+                  "(a * m) + (a * n) = a * (m + n)",
+                  "a * (m + n) = a * k"
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "a \u2223 (b + c)"
+              }
+            ]
+          ],
+          "claim_label": "thm:div_add"
+        },
+        "label": "thm:div_add",
+        "hypothesis": [
+          {
+            "variable_type": "integer",
+            "variable_name": "a",
+            "type": "let_statement",
+            "statement": "a : Z"
+          },
+          {
+            "variable_type": "integer",
+            "variable_name": "b",
+            "type": "let_statement",
+            "statement": "b : Z"
+          },
+          {
+            "variable_type": "integer",
+            "variable_name": "c",
+            "type": "let_statement",
+            "statement": "c : Z"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h1",
+            "assumption": "a \u2223 b"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h2",
+            "assumption": "a \u2223 c"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "a \u2223 (b + c)"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "Int.dvd_add"
+  ]
+}

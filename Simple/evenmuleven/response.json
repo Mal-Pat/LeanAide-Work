@@ -1,0 +1,49 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem int.even.mul_right : \u2200 (p q : \u2124), Even p \u2192 Even (p * q) :=\n    by\n    intro p q a\n    simp_all only [Even.mul_right]",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "LogicalStepSequence",
+              "items": [
+                {
+                  "variable_name": "k",
+                  "variable_kind": "integer",
+                  "type": "some_statement",
+                  "statement": "there exists an integer k such that p = 2 * k"
+                },
+                {
+                  "type": "assert_statement",
+                  "claim": "p * q = 2 * k * q"
+                },
+                {
+                  "type": "assert_statement",
+                  "claim": "p * q can be written as 2 * (k * q)"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "p * q is even"
+                }
+              ]
+            }
+          ],
+          "claim_label": "thm:even_mul"
+        },
+        "label": "thm:even_mul",
+        "header": "Theorem",
+        "claim": "For all integers p and q, p is Even implies p * q is Even."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "int.even.mul_right"
+  ]
+}

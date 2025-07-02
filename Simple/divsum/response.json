@@ -1,0 +1,118 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem assert_13897057804022416429 : \u2200 {a b c : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 \u2203 (k : \u2124), b = a * k :=\n    by\n    intro a b c a_1 a_2\n    exact a_1\n  theorem assert_488594157667529459 : \u2200 {a b c : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 \u2203 (l : \u2124), c = a * l := by sorry\n  theorem assert_11913716733858620160 : \u2200 {a b c : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 b + c = a * (b / a) + a * (c / a) :=\n    by\n    intro a b c a_1 a_2\n    sorry\n  theorem assert_13732001933721468355 : \u2200 {a b c k l : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 a * k + a * l = a * (k + l) := by sorry\n  theorem assert_8622029629392690848 : \u2200 {a b c k l : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 b + c = a * (k + l) := by sorry\n  def m :=\n    k + l\n  theorem assert_6403691344347420417 : \u2200 {a b c k l : \u2124}, a \u2223 b \u2192 a \u2223 c \u2192 \u2200 (m : \u2124), m = k + l \u2192 b + c = a * m := by\n    sorry\n  #check\n    \"Error: codegen: no valid function found for key conclude_statement in JSON object {\\\"results_used\\\": [{\\\"target_identifier\\\": \\\"h8\\\"}], \\\"claim\\\": \\\"a \u2223 (b + c)\\\"}; tried: [LeanAide.concludeCode: codegen: conclude_statement does not work for kind [commandSeq]]\"",
+  "json_structured": {
+    "document": [
+      [
+        {
+          "type": "assume_statement",
+          "assumption": "a, b, c \u2208 \u2124"
+        },
+        {
+          "type": "assume_statement",
+          "label": "h1",
+          "assumption": "a \u2223 b"
+        },
+        {
+          "type": "assume_statement",
+          "label": "h2",
+          "assumption": "a \u2223 c"
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "definition of \u2223 on \u2124",
+          "label": "h3",
+          "internal_references": [
+            {
+              "target_identifier": "h1"
+            }
+          ],
+          "claim": "there exists k \u2208 \u2124 such that b = a * k"
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "definition of \u2223 on \u2124",
+          "label": "h4",
+          "internal_references": [
+            {
+              "target_identifier": "h2"
+            }
+          ],
+          "claim": "there exists l \u2208 \u2124 such that c = a * l"
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "rewriting using h3 and h4",
+          "label": "h5",
+          "internal_references": [
+            {
+              "target_identifier": "h3"
+            },
+            {
+              "target_identifier": "h4"
+            }
+          ],
+          "claim": "b + c = a * k + a * l"
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "distributivity of multiplication over addition in \u2124",
+          "label": "h6",
+          "claim": "a * k + a * l = a * (k + l)"
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "transitivity of equality",
+          "label": "h7",
+          "internal_references": [
+            {
+              "target_identifier": "h5"
+            },
+            {
+              "target_identifier": "h6"
+            }
+          ],
+          "claim": "b + c = a * (k + l)"
+        },
+        {
+          "variable_type": "\u2124",
+          "variable_name": "m",
+          "value": "k + l",
+          "type": "let_statement",
+          "statement": "m := k + l"
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "definition of m",
+          "label": "h8",
+          "internal_references": [
+            {
+              "target_identifier": "h7"
+            }
+          ],
+          "claim": "b + c = a * m"
+        },
+        {
+          "type": "conclude_statement",
+          "results_used": [
+            {
+              "target_identifier": "h8"
+            }
+          ],
+          "claim": "a \u2223 (b + c)"
+        }
+      ]
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "assert_13897057804022416429",
+    "assert_488594157667529459",
+    "assert_11913716733858620160",
+    "assert_13732001933721468355",
+    "assert_8622029629392690848",
+    "assert_6403691344347420417"
+  ]
+}

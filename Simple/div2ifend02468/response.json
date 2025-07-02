@@ -1,0 +1,222 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem even_digit_exists_half : \u2200 d \u2208 {0, 2, 4, 6, 8}, \u2203 (m : \u2115), d = 2 * m :=\n    by\n    intro d a\n    match c_12332387987229049913 : d with\n    | 0 =>\n      let m : \u2115 := 0\n      have assert_15458523715382601829 : d \u2208 {0, 2, 4, 6, 8} \u2192 \u2203 (m : \u2115), d = 2 * m := by sorry\n      sorry\n    | 2 =>\n      let m : \u2115 := 1\n      have assert_11339244733503852521 : d \u2208 {0, 2, 4, 6, 8} \u2192 \u2203 (m : \u2115), m = 1 \u2227 d = 2 * m := by sorry\n      sorry\n    | 4 =>\n      let m : \u2115 := 2\n      have assert_15458523715382601829 : d \u2208 {0, 2, 4, 6, 8} \u2192 \u2203 (m : \u2115), d = 2 * m := by sorry\n      sorry\n    | 6 =>\n      let m : \u2115 := 3\n      trace\n        \"Error: codegen: no valid function found for key assert_statement in JSON object {\\\"claim\\\": \\\"d = 2 * m\\\"}; tried: [LeanAide.assertionCode: codegen: failed to translate 'd = 2 * m' to a proposition even with 'full statement', error: <input>:1:0: expected '/--', ':' or term; full claim: \\\\(d\\\\) equals twice \\\\(m\\\\)., error: <input>:1:0: expected '/--', ':' or term]\"\n      sorry\n    | 8 =>\n      let m : \u2115 := 4\n      have assert_10935221031515536430 : d \u2208 {0, 2, 4, 6, 8} \u2192 \u2203 (m : \u2115), m = 4 \u2227 d = 2 * m := by sorry\n      sorry\n    trace\n      \"Error: codegen: no function found for key type available keys are [(some Table), (some calculation), (some definition), (some image), (some section), (some assume_statement), (some some_statement), (some contradiction_statement), (some abstract), (some author), (some table), (some citation), (some assert_statement), (some title), (some multi-condition_cases_statement), (some proof), (some internalreference), (some theorem), (some conclude_statement), (some remark), (some induction_statement), (some metadata), (some paragraph), (some logicalstepsequence), (some let_statement), (some document), (some Figure), (some condition_cases_statement), (some figure), (some bi-implication_cases_statement), (some bibliography), (some pattern_cases_statement)]\"\n  #check\n    \"Error: codegen: no valid function found for key theorem in JSON object {\\\"proof\\\":\\n {\\\"type\\\": \\\"Proof\\\",\\n  \\\"proof_steps\\\":\\n  [{\\\"variable_name\\\": \\\"k\\\",\\n    \\\"value\\\": \\\"n / 10\\\",\\n    \\\"type\\\": \\\"let_statement\\\",\\n    \\\"statement\\\": \\\"define k := n / 10\\\"},\\n   {\\\"variable_name\\\": \\\"d\\\",\\n    \\\"value\\\": \\\"n % 10\\\",\\n    \\\"type\\\": \\\"let_statement\\\",\\n    \\\"statement\\\": \\\"define d := n % 10\\\"},\\n   {\\\"type\\\": \\\"assert_statement\\\",\\n    \\\"proof_method\\\": \\\"division algorithm for natural numbers\\\",\\n    \\\"label\\\": \\\"div_mod\\\",\\n    \\\"claim\\\": \\\"n = 10 * k + d\\\"},\\n   {\\\"type\\\": \\\"assert_statement\\\",\\n    \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"lem:even_mod10\\\"}],\\n    \\\"claim\\\": \\\"there exists m : \u2115 such that d = 2 * m\\\"},\\n   {\\\"type\\\": \\\"assert_statement\\\",\\n    \\\"proof_method\\\": \\\"since 10 = 2 * 5\\\",\\n    \\\"claim\\\": \\\"2 \u2223 10\\\"},\\n   {\\\"type\\\": \\\"assert_statement\\\",\\n    \\\"proof_method\\\": \\\"divisibility preserved under multiplication on the right\\\",\\n    \\\"claim\\\": \\\"2 \u2223 10 * k\\\"},\\n   {\\\"type\\\": \\\"assert_statement\\\",\\n    \\\"proof_method\\\": \\\"definition of dvd using m\\\",\\n    \\\"claim\\\": \\\"2 \u2223 d\\\"},\\n   {\\\"type\\\": \\\"assert_statement\\\",\\n    \\\"proof_method\\\": \\\"additivity of divisibility\\\",\\n    \\\"internal_references\\\": [{\\\"target_identifier\\\": \\\"div_mod\\\"}],\\n    \\\"claim\\\": \\\"2 \u2223 (10 * k + d)\\\"},\\n   {\\\"type\\\": \\\"conclude_statement\\\"}],\\n  \\\"claim_label\\\": \\\"thm:div_by_two\\\"},\\n \\\"label\\\": \\\"thm:div_by_two\\\",\\n \\\"hypothesis\\\":\\n [{\\\"type\\\": \\\"assume_statement\\\", \\\"assumption\\\": \\\"n : \u2115\\\"},\\n  {\\\"type\\\": \\\"assume_statement\\\", \\\"assumption\\\": \\\"n % 10 \u2208 {0,2,4,6,8}\\\"}],\\n \\\"header\\\": \\\"Theorem\\\",\\n \\\"claim\\\": \\\"2 \u2223 n\\\"}; tried: [LeanAide.theoremCode: codegen: failed to translate '2 \u2223 n' to a proposition even with 'full statement', error: codegen: no valid type found for assertion '2 \u2223 n', full statement Assume that: n : \u2115\\nAssume that: n % 10 \u2208 {0,2,4,6,8}\\n2 \u2223 n; all translations: #[\u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 {n : \u2115}, n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n]; full claim: Two divides \\\\( n \\\\)., error: codegen: no valid type found for assertion 'Two divides \\\\( n \\\\).', full statement Assume that: n : \u2115\\nAssume that: n % 10 \u2208 {0,2,4,6,8}\\nTwo divides \\\\( n \\\\).; all translations: #[\u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n, \u2200 (n : \u2115), n % 10 \u2208 {0, 2, 4, 6, 8} \u2192 2 \u2223 n]]\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "pattern_cases_statement",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "variable_name": "m",
+                        "value": "0",
+                        "type": "let_statement",
+                        "statement": "take m = 0"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "d = 2 * m"
+                      }
+                    ],
+                    "claim_label": "lem:even_mod10"
+                  },
+                  "pattern": "0"
+                },
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "variable_name": "m",
+                        "value": "1",
+                        "type": "let_statement",
+                        "statement": "take m = 1"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "d = 2 * m"
+                      }
+                    ],
+                    "claim_label": "lem:even_mod10"
+                  },
+                  "pattern": "2"
+                },
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "variable_name": "m",
+                        "value": "2",
+                        "type": "let_statement",
+                        "statement": "take m = 2"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "d = 2 * m"
+                      }
+                    ],
+                    "claim_label": "lem:even_mod10"
+                  },
+                  "pattern": "4"
+                },
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "variable_name": "m",
+                        "value": "3",
+                        "type": "let_statement",
+                        "statement": "take m = 3"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "d = 2 * m"
+                      }
+                    ],
+                    "claim_label": "lem:even_mod10"
+                  },
+                  "pattern": "6"
+                },
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "variable_name": "m",
+                        "value": "4",
+                        "type": "let_statement",
+                        "statement": "take m = 4"
+                      },
+                      {
+                        "type": "assert_statement",
+                        "claim": "d = 2 * m"
+                      }
+                    ],
+                    "claim_label": "lem:even_mod10"
+                  },
+                  "pattern": "8"
+                }
+              ],
+              "on": "d"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ],
+          "claim_label": "lem:even_mod10"
+        },
+        "label": "lem:even_mod10",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "d : \u2115"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "d \u2208 {0,2,4,6,8}"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "there exists m : \u2115 such that d = 2 * m"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "variable_name": "k",
+              "value": "n / 10",
+              "type": "let_statement",
+              "statement": "define k := n / 10"
+            },
+            {
+              "variable_name": "d",
+              "value": "n % 10",
+              "type": "let_statement",
+              "statement": "define d := n % 10"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "division algorithm for natural numbers",
+              "label": "div_mod",
+              "claim": "n = 10 * k + d"
+            },
+            {
+              "type": "assert_statement",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:even_mod10"
+                }
+              ],
+              "claim": "there exists m : \u2115 such that d = 2 * m"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "since 10 = 2 * 5",
+              "claim": "2 \u2223 10"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "divisibility preserved under multiplication on the right",
+              "claim": "2 \u2223 10 * k"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of dvd using m",
+              "claim": "2 \u2223 d"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "additivity of divisibility",
+              "internal_references": [
+                {
+                  "target_identifier": "div_mod"
+                }
+              ],
+              "claim": "2 \u2223 (10 * k + d)"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ],
+          "claim_label": "thm:div_by_two"
+        },
+        "label": "thm:div_by_two",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "n : \u2115"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "n % 10 \u2208 {0,2,4,6,8}"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "2 \u2223 n"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "even_digit_exists_half"
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem thm_969481846356001838 : \u2200 (k n : \u2124), Even k \u2228 Odd k \u2192 Even n \u2192 \u2203 (m : \u2124), k * n = 2 * m :=\n    by\n    intro k n a a\n    trace\n      \"Error: codegen: no valid function found for key pattern_cases_statement in JSON object {\\\"proof_cases\\\":\\n [{\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"LogicalStepSequence\\\",\\n      \\\"items\\\":\\n      [{\\\"variable_name\\\": \\\"i\\\",\\n        \\\"variable_kind\\\": \\\"\u2124\\\",\\n        \\\"type\\\": \\\"some_statement\\\",\\n        \\\"statement\\\": \\\"k = 2i\\\"},\\n       {\\\"type\\\": \\\"calculation\\\",\\n        \\\"calculation_sequence\\\": [\\\"k\u00b7n = (2i)\u00b7n\\\", \\\"(2i)\u00b7n = 2\u00b7(i\u00b7n)\\\"]},\\n       {\\\"variable_type\\\": \\\"\u2124\\\",\\n        \\\"variable_name\\\": \\\"m\\\",\\n        \\\"value\\\": \\\"i\u00b7n\\\",\\n        \\\"type\\\": \\\"let_statement\\\",\\n        \\\"statement\\\": \\\"m := i\u00b7n\\\"},\\n       {\\\"type\\\": \\\"conclude_statement\\\", \\\"claim\\\": \\\"\u2203 m: \u2124, k\u00b7n = 2m\\\"}]}],\\n    \\\"claim_label\\\": \\\"thm:even_mul_even_or_odd\\\"},\\n   \\\"pattern\\\": \\\"k is even\\\"},\\n  {\\\"type\\\": \\\"pattern_case\\\",\\n   \\\"proof\\\":\\n   {\\\"type\\\": \\\"Proof\\\",\\n    \\\"proof_steps\\\":\\n    [{\\\"type\\\": \\\"LogicalStepSequence\\\",\\n      \\\"items\\\":\\n      [{\\\"variable_name\\\": \\\"j\\\",\\n        \\\"variable_kind\\\": \\\"\u2124\\\",\\n        \\\"type\\\": \\\"some_statement\\\",\\n        \\\"statement\\\": \\\"k = 2j + 1\\\"},\\n       {\\\"type\\\": \\\"calculation\\\",\\n        \\\"calculation_sequence\\\":\\n        [\\\"(2j+1)\u00b7n = 2j\u00b7n + 1\u00b7n\\\", \\\"1\u00b7n = n\\\", \\\"(2j+1)\u00b7n = 2\u00b7(j\u00b7n) + n\\\"]},\\n       {\\\"variable_name\\\": \\\"l\\\",\\n        \\\"variable_kind\\\": \\\"\u2124\\\",\\n        \\\"type\\\": \\\"some_statement\\\",\\n        \\\"statement\\\": \\\"n = 2l\\\"},\\n       {\\\"type\\\": \\\"calculation\\\",\\n        \\\"calculation_sequence\\\":\\n        [\\\"k\u00b7n = 2\u00b7(j\u00b7n) + n\\\",\\n         \\\"n = 2l\\\",\\n         \\\"k\u00b7n = 2\u00b7(j\u00b7n) + 2l\\\",\\n         \\\"k\u00b7n = 2\u00b7(j\u00b7n + l)\\\"]},\\n       {\\\"variable_type\\\": \\\"\u2124\\\",\\n        \\\"variable_name\\\": \\\"m\\\",\\n        \\\"value\\\": \\\"j\u00b7n + l\\\",\\n        \\\"type\\\": \\\"let_statement\\\",\\n        \\\"statement\\\": \\\"m := j\u00b7n + l\\\"},\\n       {\\\"type\\\": \\\"conclude_statement\\\", \\\"claim\\\": \\\"\u2203 m: \u2124, k\u00b7n = 2m\\\"}]}],\\n    \\\"claim_label\\\": \\\"thm:even_mul_even_or_odd\\\"},\\n   \\\"pattern\\\": \\\"k is odd\\\"}],\\n \\\"on\\\": \\\"k is even \u2228 k is odd\\\"}; tried: [LeanAide.patternCasesCode: Tactics failed on \u2203 m, k * n = 2 * m: function expected at\\n  k\\nterm has type\\n  \u2124 when expecting 2 goals.]\"\n    have : Even k \u2228 Odd k \u2192 Even n \u2192 \u2203 (m : \u2124), k * n = 2 * m :=\n      by\n      intro a_2 a_3\n      simp_all only\n      cases a_2 with\n      | inl h => sorry\n      | inr h_1 => sorry\n    (expose_names; exact h a_1 a)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "pattern_cases_statement",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "variable_name": "i",
+                            "variable_kind": "\u2124",
+                            "type": "some_statement",
+                            "statement": "k = 2i"
+                          },
+                          {
+                            "type": "calculation",
+                            "calculation_sequence": [
+                              "k\u00b7n = (2i)\u00b7n",
+                              "(2i)\u00b7n = 2\u00b7(i\u00b7n)"
+                            ]
+                          },
+                          {
+                            "variable_type": "\u2124",
+                            "variable_name": "m",
+                            "value": "i\u00b7n",
+                            "type": "let_statement",
+                            "statement": "m := i\u00b7n"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+                          }
+                        ]
+                      }
+                    ],
+                    "claim_label": "thm:even_mul_even_or_odd"
+                  },
+                  "pattern": "k is even"
+                },
+                {
+                  "type": "pattern_case",
+                  "proof": {
+                    "type": "Proof",
+                    "proof_steps": [
+                      {
+                        "type": "LogicalStepSequence",
+                        "items": [
+                          {
+                            "variable_name": "j",
+                            "variable_kind": "\u2124",
+                            "type": "some_statement",
+                            "statement": "k = 2j + 1"
+                          },
+                          {
+                            "type": "calculation",
+                            "calculation_sequence": [
+                              "(2j+1)\u00b7n = 2j\u00b7n + 1\u00b7n",
+                              "1\u00b7n = n",
+                              "(2j+1)\u00b7n = 2\u00b7(j\u00b7n) + n"
+                            ]
+                          },
+                          {
+                            "variable_name": "l",
+                            "variable_kind": "\u2124",
+                            "type": "some_statement",
+                            "statement": "n = 2l"
+                          },
+                          {
+                            "type": "calculation",
+                            "calculation_sequence": [
+                              "k\u00b7n = 2\u00b7(j\u00b7n) + n",
+                              "n = 2l",
+                              "k\u00b7n = 2\u00b7(j\u00b7n) + 2l",
+                              "k\u00b7n = 2\u00b7(j\u00b7n + l)"
+                            ]
+                          },
+                          {
+                            "variable_type": "\u2124",
+                            "variable_name": "m",
+                            "value": "j\u00b7n + l",
+                            "type": "let_statement",
+                            "statement": "m := j\u00b7n + l"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+                          }
+                        ]
+                      }
+                    ],
+                    "claim_label": "thm:even_mul_even_or_odd"
+                  },
+                  "pattern": "k is odd"
+                }
+              ],
+              "on": "k is even \u2228 k is odd"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+            }
+          ],
+          "claim_label": "thm:even_mul_even_or_odd"
+        },
+        "label": "thm:even_mul_even_or_odd",
+        "hypothesis": [
+          {
+            "variable_type": "\u2124",
+            "variable_name": "k",
+            "type": "let_statement",
+            "statement": "k \u2208 \u2124"
+          },
+          {
+            "variable_type": "\u2124",
+            "variable_name": "n",
+            "type": "let_statement",
+            "statement": "n \u2208 \u2124"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h_1",
+            "assumption": "k is even \u2228 k is odd"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h_2",
+            "assumption": "n is even"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "thm_969481846356001838"
+  ]
+}

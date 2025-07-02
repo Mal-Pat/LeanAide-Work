@@ -1,0 +1,65 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:irrational_power",
+      "header": "Theorem",
+      "claim": "There exist two irrational numbers x and y such that x^y is rational."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:irrational_power",
+      "proof_steps": [
+        [
+          {
+            "type": "let_statement",
+            "variable_name": "p",
+            "value": "\u221a2^\u221a2",
+            "statement": "Let p be \u221a2^\u221a2."
+          },
+          {
+            "type": "condition_cases_statement",
+            "condition": "p is rational",
+            "true_case_proof": {
+              "type": "Proof",
+              "claim_label": "thm:irrational_power",
+              "proof_steps": [
+                [
+                  {
+                    "type": "conclude_statement",
+                    "claim": "Take x = \u221a2 and y = \u221a2. Both are irrational and x^y = p is rational."
+                  }
+                ]
+              ]
+            },
+            "false_case_proof": {
+              "type": "Proof",
+              "claim_label": "thm:irrational_power",
+              "proof_steps": [
+                [
+                  {
+                    "type": "let_statement",
+                    "variable_name": "q",
+                    "value": "p^\u221a2",
+                    "statement": "Let q be p^\u221a2."
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "q = 2",
+                    "calculation": {
+                      "inline_calculation": "q = (\u221a2^\u221a2)^\u221a2 = \u221a2^(\u221a2\u00b7\u221a2) = \u221a2^2 = 2"
+                    }
+                  },
+                  {
+                    "type": "conclude_statement",
+                    "claim": "Take x = p and y = \u221a2. Both are irrational and x^y = q = 2 is rational."
+                  }
+                ]
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  ]
+}

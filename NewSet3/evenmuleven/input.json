@@ -1,0 +1,144 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:even_mul_even_or_odd",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "k",
+          "variable_type": "\u2124",
+          "statement": "k \u2208 \u2124"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "\u2124",
+          "statement": "n \u2208 \u2124"
+        },
+        {
+          "type": "assume_statement",
+          "label": "h_1",
+          "assumption": "k is even \u2228 k is odd"
+        },
+        {
+          "type": "assume_statement",
+          "label": "h_2",
+          "assumption": "n is even"
+        }
+      ],
+      "claim": "\u2203 m: \u2124, k\u00b7n = 2m",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:even_mul_even_or_odd",
+        "proof_steps": [
+          {
+            "type": "pattern_cases_statement",
+            "on": "k is even \u2228 k is odd",
+            "proof_cases": [
+              {
+                "type": "pattern_case",
+                "pattern": "k is even",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "thm:even_mul_even_or_odd",
+                  "proof_steps": [
+                    {
+                      "type": "LogicalStepSequence",
+                      "items": [
+                        {
+                          "type": "some_statement",
+                          "variable_name": "i",
+                          "variable_kind": "\u2124",
+                          "statement": "k = 2i"
+                        },
+                        {
+                          "type": "calculation",
+                          "calculation_sequence": [
+                            "k\u00b7n = (2i)\u00b7n",
+                            "(2i)\u00b7n = 2\u00b7(i\u00b7n)"
+                          ]
+                        },
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "variable_type": "\u2124",
+                          "value": "i\u00b7n",
+                          "statement": "m := i\u00b7n"
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "pattern_case",
+                "pattern": "k is odd",
+                "proof": {
+                  "type": "Proof",
+                  "claim_label": "thm:even_mul_even_or_odd",
+                  "proof_steps": [
+                    {
+                      "type": "LogicalStepSequence",
+                      "items": [
+                        {
+                          "type": "some_statement",
+                          "variable_name": "j",
+                          "variable_kind": "\u2124",
+                          "statement": "k = 2j + 1"
+                        },
+                        {
+                          "type": "calculation",
+                          "calculation_sequence": [
+                            "(2j+1)\u00b7n = 2j\u00b7n + 1\u00b7n",
+                            "1\u00b7n = n",
+                            "(2j+1)\u00b7n = 2\u00b7(j\u00b7n) + n"
+                          ]
+                        },
+                        {
+                          "type": "some_statement",
+                          "variable_name": "l",
+                          "variable_kind": "\u2124",
+                          "statement": "n = 2l"
+                        },
+                        {
+                          "type": "calculation",
+                          "calculation_sequence": [
+                            "k\u00b7n = 2\u00b7(j\u00b7n) + n",
+                            "n = 2l",
+                            "k\u00b7n = 2\u00b7(j\u00b7n) + 2l",
+                            "k\u00b7n = 2\u00b7(j\u00b7n + l)"
+                          ]
+                        },
+                        {
+                          "type": "let_statement",
+                          "variable_name": "m",
+                          "variable_type": "\u2124",
+                          "value": "j\u00b7n + l",
+                          "statement": "m := j\u00b7n + l"
+                        },
+                        {
+                          "type": "conclude_statement",
+                          "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "\u2203 m: \u2124, k\u00b7n = 2m"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:exists_m",
+      "header": "Theorem",
+      "claim": "For all natural numbers n, there exists a natural number m such that m - n > n.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:exists_m",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "n",
+              "variable_type": "natural number",
+              "statement": "Let n be a natural number."
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "variable_type": "natural number",
+              "value": "n + (n + 1)",
+              "statement": "Let m be n + (n + 1)."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n + 1 > n",
+              "proof_method": "basic arithmetic"
+            },
+            {
+              "calculation_sequence": [
+                "m - n = n + (n + 1) - n",
+                "n + (n + 1) - n = n + 1",
+                "n + 1 > n"
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Thus, for all natural numbers n, there exists a natural number m such that m - n > n."
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Statement:
+For all natural numbers $n$, there exists a natural number $m$ such that $m - n > n$.
+
+Proof:
+For any natural number $n$,
+Let $m$ be $n + (n + 1)$.
+Assert $n + 1 > n$.
+Then, $m - n = n + (n + 1) - n = n + 1 > n$, by our assertion.
+Thus, for all natural numbers $n$, there exists a natural number $m$ such that $m - n > n$.

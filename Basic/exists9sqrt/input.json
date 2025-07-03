@@ -1,0 +1,36 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:exists_n",
+      "header": "Theorem",
+      "claim": "There exists a natural number n such that n^2 = 9.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:exists_n",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "n",
+              "value": "3",
+              "variable_type": "natural number",
+              "statement": "Let n be 3."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n^2 = 9",
+              "calculation": {
+                "inline_calculation": "n^2 = 3^2 = 9"
+              }
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "There exists a natural number n such that n^2 = 9."
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

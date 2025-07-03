@@ -1,0 +1,50 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def n : \u2115 :=\n    3\n  theorem assert_8384035004144052993 : \u2200 (n : \u2115), n = 3 \u2192 n + n = 6 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2200 (n : \u2115), n = 3 \u2192 n + n = 6\"\n    intro n a\n    subst a\n    simp_all only [reduceAdd]\n  theorem assert_2568258167913292722 : n ^ 2 = 9 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: n ^ 2 = 9\"\n    rfl\n  theorem assert_17039326214549271061 : 3 ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: 3 ^ 3 = 27\"\n    simp_all only [reducePow]\n  theorem assert_233692461693078492 : \u2203 (n : \u2115), n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2203 n, n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27\"\n    simp_all only [exists_eq_left, reduceAdd, reducePow, and_self]\n  def n :=\n    Exists.fst assert_233692461693078492\n  theorem assert_5691105192523953611 : \u2203 (n : \u2115), n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    Exists.snd assert_233692461693078492",
+  "json_structured": {
+    "document": [
+      {
+        "variable_name": "n",
+        "value": "3",
+        "type": "let_statement",
+        "statement": "Let n be 3."
+      },
+      {
+        "type": "assert_statement",
+        "claim": "n + n = 3 + 3 = 6",
+        "calculation": {
+          "inline_calculation": "n + n = 3 + 3 = 6"
+        }
+      },
+      {
+        "type": "assert_statement",
+        "claim": "n^2 = 3^2 = 9",
+        "calculation": {
+          "inline_calculation": "n^2 = 3^2 = 9"
+        }
+      },
+      {
+        "type": "assert_statement",
+        "claim": "n^3 = 3^3 = 27",
+        "calculation": {
+          "inline_calculation": "n^3 = 3^3 = 27"
+        }
+      },
+      {
+        "type": "assert_statement",
+        "claim": "There exists a natural number n such that n + n = 6 and n^2 = 9 and n^3 = 27"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "n",
+    "assert_8384035004144052993",
+    "assert_2568258167913292722",
+    "assert_17039326214549271061",
+    "assert_233692461693078492",
+    "assert_5691105192523953611"
+  ]
+}

@@ -1,0 +1,7 @@
+Statement:
+Show that there exists a natural number $n$ such that $n^2 = 9$.
+
+Proof:
+Let $n$ be 3.
+Have $n^2 = 3^2 = 9$.
+Thus, there exists natural number $n$ such that $n^2 = 9$.

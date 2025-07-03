@@ -1,0 +1,9 @@
+Statement:
+There exists a natural number $n$ such that $n + n = 6$ and $n^2 = 9$ and $n^3 = 27$.
+
+Proof:
+Let $n$ be 3.
+Have $n + n = 3 + 3 = 6$.
+Have $n^2 = 3^2 = 9$.
+Have $n^3 = 3^3 = 27$.
+Thus, there exists a natural number $n$ such that $n + n = 6$ and $n^2 = 9$ and $n^3 = 27$.

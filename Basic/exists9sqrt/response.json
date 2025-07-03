@@ -1,0 +1,46 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem exists_nat_sq_eq_nine : \u2203 (n : \u2115), n ^ 2 = 9 := by exact (exists_mul_self' 9).mpr rfl",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "natural number",
+                "variable_name": "n",
+                "value": "3",
+                "type": "let_statement",
+                "statement": "Let n be 3."
+              },
+              {
+                "type": "assert_statement",
+                "claim": "n^2 = 9",
+                "calculation": {
+                  "inline_calculation": "n^2 = 3^2 = 9"
+                }
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "There exists a natural number n such that n^2 = 9."
+              }
+            ]
+          ],
+          "claim_label": "thm:exists_n"
+        },
+        "label": "thm:exists_n",
+        "header": "Theorem",
+        "claim": "There exists a natural number n such that n^2 = 9."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "exists_nat_sq_eq_nine"
+  ]
+}

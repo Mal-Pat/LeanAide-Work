@@ -1,0 +1,35 @@
+{
+  "document": [
+    {
+      "type": "let_statement",
+      "variable_name": "n",
+      "value": "3",
+      "statement": "Let n be 3."
+    },
+    {
+      "type": "assert_statement",
+      "claim": "n + n = 3 + 3 = 6",
+      "calculation": {
+        "inline_calculation": "n + n = 3 + 3 = 6"
+      }
+    },
+    {
+      "type": "assert_statement",
+      "claim": "n^2 = 3^2 = 9",
+      "calculation": {
+        "inline_calculation": "n^2 = 3^2 = 9"
+      }
+    },
+    {
+      "type": "assert_statement",
+      "claim": "n^3 = 3^3 = 27",
+      "calculation": {
+        "inline_calculation": "n^3 = 3^3 = 27"
+      }
+    },
+    {
+      "type": "assert_statement",
+      "claim": "There exists a natural number n such that n + n = 6 and n^2 = 9 and n^3 = 27"
+    }
+  ]
+}

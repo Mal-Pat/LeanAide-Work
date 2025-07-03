@@ -1,0 +1,8 @@
+Statement:
+There exists a real number $x$ such that the sequence (1, 1, 1, ...) converges to $x$.
+
+Proof:
+The sequence is $a_n = 1$ for all natural numbers $n$.
+This is a constant sequence, and hence it converges to 1.
+Let $x$ be 1.
+Thus, there exists a real number $x$ such that the sequence $a_n = 1$ for all $n$ converges to $x$.

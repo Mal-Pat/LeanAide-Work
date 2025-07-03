@@ -1,0 +1,50 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem real.exists_seq_const_convergent_const_limit : \u2203 (x : \u211d), \u2200 \u03b5 > 0, \u2203 (N : \u2115), \u2200 n \u2265 N, |1 - x| < \u03b5 :=\n    by\n    trace \"Error: codegen: no valid function found for key assert_statement\"\n    trace \"Tried functions: #[LeanAide.assertionCode]\"\n    trace \"Errors in functions:\"\n    trace \"\"\n    trace\n      \"LeanAide.assertionCode: codegen: failed to translate 'The sequence a_n is constant and thus converges to 1.' to a proposition even with 'full statement', error: codegen: no valid type found for assertion 'The sequence a_n is constant and thus converges to 1.', full statement Define a_n = 1 for all natural numbers n.\"\n    trace \"The sequence a_n is constant and thus converges to 1.; all translations: #[def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_n_converges_to_1 : \u2200 n, a_n n = 1 := \u03bb n, rfl, def a_n (n : \u2115) : \u211d := 1\"\n    trace \"\"\n    trace \"theorem sequence_converges : \u2200 n, a_n n = 1 := fun n => rfl\"\n    trace \"\"\n    trace \"theorem sequence_converges_to_one : Filter.Tendsto a_n Filter.atTop (\ud835\udcdd 1) :=\"\n    trace \"  Filter.Tendsto.const_nhds 1 1 Filter.atTop_ne_bot, def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_n_const_converges : Filter.Tendsto a_n Filter.atTop (\ud835\udcdd 1) :=\"\n    trace \"  Filter.Tendsto.const_nhds 1 Filter.atTop_ne_bot, def a : \u2115 \u2192 \u211d := \u03bb _, 1\"\n    trace \"\"\n    trace \"theorem a_const_converges : Filter.Tendsto a Filter.atTop (\ud835\udcdd 1) :=\"\n    trace \"  Filter.Tendsto.const_nhds 1, def a : \u2115 \u2192 \u211d := \u03bb _, 1\"\n    trace \"\"\n    trace \"theorem seq_converges : \u2200 n, a n = 1 := \u03bb n, rfl, def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_n_converges_to_1 : \u2203 L, (\u2200 \u03b5 > 0, \u2203 N, \u2200 n \u2265 N, |a_n n - L| < \u03b5) \u2227 L = 1 :=\"\n    trace \"begin\"\n    trace \"  use 1,\"\n    trace \"  split,\"\n    trace \"  { intros \u03b5 \u03b5_pos,\"\n    trace \"    use 0,\"\n    trace \"    intros n _,\"\n    trace \"    simp [a_n, abs_of_nonneg (sub_nonneg_of_le (le_refl 1))], \"\n    trace \"    exact \u03b5_pos, },\"\n    trace \"  refl,\"\n    trace \"end, def a_n (n : \u2115) : \u211d := 1\"\n    trace \"\"\n    trace \"theorem sequence_converges_to_one : Filter.Tendsto a_n Filter.atTop (nhds 1) := by\"\n    trace \"  apply Filter.Tendsto.const_nhds\"\n    trace \"  exact a_n\"\n    trace \"  rw [a_n]\"\n    trace \"  exact ne_of_eq_of_ne 1 (by simp), def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_n_converges_to_1 : Tendsto a_n atTop (nhds 1) :=\"\n    trace \"  tendsto_const_nhds, def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_n_converges_to_1 : \u2200 n, a_n n = 1 \u2227 Filter.Tendsto a_n Filter.atTop (Filter.Principal {1}) :=\"\n    trace \"  \u03bb n, \u27e8rfl, Filter.tendsto_const_nhds\u27e9, def a : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_const_converges_to_one : \u2200 n, a n = 1 :=\"\n    trace \"begin\"\n    trace \"  intro n,\"\n    trace \"  refl,\"\n    trace \"end\"\n    trace \"\"\n    trace \"theorem a_converges_to_one : Filter.Tendsto a Filter.atTop (\ud835\udcdd 1) :=\"\n    trace \"begin\"\n    trace \"  apply Filter.Tendsto.const,\"\n    trace \"  apply a_const_converges_to_one,\"\n    trace\n      \"end]; full claim: The sequence \\\\( a_n \\\\) is constant and hence converges to 1., error: codegen: no valid type found for assertion 'The sequence \\\\( a_n \\\\) is constant and hence converges to 1.', full statement Define a_n = 1 for all natural numbers n.\"\n    trace\n      \"The sequence \\\\( a_n \\\\) is constant and hence converges to 1.; all translations: #[def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem sequence_converges_to_one : Filter.Tendsto a_n Filter.atTop (nhds 1) :=\"\n    trace \"  Filter.Tendsto.const 1, def a : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem sequence_converges_to_one : \u2200 n, a n = 1 \u2227 Filter.Tendsto a Filter.atTop (Filter.Pure 1) :=\"\n    trace \"begin\"\n    trace \"  intro n,\"\n    trace \"  split,\"\n    trace \"  { refl },\"\n    trace \"  { exact Filter.Tendsto.const_nhds 1 }\"\n    trace \"end, def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem sequence_const_converges_to_1 : Filter.Tendsto a_n Filter.atTop (\ud835\udcdd 1) := \"\n    trace \"  Filter.tendsto_const_nhds, \u2200 (n : \u2115), (\u03bb n, 1) n = 1, def a_n (n : \u2115) : \u211d := 1\"\n    trace \"\"\n    trace \"theorem sequence_converges_to_1 : \u2200 n : \u2115, a_n n = 1 \u2227 Filter.Tendsto a_n Filter.atTop (Filter.Pure 1) := by\"\n    trace \"  intro n\"\n    trace \"  constructor\"\n    trace \"  \u00b7 rfl\"\n    trace \"  \u00b7 exact tendsto_const_nhds, def a : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem constant_sequence_converges_to_one : Filter.Tendsto a Filter.atTop (nhds 1) :=\"\n    trace\n      \"  tendsto_const_nhds, \u2200 (n : \u2115), (a : \u2115 \u2192 \u211d), a n = 1 \u2192 \u2203 l : \u211d, Filter.Tendsto a Filter.atTop (nhds l) \u2227 l = 1, def a : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem a_const_converges_to_one : Filter.Tendsto a Filter.atTop (\ud835\udcdd 1) :=\"\n    trace \"  Filter.Tendsto.const_nhds 1 Filter.atTop_ne_bot, def a_n (n : \u2115) : \u211d := 1\"\n    trace \"\"\n    trace \"theorem sequence_constant_converges_to_one : \u2200 n : \u2115, a_n n = 1 := \"\n    trace \"  \u03bb n, rfl\"\n    trace \"\"\n    trace \"theorem sequence_converges_to_one : Filter.Tendsto a_n Filter.atTop (nhds 1) :=\"\n    trace \"  Filter.tendsto_const_nhds, def a_n : \u2115 \u2192 \u211d := \u03bb n, 1\"\n    trace \"\"\n    trace \"theorem seq_constant_converges_to_one : \u2200 \u03b5 > 0, \u2203 N : \u2115, \u2200 n \u2265 N, |a_n n - 1| < \u03b5 :=\"\n    trace \"  \u03bb \u03b5 h\u03b5, \u27e80, \u03bb n hn, by simp [a_n, abs_of_nonneg, h\u03b5]\u27e9]\"\n    trace \"source:\"\n    trace \"{\\\"proof_method\\\": \\\"direct proof\\\",\"\n    trace \" \\\"claim\\\": \\\"The sequence a_n is constant and thus converges to 1.\\\"}\"\n    let x := 1\n    have : \u2203 (x : \u211d), \u2200 (n : \u2115), 1 = x :=\n      by\n      trace \"Automation Tactics hammer [] for goal: \u2203 x, \u2200 (n : \u2115), 1 = x\"\n      simp_all only [forall_const, exists_eq']\n    trace \"Automation Tactics hammer for goal: \u2203 x, \u2200 \u03b5 > 0, \u2203 N, \u2200 n \u2265 N, |1 - x| < \u03b5\"\n    sorry\n    trace \"Automation Tactics hammer for goal: \u2203 x, \u2200 \u03b5 > 0, \u2203 N, \u2200 n \u2265 N, |1 - x| < \u03b5\"\n    simp_all only [gt_iff_lt, ge_iff_le]\n    sorry",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "sequence",
+                "variable_name": "a_n",
+                "type": "let_statement",
+                "statement": "Define a_n = 1 for all natural numbers n."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "direct proof",
+                "claim": "The sequence a_n is constant and thus converges to 1."
+              },
+              {
+                "variable_type": "real number",
+                "variable_name": "x",
+                "value": "1",
+                "type": "let_statement",
+                "statement": "Let x be 1."
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Therefore, there exists a real number x such that the sequence a_n = 1 for all n converges to x."
+              }
+            ]
+          ],
+          "claim_label": "thm:constant_sequence_converges"
+        },
+        "label": "thm:constant_sequence_converges",
+        "header": "Theorem",
+        "claim": "There exists a real number x such that the sequence (1, 1, 1, ...) converges to x."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "real.exists_seq_const_convergent_const_limit"
+  ]
+}

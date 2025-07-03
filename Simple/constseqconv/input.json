@@ -1,0 +1,79 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:exists_limit",
+      "header": "Theorem",
+      "claim": "\u2203 x : \u211d, \u2200 \u03b5 : \u211d, \u03b5 > 0 \u2192 \u2203 N : \u2115, \u2200 n : \u2115, n \u2265 N \u2192 |1 - x| < \u03b5"
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:exists_limit",
+      "proof_steps": [
+        [
+          {
+            "type": "let_statement",
+            "variable_name": "x0",
+            "variable_type": "\u211d",
+            "value": "1",
+            "statement": "x0 : \u211d := 1"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "\u2200 \u03b5 : \u211d, \u03b5 > 0 \u2192 \u2203 N : \u2115, \u2200 n : \u2115, n \u2265 N \u2192 |1 - x0| < \u03b5"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "\u03b5 > 0",
+            "label": "h_\u03b5"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "N0",
+            "variable_type": "\u2115",
+            "value": "0",
+            "statement": "N0 : \u2115 := 0"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "\u2200 n : \u2115, n \u2265 N0 \u2192 |1 - x0| < \u03b5"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "n \u2265 N0",
+            "label": "h_n"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "|1 - x0| = 0",
+            "calculation": {
+              "calculation_sequence": [
+                "|1 - x0| = |1 - 1|",
+                "|1 - 1| = |0|",
+                "|0| = 0"
+              ]
+            }
+          },
+          {
+            "type": "assert_statement",
+            "claim": "|1 - x0| < \u03b5",
+            "proof_method": "direct comparison",
+            "results_used": [
+              {
+                "statement": "\u03b5 > 0",
+                "target_identifier": "h_\u03b5"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "\u2203 N : \u2115, \u2200 n : \u2115, n \u2265 N \u2192 |1 - x0| < \u03b5"
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      ]
+    }
+  ]
+}

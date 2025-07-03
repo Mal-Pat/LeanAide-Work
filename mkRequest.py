@@ -11,7 +11,7 @@ def main(name):
     url = "http://localhost:7654"
 
     # Set the Outputs directory over here
-    direc = f"MidLevel/{name}"
+    direc = f"Basic/{name}"
 
     input_file = f"{direc}/input.json"
     response_file = f"{direc}/response.json"
@@ -38,16 +38,17 @@ def main(name):
         # Dump the response JSON into response.json in the same directory.
         with open(response_file, "w") as f:
             json.dump(response.json(), f, indent=2)
-        print(f"Response saved")
+        print(f"Response saved.")
 
         print("Output Lean code:")
         print("---------------------")
+        print(response.json()["top_code"])
         print(response.json()["lean_code"])
         print("---------------------")
 
         # Write the output Lean code into lean_code.lean in the same directory.
         with open(lean_file, "w") as f:
-            f.write("import Mathlib\n\n")
+            f.write(response.json()["top_code"])
             f.write(response.json()["lean_code"])
 
     else:

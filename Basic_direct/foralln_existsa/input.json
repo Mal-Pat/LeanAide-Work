@@ -1,0 +1,115 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "add_sub_eq",
+      "claim": "For all natural numbers a and b, a + b - b = a.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "add_sub_eq",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "a + b - b = a",
+              "results_used": [
+                {
+                  "statement": "nat.add_sub_cancel_left",
+                  "mathlib_identifier": "nat.add_sub_cancel_left"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "succ_lt",
+      "claim": "For every natural number n, n < n + 1.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "succ_lt",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "n < n + 1",
+              "results_used": [
+                {
+                  "statement": "nat.lt_succ_self",
+                  "mathlib_identifier": "nat.lt_succ_self"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:exists_gt",
+      "claim": "For every natural number n, there exists a natural number m such that m - n > n.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:exists_gt",
+        "proof_steps": [
+          [
+            {
+              "type": "assume_statement",
+              "assumption": "n : \u2115"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "variable_type": "\u2115",
+              "value": "n + (n + 1)",
+              "statement": "Define m := n + (n + 1)."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "m - n = n + 1",
+              "results_used": [
+                {
+                  "statement": "Lemma add_sub_eq",
+                  "target_identifier": "add_sub_eq"
+                }
+              ],
+              "calculation": {
+                "calculation_sequence": [
+                  "(n + (n + 1)) - n = (n + n) + 1 - n",
+                  "(n + n) + 1 - n = n + 1"
+                ]
+              }
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n < n + 1",
+              "results_used": [
+                {
+                  "statement": "Lemma succ_lt",
+                  "target_identifier": "succ_lt"
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "m - n > n",
+              "results_used": [
+                {
+                  "statement": "m - n = n + 1"
+                },
+                {
+                  "statement": "n < n + 1"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def n\u2080 : \u2115 :=\n    3\n  theorem exists_nat_sq_eq_nine : \u2203 (n : \u2115), n ^ 2 = 9 := by exact (exists_mul_self' 9).mpr rfl",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Definition",
+        "label": "def_n0",
+        "header": "Definition",
+        "definition": "let n\u2080 : \u2115 := 3"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "by definition of exponentiation on \u2115",
+                "label": "h_pow",
+                "claim": "n\u2080 ^ 2 = n\u2080 * n\u2080"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "by definition of n\u2080",
+                "label": "h_def",
+                "claim": "n\u2080 * n\u2080 = 3 * 3"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "by definition of multiplication on numerals",
+                "label": "h_mul",
+                "claim": "3 * 3 = 9"
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "target_identifier": "h_pow",
+                    "statement": "n\u2080 ^ 2 = n\u2080 * n\u2080"
+                  },
+                  {
+                    "target_identifier": "h_def",
+                    "statement": "n\u2080 * n\u2080 = 3 * 3"
+                  },
+                  {
+                    "target_identifier": "h_mul",
+                    "statement": "3 * 3 = 9"
+                  }
+                ],
+                "proof_method": "by transitivity of equality on h_pow, h_def, and h_mul",
+                "claim": "n\u2080 ^ 2 = 9"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "\u2203 (n : \u2115), n^2 = 9"
+              }
+            ]
+          ],
+          "claim_label": "thm:exists_square9"
+        },
+        "label": "thm:exists_square9",
+        "header": "Theorem",
+        "claim": "\u2203 (n : \u2115), n^2 = 9"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "n\u2080",
+    "exists_nat_sq_eq_nine"
+  ]
+}

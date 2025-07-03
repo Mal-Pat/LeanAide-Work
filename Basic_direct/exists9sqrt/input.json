@@ -1,0 +1,65 @@
+{
+  "document": [
+    {
+      "type": "Definition",
+      "label": "def_n0",
+      "header": "Definition",
+      "definition": "let n\u2080 : \u2115 := 3"
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:exists_square9",
+      "header": "Theorem",
+      "claim": "\u2203 (n : \u2115), n^2 = 9",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:exists_square9",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "label": "h_pow",
+              "claim": "n\u2080 ^ 2 = n\u2080 * n\u2080",
+              "proof_method": "by definition of exponentiation on \u2115"
+            },
+            {
+              "type": "assert_statement",
+              "label": "h_def",
+              "claim": "n\u2080 * n\u2080 = 3 * 3",
+              "proof_method": "by definition of n\u2080"
+            },
+            {
+              "type": "assert_statement",
+              "label": "h_mul",
+              "claim": "3 * 3 = 9",
+              "proof_method": "by definition of multiplication on numerals"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n\u2080 ^ 2 = 9",
+              "proof_method": "by transitivity of equality on h_pow, h_def, and h_mul",
+              "results_used": [
+                {
+                  "statement": "n\u2080 ^ 2 = n\u2080 * n\u2080",
+                  "target_identifier": "h_pow"
+                },
+                {
+                  "statement": "n\u2080 * n\u2080 = 3 * 3",
+                  "target_identifier": "h_def"
+                },
+                {
+                  "statement": "3 * 3 = 9",
+                  "target_identifier": "h_mul"
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "\u2203 (n : \u2115), n^2 = 9"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

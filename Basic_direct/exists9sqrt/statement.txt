@@ -1,0 +1,21 @@
+Statement:
+Show that there exists a natural number $n$ such that $n^2 = 9$.
+
+Proof:
+Assume no hypotheses. Goal: show ∃ (n : ℕ), n^2 = 9.
+
+Definition (def_n0): let n₀ : ℕ := 3.
+
+Step 1 (h_pow): by definition of exponentiation on ℕ,  
+  n₀ ^ 2 = n₀ * n₀.
+
+Step 2 (h_def): by definition of n₀,  
+  n₀ * n₀ = 3 * 3.
+
+Step 3 (h_mul): by definition of multiplication on numerals,  
+  3 * 3 = 9.
+
+Step 4: by transitivity of equality on h_pow, h_def, and h_mul,  
+  n₀ ^ 2 = 9.
+
+Conclusion: ∃ (n : ℕ), n^2 = 9, with witness n := n₀.

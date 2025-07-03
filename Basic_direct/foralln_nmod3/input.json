@@ -1,0 +1,94 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:div3",
+      "header": "Theorem",
+      "claim": "For all n : \\mathbb{N}, there exist q, r : \\mathbb{N} such that r < 3 and n = 3q + r.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:div3",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "Let P(n) be the proposition: \u2203 (q : \\mathbb{N}) (r : \\mathbb{N}), r < 3 \u2227 n = 3\u00b7q + r."
+          },
+          {
+            "type": "Paragraph",
+            "text": "We prove \u2200 n, P(n) by induction on n."
+          },
+          [
+            {
+              "type": "induction_statement",
+              "on": "n",
+              "base_case_proof": {
+                "type": "Proof",
+                "claim_label": "thm:div3",
+                "proof_steps": [
+                  {
+                    "type": "Paragraph",
+                    "text": "Base case (n = 0): define q := 0 and r := 0. Hence P(0) holds."
+                  }
+                ]
+              },
+              "induction_step_proof": {
+                "type": "Proof",
+                "claim_label": "thm:div3",
+                "proof_steps": [
+                  {
+                    "type": "Paragraph",
+                    "text": "Inductive step: assume k : \\mathbb{N} and IH : P(k), i.e. there exist q, r with r < 3 and k = 3q + r."
+                  },
+                  [
+                    {
+                      "type": "pattern_cases_statement",
+                      "on": "r",
+                      "proof_cases": [
+                        {
+                          "type": "pattern_case",
+                          "pattern": "r < 2",
+                          "proof": {
+                            "type": "Proof",
+                            "claim_label": "thm:div3",
+                            "proof_steps": [
+                              {
+                                "type": "Paragraph",
+                                "text": "Case r < 2: define q' := q and r' := r + 1. Then r' < 3 since r < 2, and k + 1 = 3q' + r'. Hence P(k + 1) holds."
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "pattern_case",
+                          "pattern": "r = 2",
+                          "proof": {
+                            "type": "Proof",
+                            "claim_label": "thm:div3",
+                            "proof_steps": [
+                              {
+                                "type": "Paragraph",
+                                "text": "Case r = 2: define q' := q + 1 and r' := 0. Then r' < 3 and k + 1 = 3q' + r'. Hence P(k + 1) holds."
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  {
+                    "type": "Paragraph",
+                    "text": "In both cases P(k + 1) is established."
+                  }
+                ]
+              }
+            }
+          ],
+          {
+            "type": "Paragraph",
+            "text": "Unpacking P(n) shows that dividing n by 3 yields a remainder r with 0 \u2264 r < 3, i.e. the remainder is 0, 1, or 2."
+          }
+        ]
+      }
+    }
+  ]
+}

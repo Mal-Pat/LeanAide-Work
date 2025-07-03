@@ -1,0 +1,104 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem nat.exists_eq_add_mul_of_lt_three : \u2200 (n : \u2115), \u2203 (q : \u2115), \u2203 r < 3, n = 3 * q + r :=\n    by\n    intro n\n    trace \"Error: codegen: no valid function found for key induction_statement\"\n    trace \"Tried functions: #[LeanAide.inductionCode]\"\n    trace \"Errors in functions:\"\n    trace \"\"\n    trace\n      \"LeanAide.inductionCode: Tactics failed on \u2203 q, \u2203 r < 3, n = 3 * q + r: invalid alternative name 'Nat.zero', expected 'zero' or 'succ' when expecting 2 goals.\"\n    trace \"source:\"\n    trace \"{\\\"on\\\": \\\"n\\\",\"\n    trace \" \\\"induction_step_proof\\\":\"\n    trace \" {\\\"type\\\": \\\"Proof\\\",\"\n    trace \"  \\\"proof_steps\\\":\"\n    trace \"  [{\\\"type\\\": \\\"Paragraph\\\",\"\n    trace \"    \\\"text\\\":\"\n    trace\n      \"    \\\"Inductive step: assume k : \\\\\\\\mathbb{N} and IH : P(k), i.e. there exist q, r with r < 3 and k = 3q + r.\\\"},\"\n    trace \"   [{\\\"type\\\": \\\"pattern_cases_statement\\\",\"\n    trace \"     \\\"proof_cases\\\":\"\n    trace \"     [{\\\"type\\\": \\\"pattern_case\\\",\"\n    trace \"       \\\"proof\\\":\"\n    trace \"       {\\\"type\\\": \\\"Proof\\\",\"\n    trace \"        \\\"proof_steps\\\":\"\n    trace \"        [{\\\"type\\\": \\\"Paragraph\\\",\"\n    trace \"          \\\"text\\\":\"\n    trace\n      \"          \\\"Case r < 2: define q' := q and r' := r + 1. Then r' < 3 since r < 2, and k + 1 = 3q' + r'. Hence P(k + 1) holds.\\\"}],\"\n    trace \"        \\\"claim_label\\\": \\\"thm:div3\\\"},\"\n    trace \"       \\\"pattern\\\": \\\"r < 2\\\"},\"\n    trace \"      {\\\"type\\\": \\\"pattern_case\\\",\"\n    trace \"       \\\"proof\\\":\"\n    trace \"       {\\\"type\\\": \\\"Proof\\\",\"\n    trace \"        \\\"proof_steps\\\":\"\n    trace \"        [{\\\"type\\\": \\\"Paragraph\\\",\"\n    trace \"          \\\"text\\\":\"\n    trace\n      \"          \\\"Case r = 2: define q' := q + 1 and r' := 0. Then r' < 3 and k + 1 = 3q' + r'. Hence P(k + 1) holds.\\\"}],\"\n    trace \"        \\\"claim_label\\\": \\\"thm:div3\\\"},\"\n    trace \"       \\\"pattern\\\": \\\"r = 2\\\"}],\"\n    trace \"     \\\"on\\\": \\\"r\\\"}],\"\n    trace \"   {\\\"type\\\": \\\"Paragraph\\\", \\\"text\\\": \\\"In both cases P(k + 1) is established.\\\"}],\"\n    trace \"  \\\"claim_label\\\": \\\"thm:div3\\\"},\"\n    trace \" \\\"base_case_proof\\\":\"\n    trace \" {\\\"type\\\": \\\"Proof\\\",\"\n    trace \"  \\\"proof_steps\\\":\"\n    trace \"  [{\\\"type\\\": \\\"Paragraph\\\",\"\n    trace \"    \\\"text\\\": \\\"Base case (n = 0): define q := 0 and r := 0. Hence P(0) holds.\\\"}],\"\n    trace \"  \\\"claim_label\\\": \\\"thm:div3\\\"}}\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Let P(n) be the proposition: \u2203 (q : \\mathbb{N}) (r : \\mathbb{N}), r < 3 \u2227 n = 3\u00b7q + r."
+            },
+            {
+              "type": "Paragraph",
+              "text": "We prove \u2200 n, P(n) by induction on n."
+            },
+            [
+              {
+                "type": "induction_statement",
+                "on": "n",
+                "induction_step_proof": {
+                  "type": "Proof",
+                  "proof_steps": [
+                    {
+                      "type": "Paragraph",
+                      "text": "Inductive step: assume k : \\mathbb{N} and IH : P(k), i.e. there exist q, r with r < 3 and k = 3q + r."
+                    },
+                    [
+                      {
+                        "type": "pattern_cases_statement",
+                        "proof_cases": [
+                          {
+                            "type": "pattern_case",
+                            "proof": {
+                              "type": "Proof",
+                              "proof_steps": [
+                                {
+                                  "type": "Paragraph",
+                                  "text": "Case r < 2: define q' := q and r' := r + 1. Then r' < 3 since r < 2, and k + 1 = 3q' + r'. Hence P(k + 1) holds."
+                                }
+                              ],
+                              "claim_label": "thm:div3"
+                            },
+                            "pattern": "r < 2"
+                          },
+                          {
+                            "type": "pattern_case",
+                            "proof": {
+                              "type": "Proof",
+                              "proof_steps": [
+                                {
+                                  "type": "Paragraph",
+                                  "text": "Case r = 2: define q' := q + 1 and r' := 0. Then r' < 3 and k + 1 = 3q' + r'. Hence P(k + 1) holds."
+                                }
+                              ],
+                              "claim_label": "thm:div3"
+                            },
+                            "pattern": "r = 2"
+                          }
+                        ],
+                        "on": "r"
+                      }
+                    ],
+                    {
+                      "type": "Paragraph",
+                      "text": "In both cases P(k + 1) is established."
+                    }
+                  ],
+                  "claim_label": "thm:div3"
+                },
+                "base_case_proof": {
+                  "type": "Proof",
+                  "proof_steps": [
+                    {
+                      "type": "Paragraph",
+                      "text": "Base case (n = 0): define q := 0 and r := 0. Hence P(0) holds."
+                    }
+                  ],
+                  "claim_label": "thm:div3"
+                }
+              }
+            ],
+            {
+              "type": "Paragraph",
+              "text": "Unpacking P(n) shows that dividing n by 3 yields a remainder r with 0 \u2264 r < 3, i.e. the remainder is 0, 1, or 2."
+            }
+          ],
+          "claim_label": "thm:div3"
+        },
+        "label": "thm:div3",
+        "header": "Theorem",
+        "claim": "For all n : \\mathbb{N}, there exist q, r : \\mathbb{N} such that r < 3 and n = 3q + r."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "nat.exists_eq_add_mul_of_lt_three"
+  ]
+}

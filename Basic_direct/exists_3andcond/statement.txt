@@ -1,0 +1,24 @@
+Statement:
+There exists a natural number $n$ such that $n + n = 6$ and $n^2 = 9$ and $n^3 = 27$.
+
+Proof:
+Assume $\mathbb{N}$ is the type of natural numbers equipped with addition $+$, multiplication $*$, and exponentiation $^$.  
+Define $n : \mathbb{N}$ by  
+$$n := 3.$$  
+1.  By the definition of addition on numerals,  
+$$3 + 3 = 6,$$  
+whence  
+$$n + n = 6.$$  
+2.  By the definition of multiplication on numerals,  
+$$3 * 3 = 9,$$  
+whence  
+$$n * n = 9$$  
+and thus  
+$$n^2 = 9$$  
+by definition of square.  
+3.  By the definition of exponentiation,  
+$$n^3 = n * n^2 = 3 * 9 = 27.$$  
+The element $n = 3$ therefore satisfies  
+$$n + n = 6 \;\land\; n^2 = 9 \;\land\; n^3 = 27,$$  
+providing a witness for  
+$$\exists n : \mathbb{N},\;n + n = 6 \land n^2 = 9 \land n^3 = 27.$$

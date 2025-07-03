@@ -1,0 +1,68 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  def n : \u2115 :=\n    3\n  theorem assert_8899864990902702679 : 3 + 3 = 6 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: 3 + 3 = 6\"\n    simp_all only [Int.reduceAdd]\n  theorem assert_14564769552762896125 : 3 * 3 = 9 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: 3 * 3 = 9\"\n    simp_all only [reduceMul]\n  theorem assert_2568258167913292722 : n ^ 2 = 9 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: n ^ 2 = 9\"\n    rfl\n  theorem assert_16227607202034847012 : \u2200 (n : \u2115), n = 3 \u2192 n ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2200 (n : \u2115), n = 3 \u2192 n ^ 3 = 27\"\n    intro n a\n    subst a\n    simp_all only [reducePow]\n  theorem assert_12058675567322674293 : \u2203 (n : \u2115), n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2203 n, n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27\"\n    sorry\n  def n :=\n    Exists.fst assert_12058675567322674293\n  theorem assert_10016525922687122342 : \u2203 (n : \u2115), n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    Exists.snd assert_12058675567322674293",
+  "json_structured": {
+    "document": [
+      {
+        "type": "assume_statement",
+        "assumption": "\u2115 is the type of natural numbers equipped with addition +, multiplication *, and exponentiation ^."
+      },
+      {
+        "variable_type": "\u2115",
+        "variable_name": "n",
+        "value": "3",
+        "type": "let_statement",
+        "statement": "Define n : \u2115 by n := 3."
+      },
+      [
+        {
+          "type": "assert_statement",
+          "claim": "n + n = 6",
+          "calculation": {
+            "inline_calculation": "3 + 3 = 6"
+          }
+        },
+        {
+          "type": "assert_statement",
+          "claim": "n * n = 9",
+          "calculation": {
+            "inline_calculation": "3 * 3 = 9"
+          }
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "by definition of square",
+          "claim": "n^2 = 9"
+        },
+        {
+          "type": "assert_statement",
+          "claim": "n^3 = 27",
+          "calculation": {
+            "calculation_sequence": [
+              "n^3 = n * n^2",
+              "n * n^2 = 3 * 9",
+              "3 * 9 = 27"
+            ]
+          }
+        },
+        {
+          "type": "assert_statement",
+          "proof_method": "by providing the witness n = 3",
+          "claim": "\u2203 n : \u2115, n + n = 6 \u2227 n^2 = 9 \u2227 n^3 = 27"
+        }
+      ]
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "n",
+    "assert_8899864990902702679",
+    "assert_14564769552762896125",
+    "assert_2568258167913292722",
+    "assert_16227607202034847012",
+    "assert_12058675567322674293",
+    "assert_10016525922687122342"
+  ]
+}

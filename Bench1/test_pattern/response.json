@@ -1,0 +1,129 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem not_prime_of_mod_six_eq_zero_or_four : \u2200 {n : \u2115}, n % 6 = 0 \u2228 n % 6 = 4 \u2192 \u00acNat.Prime n :=\n    by\n    intro n a_7972533484200855580\n    if condition_5717059481446860652 : \u2200 (a : \u2115), False then\n      \n      trace \"Automation tactics found for \u00acNat.Prime n, closing goal\"\n      simp_all only [forall_const]\n    else\n      if condition_17865745194416784212 : Nat.Prime n \u2192 n % 6 = 4 then\n        \n        have assert_15552591460068659806 : Nat.Prime n \u2192 \u2203 (k\u2081 : \u2115), n = 6 * k\u2081 + 4 :=\n          by\n          trace\n            \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Nat.Prime n \u2192 \u2203 k\u2081, n = 6 * k\u2081 + 4\"\n          intro a\n          simp_all only [forall_const, not_false_eq_true]\n          cases a_7972533484200855580 with\n          | inl h => sorry\n          | inr h_1 => sorry\n          trace\n            \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Nat.Prime n \u2192 \u2203 k\u2081, n = 6 * k\u2081 + 4\"\n        have assert_10990165071159335862 : n > 2 :=\n          by\n          trace\n            \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n > 2\"\n          simp_all only [forall_const, not_false_eq_true, gt_iff_lt]\n          cases a_7972533484200855580 with\n          | inl\n            h =>\n            simp_all only [OfNat.zero_ne_ofNat, imp_false, not_isEmpty_of_nonempty, IsEmpty.exists_iff, implies_true]\n            sorry\n          | inr h_1 =>\n            simp_all only [implies_true]\n            sorry\n          trace\n            \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n > 2\"\n        have assert_1296535485183339749 : Nat.Prime n \u2192 2 \u2223 n :=\n          by\n          trace\n            \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Nat.Prime n \u2192 2 \u2223 n\"\n          intro a\n          simp_all only [OfNat.ofNat_ne_zero, or_true, forall_const, not_false_eq_true, gt_iff_lt]\n          obtain \u27e8w, h\u27e9 := assert_15552591460068659806\n          subst h\n          simp_all only [mul_add_mod_self_left, reduceMod, lt_add_iff_pos_left, add_pos_iff, ofNat_pos,\n            mul_pos_iff_of_pos_left, or_true, Nat.dvd_add_self_right]\n          sorry\n          trace\n            \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Nat.Prime n \u2192 2 \u2223 n\"\n        have : Nat.Prime n := by\n          intro contraHyp\n          trace\n            \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: False\"\n          simp_all only [OfNat.ofNat_ne_zero, or_true, forall_const, not_false_eq_true, gt_iff_lt]\n          obtain \u27e8w, h\u27e9 := assert_15552591460068659806\n          subst h\n          simp_all only [mul_add_mod_self_left, reduceMod, lt_add_iff_pos_left, add_pos_iff, ofNat_pos,\n            mul_pos_iff_of_pos_left, or_true, Nat.dvd_add_self_right]\n          sorry\n          trace\n            \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: False\"\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n        simp_all only [OfNat.ofNat_ne_zero, or_true, forall_const, not_false_eq_true, gt_iff_lt, not_true_eq_false]\n        obtain \u27e8w, h\u27e9 := assert_15552591460068659806\n        subst h\n        simp_all only [mul_add_mod_self_left, reduceMod, lt_add_iff_pos_left, add_pos_iff, ofNat_pos,\n          mul_pos_iff_of_pos_left, or_true, Nat.dvd_add_self_right]\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n      else\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n        simp_all only [forall_const, not_false_eq_true, Classical.not_imp, not_true_eq_false]\n        obtain \u27e8left, right\u27e9 := condition_17865745194416784212\n        cases a_7972533484200855580 with\n        | inl h => sorry\n        | inr h_1 => sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n    done",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assume_statement",
+                "label": "h_n_nat",
+                "assumption": "n : \u2115"
+              },
+              {
+                "type": "assume_statement",
+                "label": "h_mod",
+                "assumption": "n mod 6 = 0 or n mod 6 = 4"
+              },
+              {
+                "type": "assume_statement",
+                "label": "h_prime",
+                "assumption": "Nat.Prime n"
+              },
+              {
+                "type": "pattern_cases_statement",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "type": "assert_statement",
+                            "label": "h_n0",
+                            "claim": "\u2203 k\u2080 : \u2115, n = 6 \u22c5 k\u2080"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "from n \u2265 2 and n = 6 \u22c5 k\u2080",
+                            "claim": "k\u2080 \u2265 1"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "from 6 = 2 \u22c5 3 and h_n0",
+                            "claim": "2 \u2223 n"
+                          },
+                          {
+                            "type": "contradiction_statement",
+                            "proof": {
+                              "type": "Proof",
+                              "proof_steps": [
+                                []
+                              ],
+                              "claim_label": "thm:mod6_not_prime"
+                            },
+                            "assumption": "Nat.Prime n"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:mod6_not_prime"
+                    },
+                    "pattern": "n mod 6 = 0"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "type": "assert_statement",
+                            "label": "h_n4",
+                            "claim": "\u2203 k\u2081 : \u2115, n = 6 \u22c5 k\u2081 + 4"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "from Nat.Prime n",
+                            "claim": "n > 2"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "from 4 = 2 \u22c5 2 and h_n4",
+                            "claim": "2 \u2223 n"
+                          },
+                          {
+                            "type": "contradiction_statement",
+                            "proof": {
+                              "type": "Proof",
+                              "proof_steps": [
+                                []
+                              ],
+                              "claim_label": "thm:mod6_not_prime"
+                            },
+                            "assumption": "Nat.Prime n"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:mod6_not_prime"
+                    },
+                    "pattern": "n mod 6 = 4"
+                  }
+                ],
+                "on": "h_mod"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "\u00ac Nat.Prime n"
+              }
+            ]
+          ],
+          "claim_label": "thm:mod6_not_prime"
+        },
+        "label": "thm:mod6_not_prime",
+        "header": "Theorem",
+        "claim": "If the remainder of dividing a number n by 6 is 0 or 4, then n is not prime."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "not_prime_of_mod_six_eq_zero_or_four"
+  ]
+}

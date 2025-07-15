@@ -1,0 +1,128 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "lem:lemma1",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "k, d, r are integers"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "(2*k + 1) * d = 2*r"
+        }
+      ],
+      "claim": "There exists t such that d = 2*t.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:lemma1",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "t",
+              "value": "r - k*d",
+              "statement": "Let t := r - k*d."
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "2*t = 2*(r - k*d)",
+                "2*(r - k*d) = 2*r - 2*k*d",
+                "2*r - 2*k*d = (2*k*d + d) - 2*k*d",
+                "(2*k*d + d) - 2*k*d = d"
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "d = 2*t",
+              "proof_method": "by calculation"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "thm:odd_div_even",
+      "header": "Theorem",
+      "hypothesis": [
+        {
+          "type": "some_statement",
+          "variable_name": "k",
+          "properties": "integer",
+          "statement": "a = 2*k + 1"
+        },
+        {
+          "type": "some_statement",
+          "variable_name": "r",
+          "properties": "integer",
+          "statement": "b = r + r"
+        },
+        {
+          "type": "some_statement",
+          "variable_name": "d",
+          "properties": "integer",
+          "statement": "b = a * d"
+        }
+      ],
+      "claim": "If a is odd and b is even and a divides b then b/a is even.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:odd_div_even",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "k",
+              "statement": "a = 2*k + 1"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "r",
+              "statement": "b = r + r"
+            },
+            {
+              "type": "let_statement",
+              "variable_name": "d",
+              "statement": "b = a * d"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "(2*k + 1) * d = a * d",
+                "a * d = b",
+                "b = r + r",
+                "r + r = 2*r"
+              ]
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "t",
+              "properties": "integer",
+              "statement": "d = 2*t"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "b / a = d",
+                "d = 2*t"
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "There exists t such that b/a = 2*t",
+              "results_used": [
+                {
+                  "statement": "if a\u00b7c = b then b/a = c"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

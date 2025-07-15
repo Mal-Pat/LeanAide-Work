@@ -1,0 +1,86 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "lem:2_divides_6",
+      "claim": "2 \u2223 (6 : \u2124)",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:2_divides_6",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "k",
+              "variable_type": "\u2124",
+              "value": "3",
+              "statement": "Let k : \u2124 := 3."
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "2 \u00b7 k = 2 \u00b7 3",
+                "2 \u00b7 3 = 6"
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 \u2223 6 with witness k",
+              "proof_method": "definition of Int.dvd"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "divisible_by_six_implies_divisible_by_two",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "n",
+          "variable_type": "\u2124",
+          "statement": "n : \u2124"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "6 \u2223 n",
+          "label": "h_6"
+        }
+      ],
+      "claim": "\u2200 n : \u2124, 6 \u2223 n \u2192 2 \u2223 n",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "divisible_by_six_implies_divisible_by_two",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "2 \u2223 6",
+              "label": "h_2",
+              "proof_method": "by Lemma 1",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:2_divides_6"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 \u2223 n",
+              "proof_method": "transitivity of divisibility",
+              "results_used": [
+                {
+                  "statement": "Int.dvd_trans h_2 h_6",
+                  "mathlib_identifier": "Int.dvd_trans"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

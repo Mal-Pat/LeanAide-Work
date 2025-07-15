@@ -1,0 +1,173 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:last-digit-5",
+      "header": "Theorem",
+      "claim": "If the last digit of a number is 0 or 5, then it is divisible by 5.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:last-digit-5",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "n",
+              "variable_type": "\u2115",
+              "statement": "n : \u2115"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "n % 10 = 0 \u2228 n % 10 = 5",
+              "label": "h_last"
+            },
+            {
+              "type": "pattern_cases_statement",
+              "on": "h_last",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "pattern": "n % 10 = 0",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:last-digit-5",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "q",
+                          "value": "n/10",
+                          "statement": "Define q := n/10"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 10 \u00b7 q + n % 10",
+                          "proof_method": "division algorithm",
+                          "citations": [
+                            {
+                              "cite_keys": [
+                                "Nat.div_add_mod"
+                              ]
+                            }
+                          ],
+                          "label": "h_divmod_0"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 10 \u00b7 q + 0",
+                          "proof_method": "rewrite using h0",
+                          "label": "h1"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 10 \u00b7 q",
+                          "proof_method": "add_zero",
+                          "label": "h2"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = (5 \u00b7 2) \u00b7 q",
+                          "proof_method": "since 10 = 5 \u00b7 2",
+                          "label": "h3"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 5 \u00b7 (2 \u00b7 q)",
+                          "proof_method": "mul_assoc",
+                          "label": "h4"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "5 divides n",
+                          "proof_method": "by witnessing 2 \u00b7 q",
+                          "label": "h0_conclude"
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "n % 10 = 5",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:last-digit-5",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "let_statement",
+                          "variable_name": "q",
+                          "value": "n/10",
+                          "statement": "Define q := n/10"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 10 \u00b7 q + n % 10",
+                          "proof_method": "division algorithm",
+                          "citations": [
+                            {
+                              "cite_keys": [
+                                "Nat.div_add_mod"
+                              ]
+                            }
+                          ],
+                          "label": "h_divmod_5"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 10 \u00b7 q + 5",
+                          "proof_method": "rewrite using h5",
+                          "label": "h_5a"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 5 + 10 \u00b7 q",
+                          "proof_method": "add_comm",
+                          "label": "h_5b"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 5 + (5 \u00b7 2) \u00b7 q",
+                          "proof_method": "since 10 = 5 \u00b7 2",
+                          "label": "h_5c"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 5 + 5 \u00b7 (2 \u00b7 q)",
+                          "proof_method": "mul_assoc",
+                          "label": "h_5d"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 5 \u00b7 (1 + 2 \u00b7 q)",
+                          "proof_method": "mul_add",
+                          "label": "h_5e"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n = 5 \u00b7 (2 \u00b7 q + 1)",
+                          "proof_method": "add_comm",
+                          "label": "h_5f"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "5 divides n",
+                          "proof_method": "by witnessing 2 \u00b7 q + 1",
+                          "label": "h5_conclude"
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "5 divides n"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

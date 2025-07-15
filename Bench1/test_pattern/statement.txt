@@ -1,0 +1,41 @@
+If the remainder of dividing a number $n$ by 6 is 0 or 4, then $n$ is not prime.
+
+Proof:Assume  
+\(n : \mathbb{N}\),  
+\(h_{\mathrm{mod}} : n \bmod 6 = 0 \lor n \bmod 6 = 4\),  
+and  
+\(h_{\mathrm{prime}} : \mathrm{Nat.Prime}\;n\).  
+We derive a contradiction by case analysis on \(h_{\mathrm{mod}}\).
+
+Case 1: \(h_0 : n \bmod 6 = 0\).  
+By the definition of modulus, there exists \(k_0 : \mathbb{N}\) such that  
+\[
+  h_{n0} : n = 6 \cdot k_0.
+\]  
+Since \(\mathrm{Nat.Prime}\,n\) implies \(n \ge 2\), we have \(n \neq 0\).  From \(n = 6 k_0 \neq 0\) we conclude \(k_0 \neq 0\), hence \(k_0 \ge 1\).  Therefore  
+\[
+  n \;=\;6\cdot k_0 \;\ge\;6\cdot 1 \;=\;6 
+  \quad\Longrightarrow\quad n > 2.
+\]  
+The factorisation \(6 = 2 \cdot 3\) shows \(2 \mid 6\).  Combined with \(n = 6k_0\), we obtain  
+\[
+  2 \mid n.
+\]  
+But \(1 < 2 < n\), so \(2\) is a nontrivial divisor of \(n\).  This contradicts \(\mathrm{Nat.Prime}\,n\), which asserts that every divisor of \(n\) is either \(1\) or \(n\).
+
+Case 2: \(h_4 : n \bmod 6 = 4\).  
+By the definition of modulus, there exists \(k_1 : \mathbb{N}\) such that  
+\[
+  h_{n4} : n = 6 \cdot k_1 + 4.
+\]  
+Since \(\mathrm{Nat.Prime}\,n\) implies \(n \ge 2\), we consider \(k_1\).  
+- If \(k_1 = 0\), then \(n = 4\) and hence \(n > 2\).  
+- If \(k_1 \ge 1\), then \(n = 6k_1 + 4 \ge 6 + 4 = 10\), so again \(n > 2\).  
+Thus in all cases \(n > 2\).  
+The factorisation \(4 = 2 \cdot 2\) yields \(2 \mid 4\).  Since also \(2 \mid 6k_1\), we conclude  
+\[
+  2 \mid n.
+\]  
+Again \(1 < 2 < n\), so \(2\) is a nontrivial divisor of \(n\), contradicting \(\mathrm{Nat.Prime}\,n\).
+
+In both cases we reach a contradiction.  Therefore the assumption \(\mathrm{Nat.Prime}\,n\) is false, i.e.\ \(\lnot \mathrm{Nat.Prime}\,n\).

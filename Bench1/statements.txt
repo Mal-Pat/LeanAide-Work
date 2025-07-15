@@ -1,0 +1,11 @@
+1. The sum of an even number and an odd number is an odd number.
+
+2. If $a$ is an odd number and $b$ is an even number, and $a$ divides $b$, then $b$ divided by $a$ is an even number.
+
+3. The sum of three consecutive number ($n$, $n+1$, and $n+2$) is divisible by 3.
+
+4. If a number $n$ is divisible by 6, then it is divisible by 2.
+
+5. The product of an even number and an odd number is an even number.
+
+6. If the last digit of a number is 0 or 5, then it is divisible by 5.

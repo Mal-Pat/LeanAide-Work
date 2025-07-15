@@ -1,0 +1,85 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:sum_even_odd",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "a",
+          "variable_type": "\u2124",
+          "statement": "a \u2208 \u2124"
+        },
+        {
+          "type": "let_statement",
+          "variable_name": "b",
+          "variable_type": "\u2124",
+          "statement": "b \u2208 \u2124"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "Even a"
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "Odd b"
+        }
+      ],
+      "claim": "Odd (a + b)"
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:sum_even_odd",
+      "proof_steps": [
+        [
+          {
+            "type": "assume_statement",
+            "assumption": "a, b : \u2124"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "Even a"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "Odd b"
+          },
+          {
+            "type": "some_statement",
+            "variable_name": "r",
+            "variable_kind": "\u2124",
+            "statement": "a = r + r"
+          },
+          {
+            "type": "some_statement",
+            "variable_name": "k",
+            "variable_kind": "\u2124",
+            "statement": "b = 2 \u00b7 k + 1"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "m",
+            "variable_type": "\u2124",
+            "value": "r + k",
+            "statement": "m := r + k"
+          },
+          {
+            "type": "calculation",
+            "calculation_sequence": [
+              "a + b = (r + r) + (2 \u00b7 k + 1)",
+              "(r + r) + (2 \u00b7 k + 1) = (r + r) + 2 \u00b7 k + 1",
+              "(r + r) + 2 \u00b7 k = 2 \u00b7 r + 2 \u00b7 k",
+              "2 \u00b7 r + 2 \u00b7 k = 2 \u00b7 (r + k)",
+              "2 \u00b7 (r + k) + 1 = 2 \u00b7 m + 1"
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "Odd (a + b)"
+          }
+        ]
+      ]
+    }
+  ]
+}

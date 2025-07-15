@@ -1,0 +1,183 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem divisible_by_five_of_last_digit_zero_or_five : \u2200 (n : \u2115), n % 10 = 0 \u2228 n % 10 = 5 \u2192 5 \u2223 n :=\n    by\n    intro n a_12206512791363405559\n    trace \"Error: codegen: no valid function found for key pattern_cases_statement\"\n    trace \"Tried functions: #[LeanAide.patternCasesCode]\"\n    trace \"Errors in functions:\"\n    trace \"\"\n    trace \"LeanAide.patternCasesCode: Tactics failed on 5 \u2223 n: unknown identifier 'h_last' when expecting 2 goals.\"\n    trace \"source:\"\n    trace \"{\\\"proof_cases\\\":\"\n    trace \" [{\\\"type\\\": \\\"pattern_case\\\",\"\n    trace \"   \\\"proof\\\":\"\n    trace \"   {\\\"type\\\": \\\"Proof\\\",\"\n    trace \"    \\\"proof_steps\\\":\"\n    trace \"    [[{\\\"variable_name\\\": \\\"q\\\",\"\n    trace \"       \\\"value\\\": \\\"n/10\\\",\"\n    trace \"       \\\"type\\\": \\\"let_statement\\\",\"\n    trace \"       \\\"statement\\\": \\\"Define q := n/10\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"division algorithm\\\",\"\n    trace \"       \\\"label\\\": \\\"h_divmod_0\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 10 \u00b7 q + n % 10\\\",\"\n    trace \"       \\\"citations\\\": [{\\\"cite_keys\\\": [\\\"Nat.div_add_mod\\\"]}]},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"rewrite using h0\\\",\"\n    trace \"       \\\"label\\\": \\\"h1\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 10 \u00b7 q + 0\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"add_zero\\\",\"\n    trace \"       \\\"label\\\": \\\"h2\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 10 \u00b7 q\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"since 10 = 5 \u00b7 2\\\",\"\n    trace \"       \\\"label\\\": \\\"h3\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = (5 \u00b7 2) \u00b7 q\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"mul_assoc\\\",\"\n    trace \"       \\\"label\\\": \\\"h4\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 5 \u00b7 (2 \u00b7 q)\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"by witnessing 2 \u00b7 q\\\",\"\n    trace \"       \\\"label\\\": \\\"h0_conclude\\\",\"\n    trace \"       \\\"claim\\\": \\\"5 divides n\\\"}]],\"\n    trace \"    \\\"claim_label\\\": \\\"thm:last-digit-5\\\"},\"\n    trace \"   \\\"pattern\\\": \\\"n % 10 = 0\\\"},\"\n    trace \"  {\\\"type\\\": \\\"pattern_case\\\",\"\n    trace \"   \\\"proof\\\":\"\n    trace \"   {\\\"type\\\": \\\"Proof\\\",\"\n    trace \"    \\\"proof_steps\\\":\"\n    trace \"    [[{\\\"variable_name\\\": \\\"q\\\",\"\n    trace \"       \\\"value\\\": \\\"n/10\\\",\"\n    trace \"       \\\"type\\\": \\\"let_statement\\\",\"\n    trace \"       \\\"statement\\\": \\\"Define q := n/10\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"division algorithm\\\",\"\n    trace \"       \\\"label\\\": \\\"h_divmod_5\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 10 \u00b7 q + n % 10\\\",\"\n    trace \"       \\\"citations\\\": [{\\\"cite_keys\\\": [\\\"Nat.div_add_mod\\\"]}]},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"rewrite using h5\\\",\"\n    trace \"       \\\"label\\\": \\\"h_5a\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 10 \u00b7 q + 5\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"add_comm\\\",\"\n    trace \"       \\\"label\\\": \\\"h_5b\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 5 + 10 \u00b7 q\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"since 10 = 5 \u00b7 2\\\",\"\n    trace \"       \\\"label\\\": \\\"h_5c\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 5 + (5 \u00b7 2) \u00b7 q\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"mul_assoc\\\",\"\n    trace \"       \\\"label\\\": \\\"h_5d\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 5 + 5 \u00b7 (2 \u00b7 q)\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"mul_add\\\",\"\n    trace \"       \\\"label\\\": \\\"h_5e\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 5 \u00b7 (1 + 2 \u00b7 q)\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"add_comm\\\",\"\n    trace \"       \\\"label\\\": \\\"h_5f\\\",\"\n    trace \"       \\\"claim\\\": \\\"n = 5 \u00b7 (2 \u00b7 q + 1)\\\"},\"\n    trace \"      {\\\"type\\\": \\\"assert_statement\\\",\"\n    trace \"       \\\"proof_method\\\": \\\"by witnessing 2 \u00b7 q + 1\\\",\"\n    trace \"       \\\"label\\\": \\\"h5_conclude\\\",\"\n    trace \"       \\\"claim\\\": \\\"5 divides n\\\"}]],\"\n    trace \"    \\\"claim_label\\\": \\\"thm:last-digit-5\\\"},\"\n    trace \"   \\\"pattern\\\": \\\"n % 10 = 5\\\"}],\"\n    trace \" \\\"on\\\": \\\"h_last\\\"}\"\n    have : n % 10 = 0 \u2228 n % 10 = 5 \u2192 5 \u2223 n :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n % 10 = 0 \u2228 n % 10 = 5 \u2192 5 \u2223 n\"\n      intro a\n      simp_all only\n      cases a with\n      | inl h => sorry\n      | inr h_1 => sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n % 10 = 0 \u2228 n % 10 = 5 \u2192 5 \u2223 n\"\n    (expose_names; exact h a_12206512791363405559)",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "\u2115",
+                "variable_name": "n",
+                "type": "let_statement",
+                "statement": "n : \u2115"
+              },
+              {
+                "type": "assume_statement",
+                "label": "h_last",
+                "assumption": "n % 10 = 0 \u2228 n % 10 = 5"
+              },
+              {
+                "type": "pattern_cases_statement",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "q",
+                            "value": "n/10",
+                            "type": "let_statement",
+                            "statement": "Define q := n/10"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "division algorithm",
+                            "label": "h_divmod_0",
+                            "claim": "n = 10 \u00b7 q + n % 10",
+                            "citations": [
+                              {
+                                "cite_keys": [
+                                  "Nat.div_add_mod"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "rewrite using h0",
+                            "label": "h1",
+                            "claim": "n = 10 \u00b7 q + 0"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "add_zero",
+                            "label": "h2",
+                            "claim": "n = 10 \u00b7 q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "since 10 = 5 \u00b7 2",
+                            "label": "h3",
+                            "claim": "n = (5 \u00b7 2) \u00b7 q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "mul_assoc",
+                            "label": "h4",
+                            "claim": "n = 5 \u00b7 (2 \u00b7 q)"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "by witnessing 2 \u00b7 q",
+                            "label": "h0_conclude",
+                            "claim": "5 divides n"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:last-digit-5"
+                    },
+                    "pattern": "n % 10 = 0"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_name": "q",
+                            "value": "n/10",
+                            "type": "let_statement",
+                            "statement": "Define q := n/10"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "division algorithm",
+                            "label": "h_divmod_5",
+                            "claim": "n = 10 \u00b7 q + n % 10",
+                            "citations": [
+                              {
+                                "cite_keys": [
+                                  "Nat.div_add_mod"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "rewrite using h5",
+                            "label": "h_5a",
+                            "claim": "n = 10 \u00b7 q + 5"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "add_comm",
+                            "label": "h_5b",
+                            "claim": "n = 5 + 10 \u00b7 q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "since 10 = 5 \u00b7 2",
+                            "label": "h_5c",
+                            "claim": "n = 5 + (5 \u00b7 2) \u00b7 q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "mul_assoc",
+                            "label": "h_5d",
+                            "claim": "n = 5 + 5 \u00b7 (2 \u00b7 q)"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "mul_add",
+                            "label": "h_5e",
+                            "claim": "n = 5 \u00b7 (1 + 2 \u00b7 q)"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "add_comm",
+                            "label": "h_5f",
+                            "claim": "n = 5 \u00b7 (2 \u00b7 q + 1)"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "proof_method": "by witnessing 2 \u00b7 q + 1",
+                            "label": "h5_conclude",
+                            "claim": "5 divides n"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:last-digit-5"
+                    },
+                    "pattern": "n % 10 = 5"
+                  }
+                ],
+                "on": "h_last"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "5 divides n"
+              }
+            ]
+          ],
+          "claim_label": "thm:last-digit-5"
+        },
+        "label": "thm:last-digit-5",
+        "header": "Theorem",
+        "claim": "If the last digit of a number is 0 or 5, then it is divisible by 5."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "divisible_by_five_of_last_digit_zero_or_five"
+  ]
+}

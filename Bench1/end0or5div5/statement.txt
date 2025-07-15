@@ -1,0 +1,40 @@
+If the last digit of a number is 0 or 5, then it is divisible by 5.
+
+Proof:
+Assume $n:\mathbb{N}$ and  
+$$h_{\mathrm{last}}:\;n\mathbin{\%}10=0\;\lor\;n\mathbin{\%}10=5.$$  
+We prove $5\mid n$ by case analysis on $h_{\mathrm{last}}$.
+
+Case 1: $h_0 : n\%10 = 0$.  
+Define $q := n/10$.  
+By the division algorithm (Nat.div_add_mod),  
+$$h_{\mathrm{divmod}_0}:\;n = 10\cdot q + n\%10.$$  
+Rewriting $h_0$ in $h_{\mathrm{divmod}_0}$ gives  
+$$h_{1}:\;n = 10\cdot q + 0.$$  
+By `add_zero`,  
+$$h_{2}:\;n = 10\cdot q.$$  
+Since $10 = 5\cdot2$,  
+$$h_{3}:\;n = (5\cdot2)\cdot q$$  
+and by `mul_assoc`,  
+$$h_{4}:\;n = 5\cdot(2\cdot q).$$  
+Thus $5\mid n$ with witness $2\cdot q$.
+
+Case 2: $h_5 : n\%10 = 5$.  
+Define $q := n/10$.  
+By the division algorithm,  
+$$h_{\mathrm{divmod}_5}:\;n = 10\cdot q + n\%10.$$  
+Rewriting $h_5$ in $h_{\mathrm{divmod}_5}$ gives  
+$$h_{5a}:\;n = 10\cdot q + 5.$$  
+By `add_comm`,  
+$$h_{5b}:\;n = 5 + 10\cdot q.$$  
+Since $10 = 5\cdot2$,  
+$$h_{5c}:\;n = 5 + (5\cdot2)\cdot q$$  
+and by `mul_assoc`,  
+$$h_{5d}:\;n = 5 + 5\cdot(2\cdot q).$$  
+By `mul_add`,  
+$$h_{5e}:\;n = 5\cdot(1 + 2\cdot q).$$  
+By `add_comm`,  
+$$h_{5f}:\;n = 5\cdot(2\cdot q + 1).$$  
+Thus $5\mid n$ with witness $2\cdot q + 1$.
+
+In both cases we obtain $5\mid n\,. $

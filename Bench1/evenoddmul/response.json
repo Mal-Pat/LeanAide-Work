@@ -1,0 +1,70 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  abbrev even_mul_odd.prop : Prop :=\n    \u2200 (m n : \u2124), Even m \u2192 Odd n \u2192 Even (m * n)\n  theorem even_mul_odd : \u2200 (m n : \u2124), Even m \u2192 Odd n \u2192 Even (m * n) :=\n    by\n    intro m n a_7839637416819228768 a_8414561948067158322\n    trace \"Automation tactics found for Even (m * n), closing goal\"\n    simp_all only [Even.mul_right]",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "label": "thm:even_product",
+        "header": "Theorem",
+        "claim": "The product of an even number and an odd number is an even number."
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          [
+            {
+              "variable_type": "\u2124",
+              "variable_name": "m",
+              "type": "let_statement",
+              "statement": "m is an integer"
+            },
+            {
+              "variable_type": "\u2124",
+              "variable_name": "n",
+              "type": "let_statement",
+              "statement": "n is an integer"
+            },
+            {
+              "variable_name": "r",
+              "variable_kind": "\u2124",
+              "type": "some_statement",
+              "statement": "m = r + r"
+            },
+            {
+              "variable_name": "k",
+              "variable_kind": "\u2124",
+              "type": "some_statement",
+              "statement": "n = 2 * k + 1"
+            },
+            {
+              "variable_type": "\u2124",
+              "variable_name": "s",
+              "value": "r * n",
+              "type": "let_statement",
+              "statement": "Define s = r * n"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "m * n = (r + r) * n",
+                "(r + r) * n = r * n + r * n",
+                "r * n + r * n = s + s"
+              ]
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ]
+        ],
+        "claim_label": "thm:even_product"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "even_mul_odd"
+  ]
+}

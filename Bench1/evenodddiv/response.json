@@ -1,0 +1,139 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem int_odd_mul_eq_even_implies_exists_half : \u2200 (k d r : \u2124), (2 * k + 1) * d = 2 * r \u2192 \u2203 (t : \u2124), d = 2 * t :=\n    by\n    intro k d r h\n    trace \"Error: codegen: no valid function found for key let_statement\"\n    trace \"Tried functions: #[LeanAide.letCode]\"\n    trace \"Errors in functions:\"\n    trace \"\"\n    trace \"LeanAide.letCode: codegen: no definition translation found for Assume that: k, d, r are integers\"\n    trace \"Assume that: (2*k + 1) * d = 2*r\"\n    trace \"Fix r : \u2124\"\n    trace \"Fix h : (2 * _fvar.30 + 1) * _fvar.33 = 2 * _fvar.36\"\n    trace \"Let t := r - k*d.\"\n    trace \"Define ONLY the term t with value r - k*d. Other terms have been defined already.\"\n    trace \"source:\"\n    trace \"{\\\"variable_name\\\": \\\"t\\\", \\\"value\\\": \\\"r - k*d\\\", \\\"statement\\\": \\\"Let t := r - k*d.\\\"}\"\n    have assert_14168857372932909355 : \u2200 {r k d : \u2115}, \u2203 (t : \u2115), 2 * t = 2 * (r - k * d) := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_10036282288511466169 : 2 * (r - k * d) = 2 * r - 2 * k * d := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_1646537460809809314 : 2 * r - 2 * k * d = 2 * k * d + d - 2 * k * d := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_8025660432728946339 : 2 * k * d + d - 2 * k * d = d := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_12983192770044789082 :\n      \u2200 (t : \u2124), (2 * k + 1) * d = 2 * r \u2192 \u2203 (_ : (2 * k + 1) * d = 2 * r), d = 2 * t :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (t : \u2124), (2 * k + 1) * d = 2 * r \u2192 \u2203 (_ : (2 * k + 1) * d = 2 * r), d = 2 * t\"\n      simp only [exists_prop]\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (t : \u2124), (2 * k + 1) * d = 2 * r \u2192 \u2203 (_ : (2 * k + 1) * d = 2 * r), d = 2 * t\"\n    refine Exists.imp' (fun a => ?_) (fun a => ?_) (assert_12983192770044789082 ?_ h)\n  theorem odd_dvd_even_div_odd_even : \u2200 {a b : \u2124} {d : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 Even (b / a) :=\n    by\n    intro a b d h\u2081 h\u2082 h\u2083\n    have assert_6383582153459090082 : \u2200 {k d : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 (2 * k + 1) * d = a * d := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_5521754816106096814 :\n      \u2200 {k r d : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2192 b = r + r \u2192 b = a * d \u2192 a * d = b := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_13671907204473342675 : \u2200 {r : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 b = r + r := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_4186551522580338124 :\n      \u2200 (k r d : \u2124), Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2192 b = r + r \u2192 b = a * d \u2192 r + r = 2 * r := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_1671052740139998130 :\n      \u2200 {k r t : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2192 b = r + r \u2192 d = 2 * t \u2192 b = a * d :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {k r t : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2192 b = r + r \u2192 d = 2 * t \u2192 b = a * d\"\n      intro k r t a_1 a_2 a_3 a_4 a_5 a_6\n      subst a_6 a_4 a_5\n      simp_all only [even_two, Even.mul_right, Even.add_one, Even.add_self, mul_eq_mul_right_iff, add_left_inj,\n        mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, forall_const, implies_true, imp_self]\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {k r t : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2192 b = r + r \u2192 d = 2 * t \u2192 b = a * d\"\n    have assert_15458640701443593088 :\n      \u2200 {k r t : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2192 b = r + r \u2192 b = a * d \u2192 d = 2 * t \u2192 b / a = d := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_17953671518754639843 :\n      \u2200 {k r t : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 a = 2 * k + 1 \u2227 b = r + r \u2227 b = a * d \u2227 d = 2 * t := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have : \u2200 {r k : \u2124}, a = 2 * k + 1 \u2192 b = r + r \u2192 b = a * d \u2192 Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (t : \u2124), b / a = 2 * t :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {r k : \u2124}, a = 2 * k + 1 \u2192 b = r + r \u2192 b = a * d \u2192 Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 t, b / a = 2 * t\"\n      repeat (sorry)\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {r k : \u2124}, a = 2 * k + 1 \u2192 b = r + r \u2192 b = a * d \u2192 Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 t, b / a = 2 * t\"\n    trace\n      \"Automation Tactics first\\n  | simp?\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: Even (b / a)\"\n    repeat (sorry)\n    trace\n      \"Finished Automation Tactics first\\n  | simp?\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: Even (b / a)\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_name": "t",
+                "value": "r - k*d",
+                "type": "let_statement",
+                "statement": "Let t := r - k*d."
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "2*t = 2*(r - k*d)",
+                  "2*(r - k*d) = 2*r - 2*k*d",
+                  "2*r - 2*k*d = (2*k*d + d) - 2*k*d",
+                  "(2*k*d + d) - 2*k*d = d"
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "by calculation",
+                "claim": "d = 2*t"
+              }
+            ]
+          ],
+          "claim_label": "lem:lemma1"
+        },
+        "label": "lem:lemma1",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "k, d, r are integers"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "(2*k + 1) * d = 2*r"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "There exists t such that d = 2*t."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_name": "k",
+                "type": "let_statement",
+                "statement": "a = 2*k + 1"
+              },
+              {
+                "variable_name": "r",
+                "type": "let_statement",
+                "statement": "b = r + r"
+              },
+              {
+                "variable_name": "d",
+                "type": "let_statement",
+                "statement": "b = a * d"
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "(2*k + 1) * d = a * d",
+                  "a * d = b",
+                  "b = r + r",
+                  "r + r = 2*r"
+                ]
+              },
+              {
+                "variable_name": "t",
+                "type": "some_statement",
+                "statement": "d = 2*t",
+                "properties": "integer"
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "b / a = d",
+                  "d = 2*t"
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "results_used": [
+                  {
+                    "statement": "if a\u00b7c = b then b/a = c"
+                  }
+                ],
+                "claim": "There exists t such that b/a = 2*t"
+              }
+            ]
+          ],
+          "claim_label": "thm:odd_div_even"
+        },
+        "label": "thm:odd_div_even",
+        "hypothesis": [
+          {
+            "variable_name": "k",
+            "type": "some_statement",
+            "statement": "a = 2*k + 1",
+            "properties": "integer"
+          },
+          {
+            "variable_name": "r",
+            "type": "some_statement",
+            "statement": "b = r + r",
+            "properties": "integer"
+          },
+          {
+            "variable_name": "d",
+            "type": "some_statement",
+            "statement": "b = a * d",
+            "properties": "integer"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "If a is odd and b is even and a divides b then b/a is even."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "int_odd_mul_eq_even_implies_exists_half",
+    "odd_dvd_even_div_odd_even"
+  ]
+}

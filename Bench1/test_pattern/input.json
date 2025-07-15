@@ -1,0 +1,119 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:mod6_not_prime",
+      "header": "Theorem",
+      "claim": "If the remainder of dividing a number n by 6 is 0 or 4, then n is not prime.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:mod6_not_prime",
+        "proof_steps": [
+          [
+            {
+              "type": "assume_statement",
+              "assumption": "n : \u2115",
+              "label": "h_n_nat"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "n mod 6 = 0 or n mod 6 = 4",
+              "label": "h_mod"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "Nat.Prime n",
+              "label": "h_prime"
+            },
+            {
+              "type": "pattern_cases_statement",
+              "on": "h_mod",
+              "proof_cases": [
+                {
+                  "type": "pattern_case",
+                  "pattern": "n mod 6 = 0",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:mod6_not_prime",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "\u2203 k\u2080 : \u2115, n = 6 \u22c5 k\u2080",
+                          "label": "h_n0"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "k\u2080 \u2265 1",
+                          "proof_method": "from n \u2265 2 and n = 6 \u22c5 k\u2080"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "2 \u2223 n",
+                          "proof_method": "from 6 = 2 \u22c5 3 and h_n0"
+                        },
+                        {
+                          "type": "contradiction_statement",
+                          "assumption": "Nat.Prime n",
+                          "proof": {
+                            "type": "Proof",
+                            "claim_label": "thm:mod6_not_prime",
+                            "proof_steps": [
+                              []
+                            ]
+                          }
+                        }
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "type": "pattern_case",
+                  "pattern": "n mod 6 = 4",
+                  "proof": {
+                    "type": "Proof",
+                    "claim_label": "thm:mod6_not_prime",
+                    "proof_steps": [
+                      [
+                        {
+                          "type": "assert_statement",
+                          "claim": "\u2203 k\u2081 : \u2115, n = 6 \u22c5 k\u2081 + 4",
+                          "label": "h_n4"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "n > 2",
+                          "proof_method": "from Nat.Prime n"
+                        },
+                        {
+                          "type": "assert_statement",
+                          "claim": "2 \u2223 n",
+                          "proof_method": "from 4 = 2 \u22c5 2 and h_n4"
+                        },
+                        {
+                          "type": "contradiction_statement",
+                          "assumption": "Nat.Prime n",
+                          "proof": {
+                            "type": "Proof",
+                            "claim_label": "thm:mod6_not_prime",
+                            "proof_steps": [
+                              []
+                            ]
+                          }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "\u00ac Nat.Prime n"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

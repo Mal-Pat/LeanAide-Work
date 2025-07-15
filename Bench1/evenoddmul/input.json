@@ -1,0 +1,60 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:even_product",
+      "header": "Theorem",
+      "claim": "The product of an even number and an odd number is an even number."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:even_product",
+      "proof_steps": [
+        [
+          {
+            "type": "let_statement",
+            "variable_name": "m",
+            "variable_type": "\u2124",
+            "statement": "m is an integer"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "n",
+            "variable_type": "\u2124",
+            "statement": "n is an integer"
+          },
+          {
+            "type": "some_statement",
+            "variable_name": "r",
+            "variable_kind": "\u2124",
+            "statement": "m = r + r"
+          },
+          {
+            "type": "some_statement",
+            "variable_name": "k",
+            "variable_kind": "\u2124",
+            "statement": "n = 2 * k + 1"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "s",
+            "variable_type": "\u2124",
+            "value": "r * n",
+            "statement": "Define s = r * n"
+          },
+          {
+            "type": "calculation",
+            "calculation_sequence": [
+              "m * n = (r + r) * n",
+              "(r + r) * n = r * n + r * n",
+              "r * n + r * n = s + s"
+            ]
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      ]
+    }
+  ]
+}

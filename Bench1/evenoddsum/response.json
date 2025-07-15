@@ -1,0 +1,95 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  abbrev even_add_odd_eq_odd.prop : Prop :=\n    \u2200 {a b : \u2124}, Even a \u2192 Odd b \u2192 Odd (a + b)\n  theorem even_add_odd_eq_odd : \u2200 {a b : \u2124}, Even a \u2192 Odd b \u2192 Odd (a + b) :=\n    by\n    intro a b a_7891882474177813356 a_7180657709111703546\n    trace \"Automation tactics found for Odd (a + b), closing goal\"\n    apply Even.add_odd\n    \u00b7 simp_all only\n    \u00b7 simp_all only",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "label": "thm:sum_even_odd",
+        "hypothesis": [
+          {
+            "variable_type": "\u2124",
+            "variable_name": "a",
+            "type": "let_statement",
+            "statement": "a \u2208 \u2124"
+          },
+          {
+            "variable_type": "\u2124",
+            "variable_name": "b",
+            "type": "let_statement",
+            "statement": "b \u2208 \u2124"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "Even a"
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "Odd b"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "Odd (a + b)"
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          [
+            {
+              "type": "assume_statement",
+              "assumption": "a, b : \u2124"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "Even a"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "Odd b"
+            },
+            {
+              "variable_name": "r",
+              "variable_kind": "\u2124",
+              "type": "some_statement",
+              "statement": "a = r + r"
+            },
+            {
+              "variable_name": "k",
+              "variable_kind": "\u2124",
+              "type": "some_statement",
+              "statement": "b = 2 \u00b7 k + 1"
+            },
+            {
+              "variable_type": "\u2124",
+              "variable_name": "m",
+              "value": "r + k",
+              "type": "let_statement",
+              "statement": "m := r + k"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "a + b = (r + r) + (2 \u00b7 k + 1)",
+                "(r + r) + (2 \u00b7 k + 1) = (r + r) + 2 \u00b7 k + 1",
+                "(r + r) + 2 \u00b7 k = 2 \u00b7 r + 2 \u00b7 k",
+                "2 \u00b7 r + 2 \u00b7 k = 2 \u00b7 (r + k)",
+                "2 \u00b7 (r + k) + 1 = 2 \u00b7 m + 1"
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Odd (a + b)"
+            }
+          ]
+        ],
+        "claim_label": "thm:sum_even_odd"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "even_add_odd_eq_odd"
+  ]
+}

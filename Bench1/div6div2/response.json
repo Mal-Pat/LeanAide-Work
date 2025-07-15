@@ -1,0 +1,97 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem int.two_dvd_six : 2 \u2223 6 :=\n    by\n    trace \"Automation tactics found for 2 \u2223 6, closing goal\"\n    simp only [reduceDvd]\n  theorem int.dvd_n_six_dvd_two : \u2200 (n : \u2124), 6 \u2223 n \u2192 2 \u2223 n :=\n    by\n    intro n a_13862411731675019214\n    have assert_3914253318849307051 : 6 \u2223 n \u2192 2 \u2223 6 :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: 6 \u2223 n \u2192 2 \u2223 6\"\n      simp only [reduceDvd, implies_true]\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: 6 \u2223 n \u2192 2 \u2223 6\"\n    have assert_14797642167091693928 : 6 \u2223 n \u2192 2 \u2223 n :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [Int.dvd_trans] {aesopPremises := 0, autoPremises := 0} for goal: 6 \u2223 n \u2192 2 \u2223 n\"\n      intro a\n      simp_all only [reduceDvd, imp_self]\n      apply Int.dvd_trans\n      on_goal 2 => {exact a\n      }\n      \u00b7 simp_all only [Int.reduceDvd]\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [Int.dvd_trans] {aesopPremises := 0, autoPremises := 0} for goal: 6 \u2223 n \u2192 2 \u2223 n\"\n    exact assert_14797642167091693928 a_13862411731675019214",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "\u2124",
+                "variable_name": "k",
+                "value": "3",
+                "type": "let_statement",
+                "statement": "Let k : \u2124 := 3."
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "2 \u00b7 k = 2 \u00b7 3",
+                  "2 \u00b7 3 = 6"
+                ]
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "definition of Int.dvd",
+                "claim": "2 \u2223 6 with witness k"
+              }
+            ]
+          ],
+          "claim_label": "lem:2_divides_6"
+        },
+        "label": "lem:2_divides_6",
+        "header": "Lemma",
+        "claim": "2 \u2223 (6 : \u2124)"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "by Lemma 1",
+                "label": "h_2",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:2_divides_6"
+                  }
+                ],
+                "claim": "2 \u2223 6"
+              },
+              {
+                "type": "assert_statement",
+                "results_used": [
+                  {
+                    "statement": "Int.dvd_trans h_2 h_6",
+                    "mathlib_identifier": "Int.dvd_trans"
+                  }
+                ],
+                "proof_method": "transitivity of divisibility",
+                "claim": "2 \u2223 n"
+              }
+            ]
+          ],
+          "claim_label": "divisible_by_six_implies_divisible_by_two"
+        },
+        "label": "divisible_by_six_implies_divisible_by_two",
+        "hypothesis": [
+          {
+            "variable_type": "\u2124",
+            "variable_name": "n",
+            "type": "let_statement",
+            "statement": "n : \u2124"
+          },
+          {
+            "type": "assume_statement",
+            "label": "h_6",
+            "assumption": "6 \u2223 n"
+          }
+        ],
+        "header": "Theorem",
+        "claim": "\u2200 n : \u2124, 6 \u2223 n \u2192 2 \u2223 n"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "int.two_dvd_six",
+    "int.dvd_n_six_dvd_two"
+  ]
+}

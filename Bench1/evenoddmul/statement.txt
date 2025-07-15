@@ -1,0 +1,20 @@
+The product of an even number and an odd number is an even number.
+
+Proof:
+Assume  
+1. $m,n:\mathbb Z$,  
+2. $h_m : \exists r:\mathbb Z,\;m = r + r$,  
+3. $h_n : \exists k:\mathbb Z,\;n = 2\cdot k + 1$.  
+
+From $h_m$ obtain $r:\mathbb Z$ and $h_r : m = r + r$.  
+From $h_n$ obtain $k:\mathbb Z$ and $h_k : n = 2\cdot k + 1$.  
+
+Define $s:\mathbb Z$ by  
+$$s := r \cdot n\,. $$
+
+Then  
+$$m \cdot n = (r + r)\cdot n \quad\text{by }h_r,$$  
+$$(r + r)\cdot n = r\cdot n + r\cdot n\quad\text{by distributivity of }\cdot\text{ over }+,$$  
+$$r\cdot n + r\cdot n = s + s\quad\text{by definition of }s.$$  
+
+Thus $\exists s:\mathbb Z,\;m\cdot n = s + s$, i.e.\ $Even\,(m\cdot n)\,$.

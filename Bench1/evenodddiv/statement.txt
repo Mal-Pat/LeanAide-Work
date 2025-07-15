@@ -1,0 +1,41 @@
+If $a$ is an odd number and $b$ is an even number, and $a$ divides $b$, then $b$ divided by $a$ is an even number.
+
+Proof:
+**Lemma 1.**  
+Assume integers \(k,d,r\) and assume  
+\[
+h : (2*k + 1)\cdot d = 2*r.
+\]  
+Define \(t := r - k\cdot d\). Then  
+\[
+2*t = 2*(r - k*d) = 2*r - 2*k*d = (2*k*d + d) - 2*k*d = d.
+\]  
+Hence \(d = 2*t\), so \(\exists t,\; d = 2*t\).  
+
+---  
+
+**Theorem.**  
+Assume integers \(a,b\),  
+\[
+h_1 : \exists k,\; a = 2*k + 1,
+\quad
+h_2 : \exists r,\; b = r + r,
+\quad
+h_3 : \exists d,\; b = a\cdot d.
+\]  
+Obtain \(k\) with \(h_{1}': a = 2*k + 1\).  
+Obtain \(r\) with \(h_{2}': b = r + r\).  
+Obtain \(d\) with \(h_{3}': b = a\cdot d\).  
+Then  
+\[
+(2*k + 1)\cdot d = a\cdot d = b = r + r = 2*r.
+\]  
+By Lemma 1 on \(k,d,r\) we get \(t\) with  
+\[
+d = 2*t.
+\]  
+From \(h_{3}': a\cdot d = b\) and the standard lemma “if \(a\cdot c = b\) then \(b/a = c\)” we obtain  
+\[
+b / a = d = 2*t.
+\]  
+Hence \(\exists t,\; b/a = t + t\), i.e.\ \(b/a\) is even.

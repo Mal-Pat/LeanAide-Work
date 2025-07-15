@@ -1,0 +1,39 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:exists_prime_over_10",
+      "header": "Theorem",
+      "claim": "There exists a natural number m, such that m > 10 and m is prime.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:exists_prime_over_10",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "value": "11",
+              "variable_type": "natural number",
+              "statement": "Let m be 11."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "m > 10",
+              "proof_method": "since 11 > 10"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "m is prime",
+              "proof_method": "since 11 is prime"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Thus, there exists a natural number m, such that m > 10 and m is prime."
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

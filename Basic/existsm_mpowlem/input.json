@@ -1,0 +1,38 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:exists_m",
+      "header": "Theorem",
+      "claim": "There exists a real number m, such that for all natural numbers n > 1, m^n < m.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:exists_m",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "value": "0.5",
+              "variable_type": "real number",
+              "statement": "Let the real number m be 0.5"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "0.5 < 1",
+              "proof_method": "direct computation"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "For any natural number n > 1, 0.5^n < 0.5",
+              "proof_method": "raising a number less than 1 to a power greater than 1 makes the number smaller"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

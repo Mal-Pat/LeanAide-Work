@@ -2,7 +2,7 @@
   "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "  def n : \u2115 :=\n    3\n  theorem assert_8384035004144052993 : \u2200 (n : \u2115), n = 3 \u2192 n + n = 6 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2200 (n : \u2115), n = 3 \u2192 n + n = 6\"\n    intro n a\n    subst a\n    simp_all only [reduceAdd]\n  theorem assert_2568258167913292722 : n ^ 2 = 9 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: n ^ 2 = 9\"\n    rfl\n  theorem assert_17039326214549271061 : 3 ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: 3 ^ 3 = 27\"\n    simp_all only [reducePow]\n  theorem assert_233692461693078492 : \u2203 (n : \u2115), n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2203 n, n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27\"\n    simp_all only [exists_eq_left, reduceAdd, reducePow, and_self]\n  def n :=\n    Exists.fst assert_233692461693078492\n  theorem assert_5691105192523953611 : \u2203 (n : \u2115), n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    Exists.snd assert_233692461693078492",
+  "lean_code": "  def n : \u2115 :=\n    3\n  theorem assert_8722815530389745342 : n + n = 6 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: n + n = 6\"\n    rfl\n    trace \"Finished Automation Tactics hammer [] for goal: n + n = 6\"\n  theorem assert_2568258167913292722 : n ^ 2 = 9 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: n ^ 2 = 9\"\n    rfl\n    trace \"Finished Automation Tactics hammer [] for goal: n ^ 2 = 9\"\n  theorem assert_3297844124007290231 : n ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: n ^ 3 = 27\"\n    rfl\n    trace \"Finished Automation Tactics hammer [] for goal: n ^ 3 = 27\"\n  theorem assert_233692461693078492 : \u2203 (n : \u2115), n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    by\n    trace \"Automation Tactics hammer [] for goal: \u2203 n, n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27\"\n    simp_all only [exists_eq_left, reduceAdd, reducePow, and_self]\n    trace \"Finished Automation Tactics hammer [] for goal: \u2203 n, n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27\"\n  def n :=\n    Exists.fst assert_233692461693078492\n  theorem assert_5691105192523953611 : \u2203 (n : \u2115), n = 3 \u2227 n + n = 6 \u2227 n ^ 2 = 9 \u2227 n ^ 3 = 27 :=\n    Exists.snd assert_233692461693078492",
   "json_structured": {
     "document": [
       {
@@ -41,9 +41,9 @@
   "greedy": false,
   "declarations": [
     "n",
-    "assert_8384035004144052993",
+    "assert_8722815530389745342",
     "assert_2568258167913292722",
-    "assert_17039326214549271061",
+    "assert_3297844124007290231",
     "assert_233692461693078492",
     "assert_5691105192523953611"
   ]

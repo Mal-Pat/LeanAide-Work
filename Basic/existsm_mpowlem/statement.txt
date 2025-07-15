@@ -1,0 +1,9 @@
+Statement:
+There exists a real number $m$, such that for all natural numbers $n > 1$, $m^n < m$.
+
+Proof:
+Let the real number $m$ be 0.5
+Clearly, 0.5 < 1
+For any natural number $n > 1$,
+$0.5^n < 0.5$, since raising a number less than 1 to a power greater than 1 makes the number smaller.
+Hence, there exists a real number $m$, such that for all natural numbers $n > 1$, $m^n < m$.

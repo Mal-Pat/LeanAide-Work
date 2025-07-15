@@ -1,0 +1,8 @@
+Statement:
+There exists a natural number $m$, such that $m > 10$ and $m$ is prime.
+
+Proof:
+Let $m$ be 11.
+Have $m > 10$, since 11 > 10.
+Have $m$ is prime, since 11 is prime.
+Thus, there exists a natural number $m$, such that $m > 10$ and $m$ is prime.

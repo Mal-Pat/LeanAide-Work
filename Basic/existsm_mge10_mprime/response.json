@@ -1,0 +1,49 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem exists_nat_prime_gt_ten : \u2203 m > 10, Nat.Prime m :=\n    by\n    trace \"Automation tactics found for \u2203 m > 10, Nat.Prime m, closing goal\"\n    simp_all only [gt_iff_lt]\n    apply Nat.exists_infinite_primes",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "natural number",
+                "variable_name": "m",
+                "value": "11",
+                "type": "let_statement",
+                "statement": "Let m be 11."
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "since 11 > 10",
+                "claim": "m > 10"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "since 11 is prime",
+                "claim": "m is prime"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "Thus, there exists a natural number m, such that m > 10 and m is prime."
+              }
+            ]
+          ],
+          "claim_label": "thm:exists_prime_over_10"
+        },
+        "label": "thm:exists_prime_over_10",
+        "header": "Theorem",
+        "claim": "There exists a natural number m, such that m > 10 and m is prime."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "exists_nat_prime_gt_ten"
+  ]
+}

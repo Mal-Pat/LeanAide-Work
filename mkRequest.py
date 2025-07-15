@@ -11,7 +11,7 @@ def main(name):
     url = "http://localhost:7654"
 
     # Set the Outputs directory over here
-    direc = f"Bench1-Self/{name}"
+    direc = f"Bench1/{name}"
 
     input_file = f"{direc}/input.json"
     response_file = f"{direc}/response.json"

@@ -1,0 +1,52 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "lem:prime5",
+      "claim": "Nat.Prime 5",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:prime5",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "Let a,b be natural numbers with a * b = 5.\n\n1. Claim: 5 \u2260 0.\n   Since 0 * b = 0 for all b, if 5 = 0 then 0 = 5, contradiction.\n\n2. Claim: 5 \u2260 1.\n   Since 1 * b = b for all b, if 5 = 1 then 1 = 5, contradiction.\n\n3. Claim: whenever a * b = 5, either a = 1 or b = 1.\n   Consider the equation a * b = 5.\n   \u2022 If a = 0 then 0 = 5, contradiction. Hence a \u2260 0, so a \u2265 1.\n   \u2022 If a = 1 then we are done.\n   \u2022 If a \u2265 2 then b = 5 / a \u2264 5 / 2 < 3, so b \u2208 {1,2}.\n     \u2013 If b = 1 then we are done.\n     \u2013 If b = 2 then a = 5 / 2 \u2209 \u2115, contradiction.\n   Thus in all cases a = 1 or b = 1.\n\nBy the definition of irreducible on \u2115 (Nat.Prime), 5 \u2260 0, 5 \u2260 1, and every factorization of 5 forces a unit factor. Therefore Nat.Prime 5."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Lemma",
+      "label": "lem:prime7",
+      "claim": "Nat.Prime 7",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:prime7",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "Let a,b be natural numbers with a * b = 7.\n\n1. Claim: 7 \u2260 0.\n   If 7 = 0, then 0 = a * b = 7, contradiction.\n\n2. Claim: 7 \u2260 1.\n   If 7 = 1, then 1 = a * b = 7, contradiction.\n\n3. Claim: whenever a * b = 7, either a = 1 or b = 1.\n   \u2022 If a = 0 then 0 = 7, contradiction; hence a \u2265 1.\n   \u2022 If a = 1 then done.\n   \u2022 If a \u2265 2 then b = 7 / a \u2264 7 / 2 < 4, so b \u2208 {1,2,3}.\n     \u2013 If b = 1 then done.\n     \u2013 If b \u2265 2 then a = 7 / b \u2264 7 / 2 < 4 so a \u2208 {2,3}.\n       \u00b7 If a = 2 then 2 * b = 7 implies b = 7/2 \u2209 \u2115, contradiction.\n       \u00b7 If a = 3 then 3 * b = 7 implies b = 7/3 \u2209 \u2115, contradiction.\n   Thus in all cases one factor is 1.\n\nHence Nat.Prime 7."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "header": "Theorem",
+      "label": "thm:12sumprimes",
+      "claim": "\u2203 (p q : \u2115), Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:12sumprimes",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "Let p := 5 and q := 7.\nThen Nat.Prime p by Lemma 1 and Nat.Prime q by Lemma 2.\nMoreover p + q = 5 + 7 = 12.\nThus \u2203 (p q : \u2115), Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+Statement:
+There exists a real number $m$, such that for all natural numbers $n > 1$, $m^n < m$.
+
+Proof:
+Assume $m = \tfrac12 : \mathbb{R}$.
+
+Lemma 1  
+$0 < m$ and $m < 1$.  
+Proof  
+By direct computation $0 < \tfrac12 < 1$.
+
+Lemma 2  
+$m^2 < m$.  
+Proof  
+Since $0 < m < 1$, multiplication by $m$ is strictly monotone:  
+$$m^2 = m \cdot m < 1 \cdot m = m.$$
+
+Lemma 3  
+For all $k \in \mathbb{N}$ with $k \ge 2$, $m^k < m$.  
+Proof  
+Proceed by induction on $k\ge2$.  
+
+Base case ($k=2$): follows from Lemma 2.  
+
+Inductive step: assume $k \ge 2$ and $m^k < m$. Then  
+$$m^{k+1} = m^k \cdot m.$$  
+Since $0 < m$ and $m^k < m$, monotonicity of multiplication gives  
+$$m^{k+1} < m \cdot m = m^2.$$  
+Applying Lemma 2 yields $m^{k+1} < m$.
+
+Now let $n\in\mathbb{N}$ satisfy $n>1$. Then $n\ge2$, so Lemma 3 gives $m^n < m$. Hence  
+$$\exists m : \mathbb{R},\; \forall n > 1,\; m^n < m.$$
+

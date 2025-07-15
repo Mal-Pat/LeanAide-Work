@@ -1,0 +1,185 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  abbrev exists_real_m_lt_m_pow_n_forall_nat_n_gt_one.prop : Prop :=\n    \u2203 (m : \u211d), \u2200 n > 1, m ^ n < m\n  theorem exists_real_m_lt_m_pow_n_forall_nat_n_gt_one : \u2203 (m : \u211d), \u2200 n > 1, m ^ n < m :=\n    by\n    use 1 / 2\n    trace \"Automation Tactics hammer for goal: \u2200 n > 1, (1 / 2) ^ n < 1 / 2\"\n    intro n a\n    simp_all only [gt_iff_lt, reduceDiv, not_lt_zero']\n    sorry\n    trace \"Finished Automation Tactics hammer for goal: \u2200 n > 1, (1 / 2) ^ n < 1 / 2\"\n    have : \u2200 {m n : \u2115}, 1 < n \u2192 m ^ n < m :=\n      by\n      trace \"Automation Tactics hammer [] for goal: \u2200 {m n : \u2115}, 1 < n \u2192 m ^ n < m\"\n      intro m n a\n      sorry\n      trace \"Finished Automation Tactics hammer [] for goal: \u2200 {m n : \u2115}, 1 < n \u2192 m ^ n < m\"\n  theorem half_lt_one_over_almost_perfect_number : \u2200 {m : \u2115}, 0 < m \u2227 m < 1 :=\n    by\n    intro m\n    have assert_6249559562666452920 : 0 < m \u2227 m < 1 :=\n      by\n      trace \"Automation Tactics hammer [] for goal: 0 < m \u2227 m < 1\"\n      simp_all only [lt_one_iff]\n      apply And.intro\n      \u00b7 sorry\n      \u00b7 sorry\n      trace \"Finished Automation Tactics hammer [] for goal: 0 < m \u2227 m < 1\"\n    assumption\n  theorem lt_self_sq_of_lt_one_of_pos : \u2200 {m : \u211d}, 0 < m \u2192 m < 1 \u2192 m ^ 2 < m :=\n    by\n    intro m h\u2080 h\u2081\n    have assert_7616216214563384120 : m ^ 2 < m :=\n      by\n      trace \"Automation Tactics hammer [] for goal: m ^ 2 < m\"\n      sorry\n      trace \"Finished Automation Tactics hammer [] for goal: m ^ 2 < m\"\n    assumption\n  theorem pow_lt_self_of_one_third_small_pos : \u2200 {m : \u211d}, 0 < m \u2192 m < 1 \u2192 m ^ 2 < m \u2192 \u2200 (k : \u2115), 2 \u2264 k \u2192 m ^ k < m :=\n    by\n    intro m h\u2081 h\u2082 h\u2083 k a_18219288179164880512\n    exact pow_lt_self_of_lt_one\u2080 h\u2081 h\u2082 a_18219288179164880512",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "label": "thm:main",
+        "header": "Theorem",
+        "claim": "There exists a real number m such that for all natural numbers n > 1, m^n < m."
+      },
+      {
+        "type": "Proof",
+        "proof_steps": [
+          [
+            {
+              "variable_type": "real number",
+              "variable_name": "m",
+              "value": "1/2",
+              "type": "let_statement",
+              "statement": "Let m = 1/2 \u000228\u000448212."
+            }
+          ],
+          {
+            "type": "Paragraph",
+            "text": "By Lemma 1 (lem:1), we have 0 < m and m < 1."
+          },
+          {
+            "type": "Paragraph",
+            "text": "By Lemma 2 (lem:2), we have m^2 < m."
+          },
+          {
+            "type": "Paragraph",
+            "text": "By Lemma 3 (lem:3), for all natural numbers k \u0002265 2, m^k < m."
+          },
+          {
+            "type": "Paragraph",
+            "text": "Now let n \u0002208 \u0004515 satisfy n > 1. Then n \u0002265 2, so Lemma 3 gives m^n < m."
+          },
+          [
+            {
+              "type": "conclude_statement",
+              "results_used": [
+                {
+                  "target_identifier": "lem:3",
+                  "statement": "Lemma 3"
+                }
+              ],
+              "claim": "Therefore, for all natural numbers n > 1, m^n < m."
+            }
+          ]
+        ],
+        "claim_label": "thm:main"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "direct computation",
+                "claim": "0 < m and m < 1.",
+                "calculation": {
+                  "type": "calculation",
+                  "inline_calculation": "0 < 1/2 < 1"
+                }
+              }
+            ]
+          ],
+          "claim_label": "lem:1"
+        },
+        "label": "lem:1",
+        "hypothesis": [
+          {
+            "variable_type": "real number",
+            "variable_name": "m",
+            "value": "1/2",
+            "type": "let_statement",
+            "statement": "Let m = 1/2 \u000228\u000448212."
+          }
+        ],
+        "header": "Lemma",
+        "claim": "0 < m and m < 1."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "type": "assert_statement",
+                "proof_method": "multiplication is strictly monotone for positive numbers",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:1"
+                  }
+                ],
+                "claim": "m^2 < m.",
+                "calculation": {
+                  "type": "calculation",
+                  "calculation_sequence": [
+                    "m^2 = m \u0000b7 m",
+                    "m \u0000b7 m < 1 \u0000b7 m",
+                    "1 \u0000b7 m = m"
+                  ]
+                }
+              }
+            ]
+          ],
+          "claim_label": "lem:2"
+        },
+        "label": "lem:2",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "internal_references": [
+              {
+                "target_identifier": "lem:1"
+              }
+            ],
+            "assumption": "0 < m and m < 1"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "m^2 < m."
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Proceed by induction on k \u0002265 2."
+            },
+            {
+              "type": "Paragraph",
+              "text": "Base case (k = 2): follows from Lemma 2 (lem:2)."
+            },
+            {
+              "type": "Paragraph",
+              "text": "Inductive step: assume k \u0002265 2 and m^k < m. Then m^{k+1} = m^k \u0000b7 m. Since 0 < m (Lemma 1) and m^k < m, multiplication monotonicity gives m^{k+1} < m \u0000b7 m = m^2. Applying Lemma 2 yields m^{k+1} < m."
+            }
+          ],
+          "claim_label": "lem:3"
+        },
+        "label": "lem:3",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "internal_references": [
+              {
+                "target_identifier": "lem:1"
+              }
+            ],
+            "assumption": "0 < m and m < 1"
+          },
+          {
+            "type": "assume_statement",
+            "internal_references": [
+              {
+                "target_identifier": "lem:2"
+              }
+            ],
+            "assumption": "m^2 < m"
+          }
+        ],
+        "header": "Lemma",
+        "claim": "For all k \u0002208 \u0004515 with k \u0002265 2, m^k < m."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "exists_real_m_lt_m_pow_n_forall_nat_n_gt_one",
+    "half_lt_one_over_almost_perfect_number",
+    "lt_self_sq_of_lt_one_of_pos",
+    "pow_lt_self_of_one_third_small_pos"
+  ]
+}

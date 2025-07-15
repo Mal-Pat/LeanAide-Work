@@ -1,0 +1,45 @@
+Statement:
+12 can be written as the sum of two prime numbers.
+
+Proof:
+Lemma 1. Nat.Prime 5.  
+Proof.  
+Let a,b be natural numbers with a * b = 5.  
+1.  Claim: 5 ≠ 0.  
+    Since 0 * b = 0 for all b, if 5 = 0 then 0 = 5, contradiction.  
+2.  Claim: 5 ≠ 1.  
+    Since 1 * b = b for all b, if 5 = 1 then 1 = 5, contradiction.  
+3.  Claim: whenever a * b = 5, either a = 1 or b = 1.  
+    Consider the equation a * b = 5.  
+    • If a = 0 then 0 = 5, contradiction. Hence a ≠ 0, so a ≥ 1.  
+    • If a = 1 then we are done.  
+    • If a ≥ 2 then b = 5 / a ≤ 5 / 2 < 3, so b ∈ {1,2}.  
+        – If b = 1 then we are done.  
+        – If b = 2 then a = 5 / 2 ∉ ℕ, contradiction.  
+    Thus in all cases a = 1 or b = 1.  
+By the definition of irreducible on ℕ (Nat.Prime), 5 ≠ 0, 5 ≠ 1, and every factorization of 5 forces a unit factor. Therefore Nat.Prime 5. ∎  
+
+Lemma 2. Nat.Prime 7.  
+Proof.  
+Let a,b be natural numbers with a * b = 7.  
+1.  Claim: 7 ≠ 0.  
+    If 7 = 0, then 0 = a * b = 7, contradiction.  
+2.  Claim: 7 ≠ 1.  
+    If 7 = 1, then 1 = a * b = 7, contradiction.  
+3.  Claim: whenever a * b = 7, either a = 1 or b = 1.  
+    • If a = 0 then 0 = 7, contradiction; hence a ≥ 1.  
+    • If a = 1 then done.  
+    • If a ≥ 2 then b = 7 / a ≤ 7 / 2 < 4, so b ∈ {1,2,3}.  
+        – If b = 1 then done.  
+        – If b ≥ 2 then a = 7 / b ≤ 7 / 2 < 4 so a ∈ {2,3}.  
+            · If a = 2 then 2 * b = 7 implies b = 7/2 ∉ ℕ, contradiction.  
+            · If a = 3 then 3 * b = 7 implies b = 7/3 ∉ ℕ, contradiction.  
+    Thus in all cases one factor is 1.  
+Hence Nat.Prime 7. ∎  
+
+Theorem. ∃ (p q : ℕ), Nat.Prime p ∧ Nat.Prime q ∧ p + q = 12.  
+Proof.  
+Let p := 5 and q := 7.  
+Then Nat.Prime p by Lemma 1 and Nat.Prime q by Lemma 2.  
+Moreover p + q = 5 + 7 = 12.  
+Thus ∃ (p q : ℕ), Nat.Prime p ∧ Nat.Prime q ∧ p + q = 12. ∎

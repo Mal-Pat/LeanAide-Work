@@ -1,0 +1,64 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem nat.prime_five : Nat.Prime 5 :=\n    by\n    trace \"Automation tactics found for Nat.Prime 5, closing goal\"\n    apply Nat.prime_five\n  theorem nat.prime_seven : Nat.Prime 7 :=\n    by\n    trace \"Automation tactics found for Nat.Prime 7, closing goal\"\n    apply Nat.prime_seven\n  theorem exists_prime_nat_add_eq_twelve : \u2203 (p : \u2115) (q : \u2115), Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12 :=\n    by\n    trace \"Automation Tactics hammer for goal: \u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12\"\n    simp_all only [exists_and_left]\n    sorry\n    trace \"Finished Automation Tactics hammer for goal: \u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Let a,b be natural numbers with a * b = 5.\n\n1. Claim: 5 \u2260 0.\n   Since 0 * b = 0 for all b, if 5 = 0 then 0 = 5, contradiction.\n\n2. Claim: 5 \u2260 1.\n   Since 1 * b = b for all b, if 5 = 1 then 1 = 5, contradiction.\n\n3. Claim: whenever a * b = 5, either a = 1 or b = 1.\n   Consider the equation a * b = 5.\n   \u2022 If a = 0 then 0 = 5, contradiction. Hence a \u2260 0, so a \u2265 1.\n   \u2022 If a = 1 then we are done.\n   \u2022 If a \u2265 2 then b = 5 / a \u2264 5 / 2 < 3, so b \u2208 {1,2}.\n     \u2013 If b = 1 then we are done.\n     \u2013 If b = 2 then a = 5 / 2 \u2209 \u2115, contradiction.\n   Thus in all cases a = 1 or b = 1.\n\nBy the definition of irreducible on \u2115 (Nat.Prime), 5 \u2260 0, 5 \u2260 1, and every factorization of 5 forces a unit factor. Therefore Nat.Prime 5."
+            }
+          ],
+          "claim_label": "lem:prime5"
+        },
+        "label": "lem:prime5",
+        "header": "Lemma",
+        "claim": "Nat.Prime 5"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Let a,b be natural numbers with a * b = 7.\n\n1. Claim: 7 \u2260 0.\n   If 7 = 0, then 0 = a * b = 7, contradiction.\n\n2. Claim: 7 \u2260 1.\n   If 7 = 1, then 1 = a * b = 7, contradiction.\n\n3. Claim: whenever a * b = 7, either a = 1 or b = 1.\n   \u2022 If a = 0 then 0 = 7, contradiction; hence a \u2265 1.\n   \u2022 If a = 1 then done.\n   \u2022 If a \u2265 2 then b = 7 / a \u2264 7 / 2 < 4, so b \u2208 {1,2,3}.\n     \u2013 If b = 1 then done.\n     \u2013 If b \u2265 2 then a = 7 / b \u2264 7 / 2 < 4 so a \u2208 {2,3}.\n       \u00b7 If a = 2 then 2 * b = 7 implies b = 7/2 \u2209 \u2115, contradiction.\n       \u00b7 If a = 3 then 3 * b = 7 implies b = 7/3 \u2209 \u2115, contradiction.\n   Thus in all cases one factor is 1.\n\nHence Nat.Prime 7."
+            }
+          ],
+          "claim_label": "lem:prime7"
+        },
+        "label": "lem:prime7",
+        "header": "Lemma",
+        "claim": "Nat.Prime 7"
+      },
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            {
+              "type": "Paragraph",
+              "text": "Let p := 5 and q := 7.\nThen Nat.Prime p by Lemma 1 and Nat.Prime q by Lemma 2.\nMoreover p + q = 5 + 7 = 12.\nThus \u2203 (p q : \u2115), Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12."
+            }
+          ],
+          "claim_label": "thm:12sumprimes"
+        },
+        "label": "thm:12sumprimes",
+        "header": "Theorem",
+        "claim": "\u2203 (p q : \u2115), Nat.Prime p \u2227 Nat.Prime q \u2227 p + q = 12"
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "nat.prime_five",
+    "nat.prime_seven",
+    "exists_prime_nat_add_eq_twelve"
+  ]
+}

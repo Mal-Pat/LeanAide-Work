@@ -1,0 +1,61 @@
+Statement:
+Every even number greater than 2 and less than 20 can be expressed as the sum of two prime numbers.
+
+Proof:
+```markdown
+**Proof.**  
+Assume  
+1. `n : ℕ`  
+2. `h₁ : n > 2`  
+3. `h₂ : n < 20`  
+4. `h₃ : n % 2 = 0`.  
+
+Every even natural number below 20 and above 2 belongs to the set `{4, 6, 8, 10, 12, 14, 16, 18}`. We proceed by case analysis on the value of `n`.
+
+Case 1: `n = 4`.  
+Let `p := 2` and `q := 2`.  
+• The only divisors of `2` are `1` and `2`. By the definition of `Nat.Prime`, we have `Nat.Prime p` and `Nat.Prime q`.  
+• By definition of `p` and `q`, `p + q = 2 + 2 = 4`.  
+Hence `∃ p q, Nat.Prime p ∧ Nat.Prime q ∧ n = p + q`.
+
+Case 2: `n = 6`.  
+Let `p := 3` and `q := 3`.  
+• The only divisors of `3` are `1` and `3`. Hence `Nat.Prime 3`.  
+• Then `p + q = 3 + 3 = 6`.  
+
+Case 3: `n = 8`.  
+Let `p := 3` and `q := 5`.  
+• The only divisors of `3` are `1` and `3`, so `Nat.Prime 3`.  
+• The only divisors of `5` are `1` and `5`, so `Nat.Prime 5`.  
+• Then `p + q = 3 + 5 = 8`.  
+
+Case 4: `n = 10`.  
+Let `p := 3` and `q := 7`.  
+• `Nat.Prime 3` as before.  
+• The only divisors of `7` are `1` and `7`, so `Nat.Prime 7`.  
+• Then `p + q = 3 + 7 = 10`.  
+
+Case 5: `n = 12`.  
+Let `p := 5` and `q := 7`.  
+• `Nat.Prime 5` and `Nat.Prime 7` by the same divisor‐check.  
+• Then `p + q = 5 + 7 = 12`.  
+
+Case 6: `n = 14`.  
+Let `p := 3` and `q := 11`.  
+• `Nat.Prime 3`.  
+• The only divisors of `11` are `1` and `11`, so `Nat.Prime 11`.  
+• Then `p + q = 3 + 11 = 14`.  
+
+Case 7: `n = 16`.  
+Let `p := 3` and `q := 13`.  
+• `Nat.Prime 3`.  
+• The only divisors of `13` are `1` and `13`, so `Nat.Prime 13`.  
+• Then `p + q = 3 + 13 = 16`.  
+
+Case 8: `n = 18`.  
+Let `p := 5` and `q := 13`.  
+• `Nat.Prime 5`.  
+• `Nat.Prime 13`.  
+• Then `p + q = 5 + 13 = 18`.  
+
+In each case we have exhibited `p, q : ℕ` with `Nat.Prime p`, `Nat.Prime q` and `n = p + q`. Therefore the theorem holds.

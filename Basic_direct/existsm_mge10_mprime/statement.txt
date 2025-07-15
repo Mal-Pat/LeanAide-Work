@@ -1,0 +1,4 @@
+Statement:
+There exists a natural number $m$, such that $m > 10$ and $m$ is prime.
+
+Proof:

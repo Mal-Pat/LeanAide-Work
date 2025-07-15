@@ -1,0 +1,172 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:main",
+      "header": "Theorem",
+      "claim": "There exists a real number m such that for all natural numbers n > 1, m^n < m."
+    },
+    {
+      "type": "Proof",
+      "claim_label": "thm:main",
+      "proof_steps": [
+        [
+          {
+            "type": "let_statement",
+            "variable_name": "m",
+            "value": "1/2",
+            "variable_type": "real number",
+            "statement": "Let m = 1/2 \u000228\u000448212."
+          }
+        ],
+        {
+          "type": "Paragraph",
+          "text": "By Lemma 1 (lem:1), we have 0 < m and m < 1."
+        },
+        {
+          "type": "Paragraph",
+          "text": "By Lemma 2 (lem:2), we have m^2 < m."
+        },
+        {
+          "type": "Paragraph",
+          "text": "By Lemma 3 (lem:3), for all natural numbers k \u0002265 2, m^k < m."
+        },
+        {
+          "type": "Paragraph",
+          "text": "Now let n \u0002208 \u0004515 satisfy n > 1. Then n \u0002265 2, so Lemma 3 gives m^n < m."
+        },
+        [
+          {
+            "type": "conclude_statement",
+            "claim": "Therefore, for all natural numbers n > 1, m^n < m.",
+            "results_used": [
+              {
+                "statement": "Lemma 3",
+                "target_identifier": "lem:3"
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:1",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "let_statement",
+          "variable_name": "m",
+          "value": "1/2",
+          "variable_type": "real number",
+          "statement": "Let m = 1/2 \u000228\u000448212."
+        }
+      ],
+      "claim": "0 < m and m < 1.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:1",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "0 < m and m < 1.",
+              "proof_method": "direct computation",
+              "calculation": {
+                "type": "calculation",
+                "inline_calculation": "0 < 1/2 < 1"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:2",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "0 < m and m < 1",
+          "internal_references": [
+            {
+              "target_identifier": "lem:1"
+            }
+          ]
+        }
+      ],
+      "claim": "m^2 < m.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:2",
+        "proof_steps": [
+          [
+            {
+              "type": "assert_statement",
+              "claim": "m^2 < m.",
+              "proof_method": "multiplication is strictly monotone for positive numbers",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:1"
+                }
+              ],
+              "calculation": {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "m^2 = m \u0000b7 m",
+                  "m \u0000b7 m < 1 \u0000b7 m",
+                  "1 \u0000b7 m = m"
+                ]
+              }
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Theorem",
+      "label": "lem:3",
+      "header": "Lemma",
+      "hypothesis": [
+        {
+          "type": "assume_statement",
+          "assumption": "0 < m and m < 1",
+          "internal_references": [
+            {
+              "target_identifier": "lem:1"
+            }
+          ]
+        },
+        {
+          "type": "assume_statement",
+          "assumption": "m^2 < m",
+          "internal_references": [
+            {
+              "target_identifier": "lem:2"
+            }
+          ]
+        }
+      ],
+      "claim": "For all k \u0002208 \u0004515 with k \u0002265 2, m^k < m.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "lem:3",
+        "proof_steps": [
+          {
+            "type": "Paragraph",
+            "text": "Proceed by induction on k \u0002265 2."
+          },
+          {
+            "type": "Paragraph",
+            "text": "Base case (k = 2): follows from Lemma 2 (lem:2)."
+          },
+          {
+            "type": "Paragraph",
+            "text": "Inductive step: assume k \u0002265 2 and m^k < m. Then m^{k+1} = m^k \u0000b7 m. Since 0 < m (Lemma 1) and m^k < m, multiplication monotonicity gives m^{k+1} < m \u0000b7 m = m^2. Applying Lemma 2 yields m^{k+1} < m."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem even_lt_20_sum_of_two_primes :\n      \u2200 (n : \u2115), n > 2 \u2227 n < 20 \u2227 n % 2 = 0 \u2192 \u2203 (p : \u2115) (q : \u2115), Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q :=\n    by\n    intro n a_11137150003361095080\n    trace \"Automation Tactics hammer for goal: \u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q\"\n    simp_all only [gt_iff_lt, exists_and_left]\n    obtain \u27e8left, right\u27e9 := a_11137150003361095080\n    obtain \u27e8left_1, right\u27e9 := right\n    sorry\n    trace \"Finished Automation Tactics hammer for goal: \u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q\"",
+  "json_structured": {
+    "document": [
+      {
+        "type": "Theorem",
+        "proof": {
+          "type": "Proof",
+          "proof_steps": [
+            [
+              {
+                "variable_type": "\u2115",
+                "variable_name": "n",
+                "type": "let_statement",
+                "statement": "n : \u2115"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "n > 2"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "n < 20"
+              },
+              {
+                "type": "assume_statement",
+                "assumption": "n % 2 = 0"
+              }
+            ],
+            {
+              "type": "Paragraph",
+              "text": "Every even natural number below 20 and above 2 belongs to the set {4, 6, 8, 10, 12, 14, 16, 18}. We proceed by case analysis on the value of n."
+            },
+            [
+              {
+                "type": "pattern_cases_statement",
+                "proof_cases": [
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "2",
+                            "type": "let_statement",
+                            "statement": "p := 2"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "2",
+                            "type": "let_statement",
+                            "statement": "q := 2"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 4"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "p := 3"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "q := 3"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 6"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "p := 3"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "5",
+                            "type": "let_statement",
+                            "statement": "q := 5"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 8"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "p := 3"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "7",
+                            "type": "let_statement",
+                            "statement": "q := 7"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 10"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "5",
+                            "type": "let_statement",
+                            "statement": "p := 5"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "7",
+                            "type": "let_statement",
+                            "statement": "q := 7"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 12"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "p := 3"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "11",
+                            "type": "let_statement",
+                            "statement": "q := 11"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 14"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "3",
+                            "type": "let_statement",
+                            "statement": "p := 3"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "13",
+                            "type": "let_statement",
+                            "statement": "q := 13"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 16"
+                  },
+                  {
+                    "type": "pattern_case",
+                    "proof": {
+                      "type": "Proof",
+                      "proof_steps": [
+                        [
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "p",
+                            "value": "5",
+                            "type": "let_statement",
+                            "statement": "p := 5"
+                          },
+                          {
+                            "variable_type": "\u2115",
+                            "variable_name": "q",
+                            "value": "13",
+                            "type": "let_statement",
+                            "statement": "q := 13"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime p"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "Nat.Prime q"
+                          },
+                          {
+                            "type": "assert_statement",
+                            "claim": "n = p + q"
+                          },
+                          {
+                            "type": "conclude_statement",
+                            "claim": "\u2203 p q, Nat.Prime p \u2227 Nat.Prime q \u2227 n = p + q"
+                          }
+                        ]
+                      ],
+                      "claim_label": "thm:even-sum-primes-2-20"
+                    },
+                    "pattern": "n = 18"
+                  }
+                ],
+                "on": "n"
+              }
+            ]
+          ],
+          "claim_label": "thm:even-sum-primes-2-20"
+        },
+        "label": "thm:even-sum-primes-2-20",
+        "header": "Theorem",
+        "claim": "Every even number greater than 2 and less than 20 can be expressed as the sum of two prime numbers."
+      }
+    ]
+  },
+  "greedy": false,
+  "declarations": [
+    "even_lt_20_sum_of_two_primes"
+  ]
+}

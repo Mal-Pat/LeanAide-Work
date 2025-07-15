@@ -1,0 +1,42 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:even_odd_product",
+      "header": "Theorem",
+      "claim": "The product of an even number a and an odd number b is an even number.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:even_odd_product",
+        "proof_steps": [
+          [
+            {
+              "type": "some_statement",
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "statement": "there exists k such that a = 2 * k"
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "m",
+              "variable_kind": "integer",
+              "statement": "there exists m such that b = 2 * m + 1"
+            },
+            {
+              "type": "calculation",
+              "inline_calculation": "a * b = (2 * k) * (2 * m + 1) = 2 * (k * (2 * m + 1))"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 * (k * (2 * m + 1)) is even",
+              "proof_method": "definition of even"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+If the last digit of a number is 0 or 5, then it is divisible by 5.
+
+Proof:
+Let the number be $n$.
+
+Case 1:
+If $n % 10 = 0$,
+It implies 10 divides $n$,
+Which implies there exists $k$ such that $n = 10 * k$,
+Which implies there exists $k$ such that $n = 5 * (2 * k)$,
+Which implies 5 divides $n$.
+
+Case 2:
+If $n % 10 = 5$,
+It implies there exists $k$ such that $n = 10 * k + 5$,
+Which implies there exists $k$ such that $n = 5 * (2 * k + 1)$,
+Which implies 5 divides $n$.
+
+In both cases, 5 divides $n$.
+Thus, if the last digit of a number is 0 or 5, then it is divisible by 5.

@@ -1,0 +1,10 @@
+If a number $n$ is divisible by 6, then it is divisible by 2.
+
+Proof:
+For any natural number $n$,
+Since 6 divides $n$, it implies there exists a natural number $k$ such that $n = 6 * k$.
+Assert that there exists $k$ such that $n = 2 * (3 * k)$.'
+Clearly, 2 divides $2 * (3 * k)$.
+Which implies, 2 divides $6 * k$.
+Which implies, 2 divides $n$.
+Hence, if 6 divides $n$, then 2 divides $n$.

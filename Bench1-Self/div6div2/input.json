@@ -1,0 +1,50 @@
+{
+  "document": [
+    {
+      "type": "Theorem",
+      "label": "thm:div6-2",
+      "header": "Theorem",
+      "claim": "If a number n is divisible by 6, then it is divisible by 2.",
+      "proof": {
+        "type": "Proof",
+        "claim_label": "thm:div6-2",
+        "proof_steps": [
+          [
+            {
+              "type": "let_statement",
+              "variable_name": "n",
+              "variable_type": "natural number",
+              "statement": "Let n be an arbitrary natural number."
+            },
+            {
+              "type": "some_statement",
+              "variable_name": "k",
+              "variable_kind": "natural number",
+              "statement": "There exists a natural number k such that n = 6 * k."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n = 2 * (3 * k)."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 divides 2 * (3 * k)."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 divides 6 * k."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 divides n."
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "If 6 divides n, then 2 divides n."
+            }
+          ]
+        ]
+      }
+    }
+  ]
+}

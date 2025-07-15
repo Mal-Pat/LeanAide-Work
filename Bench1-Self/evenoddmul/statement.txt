@@ -1,0 +1,9 @@
+The product of an even number $a$ and an odd number $b$ is an even number.
+
+Proof:
+Since $a$ is even, there exists $k$ such that $a = 2 * k$.
+Since $b$ is odd, there exists $m$ such that $b = 2 * m + 1$.
+So, $a * b = (2 * k) * (2 * m + 1) = 2 * (k * (2 * m + 1))$.
+Clearly, $2 * (k * (2 * m + 1))$ is even.
+That implies $a * b$ is even.
+Hence, the product of an even and odd number is even.

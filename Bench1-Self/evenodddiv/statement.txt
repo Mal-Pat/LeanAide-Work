@@ -1,0 +1,11 @@
+If $a$ is an odd number and $b$ is an even number, and $a$ divides $b$, then $b$ divided by $a$ is an even number.
+
+Proof:
+Since $b$ is an even number, there exists $k$ such that $b = 2 * k$.
+Since $a$ divides $b$, it implies $a$ divides $2 * k$.
+Since $a$ is odd, it does not divide 2.
+That implies $a$ divides $k$.
+That implies there exists $m$ such that $k = m * a$.
+Hence, $b / a = 2 * k / a = 2 * m * a / a = 2 * m$.
+Clearly, $b / a = 2 * m$, where, 2 * m is an even number.
+Hence, $b / a$ is an even number.

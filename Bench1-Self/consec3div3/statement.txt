@@ -1,0 +1,7 @@
+The sum of three consecutive number ($n$, $n+1$, and $n+2$) is divisible by 3.
+
+Proof:
+For any natural number $n$,
+Assert $n + (n + 1) + (n + 2) = 3 * (n + 1)$.
+Clearly, 3 divides $3 * (n + 1)$.
+Hence, 3 divides $n + (n + 1) + (n + 2)$.

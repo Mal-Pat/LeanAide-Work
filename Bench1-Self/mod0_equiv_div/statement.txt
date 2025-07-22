@@ -1,0 +1,8 @@
+For any natural numbers $a$ and $b$, $b % a = 0$ (remainder on dividing $b$ by $a$ is 0) is equivalent to $a$ divides $b$.
+
+Proof:
+For any natural numbers $a$ and $b$,
+From Quotient-Remainder Theorem, $b % a = 0$ is equivalent to there exists $q$ such that $b = a * q + 0$.
+Clearly, $a * q + 0 = a * q$, and $a$ divides $a * q$.
+Hence, $a$ divides $b$.
+Thus, $b % a = 0$ is equivalent to $a$ divides $b$.

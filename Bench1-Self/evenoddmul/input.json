@@ -1,42 +1,59 @@
 {
-  "document": [
-    {
-      "type": "Theorem",
-      "label": "thm:even_odd_product",
-      "header": "Theorem",
-      "claim": "The product of an even number a and an odd number b is an even number.",
-      "proof": {
-        "type": "Proof",
-        "claim_label": "thm:even_odd_product",
-        "proof_steps": [
-          [
-            {
-              "type": "some_statement",
-              "variable_name": "k",
-              "variable_kind": "integer",
-              "statement": "there exists k such that a = 2 * k"
-            },
-            {
-              "type": "some_statement",
-              "variable_name": "m",
-              "variable_kind": "integer",
-              "statement": "there exists m such that b = 2 * m + 1"
-            },
-            {
-              "type": "calculation",
-              "inline_calculation": "a * b = (2 * k) * (2 * m + 1) = 2 * (k * (2 * m + 1))"
-            },
-            {
-              "type": "assert_statement",
-              "claim": "2 * (k * (2 * m + 1)) is even",
-              "proof_method": "definition of even"
-            },
-            {
-              "type": "conclude_statement"
-            }
-          ]
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:even_times_odd_is_even",
+        "hypothesis": [
+          {
+            "type": "let_statement",
+            "variable_name": "a",
+            "variable_type": "integer",
+            "properties": "even",
+            "statement": "Let a be an even integer."
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "b",
+            "variable_type": "integer",
+            "properties": "odd",
+            "statement": "Let b be an odd integer."
+          }
+        ],
+        "claim": "The product of a and b is even.",
+        "proof": [
+          {
+            "type": "some_statement",
+            "variable_name": "k",
+            "variable_kind": "integer",
+            "statement": "Since a is even, there exists k such that a = 2 * k."
+          },
+          {
+            "type": "some_statement",
+            "variable_name": "m",
+            "variable_kind": "integer",
+            "statement": "Since b is odd, there exists m such that b = 2 * m + 1."
+          },
+          {
+            "type": "calculation",
+            "inline_calculation": "a * b = (2 * k) * (2 * m + 1) = 2 * (k * (2 * m + 1))"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "2 * (k * (2 * m + 1)) is even."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "a * b is even."
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "Hence, the product of an even and odd number is even."
+          }
         ]
       }
-    }
-  ]
+    ]
+  }
 }

@@ -1,0 +1,47 @@
+{
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:divides_remainder",
+        "hypothesis": [
+          {
+            "type": "let_statement",
+            "variable_name": "a",
+            "variable_type": "natural number",
+            "statement": "Let a be a natural number."
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "b",
+            "variable_type": "natural number",
+            "statement": "Let b be a natural number."
+          }
+        ],
+        "claim": "b % a = 0 is equivalent to a divides b.",
+        "proof": [
+          {
+            "type": "assert_statement",
+            "claim": "b % a = 0 is equivalent to there exists q such that b = a * q + 0.",
+            "proof_method": "Quotient-Remainder Theorem"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "a * q + 0 = a * q.",
+            "proof_method": "Simplification"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "a divides a * q.",
+            "proof_method": "Definition of divisibility"
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      }
+    ]
+  }
+}

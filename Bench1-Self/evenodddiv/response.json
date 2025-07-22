@@ -2,64 +2,57 @@
   "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "theorem odd_dvd_even_div_even : \u2200 {a b : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 Even (b / a) :=\n    by\n    intro a b a_9469431090218365826 a_16113681004632593245 a_15686058794838959402\n    have assert_11376311930969713044 : Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (k : \u2124), b = 2 * k :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k\"\n      intro a_1 a_2 a_3\n      simp_all only\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k\"\n    have assert_9553020604411229736 : Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (k : \u2124), b = 2 * k \u2227 a \u2223 2 * k :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2227 a \u2223 2 * k\"\n      intro a_1 a_2 a_3\n      simp_all only [forall_const]\n      obtain \u27e8w, h\u27e9 := assert_11376311930969713044\n      subst h\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq_left']\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2227 a \u2223 2 * k\"\n    have assert_12304523832120167131 : Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (k : \u2124), b = 2 * k \u2192 \u00aca \u2223 2 :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2192 \u00aca \u2223 2\"\n      intro a_1 a_2 a_3\n      simp_all only [forall_const]\n      obtain \u27e8w, h\u27e9 := assert_11376311930969713044\n      obtain \u27e8w_1, h_1\u27e9 := assert_9553020604411229736\n      obtain \u27e8left, right\u27e9 := h_1\n      subst left\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false]\n      subst h\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2192 \u00aca \u2223 2\"\n    have assert_5602419255114970354 : Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (k : \u2124), b = 2 * k \u2227 a \u2223 k :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2227 a \u2223 k\"\n      intro a_1 a_2 a_3\n      simp_all only [forall_const]\n      obtain \u27e8w, h\u27e9 := assert_11376311930969713044\n      obtain \u27e8w_1, h_1\u27e9 := assert_9553020604411229736\n      obtain \u27e8w_2, h_2\u27e9 := assert_12304523832120167131\n      obtain \u27e8left, right\u27e9 := h_1\n      subst left\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq_left']\n      subst h\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2227 a \u2223 k\"\n    have assert_8910331294399055471 : Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (k : \u2124), b = 2 * k \u2227 \u2203 (m : \u2124), k = m * a :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2227 \u2203 m, k = m * a\"\n      intro a_1 a_2 a_3\n      simp_all only [forall_const]\n      obtain \u27e8w, h\u27e9 := assert_11376311930969713044\n      obtain \u27e8w_1, h_1\u27e9 := assert_9553020604411229736\n      obtain \u27e8w_2, h_2\u27e9 := assert_12304523832120167131\n      obtain \u27e8w_3, h_3\u27e9 := assert_5602419255114970354\n      obtain \u27e8left, right\u27e9 := h_1\n      obtain \u27e8left_1, right_1\u27e9 := h_3\n      subst left_1\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq_left']\n      subst h left\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 k, b = 2 * k \u2227 \u2203 m, k = m * a\"\n    have assert_10324552449819263937 :\n      \u2200 {b a : \u2115}, \u2203 (k : \u2115), b = 2 * k \u2227 \u2203 (m : \u2115), k = m * a \u2192 b / a = 2 * (b / (2 * a)) := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_10255899962280593693 :\n      \u2200 {b a : \u2115}, \u2203 (k : \u2115), b = 2 * k \u2227 \u2203 (m : \u2115), k = m * a \u2192 2 * k / a = 2 * m * a / a := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_17511922690879308973 :\n      Odd a \u2192 Even b \u2192 a \u2223 b \u2192 \u2203 (k : \u2124), b = 2 * k \u2192 \u2203 (m : \u2124), k = m * a \u2192 2 * m * a / a = 2 * m := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_9310499340245235600 :\n      (\u2203 (k : \u2124), b = 2 * k) \u2192 (\u2203 (m : \u2124) (k : \u2124), k = m * a) \u2192 \u2203 (m : \u2124), Even (2 * m) :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: (\u2203 k, b = 2 * k) \u2192 (\u2203 m k, k = m * a) \u2192 \u2203 m, Even (2 * m)\"\n      simp only [exists_eq, exists_const, even_two, Even.mul_right, imp_self, implies_true]\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: (\u2203 k, b = 2 * k) \u2192 (\u2203 m k, k = m * a) \u2192 \u2203 m, Even (2 * m)\"\n    have : \u2200 {k a : \u2124}, (\u2203 (k : \u2124), b = 2 * k) \u2192 (\u2203 (m : \u2124), k = m * a) \u2192 Even (b / a) :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {k a : \u2124}, (\u2203 k, b = 2 * k) \u2192 (\u2203 m, k = m * a) \u2192 Even (b / a)\"\n      simp only [forall_exists_index]\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {k a : \u2124}, (\u2203 k, b = 2 * k) \u2192 (\u2203 m, k = m * a) \u2192 Even (b / a)\"\n    trace\n      \"Automation Tactics first\\n  | simp?\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: Even (b / a)\"\n    rename_i a_1\n    simp_all only [forall_const, exists_eq, exists_const, even_two, Even.mul_right, imp_self, forall_exists_index]\n    obtain \u27e8w, h\u27e9 := assert_11376311930969713044\n    obtain \u27e8w_1, h_1\u27e9 := assert_9553020604411229736\n    obtain \u27e8w_2, h_2\u27e9 := assert_12304523832120167131\n    obtain \u27e8w_3, h_3\u27e9 := assert_5602419255114970354\n    obtain \u27e8w_4, h_4\u27e9 := assert_8910331294399055471\n    obtain \u27e8w_5, h_5\u27e9 := assert_17511922690879308973\n    obtain \u27e8left, right\u27e9 := h_1\n    obtain \u27e8left_1, right_1\u27e9 := h_3\n    obtain \u27e8left_2, right_2\u27e9 := h_4\n    obtain \u27e8w_6, h_1\u27e9 := right_2\n    subst left_1 h_1\n    simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false]\n    subst left_2 left h\n    simp_all only [dvd_mul_left]\n    apply @a_1\n    \u00b7 rfl\n    \u00b7 exact a\n    trace\n      \"Finished Automation Tactics first\\n  | simp?\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: Even (b / a)\"",
+  "lean_code": "theorem odd_dvd_even_div_even : \u2200 {a b : \u2124}, Odd a \u2192 Even b \u2192 a \u2223 b \u2192 Even (b / a) :=\n    by\n    intro a b a_3545152501514269127 a_555218174640713104 a_13300696230021461262\n    have assert_16549026473693675702 : \u2203 (k : \u2124), b = 2 * k :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, b = 2 * k\"\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, b = 2 * k\"\n    let \u27e8k, assert_10323897926786676384\u27e9 := assert_16549026473693675702\n    have assert_11485629743710248627 : \u2203 (k : \u2124), b = 2 * k \u2227 a \u2223 2 * k :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, b = 2 * k \u2227 a \u2223 2 * k\"\n      subst assert_10323897926786676384\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',\n        exists_eq_left']\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, b = 2 * k \u2227 a \u2223 2 * k\"\n    let \u27e8k, assert_7223418644602455472\u27e9 := assert_11485629743710248627\n    have assert_13254764109269902689 : \u00aca \u2223 2 :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u00aca \u2223 2\"\n      subst assert_10323897926786676384\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',\n        exists_eq_left']\n      obtain \u27e8left, right\u27e9 := assert_7223418644602455472\n      subst left\n      apply Aesop.BuiltinRules.not_intro\n      intro a_1\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u00aca \u2223 2\"\n    have assert_7268139922401973922 : \u2203 (k : \u2124), b = 2 * k \u2227 a \u2223 k :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, b = 2 * k \u2227 a \u2223 k\"\n      subst assert_10323897926786676384\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',\n        exists_eq_left']\n      obtain \u27e8left, right\u27e9 := assert_7223418644602455472\n      subst left\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, b = 2 * k \u2227 a \u2223 k\"\n    let \u27e8k, assert_18053303933989213829\u27e9 := assert_7268139922401973922\n    have assert_12640157831737559146 : \u2203 (k : \u2124) (m : \u2124), b = 2 * k \u2227 k = m * a :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k m, b = 2 * k \u2227 k = m * a\"\n      subst assert_10323897926786676384\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',\n        exists_eq_left', and_true, exists_and_left]\n      subst assert_18053303933989213829\n      obtain \u27e8left, right\u27e9 := assert_7223418644602455472\n      subst left\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k m, b = 2 * k \u2227 k = m * a\"\n    let \u27e8k, assert_14108576092789783882\u27e9 := assert_12640157831737559146\n    let \u27e8m, assert_3811062796762907684\u27e9 := assert_14108576092789783882\n    have assert_3501251311705466182 : \u2203 (k : \u2124) (m : \u2124), b = 2 * k \u2227 k = m * a \u2192 b / a = 2 * k / a := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_7749201249928516334 : b = 2 * k \u2192 k = m * a \u2192 2 * k / a = 2 * (k / a) := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have assert_9193836921193769014 : b = 2 * k \u2192 k = m * a \u2192 2 * (k / a) = 2 * m := by\n      first\n      | linarith\n      | ring\n      | norm_num\n      | simp\n      | omega\n      | rfl\n    have : Even (b / a) :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Even (b / a)\"\n      subst assert_10323897926786676384\n      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',\n        exists_eq_left', and_true, exists_and_left, true_and, implies_true, exists_const, forall_const]\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Even (b / a)\"\n    assumption",
   "json_structured": {
-    "document": [
-      {
-        "type": "Theorem",
-        "proof": {
-          "type": "Proof",
-          "proof_steps": [
-            [
-              {
-                "variable_name": "k",
-                "variable_kind": "integer",
-                "type": "some_statement",
-                "statement": "There exists k such that b = 2 * k"
-              },
-              {
-                "type": "assert_statement",
-                "claim": "a divides 2 * k"
-              },
-              {
-                "type": "assert_statement",
-                "claim": "a does not divide 2"
-              },
-              {
-                "type": "assert_statement",
-                "claim": "a divides k"
-              },
-              {
-                "variable_name": "m",
-                "variable_kind": "integer",
-                "type": "some_statement",
-                "statement": "There exists m such that k = m * a"
-              },
-              {
-                "type": "calculation",
-                "calculation_sequence": [
-                  "b / a = 2 * k / a",
-                  "2 * k / a = 2 * m * a / a",
-                  "2 * m * a / a = 2 * m"
-                ]
-              },
-              {
-                "type": "assert_statement",
-                "claim": "2 * m is an even number"
-              },
-              {
-                "type": "conclude_statement",
-                "claim": "b / a is an even number"
-              }
-            ]
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "type": "some_statement",
+              "statement": "b = 2 * k"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "a divides 2 * k"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "a does not divide 2"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "a divides k"
+            },
+            {
+              "variable_name": "m",
+              "variable_kind": "integer",
+              "type": "some_statement",
+              "statement": "k = m * a"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "b / a = (2 * k) / a",
+                "(2 * k) / a = 2 * (k / a)",
+                "2 * (k / a) = 2 * m"
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "b / a is an even number"
+            }
           ],
-          "claim_label": "thm:odd_divides_even"
-        },
-        "label": "thm:odd_divides_even",
-        "header": "Theorem",
-        "claim": "If a is an odd number and b is an even number, and a divides b, then b divided by a is an even number."
-      }
-    ]
+          "label": "thm:even_quotient",
+          "header": "Theorem",
+          "claim": "If a is an odd number and b is an even number, and a divides b, then b divided by a is an even number."
+        }
+      ]
+    }
   },
   "greedy": false,
   "declarations": [

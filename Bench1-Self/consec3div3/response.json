@@ -2,43 +2,42 @@
   "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "theorem sum_three_consecutive_div_three : \u2200 (n : \u2124), 3 \u2223 n + (n + 1) + (n + 2) :=\n    by\n    intro n\n    have assert_16504161470097087058 : n + (n + 1) + (n + 2) = 3 * (n + 1) :=\n      by\n      trace\n        \"Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n + (n + 1) + (n + 2) = 3 * (n + 1)\"\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | simp?\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n + (n + 1) + (n + 2) = 3 * (n + 1)\"\n    exact Dvd.intro (n + 1) (id (Eq.symm assert_16504161470097087058))",
+  "lean_code": "theorem sum_three_consecutive_numbers_div_three : \u2200 (n : \u2115), 3 \u2223 n + (n + 1) + (n + 2) :=\n    by\n    intro n\n    have assert_16504161470097087058 : n + (n + 1) + (n + 2) = 3 * (n + 1) :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n + (n + 1) + (n + 2) = 3 * (n + 1)\"\n      sorry\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n + (n + 1) + (n + 2) = 3 * (n + 1)\"\n    exact Dvd.intro (n + 1) (id (Eq.symm assert_16504161470097087058))",
   "json_structured": {
-    "document": [
-      {
-        "type": "Theorem",
-        "proof": {
-          "type": "Proof",
-          "proof_steps": [
-            [
-              {
-                "type": "assume_statement",
-                "assumption": "n is a natural number"
-              },
-              {
-                "type": "assert_statement",
-                "claim": "n + (n + 1) + (n + 2) = 3 * (n + 1)"
-              },
-              {
-                "type": "assert_statement",
-                "claim": "3 divides 3 * (n + 1)"
-              },
-              {
-                "type": "conclude_statement",
-                "claim": "3 divides n + (n + 1) + (n + 2)"
-              }
-            ]
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "variable_type": "natural number",
+              "variable_name": "n",
+              "type": "let_statement",
+              "statement": "Let n be an arbitrary natural number."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n + (n + 1) + (n + 2) = 3 * (n + 1)"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "3 divides 3 * (n + 1)"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "3 divides n + (n + 1) + (n + 2)"
+            }
           ],
-          "claim_label": "thm:sum_three_consecutive"
-        },
-        "label": "thm:sum_three_consecutive",
-        "header": "Theorem",
-        "claim": "The sum of three consecutive numbers n, n + 1, and n + 2 is divisible by 3."
-      }
-    ]
+          "label": "thm:sum_three_consecutive_divisible_by_3",
+          "header": "Theorem",
+          "claim": "The sum of three consecutive numbers (n, n + 1, and n + 2) is divisible by 3."
+        }
+      ]
+    }
   },
   "greedy": false,
   "declarations": [
-    "sum_three_consecutive_div_three"
+    "sum_three_consecutive_numbers_div_three"
   ]
 }

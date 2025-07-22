@@ -1,0 +1,48 @@
+{
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:division-remainder",
+        "hypothesis": [
+          {
+            "type": "let_statement",
+            "variable_name": "a",
+            "variable_type": "natural number",
+            "statement": "Let a be a natural number"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "b",
+            "variable_type": "natural number",
+            "statement": "Let b be a natural number"
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "r",
+            "variable_type": "natural number",
+            "statement": "Let r = b % a"
+          }
+        ],
+        "claim": "There exists a natural number q such that b = a * q + r",
+        "proof": [
+          {
+            "type": "assert_statement",
+            "claim": "There exists a natural number q such that b = a * q + r",
+            "proof_method": "by the Quotient-Remainder Theorem",
+            "results_used": [
+              {
+                "statement": "Quotient-Remainder Theorem"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      }
+    ]
+  }
+}

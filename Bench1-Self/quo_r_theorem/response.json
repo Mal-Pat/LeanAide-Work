@@ -1,0 +1,58 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem nat.exists_mul_add_mod_eq : \u2200 (a b : \u2115), \u2203 (q : \u2115), b = a * q + b % a :=\n    by\n    intro a b\n    exact Auto.Nat.mod_par rfl",
+  "json_structured": {
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "type": "assert_statement",
+              "results_used": [
+                {
+                  "statement": "Quotient-Remainder Theorem"
+                }
+              ],
+              "proof_method": "by the Quotient-Remainder Theorem",
+              "claim": "There exists a natural number q such that b = a * q + r"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ],
+          "label": "thm:division-remainder",
+          "hypothesis": [
+            {
+              "variable_type": "natural number",
+              "variable_name": "a",
+              "type": "let_statement",
+              "statement": "Let a be a natural number"
+            },
+            {
+              "variable_type": "natural number",
+              "variable_name": "b",
+              "type": "let_statement",
+              "statement": "Let b be a natural number"
+            },
+            {
+              "variable_type": "natural number",
+              "variable_name": "r",
+              "type": "let_statement",
+              "statement": "Let r = b % a"
+            }
+          ],
+          "header": "Theorem",
+          "claim": "There exists a natural number q such that b = a * q + r"
+        }
+      ]
+    }
+  },
+  "greedy": false,
+  "declarations": [
+    "nat.exists_mul_add_mod_eq"
+  ]
+}

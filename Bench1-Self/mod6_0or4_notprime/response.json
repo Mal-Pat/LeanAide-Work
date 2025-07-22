@@ -1,0 +1,70 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem not_prime_of_mod_eq_zero_or_four : \u2200 {n : \u2115}, n % 6 = 0 \u2228 n % 6 = 4 \u2192 \u00acNat.Prime n :=\n    by\n    intro n a_7972533484200855580\n    if condition_9289661020530513051 : n % 6 = 0 then\n      \n      have assert_1537035095498445343 : \u2203 (k : \u2115), n = 6 * k :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k\"\n        simp_all only [OfNat.zero_ne_ofNat, or_false]\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k\"\n      let \u27e8k, assert_10519291151578733484\u27e9 := assert_1537035095498445343\n      have assert_1537035095498445343 : \u2203 (k : \u2115), n = 6 * k :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k\"\n        subst assert_10519291151578733484\n        simp_all only [OfNat.zero_ne_ofNat, or_false, mul_mod_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero,\n          exists_eq']\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k\"\n      let \u27e8k, assert_10519291151578733484\u27e9 := assert_1537035095498445343\n      have : \u2203 (k : \u2115), n = 6 * k \u2192 \u00acNat.Prime n :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k \u2192 \u00acNat.Prime n\"\n        rename_i assert_10519291151578733484_1\n        subst assert_10519291151578733484\n        simp_all only [mul_mod_right, OfNat.zero_ne_ofNat, or_false, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero,\n          exists_eq']\n        subst assert_10519291151578733484_1\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k \u2192 \u00acNat.Prime n\"\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n      repeat (sorry)\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n    else\n      if condition_17583331121733368941 : n % 6 = 4 then\n        \n        have assert_9149467101898812630 : \u2203 (k : \u2115), n = 6 * k + 4 :=\n          by\n          trace\n            \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k + 4\"\n          simp_all only [OfNat.ofNat_ne_zero, or_true, not_false_eq_true]\n          sorry\n          trace\n            \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2203 k, n = 6 * k + 4\"\n        let \u27e8k, assert_2413158800140915744\u27e9 := assert_9149467101898812630\n        have assert_7701181072511214036 : n = 2 * (3 * k + 2) :=\n          by\n          trace\n            \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n = 2 * (3 * k + 2)\"\n          subst assert_2413158800140915744\n          simp_all only [OfNat.ofNat_ne_zero, or_true, not_false_eq_true, mul_add_mod_self_left, reduceMod,\n            Nat.add_right_cancel_iff, mul_eq_mul_left_iff, or_false, exists_eq']\n          sorry\n          trace\n            \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n = 2 * (3 * k + 2)\"\n        exact Mathlib.Meta.NormNum.not_prime_mul_of_ble 2 (3 * k + 2) n (id (Eq.symm assert_7701181072511214036)) rfl\n        rfl\n      else\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n        simp_all only [or_self]\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u00acNat.Prime n\"\n    done",
+  "json_structured": {
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": {
+            "type": "multi-condition_cases_proof",
+            "proof_cases": [
+              {
+                "proof": [
+                  {
+                    "variable_name": "k",
+                    "variable_kind": "natural number",
+                    "type": "some_statement",
+                    "statement": "n = 6 * k"
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "6 is a factor of n"
+                  },
+                  {
+                    "type": "conclude_statement",
+                    "claim": "n is not prime"
+                  }
+                ],
+                "condition": "n % 6 = 0"
+              },
+              {
+                "proof": [
+                  {
+                    "variable_name": "k",
+                    "variable_kind": "natural number",
+                    "type": "some_statement",
+                    "statement": "n = 6 * k + 4"
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "n = 2 * (3 * k + 2)"
+                  },
+                  {
+                    "type": "assert_statement",
+                    "claim": "n is an even number greater than 2"
+                  },
+                  {
+                    "type": "conclude_statement",
+                    "claim": "n is not prime"
+                  }
+                ],
+                "condition": "n % 6 = 4"
+              }
+            ]
+          },
+          "label": "thm:remainder6_not_prime",
+          "header": "Theorem",
+          "claim": "If the remainder of dividing a natural number n by 6 is 0 or 4, then n is not prime."
+        }
+      ]
+    }
+  },
+  "greedy": false,
+  "declarations": [
+    "not_prime_of_mod_eq_zero_or_four"
+  ]
+}

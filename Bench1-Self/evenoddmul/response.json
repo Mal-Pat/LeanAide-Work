@@ -2,48 +2,65 @@
   "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "theorem even_mul_odd_is_even : \u2200 {a b : \u2124}, Even a \u2192 Odd b \u2192 Even (a * b) :=\n    by\n    intro a b a_17533595150506199603 a_8010874381978726783\n    trace \"Automation tactics found for Even (a * b), closing goal\"\n    simp_all only [Even.mul_right]",
+  "lean_code": "theorem even_mul_odd_is_even : \u2200 {a b : \u2124}, Even a \u2192 Odd b \u2192 Even (a * b) :=\n    by\n    intro a b a_10238549144699919265 a_305898449825563179\n    trace \"Automation tactics found for Even (a * b), closing goal\"\n    simp_all only [Even.mul_right]",
   "json_structured": {
-    "document": [
-      {
-        "type": "Theorem",
-        "proof": {
-          "type": "Proof",
-          "proof_steps": [
-            [
-              {
-                "variable_name": "k",
-                "variable_kind": "integer",
-                "type": "some_statement",
-                "statement": "there exists k such that a = 2 * k"
-              },
-              {
-                "variable_name": "m",
-                "variable_kind": "integer",
-                "type": "some_statement",
-                "statement": "there exists m such that b = 2 * m + 1"
-              },
-              {
-                "type": "calculation",
-                "inline_calculation": "a * b = (2 * k) * (2 * m + 1) = 2 * (k * (2 * m + 1))"
-              },
-              {
-                "type": "assert_statement",
-                "proof_method": "definition of even",
-                "claim": "2 * (k * (2 * m + 1)) is even"
-              },
-              {
-                "type": "conclude_statement"
-              }
-            ]
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "type": "some_statement",
+              "statement": "Since a is even, there exists k such that a = 2 * k."
+            },
+            {
+              "variable_name": "m",
+              "variable_kind": "integer",
+              "type": "some_statement",
+              "statement": "Since b is odd, there exists m such that b = 2 * m + 1."
+            },
+            {
+              "type": "calculation",
+              "inline_calculation": "a * b = (2 * k) * (2 * m + 1) = 2 * (k * (2 * m + 1))"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "2 * (k * (2 * m + 1)) is even."
+            },
+            {
+              "type": "assert_statement",
+              "claim": "a * b is even."
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Hence, the product of an even and odd number is even."
+            }
           ],
-          "claim_label": "thm:even_odd_product"
-        },
-        "label": "thm:even_odd_product",
-        "header": "Theorem",
-        "claim": "The product of an even number a and an odd number b is an even number."
-      }
-    ]
+          "label": "thm:even_times_odd_is_even",
+          "hypothesis": [
+            {
+              "variable_type": "integer",
+              "variable_name": "a",
+              "type": "let_statement",
+              "statement": "Let a be an even integer.",
+              "properties": "even"
+            },
+            {
+              "variable_type": "integer",
+              "variable_name": "b",
+              "type": "let_statement",
+              "statement": "Let b be an odd integer.",
+              "properties": "odd"
+            }
+          ],
+          "header": "Theorem",
+          "claim": "The product of a and b is even."
+        }
+      ]
+    }
   },
   "greedy": false,
   "declarations": [

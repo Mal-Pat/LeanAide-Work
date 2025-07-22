@@ -1,0 +1,60 @@
+{
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:remainder6_not_prime",
+        "claim": "If the remainder of dividing a natural number n by 6 is 0 or 4, then n is not prime.",
+        "proof": {
+          "type": "multi-condition_cases_proof",
+          "proof_cases": [
+            {
+              "condition": "n % 6 = 0",
+              "proof": [
+                {
+                  "type": "some_statement",
+                  "variable_name": "k",
+                  "variable_kind": "natural number",
+                  "statement": "n = 6 * k"
+                },
+                {
+                  "type": "assert_statement",
+                  "claim": "6 is a factor of n"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "n is not prime"
+                }
+              ]
+            },
+            {
+              "condition": "n % 6 = 4",
+              "proof": [
+                {
+                  "type": "some_statement",
+                  "variable_name": "k",
+                  "variable_kind": "natural number",
+                  "statement": "n = 6 * k + 4"
+                },
+                {
+                  "type": "assert_statement",
+                  "claim": "n = 2 * (3 * k + 2)"
+                },
+                {
+                  "type": "assert_statement",
+                  "claim": "n is an even number greater than 2"
+                },
+                {
+                  "type": "conclude_statement",
+                  "claim": "n is not prime"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

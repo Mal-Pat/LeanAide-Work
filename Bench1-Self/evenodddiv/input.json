@@ -1,58 +1,51 @@
 {
-  "document": [
-    {
-      "type": "Theorem",
-      "label": "thm:odd_divides_even",
-      "header": "Theorem",
-      "claim": "If a is an odd number and b is an even number, and a divides b, then b divided by a is an even number.",
-      "proof": {
-        "type": "Proof",
-        "claim_label": "thm:odd_divides_even",
-        "proof_steps": [
-          [
-            {
-              "type": "some_statement",
-              "variable_name": "k",
-              "variable_kind": "integer",
-              "statement": "There exists k such that b = 2 * k"
-            },
-            {
-              "type": "assert_statement",
-              "claim": "a divides 2 * k"
-            },
-            {
-              "type": "assert_statement",
-              "claim": "a does not divide 2"
-            },
-            {
-              "type": "assert_statement",
-              "claim": "a divides k"
-            },
-            {
-              "type": "some_statement",
-              "variable_name": "m",
-              "variable_kind": "integer",
-              "statement": "There exists m such that k = m * a"
-            },
-            {
-              "type": "calculation",
-              "calculation_sequence": [
-                "b / a = 2 * k / a",
-                "2 * k / a = 2 * m * a / a",
-                "2 * m * a / a = 2 * m"
-              ]
-            },
-            {
-              "type": "assert_statement",
-              "claim": "2 * m is an even number"
-            },
-            {
-              "type": "conclude_statement",
-              "claim": "b / a is an even number"
-            }
-          ]
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:even_quotient",
+        "claim": "If a is an odd number and b is an even number, and a divides b, then b divided by a is an even number.",
+        "proof": [
+          {
+            "type": "some_statement",
+            "variable_name": "k",
+            "variable_kind": "integer",
+            "statement": "b = 2 * k"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "a divides 2 * k"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "a does not divide 2"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "a divides k"
+          },
+          {
+            "type": "some_statement",
+            "variable_name": "m",
+            "variable_kind": "integer",
+            "statement": "k = m * a"
+          },
+          {
+            "type": "calculation",
+            "calculation_sequence": [
+              "b / a = (2 * k) / a",
+              "(2 * k) / a = 2 * (k / a)",
+              "2 * (k / a) = 2 * m"
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "b / a is an even number"
+          }
         ]
       }
-    }
-  ]
+    ]
+  }
 }

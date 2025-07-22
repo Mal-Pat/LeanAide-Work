@@ -1,0 +1,41 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem exists_nat_mul_of_dvd_nat : \u2200 {a b : \u2115}, (\u2203 (k : \u2115), b = a * k) \u2194 a \u2223 b :=\n    by\n    intro a b\n    trace \"Automation tactics found for (\u2203 k, b = a * k) \u2194 a \u2223 b, closing goal\"\n    rfl",
+  "json_structured": {
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of divides",
+              "claim": "a divides b"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ],
+          "label": "thm:divides",
+          "hypothesis": [
+            {
+              "variable_name": "k",
+              "variable_kind": "natural number",
+              "type": "some_statement",
+              "statement": "There exists a natural number k such that b = a * k."
+            }
+          ],
+          "header": "Theorem",
+          "claim": "a divides b"
+        }
+      ]
+    }
+  },
+  "greedy": false,
+  "declarations": [
+    "exists_nat_mul_of_dvd_nat"
+  ]
+}

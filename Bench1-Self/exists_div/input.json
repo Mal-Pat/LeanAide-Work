@@ -1,0 +1,31 @@
+{
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:divides",
+        "hypothesis": [
+          {
+            "type": "some_statement",
+            "variable_name": "k",
+            "variable_kind": "natural number",
+            "statement": "There exists a natural number k such that b = a * k."
+          }
+        ],
+        "claim": "a divides b",
+        "proof": [
+          {
+            "type": "assert_statement",
+            "claim": "a divides b",
+            "proof_method": "definition of divides"
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      }
+    ]
+  }
+}

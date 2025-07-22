@@ -1,0 +1,6 @@
+For any natural numbers $a$ and $b$, if $b % a = r$ (remainder of $b$ divided by $a$ is $r$), then there exists $q$ such that $b = a * q + r$.
+
+Proof:
+For any natural numbers $a$ and $b$,
+From Quotient-Remainder Theorem,
+$b % a = r$ implies there exists a natural number $q$ such that $b = a * q + r$.

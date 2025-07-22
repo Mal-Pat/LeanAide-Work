@@ -1,0 +1,6 @@
+If there exists a natural number $k$ such that $b = a * k$, then $a$ divides $b$.
+
+Proof:
+Since $b = a * k$, $a$ is a factor of $b$.
+Clearly, $a$ must divide $a * k$ since $a$ is a factor of $a * k$, by definition.
+Hence, $a$ divides $b$.

@@ -5,78 +5,68 @@ set_option linter.unreachableTactic false
 open Nat
 theorem odd_dvd_even_div_even : ∀ {a b : ℤ}, Odd a → Even b → a ∣ b → Even (b / a) :=
     by
-    intro a b a_9469431090218365826 a_16113681004632593245 a_15686058794838959402
-    have assert_11376311930969713044 : Odd a → Even b → a ∣ b → ∃ (k : ℤ), b = 2 * k :=
+    intro a b a_3545152501514269127 a_555218174640713104 a_13300696230021461262
+    have assert_16549026473693675702 : ∃ (k : ℤ), b = 2 * k :=
       by
       trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k"
-      intro a_1 a_2 a_3
-      simp_all only
+        "Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k, b = 2 * k"
       sorry
       trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k"
-    have assert_9553020604411229736 : Odd a → Even b → a ∣ b → ∃ (k : ℤ), b = 2 * k ∧ a ∣ 2 * k :=
+        "Finished Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k, b = 2 * k"
+    let ⟨k, assert_10323897926786676384⟩ := assert_16549026473693675702
+    have assert_11485629743710248627 : ∃ (k : ℤ), b = 2 * k ∧ a ∣ 2 * k :=
       by
       trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k ∧ a ∣ 2 * k"
-      intro a_1 a_2 a_3
-      simp_all only [forall_const]
-      obtain ⟨w, h⟩ := assert_11376311930969713044
-      subst h
-      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq_left']
+        "Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k, b = 2 * k ∧ a ∣ 2 * k"
+      subst assert_10323897926786676384
+      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',
+        exists_eq_left']
       trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k ∧ a ∣ 2 * k"
-    have assert_12304523832120167131 : Odd a → Even b → a ∣ b → ∃ (k : ℤ), b = 2 * k → ¬a ∣ 2 :=
+        "Finished Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k, b = 2 * k ∧ a ∣ 2 * k"
+    let ⟨k, assert_7223418644602455472⟩ := assert_11485629743710248627
+    have assert_13254764109269902689 : ¬a ∣ 2 :=
       by
       trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k → ¬a ∣ 2"
-      intro a_1 a_2 a_3
-      simp_all only [forall_const]
-      obtain ⟨w, h⟩ := assert_11376311930969713044
-      obtain ⟨w_1, h_1⟩ := assert_9553020604411229736
-      obtain ⟨left, right⟩ := h_1
+        "Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ¬a ∣ 2"
+      subst assert_10323897926786676384
+      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',
+        exists_eq_left']
+      obtain ⟨left, right⟩ := assert_7223418644602455472
       subst left
-      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false]
-      subst h
+      apply Aesop.BuiltinRules.not_intro
+      intro a_1
       sorry
       trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k → ¬a ∣ 2"
-    have assert_5602419255114970354 : Odd a → Even b → a ∣ b → ∃ (k : ℤ), b = 2 * k ∧ a ∣ k :=
+        "Finished Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ¬a ∣ 2"
+    have assert_7268139922401973922 : ∃ (k : ℤ), b = 2 * k ∧ a ∣ k :=
       by
       trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k ∧ a ∣ k"
-      intro a_1 a_2 a_3
-      simp_all only [forall_const]
-      obtain ⟨w, h⟩ := assert_11376311930969713044
-      obtain ⟨w_1, h_1⟩ := assert_9553020604411229736
-      obtain ⟨w_2, h_2⟩ := assert_12304523832120167131
-      obtain ⟨left, right⟩ := h_1
+        "Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k, b = 2 * k ∧ a ∣ k"
+      subst assert_10323897926786676384
+      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',
+        exists_eq_left']
+      obtain ⟨left, right⟩ := assert_7223418644602455472
       subst left
-      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq_left']
-      subst h
       sorry
       trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k ∧ a ∣ k"
-    have assert_8910331294399055471 : Odd a → Even b → a ∣ b → ∃ (k : ℤ), b = 2 * k ∧ ∃ (m : ℤ), k = m * a :=
+        "Finished Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k, b = 2 * k ∧ a ∣ k"
+    let ⟨k, assert_18053303933989213829⟩ := assert_7268139922401973922
+    have assert_12640157831737559146 : ∃ (k : ℤ) (m : ℤ), b = 2 * k ∧ k = m * a :=
       by
       trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k ∧ ∃ m, k = m * a"
-      intro a_1 a_2 a_3
-      simp_all only [forall_const]
-      obtain ⟨w, h⟩ := assert_11376311930969713044
-      obtain ⟨w_1, h_1⟩ := assert_9553020604411229736
-      obtain ⟨w_2, h_2⟩ := assert_12304523832120167131
-      obtain ⟨w_3, h_3⟩ := assert_5602419255114970354
-      obtain ⟨left, right⟩ := h_1
-      obtain ⟨left_1, right_1⟩ := h_3
-      subst left_1
-      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq_left']
-      subst h left
+        "Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k m, b = 2 * k ∧ k = m * a"
+      subst assert_10323897926786676384
+      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',
+        exists_eq_left', and_true, exists_and_left]
+      subst assert_18053303933989213829
+      obtain ⟨left, right⟩ := assert_7223418644602455472
+      subst left
       sorry
       trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Odd a → Even b → a ∣ b → ∃ k, b = 2 * k ∧ ∃ m, k = m * a"
-    have assert_10324552449819263937 :
-      ∀ {b a : ℕ}, ∃ (k : ℕ), b = 2 * k ∧ ∃ (m : ℕ), k = m * a → b / a = 2 * (b / (2 * a)) := by
+        "Finished Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∃ k m, b = 2 * k ∧ k = m * a"
+    let ⟨k, assert_14108576092789783882⟩ := assert_12640157831737559146
+    let ⟨m, assert_3811062796762907684⟩ := assert_14108576092789783882
+    have assert_3501251311705466182 : ∃ (k : ℤ) (m : ℤ), b = 2 * k ∧ k = m * a → b / a = 2 * k / a := by
       first
       | linarith
       | ring
@@ -84,8 +74,7 @@ theorem odd_dvd_even_div_even : ∀ {a b : ℤ}, Odd a → Even b → a ∣ b �
       | simp
       | omega
       | rfl
-    have assert_10255899962280593693 :
-      ∀ {b a : ℕ}, ∃ (k : ℕ), b = 2 * k ∧ ∃ (m : ℕ), k = m * a → 2 * k / a = 2 * m * a / a := by
+    have assert_7749201249928516334 : b = 2 * k → k = m * a → 2 * k / a = 2 * (k / a) := by
       first
       | linarith
       | ring
@@ -93,8 +82,7 @@ theorem odd_dvd_even_div_even : ∀ {a b : ℤ}, Odd a → Even b → a ∣ b �
       | simp
       | omega
       | rfl
-    have assert_17511922690879308973 :
-      Odd a → Even b → a ∣ b → ∃ (k : ℤ), b = 2 * k → ∃ (m : ℤ), k = m * a → 2 * m * a / a = 2 * m := by
+    have assert_9193836921193769014 : b = 2 * k → k = m * a → 2 * (k / a) = 2 * m := by
       first
       | linarith
       | ring
@@ -102,41 +90,13 @@ theorem odd_dvd_even_div_even : ∀ {a b : ℤ}, Odd a → Even b → a ∣ b �
       | simp
       | omega
       | rfl
-    have assert_9310499340245235600 :
-      (∃ (k : ℤ), b = 2 * k) → (∃ (m : ℤ) (k : ℤ), k = m * a) → ∃ (m : ℤ), Even (2 * m) :=
+    have : Even (b / a) :=
       by
       trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: (∃ k, b = 2 * k) → (∃ m k, k = m * a) → ∃ m, Even (2 * m)"
-      simp only [exists_eq, exists_const, even_two, Even.mul_right, imp_self, implies_true]
+        "Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Even (b / a)"
+      subst assert_10323897926786676384
+      simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false, exists_eq',
+        exists_eq_left', and_true, exists_and_left, true_and, implies_true, exists_const, forall_const]
       trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: (∃ k, b = 2 * k) → (∃ m k, k = m * a) → ∃ m, Even (2 * m)"
-    have : ∀ {k a : ℤ}, (∃ (k : ℤ), b = 2 * k) → (∃ (m : ℤ), k = m * a) → Even (b / a) :=
-      by
-      trace
-        "Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∀ {k a : ℤ}, (∃ k, b = 2 * k) → (∃ m, k = m * a) → Even (b / a)"
-      simp only [forall_exists_index]
-      trace
-        "Finished Automation Tactics first\n  | simp?\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: ∀ {k a : ℤ}, (∃ k, b = 2 * k) → (∃ m, k = m * a) → Even (b / a)"
-    trace
-      "Automation Tactics first\n  | simp?\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: Even (b / a)"
-    rename_i a_1
-    simp_all only [forall_const, exists_eq, exists_const, even_two, Even.mul_right, imp_self, forall_exists_index]
-    obtain ⟨w, h⟩ := assert_11376311930969713044
-    obtain ⟨w_1, h_1⟩ := assert_9553020604411229736
-    obtain ⟨w_2, h_2⟩ := assert_12304523832120167131
-    obtain ⟨w_3, h_3⟩ := assert_5602419255114970354
-    obtain ⟨w_4, h_4⟩ := assert_8910331294399055471
-    obtain ⟨w_5, h_5⟩ := assert_17511922690879308973
-    obtain ⟨left, right⟩ := h_1
-    obtain ⟨left_1, right_1⟩ := h_3
-    obtain ⟨left_2, right_2⟩ := h_4
-    obtain ⟨w_6, h_1⟩ := right_2
-    subst left_1 h_1
-    simp_all only [even_two, Even.mul_right, mul_eq_mul_left_iff, OfNat.ofNat_ne_zero, or_false]
-    subst left_2 left h
-    simp_all only [dvd_mul_left]
-    apply @a_1
-    · rfl
-    · exact a
-    trace
-      "Finished Automation Tactics first\n  | simp?\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: Even (b / a)"
+        "Finished Automation Tactics first\n  | (simp?; done)\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Even (b / a)"
+    assumption

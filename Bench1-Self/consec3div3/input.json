@@ -1,34 +1,33 @@
 {
-  "document": [
-    {
-      "type": "Theorem",
-      "label": "thm:sum_three_consecutive",
-      "header": "Theorem",
-      "claim": "The sum of three consecutive numbers n, n + 1, and n + 2 is divisible by 3.",
-      "proof": {
-        "type": "Proof",
-        "claim_label": "thm:sum_three_consecutive",
-        "proof_steps": [
-          [
-            {
-              "type": "assume_statement",
-              "assumption": "n is a natural number"
-            },
-            {
-              "type": "assert_statement",
-              "claim": "n + (n + 1) + (n + 2) = 3 * (n + 1)"
-            },
-            {
-              "type": "assert_statement",
-              "claim": "3 divides 3 * (n + 1)"
-            },
-            {
-              "type": "conclude_statement",
-              "claim": "3 divides n + (n + 1) + (n + 2)"
-            }
-          ]
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "label": "thm:sum_three_consecutive_divisible_by_3",
+        "header": "Theorem",
+        "claim": "The sum of three consecutive numbers (n, n + 1, and n + 2) is divisible by 3.",
+        "proof": [
+          {
+            "type": "let_statement",
+            "variable_name": "n",
+            "variable_type": "natural number",
+            "statement": "Let n be an arbitrary natural number."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "n + (n + 1) + (n + 2) = 3 * (n + 1)"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "3 divides 3 * (n + 1)"
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "3 divides n + (n + 1) + (n + 2)"
+          }
         ]
       }
-    }
-  ]
+    ]
+  }
 }

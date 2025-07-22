@@ -2,58 +2,51 @@
   "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
   "task": "lean_from_json_structured",
   "result": "success",
-  "lean_code": "theorem even_add_odd_is_odd : \u2200 {a b : \u2115}, Even a \u2192 Odd b \u2192 Odd (a + b) :=\n    by\n    intro a b a_10887380439804174381 a_1389251645961937567\n    trace \"Automation tactics found for Odd (a + b), closing goal\"\n    apply Even.add_odd\n    \u00b7 simp_all only\n    \u00b7 simp_all only",
+  "lean_code": "theorem even_add_odd_is_odd : \u2200 (a b : \u2124), Even a \u2192 Odd b \u2192 Odd (a + b) :=\n    by\n    intro a b a_10238549144699919265 a_305898449825563179\n    trace \"Automation tactics found for Odd (a + b), closing goal\"\n    apply Even.add_odd\n    \u00b7 simp_all only\n    \u00b7 simp_all only",
   "json_structured": {
-    "document": [
-      {
-        "type": "Theorem",
-        "proof": {
-          "type": "Proof",
-          "proof_steps": [
-            [
-              {
-                "variable_name": "k",
-                "variable_kind": "integer",
-                "type": "some_statement",
-                "statement": "There exists an integer k such that a = 2*k."
-              },
-              {
-                "variable_name": "m",
-                "variable_kind": "integer",
-                "type": "some_statement",
-                "statement": "There exists an integer m such that b = 2*m + 1."
-              },
-              {
-                "type": "calculation",
-                "inline_calculation": "a + b = (2*k) + (2*m + 1) = 2*(k + m) + 1"
-              },
-              {
-                "type": "assert_statement",
-                "claim": "2*(k + m) + 1 is odd."
-              },
-              {
-                "type": "conclude_statement",
-                "claim": "a + b is odd."
-              }
-            ]
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "variable_name": "k",
+              "variable_kind": "integer",
+              "type": "some_statement",
+              "statement": "a = 2 * k"
+            },
+            {
+              "variable_name": "m",
+              "variable_kind": "integer",
+              "type": "some_statement",
+              "statement": "b = 2 * m + 1"
+            },
+            {
+              "type": "calculation",
+              "inline_calculation": "a + b = (2 * k) + (2 * m + 1) = 2 * (k + m) + 1"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "a + b is odd"
+            }
           ],
-          "claim_label": "thm:sum_even_odd"
-        },
-        "label": "thm:sum_even_odd",
-        "hypothesis": [
-          {
-            "type": "assume_statement",
-            "assumption": "a is even"
-          },
-          {
-            "type": "assume_statement",
-            "assumption": "b is odd"
-          }
-        ],
-        "header": "Theorem",
-        "claim": "The sum of an even number a and an odd number b is an odd number."
-      }
-    ]
+          "label": "thm:even_plus_odd",
+          "hypothesis": [
+            {
+              "type": "assume_statement",
+              "assumption": "a is even"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "b is odd"
+            }
+          ],
+          "header": "Theorem",
+          "claim": "The sum of an even number a and an odd number b is an odd number."
+        }
+      ]
+    }
   },
   "greedy": false,
   "declarations": [

@@ -1,0 +1,71 @@
+{
+  "document": {
+    "type": "document",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:sum-first-n",
+        "claim": "The sum of the first n consecutive numbers starting from 1 to n is n*(n+1)/2.",
+        "proof": {
+          "type": "induction_proof",
+          "on": "n",
+          "base_case_proof": [
+            {
+              "type": "assert_statement",
+              "claim": "Finset.range 0 = \u2205"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "\u2211_{k \u2208 \u2205} (k+1) = 0"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "0*(0+1)/2 = 0"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "P(0)"
+            }
+          ],
+          "induction_step_proof": [
+            {
+              "type": "let_statement",
+              "variable_name": "m",
+              "variable_type": "\u2115",
+              "statement": "m : \u2115"
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "\u2211_{k \u2208 Finset.range m} (k+1) = m*(m+1)/2",
+              "label": "I"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "Finset.range (m+1) = Finset.range m \u222a {m}"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "\u2211_{k \u2208 Finset.range (m+1)} (k+1) = \u2211_{k \u2208 Finset.range m} (k+1) + \u2211_{k \u2208 {m}} (k+1)"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "\u2211_{k \u2208 {m}} (k+1) = m + 1"
+            },
+            {
+              "type": "calculation",
+              "calculation_sequence": [
+                "m*(m+1)/2 + (m+1) = (m*(m+1) + 2*(m+1))/2",
+                "(m*(m+1) + 2*(m+1))/2 = (m+1)*(m+2)/2"
+              ]
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "P(m+1)"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

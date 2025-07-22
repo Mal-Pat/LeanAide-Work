@@ -1,0 +1,216 @@
+{
+  "document": {
+    "type": "document",
+    "title": "Sum of the first n odd numbers is n\u00b2",
+    "body": [
+      {
+        "type": "Theorem",
+        "header": "Lemma",
+        "label": "lem:range_succ_union",
+        "claim": "Finset.range (n+1) = Finset.range n \u222a {n}",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "n is a natural number"
+          }
+        ],
+        "proof": [
+          {
+            "type": "let_statement",
+            "variable_name": "i",
+            "variable_type": "natural number",
+            "statement": "Let i be an arbitrary natural number."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "i \u2208 Finset.range (n+1) \u21d4 i < n+1",
+            "proof_method": "definition of Finset.range"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "i < n+1 \u21d4 (i < n) or (i = n)",
+            "proof_method": "basic properties of order on \u2115"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "(i < n) \u21d4 (i \u2208 Finset.range n); (i = n) \u21d4 (i \u2208 {n})",
+            "proof_method": "definition of Finset.range and of singleton sets"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "i \u2208 Finset.range (n+1) \u21d4 i \u2208 Finset.range n \u2228 i \u2208 {n} \u21d4 i \u2208 Finset.range n \u222a {n}",
+            "proof_method": "logical equivalences from previous steps"
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      },
+      {
+        "type": "Theorem",
+        "header": "Lemma",
+        "label": "lem:range_succ_disjoint",
+        "claim": "Finset.disjoint (Finset.range n) {n}",
+        "hypothesis": [
+          {
+            "type": "assume_statement",
+            "assumption": "n is a natural number"
+          }
+        ],
+        "proof": [
+          {
+            "type": "let_statement",
+            "variable_name": "i",
+            "statement": "Let i be an element of the intersection Finset.range n \u2229 {n}."
+          },
+          {
+            "type": "assert_statement",
+            "claim": "i \u2208 Finset.range n and i \u2208 {n}",
+            "proof_method": "definition of intersection"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "i \u2208 Finset.range n implies i < n",
+            "proof_method": "definition of Finset.range"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "i \u2208 {n} implies i = n",
+            "proof_method": "definition of singleton"
+          },
+          {
+            "type": "contradiction_statement",
+            "assumption": "i < n and i = n",
+            "proof": [
+              {
+                "type": "assert_statement",
+                "claim": "The conjunction i < n and i = n is impossible in \u2115.",
+                "proof_method": "basic properties of natural numbers"
+              }
+            ]
+          },
+          {
+            "type": "conclude_statement",
+            "claim": "Hence no i lies in the intersection, so the intersection is empty and the finsets are disjoint."
+          }
+        ]
+      },
+      {
+        "type": "Theorem",
+        "header": "Lemma",
+        "label": "lem:sum_range_succ",
+        "claim": "\u2211_{i\u2208Finset.range (n+1)} f(i) = \u2211_{i\u2208Finset.range n} f(i) + f(n)",
+        "hypothesis": [
+          {
+            "type": "let_statement",
+            "variable_name": "\u03b1",
+            "variable_type": "commutative monoid",
+            "statement": "Let \u03b1 be a commutative monoid."
+          },
+          {
+            "type": "let_statement",
+            "variable_name": "f",
+            "variable_type": "function from \u2115 to \u03b1",
+            "statement": "Let f: \u2115 \u2192 \u03b1 be any function."
+          },
+          {
+            "type": "assume_statement",
+            "assumption": "n is a natural number"
+          }
+        ],
+        "proof": [
+          {
+            "type": "assert_statement",
+            "claim": "Finset.range (n+1) = Finset.range n \u222a {n}",
+            "internal_references": [
+              {
+                "target_identifier": "lem:range_succ_union"
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "Finset.range n and {n} are disjoint",
+            "internal_references": [
+              {
+                "target_identifier": "lem:range_succ_disjoint"
+              }
+            ]
+          },
+          {
+            "type": "assert_statement",
+            "claim": "In a commutative monoid, the sum over a disjoint union of finsets equals the sum over each finset",
+            "proof_method": "property of finset sum in a commutative monoid"
+          },
+          {
+            "type": "assert_statement",
+            "claim": "The sum over the singleton {n} is f(n)",
+            "proof_method": "definition of finset sum"
+          },
+          {
+            "type": "conclude_statement"
+          }
+        ]
+      },
+      {
+        "type": "Theorem",
+        "header": "Theorem",
+        "label": "thm:sum_first_n_odd_numbers_square",
+        "claim": "For every natural number n, \u2211_{i\u2208Finset.range n} (2 i + 1) = n\u00b2",
+        "proof": {
+          "type": "induction_proof",
+          "on": "n",
+          "base_case_proof": [
+            {
+              "type": "assert_statement",
+              "claim": "Finset.range 0 = \u2205",
+              "proof_method": "definition of Finset.range"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "The sum over the empty finset is 0 in any commutative monoid",
+              "proof_method": "property of finset sum"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "0\u00b2 = 0 in \u2115",
+              "proof_method": "basic properties of exponentiation"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "\u2211_{i\u2208Finset.range 0} (2 i + 1) = 0 = 0\u00b2"
+            }
+          ],
+          "induction_step_proof": [
+            {
+              "type": "assume_statement",
+              "assumption": "Induction hypothesis: \u2211_{i\u2208Finset.range n} (2 i + 1) = n\u00b2"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "\u2211_{i\u2208Finset.range (n+1)} (2 i + 1) = \u2211_{i\u2208Finset.range n} (2 i + 1) + (2 n + 1)",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:sum_range_succ"
+                }
+              ]
+            },
+            {
+              "type": "assert_statement",
+              "claim": "\u2211_{i\u2208Finset.range n} (2 i + 1) = n\u00b2",
+              "proof_method": "induction hypothesis"
+            },
+            {
+              "type": "assert_statement",
+              "claim": "n\u00b2 + (2 n + 1) = (n + 1)\u00b2",
+              "proof_method": "arithmetic in \u2115"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+The sum of the first $n$ consecutive numbers starting from 1 to $n$ is $n*(n+1)/2$.
+
+Proof:
+Assume \(n : \mathbb{N}\).  Define 
+\[
+P(n)\;:\;\sum_{k \in \mathrm{Finset.range}\,n}(k+1) = \frac{n\,(n+1)}{2}.
+\]
+
+Base case (\(n=0\)):  
+By definition \(\mathrm{Finset.range}\,0 = \varnothing\).  Hence  
+\[
+\sum_{k \in \mathrm{Finset.range}\,0}(k+1) = \sum_{k \in \varnothing}(k+1) = 0
+\]
+by the definition of sum over the empty set.  Since \(\tfrac{0\,(0+1)}{2} = 0\), the equality holds, i.e.\ \(P(0)\).
+
+Inductive step:  
+Let \(m : \mathbb{N}\) and assume the induction hypothesis  
+\[
+I : \sum_{k \in \mathrm{Finset.range}\,m}(k+1) = \frac{m\,(m+1)}{2}.
+\]  
+By definition \(\mathrm{Finset.range}\,(m+1) = \mathrm{Finset.range}\,m \cup \{m\}\).  Since every \(k \in \mathrm{Finset.range}\,m\) satisfies \(k < m\), one has \(\mathrm{Finset.range}\,m \cap \{m\} = \varnothing\).  Therefore, using additivity of the sum over a disjoint union,  
+\[
+\sum_{k \in \mathrm{Finset.range}\,(m+1)}(k+1)
+= \sum_{k \in \mathrm{Finset.range}\,m}(k+1)
+  + \sum_{k \in \{m\}}(k+1)
+= I + (m+1).
+\]  
+By the inductive hypothesis \(I = \tfrac{m\,(m+1)}{2}\), so  
+\[
+I + (m+1)
+= \frac{m\,(m+1)}{2} \;+\; (m+1)
+= \frac{m\,(m+1) + 2\,(m+1)}{2}
+= \frac{(m+1)\,(m+2)}{2}.
+\]  
+Noting \(m+2 = (m+1)+1\), one obtains  
+\[
+\sum_{k \in \mathrm{Finset.range}\,(m+1)}(k+1)
+= \frac{(m+1)\,\bigl((m+1)+1\bigr)}{2},
+\]  
+i.e.\ \(P(m+1)\).

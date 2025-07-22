@@ -1,0 +1,65 @@
+The sum of the first $n$ odd numbers is $n^2$.
+
+Proof:
+Lemma 1 (range_succ_union).  
+Assume $n$ is a natural number.  
+Then  
+$$\Finset.range\,(n+1)\;=\;\Finset.range\,n\;\cup\;\{n\}.$$  
+Proof.  
+Let $i$ be an arbitrary natural number.  
+1. By definition of `Finset.range`,  
+   $$i\in \Finset.range\,(n+1)\;\iff\;i < n+1.$$  
+2. By basic properties of the order on $\mathbb N$,  
+   $$i < n+1\;\iff\;(i < n)\lor(i = n).$$  
+3. By definition of `Finset.range` and of singleton sets,  
+   $$(i < n)\iff (i\in \Finset.range\,n),\quad (i = n)\iff (i\in\{n\}).$$  
+4. Therefore  
+   $$i\in\Finset.range\,(n+1)\;\iff\;i\in\Finset.range\,n\;\lor\;i\in\{n\} \;\iff\;i\in \Finset.range\,n\cup\{n\}.$$  
+Since $i$ was arbitrary, the two finsets are equal. □
+
+Lemma 2 (range_succ_disjoint).  
+Assume $n$ is a natural number.  
+Then  
+$$\Finset.disjoint\bigl(\Finset.range\,n,\{n\}\bigr).$$  
+Proof.  
+Let $i$ be an element of the intersection $\Finset.range\,n\cap\{n\}$.  
+1. By definition of intersection, $i\in\Finset.range\,n$ and $i\in\{n\}$.  
+2. By definition of `Finset.range`, $i\in\Finset.range\,n\implies i < n$.  
+3. By definition of singleton, $i\in\{n\}\implies i = n$.  
+4. The conjunction $i<n$ and $i=n$ is impossible in $\mathbb N$.  
+Hence no $i$ lies in the intersection, so the intersection is empty, i.e.\ the two finsets are disjoint. □
+
+Lemma 3 (sum_range_succ).  
+Let $\alpha$ be a commutative monoid and let $f:\mathbb N\to\alpha$ be any function.  
+Assume $n$ is a natural number.  
+Then  
+$$\sum_{i\in\Finset.range\,(n+1)}f(i)\;=\;\sum_{i\in\Finset.range\,n}f(i)\;+\;f(n).$$  
+Proof.  
+1. By Lemma 1, $\Finset.range\,(n+1)=\Finset.range\,n\cup\{n\}$.  
+2. By Lemma 2, $\Finset.range\,n$ and $\{n\}$ are disjoint.  
+3. In a commutative monoid, the sum over a disjoint union of finsets equals the sum over each finset.  
+4. The sum over the singleton $\{n\}$ is $f(n)$.  
+Combining these facts yields the stated equality. □
+
+Theorem (sum_first_n_odd_numbers_square).  
+For every natural number $n$,  
+$$\sum_{i\in\Finset.range\,n}\bigl(2\,i+1\bigr)\;=\;n^2.$$  
+Proof by induction on $n$.  
+
+Base case ($n=0$):  
+1. $\Finset.range\,0 = \emptyset$ by definition of `Finset.range`.  
+2. The sum over the empty finset is $0$ in any commutative monoid.  
+3. $0^2 = 0$ in $\mathbb N$.  
+Therefore $\sum_{i\in\Finset.range\,0}(2\,i+1)=0=0^2$.  
+
+Inductive step.  
+Assume as induction hypothesis that for a fixed $n$,  
+$$\sum_{i\in\Finset.range\,n}(2\,i+1)=n^2.$$  
+We show  
+$$\sum_{i\in\Finset.range\,(n+1)}(2\,i+1)=(n+1)^2.$$  
+1. By Lemma 3 applied to the function $f(i)=2\,i+1$,  
+   $$\sum_{i\in\Finset.range\,(n+1)}(2\,i+1)
+     =\sum_{i\in\Finset.range\,n}(2\,i+1)\;+\;(2\,n+1).$$  
+2. By the induction hypothesis, the first summand is $n^2$.  
+3. Hence the total is $n^2 + (2\,n+1) = n^2 + 2n + 1 = (n+1)^2$ by arithmetic in $\mathbb N$.  
+This completes the induction. □

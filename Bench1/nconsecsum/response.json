@@ -1,0 +1,81 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "theorem nat_sum_from_one_to_n : \u2200 (n : \u2115), \u2211 i \u2208 Finset.range (n + 1), i = n * (n + 1) / 2 :=\n    by\n    intro n\n    induction n with\n    | zero =>\n      trace \"Automation tactics found for \u2211 i \u2208 Finset.range (0 + 1), i = 0 * (0 + 1) / 2, closing goal\"\n      simp only [zero_add, Finset.range_one, Finset.sum_singleton, mul_one, Nat.zero_div]\n    | succ n\n      ih =>\n      have assert_13853258773421831333 :\n        \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 Finset.range (m + 1) = Finset.range m \u222a {m} :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 Finset.range (m + 1) = Finset.range m \u222a {m}\"\n        intro m a\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 Finset.range (m + 1) = Finset.range m \u222a {m}\"\n      have assert_4272013046255485965 :\n        \u2200 (m : \u2115),\n          \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192\n            \u2211 k \u2208 Finset.range (m + 1), (k + 1) = \u2211 k \u2208 Finset.range m, (k + 1) + \u2211 k \u2208 {m}, (k + 1) :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115),\\n  \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192\\n    \u2211 k \u2208 Finset.range (m + 1), (k + 1) = \u2211 k \u2208 Finset.range m, (k + 1) + \u2211 k \u2208 {m}, (k + 1)\"\n        intro m a\n        simp_all only [Finset.sum_singleton]\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115),\\n  \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192\\n    \u2211 k \u2208 Finset.range (m + 1), (k + 1) = \u2211 k \u2208 Finset.range m, (k + 1) + \u2211 k \u2208 {m}, (k + 1)\"\n      have assert_895953877965332018 :\n        \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 \u2211 k \u2208 {m}, (k + 1) = m + 1 :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 \u2211 k \u2208 {m}, (k + 1) = m + 1\"\n        simp only [Finset.sum_singleton, Nat.add_left_cancel_iff, implies_true]\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 \u2211 k \u2208 {m}, (k + 1) = m + 1\"\n      have assert_17768988572704896731 :\n        \u2200 (m : \u2115),\n          \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192\n            m * (m + 1) / 2 + (m + 1) = (m * (m + 1) + 2 * (m + 1)) / 2 :=\n        by\n        first\n        | linarith\n        | ring\n        | norm_num\n        | simp\n        | omega\n        | rfl\n      have assert_6482538819217222187 :\n        \u2200 (m : \u2115),\n          \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 (m * (m + 1) + 2 * (m + 1)) / 2 = (m + 1) * (m + 2) / 2 :=\n        by\n        first\n        | linarith\n        | ring\n        | norm_num\n        | simp\n        | omega\n        | rfl\n      have :\n        \u2200 (m : \u2115),\n          \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192\n            \u2211 k \u2208 Finset.range (m + 1), (k + 1) = (m + 1) * (m + 2) / 2 :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 \u2211 k \u2208 Finset.range (m + 1), (k + 1) = (m + 1) * (m + 2) / 2\"\n        intro m a\n        simp_all only [Finset.sum_singleton, Nat.add_left_cancel_iff, implies_true]\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (m : \u2115), \u2211 k \u2208 Finset.range m, (k + 1) = m * (m + 1) / 2 \u2192 \u2211 k \u2208 Finset.range (m + 1), (k + 1) = (m + 1) * (m + 2) / 2\"\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range (n + 1 + 1), i = (n + 1) * (n + 1 + 1) / 2\"\n      repeat (sorry)\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer {aesopPremises := 5, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range (n + 1 + 1), i = (n + 1) * (n + 1 + 1) / 2\"\n    done",
+  "json_structured": {
+    "document": {
+      "type": "document",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": {
+            "type": "induction_proof",
+            "on": "n",
+            "induction_step_proof": [
+              {
+                "variable_type": "\u2115",
+                "variable_name": "m",
+                "type": "let_statement",
+                "statement": "m : \u2115"
+              },
+              {
+                "type": "assume_statement",
+                "label": "I",
+                "assumption": "\u2211_{k \u2208 Finset.range m} (k+1) = m*(m+1)/2"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "Finset.range (m+1) = Finset.range m \u222a {m}"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "\u2211_{k \u2208 Finset.range (m+1)} (k+1) = \u2211_{k \u2208 Finset.range m} (k+1) + \u2211_{k \u2208 {m}} (k+1)"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "\u2211_{k \u2208 {m}} (k+1) = m + 1"
+              },
+              {
+                "type": "calculation",
+                "calculation_sequence": [
+                  "m*(m+1)/2 + (m+1) = (m*(m+1) + 2*(m+1))/2",
+                  "(m*(m+1) + 2*(m+1))/2 = (m+1)*(m+2)/2"
+                ]
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "P(m+1)"
+              }
+            ],
+            "base_case_proof": [
+              {
+                "type": "assert_statement",
+                "claim": "Finset.range 0 = \u2205"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "\u2211_{k \u2208 \u2205} (k+1) = 0"
+              },
+              {
+                "type": "assert_statement",
+                "claim": "0*(0+1)/2 = 0"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "P(0)"
+              }
+            ]
+          },
+          "label": "thm:sum-first-n",
+          "header": "Theorem",
+          "claim": "The sum of the first n consecutive numbers starting from 1 to n is n*(n+1)/2."
+        }
+      ]
+    }
+  },
+  "greedy": false,
+  "declarations": [
+    "nat_sum_from_one_to_n"
+  ]
+}

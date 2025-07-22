@@ -1,0 +1,229 @@
+{
+  "top_code": "import Mathlib\nuniverse u v w u_1 u_2 u_3 u\u2081 u\u2082 u\u2083\nset_option maxHeartbeats 10000000\nset_option linter.unreachableTactic false\nopen Nat\n",
+  "task": "lean_from_json_structured",
+  "result": "success",
+  "lean_code": "  theorem finset.range_succ : \u2200 (n : \u2115), Finset.range (n + 1) = Finset.range n \u222a {n} :=\n    by\n    intro n\n    have assert_17624834645623146989 : \u2200 {i : \u2115}, i \u2208 Finset.range (n + 1) \u2194 i < n + 1 :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {i : \u2115}, i \u2208 Finset.range (n + 1) \u2194 i < n + 1\"\n      simp only [Finset.mem_range, implies_true]\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 {i : \u2115}, i \u2208 Finset.range (n + 1) \u2194 i < n + 1\"\n    have assert_10342774511224122350 : \u2200 (i : \u2115), i < n + 1 \u2194 i < n \u2228 i = n :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (i : \u2115), i < n + 1 \u2194 i < n \u2228 i = n\"\n      intro i\n      simp_all only [Finset.mem_range, implies_true]\n      apply Iff.intro\n      \u00b7 intro a\n        sorry\n      \u00b7 intro a\n        cases a with\n        | inl h => sorry\n        | inr h_1 =>\n          subst h_1\n          simp_all only [lt_add_iff_pos_right, lt_one_iff, pos_of_gt]\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (i : \u2115), i < n + 1 \u2194 i < n \u2228 i = n\"\n    trace \"Error: codegen: no valid function found for key assert_statement\"\n    trace \"Tried functions: #[LeanAide.assertionCode]\"\n    trace \"Errors in functions:\"\n    trace \"\"\n    trace\n      \"LeanAide.assertionCode: codegen: failed to translate '(i < n) \u21d4 (i \u2208 Finset.range n); (i = n) \u21d4 (i \u2208 {n})' to a proposition even with 'full statement', error: codegen: no valid type found for assertion '(i < n) \u21d4 (i \u2208 Finset.range n); (i = n) \u21d4 (i \u2208 {n})', full statement Assume that: n is a natural number\"\n    trace \"Let i be an arbitrary natural number.\"\n    trace \"(i < n) \u21d4 (i \u2208 Finset.range n); (i = n) \u21d4 (i \u2208 {n}); all translations:\"\n    trace \"\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n) \u2194 (i \u2208 Finset.range n) \u2227 (i = n) \u2194 (i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n) \u2194 (i \u2208 Finset.range n) \u2227 (i = n) \u2194 (i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n) \u2194 (i \u2208 Finset.range n) \u2227 (i = n) \u2194 (i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 {n i : \u2115}, (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n : \u2115) (i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace\n      \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n}); full claim: The statement \\\"i is less than n if and only if i is in the finite set of integers from 0 to n-1; i equals n if and only if i is in the singleton set containing n.\\\", error: codegen: no valid type found for assertion 'The statement \\\"i is less than n if and only if i is in the finite set of integers from 0 to n-1; i equals n if and only if i is in the singleton set containing n.\\\"', full statement Assume that: n is a natural number\"\n    trace \"Let i be an arbitrary natural number.\"\n    trace\n      \"The statement \\\"i is less than n if and only if i is in the finite set of integers from 0 to n-1; i equals n if and only if i is in the singleton set containing n.\\\"; all translations:\"\n    trace \"\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 {n i : \u2115}, i < n \u2194 i \u2208 Finset.range n \u2227 i = n \u2194 i \u2208 {n}\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 {n i : \u2115}, i < n \u2194 i \u2208 Finset.range n \u2227 i = n \u2194 i \u2208 {n}\"\n    trace \"\u2200 {n i : \u2115}, (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), i < n \u2194 i \u2208 Finset.range n \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), i < n \u2194 i \u2208 Finset.range n \u2227 i = n \u2194 i \u2208 {n}\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), i < n \u2194 i \u2208 Finset.range n \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"\u2200 (n i : \u2115), (i < n \u2194 i \u2208 Finset.range n) \u2227 (i = n \u2194 i \u2208 {n})\"\n    trace \"source:\"\n    trace \"{\\\"proof_method\\\": \\\"definition of Finset.range and of singleton sets\\\",\"\n    trace \" \\\"claim\\\": \\\"(i < n) \u21d4 (i \u2208 Finset.range n); (i = n) \u21d4 (i \u2208 {n})\\\"}\"\n    have assert_11531039741258669292 : \u2200 (i : \u2115), i \u2208 Finset.range (n + 1) \u2194 i \u2208 Finset.range n \u2228 i = n :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (i : \u2115), i \u2208 Finset.range (n + 1) \u2194 i \u2208 Finset.range n \u2228 i = n\"\n      intro i\n      simp_all only [Finset.mem_range, implies_true]\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2200 (i : \u2115), i \u2208 Finset.range (n + 1) \u2194 i \u2208 Finset.range n \u2228 i = n\"\n    have : Finset.range (n + 1) = Finset.range n \u222a {n} :=\n      by\n      trace\n        \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Finset.range (n + 1) = Finset.range n \u222a {n}\"\n      simp_all only [Finset.mem_range, implies_true]\n      ext a : 1\n      simp_all only [Finset.mem_range, Finset.mem_union, Finset.mem_singleton]\n      trace\n        \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: Finset.range (n + 1) = Finset.range n \u222a {n}\"\n    assumption\n  theorem finset.disjoint_range_singleton_self : \u2200 (n : \u2115), Disjoint (Finset.range n) {n} :=\n    by\n    intro n\n    trace \"Automation tactics found for Disjoint (Finset.range n) {n}, closing goal\"\n    simp only [Finset.disjoint_singleton_right, Finset.mem_range, lt_self_iff_false, not_false_eq_true]\n  theorem add_comm_monoid.nat_sum_range_succ :\n      \u2200 {\u03b1 : Type u} [inst : AddCommMonoid \u03b1] (f : \u2115 \u2192 \u03b1) (n : \u2115),\n        \u2211 i \u2208 Finset.range (n + 1), f i = \u2211 i \u2208 Finset.range n, f i + f n :=\n    by\n    intro \u03b1 inst_4660504587676321668 f n\n    trace \"Automation tactics found for \u2211 i \u2208 Finset.range (n + 1), f i = \u2211 i \u2208 Finset.range n, f i + f n, closing goal\"\n    apply Finset.sum_range_succ\n  theorem sum_range_two_mul_add_one_eq_sq : \u2200 (n : \u2115), \u2211 i \u2208 Finset.range n, (2 * i + 1) = n ^ 2 :=\n    by\n    intro n\n    induction n with\n    | zero =>\n      trace \"Automation tactics found for \u2211 i \u2208 Finset.range 0, (2 * i + 1) = 0 ^ 2, closing goal\"\n      simp only [Finset.range_zero, Finset.sum_empty, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow]\n    | succ n\n      ih =>\n      have assert_3774722732883978419 :\n        \u2211 i \u2208 Finset.range (n + 1), (2 * i + 1) = \u2211 i \u2208 Finset.range n, (2 * i + 1) + (2 * n + 1) :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range (n + 1), (2 * i + 1) = \u2211 i \u2208 Finset.range n, (2 * i + 1) + (2 * n + 1)\"\n        simp_all only\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range (n + 1), (2 * i + 1) = \u2211 i \u2208 Finset.range n, (2 * i + 1) + (2 * n + 1)\"\n      have assert_18401082806664021312 : \u2211 i \u2208 Finset.range n, (2 * i + 1) = n ^ 2 :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range n, (2 * i + 1) = n ^ 2\"\n        simp_all only\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range n, (2 * i + 1) = n ^ 2\"\n      have assert_17955286516125027747 : n ^ 2 + (2 * n + 1) = (n + 1) ^ 2 :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n ^ 2 + (2 * n + 1) = (n + 1) ^ 2\"\n        simp_all only\n        sorry\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: n ^ 2 + (2 * n + 1) = (n + 1) ^ 2\"\n      have : \u2211 i \u2208 Finset.range (n + 1), (2 * i + 1) = (n + 1) ^ 2 :=\n        by\n        trace\n          \"Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range (n + 1), (2 * i + 1) = (n + 1) ^ 2\"\n        simp_all only\n        trace\n          \"Finished Automation Tactics first\\n  | (simp?; done)\\n  | hammer [] {aesopPremises := 0, autoPremises := 0} for goal: \u2211 i \u2208 Finset.range (n + 1), (2 * i + 1) = (n + 1) ^ 2\"\n      assumption\n    done",
+  "json_structured": {
+    "document": {
+      "type": "document",
+      "title": "Sum of the first n odd numbers is n\u00b2",
+      "body": [
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "variable_type": "natural number",
+              "variable_name": "i",
+              "type": "let_statement",
+              "statement": "Let i be an arbitrary natural number."
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of Finset.range",
+              "claim": "i \u2208 Finset.range (n+1) \u21d4 i < n+1"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "basic properties of order on \u2115",
+              "claim": "i < n+1 \u21d4 (i < n) or (i = n)"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of Finset.range and of singleton sets",
+              "claim": "(i < n) \u21d4 (i \u2208 Finset.range n); (i = n) \u21d4 (i \u2208 {n})"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "logical equivalences from previous steps",
+              "claim": "i \u2208 Finset.range (n+1) \u21d4 i \u2208 Finset.range n \u2228 i \u2208 {n} \u21d4 i \u2208 Finset.range n \u222a {n}"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ],
+          "label": "lem:range_succ_union",
+          "hypothesis": [
+            {
+              "type": "assume_statement",
+              "assumption": "n is a natural number"
+            }
+          ],
+          "header": "Lemma",
+          "claim": "Finset.range (n+1) = Finset.range n \u222a {n}"
+        },
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "variable_name": "i",
+              "type": "let_statement",
+              "statement": "Let i be an element of the intersection Finset.range n \u2229 {n}."
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of intersection",
+              "claim": "i \u2208 Finset.range n and i \u2208 {n}"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of Finset.range",
+              "claim": "i \u2208 Finset.range n implies i < n"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of singleton",
+              "claim": "i \u2208 {n} implies i = n"
+            },
+            {
+              "type": "contradiction_statement",
+              "proof": [
+                {
+                  "type": "assert_statement",
+                  "proof_method": "basic properties of natural numbers",
+                  "claim": "The conjunction i < n and i = n is impossible in \u2115."
+                }
+              ],
+              "assumption": "i < n and i = n"
+            },
+            {
+              "type": "conclude_statement",
+              "claim": "Hence no i lies in the intersection, so the intersection is empty and the finsets are disjoint."
+            }
+          ],
+          "label": "lem:range_succ_disjoint",
+          "hypothesis": [
+            {
+              "type": "assume_statement",
+              "assumption": "n is a natural number"
+            }
+          ],
+          "header": "Lemma",
+          "claim": "Finset.disjoint (Finset.range n) {n}"
+        },
+        {
+          "type": "Theorem",
+          "proof": [
+            {
+              "type": "assert_statement",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:range_succ_union"
+                }
+              ],
+              "claim": "Finset.range (n+1) = Finset.range n \u222a {n}"
+            },
+            {
+              "type": "assert_statement",
+              "internal_references": [
+                {
+                  "target_identifier": "lem:range_succ_disjoint"
+                }
+              ],
+              "claim": "Finset.range n and {n} are disjoint"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "property of finset sum in a commutative monoid",
+              "claim": "In a commutative monoid, the sum over a disjoint union of finsets equals the sum over each finset"
+            },
+            {
+              "type": "assert_statement",
+              "proof_method": "definition of finset sum",
+              "claim": "The sum over the singleton {n} is f(n)"
+            },
+            {
+              "type": "conclude_statement"
+            }
+          ],
+          "label": "lem:sum_range_succ",
+          "hypothesis": [
+            {
+              "variable_type": "commutative monoid",
+              "variable_name": "\u03b1",
+              "type": "let_statement",
+              "statement": "Let \u03b1 be a commutative monoid."
+            },
+            {
+              "variable_type": "function from \u2115 to \u03b1",
+              "variable_name": "f",
+              "type": "let_statement",
+              "statement": "Let f: \u2115 \u2192 \u03b1 be any function."
+            },
+            {
+              "type": "assume_statement",
+              "assumption": "n is a natural number"
+            }
+          ],
+          "header": "Lemma",
+          "claim": "\u2211_{i\u2208Finset.range (n+1)} f(i) = \u2211_{i\u2208Finset.range n} f(i) + f(n)"
+        },
+        {
+          "type": "Theorem",
+          "proof": {
+            "type": "induction_proof",
+            "on": "n",
+            "induction_step_proof": [
+              {
+                "type": "assume_statement",
+                "assumption": "Induction hypothesis: \u2211_{i\u2208Finset.range n} (2 i + 1) = n\u00b2"
+              },
+              {
+                "type": "assert_statement",
+                "internal_references": [
+                  {
+                    "target_identifier": "lem:sum_range_succ"
+                  }
+                ],
+                "claim": "\u2211_{i\u2208Finset.range (n+1)} (2 i + 1) = \u2211_{i\u2208Finset.range n} (2 i + 1) + (2 n + 1)"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "induction hypothesis",
+                "claim": "\u2211_{i\u2208Finset.range n} (2 i + 1) = n\u00b2"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "arithmetic in \u2115",
+                "claim": "n\u00b2 + (2 n + 1) = (n + 1)\u00b2"
+              },
+              {
+                "type": "conclude_statement"
+              }
+            ],
+            "base_case_proof": [
+              {
+                "type": "assert_statement",
+                "proof_method": "definition of Finset.range",
+                "claim": "Finset.range 0 = \u2205"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "property of finset sum",
+                "claim": "The sum over the empty finset is 0 in any commutative monoid"
+              },
+              {
+                "type": "assert_statement",
+                "proof_method": "basic properties of exponentiation",
+                "claim": "0\u00b2 = 0 in \u2115"
+              },
+              {
+                "type": "conclude_statement",
+                "claim": "\u2211_{i\u2208Finset.range 0} (2 i + 1) = 0 = 0\u00b2"
+              }
+            ]
+          },
+          "label": "thm:sum_first_n_odd_numbers_square",
+          "header": "Theorem",
+          "claim": "For every natural number n, \u2211_{i\u2208Finset.range n} (2 i + 1) = n\u00b2"
+        }
+      ]
+    }
+  },
+  "greedy": false,
+  "declarations": [
+    "finset.range_succ",
+    "finset.disjoint_range_singleton_self",
+    "add_comm_monoid.nat_sum_range_succ",
+    "sum_range_two_mul_add_one_eq_sq"
+  ]
+}
